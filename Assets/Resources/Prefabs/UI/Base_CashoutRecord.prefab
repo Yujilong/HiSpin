@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 5408959651576494337}
   - component: {fileID: 1232365671337425484}
   - component: {fileID: 3587768095765433370}
+  - component: {fileID: 3342240180682896886}
   m_Layer: 5
   m_Name: consume time
   m_TagString: Untagged
@@ -516,6 +517,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 2019.03.17
+--- !u!114 &3342240180682896886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4247174408255895348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &4330256293139857625
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +542,7 @@ GameObject:
   - component: {fileID: 2978321742189424604}
   - component: {fileID: 4875612970656611854}
   - component: {fileID: 3164991779707961071}
+  - component: {fileID: 1824235919066415854}
   m_Layer: 5
   m_Name: cashout num
   m_TagString: Untagged
@@ -594,6 +610,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: +$50
+--- !u!114 &1824235919066415854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330256293139857625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0019
+  args:
+  - 50
 --- !u!1 &4917571092303416203
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +636,7 @@ GameObject:
   - component: {fileID: 4706293631277870579}
   - component: {fileID: 6073581155532299568}
   - component: {fileID: 8933760169975796403}
+  - component: {fileID: 5467073799030295446}
   m_Layer: 5
   m_Name: result
   m_TagString: Untagged
@@ -672,6 +704,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Failed    '
+--- !u!114 &5467073799030295446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917571092303416203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0018
+  args: []
 --- !u!1 &5352490816979936798
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +793,7 @@ GameObject:
   - component: {fileID: 5429735628244377390}
   - component: {fileID: 2012753647217468198}
   - component: {fileID: 3159805877718251598}
+  - component: {fileID: 2490180239137894998}
   m_Layer: 5
   m_Name: consume num
   m_TagString: Untagged
@@ -814,6 +861,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100,000
+--- !u!114 &2490180239137894998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8018844648036190147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &8960908210585387721
 GameObject:
   m_ObjectHideFlags: 0

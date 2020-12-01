@@ -88,8 +88,8 @@ public class Server : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
 
-        titleText.text = connectingTilte;
-        tipText.text = connectingString;
+        titleText.text = FontContains.getInstance().GetString("ERROR");
+        tipText.text = FontContains.getInstance().GetString("lang0144");
         state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "loading");
         retryButton.gameObject.SetActive(false);
         while (isConnecting)
@@ -780,7 +780,7 @@ public class Server : MonoBehaviour
             string downText = www.downloadHandler.text;
             if (downText != "ok")
             {
-                Master.Instance.ShowTip("Sorry, the name was used.", 2);
+                Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0125"), 2);
                 failCallback?.Invoke();
             }
             else
@@ -878,30 +878,29 @@ public class Server : MonoBehaviour
         switch (errorCode)
         {
             case "-2":
-                errorString = "Coin reaches the limit. Come back tomorrow.";
+                errorString = FontContains.getInstance().GetString("lang0126");
                 break;
             case "-3":
-                errorString = "The reward has been claimed.";
+                errorString = FontContains.getInstance().GetString("lang0127");
                 break;
             case "-6":
-                errorString = "Abnormal behavior, try again later.";
+                errorString = FontContains.getInstance().GetString("lang0128");
                 break;
             case "-7":
                 errorString = "";
                 break;
             default:
-                errorString = "Error code :" + errorCode;
+                errorString = FontContains.getInstance().GetString("lang0129") + errorCode;
                 break;
         }
         Master.Instance.ShowTip(errorString,3);
     }
 #region connecting state
-    const string errorTitle = "ERROR";
-    const string connectingTilte = "";
-    const string errorString = "Network connection is\n unavailable, please check network \n settings.";
-    const string connectingString = "Connecting...";
+
     public void OnConnectServerFail()
     {
+        string errorTitle = FontContains.getInstance().GetString("lang0143");
+        string errorString = FontContains.getInstance().GetString("lang0144");
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
         titleText.text = errorTitle;

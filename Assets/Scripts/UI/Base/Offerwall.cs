@@ -20,8 +20,7 @@ public class Offerwall : BaseUI
     public Button fyberButton;
     public Text fyber_button_contentText;
     public GameObject fyber_coinGo;
-    const string loading = "Loading...";
-    const string ready = "Earn Pts     ";
+
     [Space(15)]
     public RectTransform topRect;
     public RectTransform viewportRect;
@@ -29,6 +28,8 @@ public class Offerwall : BaseUI
     protected override void Awake()
     {
         base.Awake();
+        string loading = FontContains.getInstance().GetString("lang0054");
+        string ready =  FontContains.getInstance().GetString("lang0055") + "     ";
         helpButton.AddClickEvent(OnHelpButtonClick);
         cashoutButton.AddClickEvent(OnCashoutButtonClick);
         adgemButton.AddClickEvent(OnAdgemButtonClick);
@@ -48,6 +49,8 @@ public class Offerwall : BaseUI
     {
         while (true)
         {
+            string loading = FontContains.getInstance().GetString("lang0054");
+            string ready = FontContains.getInstance().GetString("lang0055") + "     ";
             yield return new WaitForSeconds(0.5f);
             adgem_button_contentText.text = Ads._instance.CheckOfferwallAvailable(Offerwall_Co.AdGem) ? ready : loading;
             is_button_contentText.text = Ads._instance.CheckOfferwallAvailable(Offerwall_Co.IS) ? ready : loading;
@@ -66,27 +69,27 @@ public class Offerwall : BaseUI
     {
         if (!Ads._instance.ShowOfferwallAd(Offerwall_Co.AdGem))
         {
-            Master.Instance.ShowTip("AdGem is not available.");
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0136"));
         }
     }
     private void OnISButtonClick()
     {
         if (!Ads._instance.ShowOfferwallAd(Offerwall_Co.IS))
         {
-            Master.Instance.ShowTip("Ironsource is not available.");
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0137"));
         }
     }
     private void OnFyberButtonClick()
     {
         if (!Ads._instance.ShowOfferwallAd(Offerwall_Co.Fyber))
         {
-            Master.Instance.ShowTip("Fyber is not available.");
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0138"));
         }
     }
     protected override void BeforeShowAnimation(params int[] args)
     {
         base.BeforeShowAnimation(args);
         cashoutButton.gameObject.SetActive(Save.data.isPackB);
-        pt_numText.text = ((int)Save.data.allData.fission_info.live_balance).GetTokenShowString() + " <size=70>Pt</size>";
+        pt_numText.text = FontContains.getInstance().GetString("lang0025", ((int)Save.data.allData.fission_info.live_balance).GetTokenShowString()); 
     }
 }

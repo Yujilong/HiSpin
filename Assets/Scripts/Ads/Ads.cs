@@ -182,14 +182,15 @@ public class Ads : MonoBehaviour
 		IronSource.Agent.onApplicationPause(isPaused);
 	}
 	public GameObject adLoadingTip;
-	const string text = "No Video is ready , please try again later.";
+	
 	IEnumerator WaitLoadAD(bool isRewardedAd,int clickAdTime)
 	{
+		string text = FontContains.getInstance().GetString("lang0124");
 		adLoadingTip.SetActive(true);
-		StringBuilder content = new StringBuilder("Loading.");
+		StringBuilder content = new StringBuilder(FontContains.getInstance().GetString("lang0097") + ".");
 		Text noticeText = adLoadingTip.GetComponentInChildren<Text>();
 		noticeText.text = content.ToString();
-		int timeOut = 6;
+        int timeOut = 6;
 		while (timeOut > 0)
 		{
 			yield return new WaitForSeconds(Time.timeScale);

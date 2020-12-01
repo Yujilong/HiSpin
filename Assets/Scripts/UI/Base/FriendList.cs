@@ -59,10 +59,11 @@ public class FriendList : BaseUI
         }
         SetFriendListShow(true);
     }
-    const string direct_title = "Friends you invited";
-    const string indirect_title = "Friends invited by your friends";
+ 
     private void SetFriendListShow(bool isDirect)
     {
+        string direct_title = FontContains.getInstance().GetString("lang0041");
+        string indirect_title = FontContains.getInstance().GetString("lang0043");
         direct_friend_underline.SetActive(isDirect);
         indirect_friend_underline.SetActive(!isDirect);
         List<AllData_FriendData_Friend> willBeShow = isDirect ? direct_friend_list : indirect_friend_list;

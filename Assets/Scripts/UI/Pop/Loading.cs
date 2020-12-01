@@ -15,7 +15,7 @@ public class Loading : MonoBehaviour,IUIBase
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        loadingText.text = "loading";
+        loadingText.text = FontContains.getInstance().GetString("lang0097");
         StartCoroutine(LoadingSlider());
         contact_usButton.AddClickEvent(Setting.SendEmail);
         if (Master.IsBigScreen)
@@ -26,7 +26,7 @@ public class Loading : MonoBehaviour,IUIBase
     IEnumerator LoadingSlider()
     {
         progressSlider.value = 0;
-        progressText.text = "0%";
+        progressText.text = FontContains.getInstance().GetString("lang0098", 0);
         float progress = 0;
         float speed = 1f;
         float loadingPointInterval = 1f;
@@ -44,7 +44,7 @@ public class Loading : MonoBehaviour,IUIBase
                 intervalTimer = 0;
                 loadingText.text += ".";
                 if (loadingText.text.Length > 10)
-                    loadingText.text = "loading";
+                    loadingText.text = FontContains.getInstance().GetString("lang0097");
             }
             progress += deltatime * speed;
             progress = Mathf.Clamp(progress, 0, 1);
@@ -60,13 +60,13 @@ public class Loading : MonoBehaviour,IUIBase
                         if (string.IsNullOrEmpty(Save.data.uuid))
                             uuidText.text = "";
                         else
-                            uuidText.text = "UUID: " + Save.data.uuid;
+                            uuidText.text = FontContains.getInstance().GetString("lang0100") + Save.data.uuid;
                     }, null, null, false);
                     hasRequestData = true;
                 }
             }
             progressSlider.value = progress;
-            progressText.text = (int)(progress * 100) + "%";
+            progressText.text = FontContains.getInstance().GetString("lang0098",(int)(progress * 100));
         }
         StopCoroutine("WaitFor");
         UI.ClosePopPanel(this);

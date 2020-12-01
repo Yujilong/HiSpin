@@ -58,7 +58,7 @@ public class CashoutPop : PopUI
     {
         string email = paypal_accountInput.text;
         if (string.IsNullOrEmpty(email) || string.IsNullOrWhiteSpace(email))
-            Master.Instance.ShowTip("Account is empty!");
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0140"));
         else
             //Server.Instance.OperationData_BindPaypal(OnConfirmCallback, null, paypal_accountInput.text);
             Server_New.Instance.ConnectToServer_BindPaypal(OnConfirmCallback, null, null, true, email);
@@ -70,7 +70,7 @@ public class CashoutPop : PopUI
     }
     private void OnCashoutCallback()
     {
-        Master.Instance.ShowTip("Succeed! We will finish it in 7 working days.",3);
+        Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0141",7),3);
         UI.ClosePopPanel(this);
     }
     AsCashoutArea asArea;
@@ -92,7 +92,7 @@ public class CashoutPop : PopUI
                 cashout_fail_helpCg.blocksRaycasts = false;
                 rate_usCg.alpha = 0;
                 rate_usCg.blocksRaycasts = false;
-                titleText.text = "PAYPAL ACCOUNT";
+                titleText.text = FontContains.getInstance().GetString("lang0084");
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
                 break;
             case AsCashoutArea.Cashout:
@@ -108,8 +108,8 @@ public class CashoutPop : PopUI
                 cashoutNum = args[1];
                 cashoutType = (CashoutType)args[2];
                 cashoutTypeNum = args[3];
-                cashout_numText.text = "$ " + args[1].GetTokenShowString();
-                titleText.text = "CASH OUT";
+                cashout_numText.text = FontContains.getInstance().GetString("lang0003"," "+ args[1].GetTokenShowString());
+                titleText.text = FontContains.getInstance().GetString("lang0026");
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
                 break;
             case AsCashoutArea.FailHelp:
@@ -122,7 +122,7 @@ public class CashoutPop : PopUI
                 cashout_fail_helpCg.blocksRaycasts = true;
                 rate_usCg.alpha = 0;
                 rate_usCg.blocksRaycasts = false;
-                titleText.text = "FAILED";
+                titleText.text = FontContains.getInstance().GetString("lang0085");
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_f");
                 break;
             case AsCashoutArea.Rateus:
@@ -135,7 +135,7 @@ public class CashoutPop : PopUI
                 cashout_fail_helpCg.blocksRaycasts = false;
                 rate_usCg.alpha = 1;
                 rate_usCg.blocksRaycasts = true;
-                titleText.text = "RATE US";
+                titleText.text = FontContains.getInstance().GetString("lang0086");
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
                 break;
         }

@@ -43,8 +43,8 @@ public class Server_New : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
 
-        titleText.text = connectingTilte;
-        tipText.text = connectingString;
+        titleText.text = FontContains.getInstance().GetString("lang0143");
+        tipText.text = FontContains.getInstance().GetString("lang0144");
         state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "loading");
         retryButton.gameObject.SetActive(false);
         while (isConnecting)
@@ -211,7 +211,7 @@ public class Server_New : MonoBehaviour
                 iparams.Add(new MultipartFormDataSection("doller", _Args[2]));//提现现金数量
                 break;
             case Server_RequestType.GetLocalCountry:
-                Master.Instance.ShowTip("Error code : can not use this connecting.");
+                Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0129") + FontContains.getInstance().GetString("lang0130"));
                 isConnecting = false;
                 OnConnectServerSuccess();
                 yield break;
@@ -230,7 +230,7 @@ public class Server_New : MonoBehaviour
                 iparams.Add(new MultipartFormDataSection("double", _Args[0]));//奖励倍数，默认1
                 break;
             case Server_RequestType.GetUUID:
-                Master.Instance.ShowTip("Error code : can not use this connecting.");
+                Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0129") + FontContains.getInstance().GetString("lang0130"));
                 isConnecting = false;
                 OnConnectServerSuccess();
                 yield break;
@@ -474,34 +474,30 @@ public class Server_New : MonoBehaviour
         switch (errorCode)
         {
             case "-2":
-                errorString = "Coin reaches the limit. Come back tomorrow.";
+                errorString = FontContains.getInstance().GetString("lang0126");
                 break;
             case "-3":
-                errorString = "The reward has been claimed.";
+                errorString = FontContains.getInstance().GetString("lang0127");
                 break;
             case "-6":
-                errorString = "Abnormal behavior, try again later.";
+                errorString = FontContains.getInstance().GetString("lang0128");
                 break;
             case "-7":
-                errorString = "Found historical records, data is being updated.";
+                errorString = FontContains.getInstance().GetString("lang0131");
                 break;
             default:
-                errorString = "Error code :" + errorCode;
+                errorString = FontContains.getInstance().GetString("lang0129") + errorCode;
                 break;
         }
         Master.Instance.ShowTip(errorString, 3);
     }
     #region connecting state
-    const string errorTitle = "ERROR";
-    const string connectingTilte = "";
-    const string errorString = "Network connection is\n unavailable, please check network \n settings.";
-    const string connectingString = "Connecting...";
     public void OnConnectServerFail()
     {
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
-        titleText.text = errorTitle;
-        tipText.text = errorString;
+        titleText.text = FontContains.getInstance().GetString("lang0143");
+        tipText.text = FontContains.getInstance().GetString("lang0144");
         state_iconImage.transform.rotation = Quaternion.identity;
         state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "nonet");
         retryButton.gameObject.SetActive(true);

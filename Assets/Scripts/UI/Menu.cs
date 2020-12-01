@@ -85,7 +85,7 @@ public class Menu : MonoBehaviour, IUIBase
         if (Save.data.allData.user_panel.user_level >= 4)
             UI.ShowBasePanel(BasePanel.Offerwall);
         else
-            Master.Instance.ShowTip("Unlock at level 4.", 2);
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0139", 4), 2);
     }
     private void OnRankButtonClick()
     {
@@ -154,7 +154,7 @@ public class Menu : MonoBehaviour, IUIBase
     public void UpdateHeadIcon()
     {
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + Save.data.allData.user_panel.user_title);
-        ticket_multipleText.text = "x " + Save.data.allData.user_panel.user_double.GetTicketMultipleString();
+        ticket_multipleText.text = FontContains.getInstance().GetString("lang0069", Save.data.allData.user_panel.user_double.GetTicketMultipleString());
         exp_progressImage.fillAmount= (float)Save.data.allData.user_panel.user_exp / Save.data.allData.user_panel.level_exp;
 
         setting_rpGo.SetActive(false);
@@ -295,7 +295,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "CASH OUT";
+                top_titleText.text = FontContains.getInstance().GetString("lang0026");
                 all_bottomGo.SetActive(false);
                 backButton.gameObject.SetActive(true);
                 settingButton.gameObject.SetActive(false);
@@ -306,7 +306,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "RECORD";
+                top_titleText.text = FontContains.getInstance().GetString("lang0070");
                 all_bottomGo.SetActive(false);
                 backButton.gameObject.SetActive(true);
                 settingButton.gameObject.SetActive(false);
@@ -347,7 +347,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "LAST DAY RANKING";
+                top_titleText.text = FontContains.getInstance().GetString("lang0071");
                 backButton.gameObject.SetActive(false);
                 settingButton.gameObject.SetActive(true);
                 all_bottomGo.SetActive(true);
@@ -366,7 +366,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "ME";
+                top_titleText.text = FontContains.getInstance().GetString("lang0072");
                 all_bottomGo.SetActive(false);
                 backButton.gameObject.SetActive(true);
                 settingButton.gameObject.SetActive(false);

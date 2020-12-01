@@ -12,6 +12,6 @@ public class BettingWinnerItem : MonoBehaviour
     {
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_id);
         nameText.text = name;
-        prize_cash_num_Text.text = "$" + cashNum.GetCashShowString();
+        prize_cash_num_Text.text = FontContains.getInstance().GetString("lang0003", cashNum.GetCashShowString());
     }
 }

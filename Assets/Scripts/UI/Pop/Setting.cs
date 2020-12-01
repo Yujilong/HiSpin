@@ -135,8 +135,8 @@ public class Setting : MonoBehaviour, IUIBase
         musicButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "music_" + (Save.data.music_on ? "on" : "off"));
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + Save.data.allData.user_panel.user_title);
         nameText.text = Save.data.allData.user_panel.user_name;
-        ticket_multipleText.text = string.Format("Ticker <color=#fff000>x {0}</color>\nMultiplier ", Save.data.allData.user_panel.user_double.GetTicketMultipleString());
-        lvText.text = "Lv." + Save.data.allData.user_panel.user_level;
+        ticket_multipleText.text = FontContains.getInstance().GetString("lang0044", Save.data.allData.user_panel.user_double.GetTicketMultipleString());
+        lvText.text = FontContains.getInstance().GetString("lang0042",  Save.data.allData.user_panel.user_level);
         lv_progressImage.fillAmount = (float)Save.data.allData.user_panel.user_exp / Save.data.allData.user_panel.level_exp;
         head_redpointGo.SetActive(false);//检测是否有新头像
         int lv = Save.data.allData.user_panel.user_level;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 957567302779499390}
   - component: {fileID: 3507886610532116782}
   - component: {fileID: 2856884155657231881}
+  - component: {fileID: 8251494989943199278}
   m_Layer: 5
   m_Name: tip
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &8251494989943199278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039118616727332143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &6131665709721406675
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +178,7 @@ GameObject:
   - component: {fileID: 6739927895115777246}
   - component: {fileID: 6739927895115777240}
   - component: {fileID: 6739927895115777247}
+  - component: {fileID: 3596993453427777423}
   m_Layer: 5
   m_Name: helpTip
   m_TagString: Untagged
@@ -230,6 +246,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: HOW It works?
+--- !u!114 &3596993453427777423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927895115777245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0001
+  args: []
 --- !u!1 &6739927895290185945
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +271,7 @@ GameObject:
   - component: {fileID: 6739927895290185946}
   - component: {fileID: 6739927895290185940}
   - component: {fileID: 6739927895290185947}
+  - component: {fileID: 4272263800265380138}
   m_Layer: 5
   m_Name: clockTime
   m_TagString: Untagged
@@ -308,6 +339,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 06:02:51
+--- !u!114 &4272263800265380138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927895290185945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &6739927895363138014
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +902,7 @@ GameObject:
   - component: {fileID: 6739927896124971535}
   - component: {fileID: 6739927896124971529}
   - component: {fileID: 6739927896124971528}
+  - component: {fileID: 2218839586846120854}
   m_Layer: 5
   m_Name: GET TICKETS
   m_TagString: Untagged
@@ -924,6 +970,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: GET TICKETS
+--- !u!114 &2218839586846120854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927896124971534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0005
+  args: []
 --- !u!1 &6739927896131126552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1209,7 @@ GameObject:
   - component: {fileID: 6739927896324055156}
   - component: {fileID: 6739927896324055158}
   - component: {fileID: 6739927896324055157}
+  - component: {fileID: 7647219760085670388}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -1216,6 +1277,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Get Tickets, Win Cash!
+--- !u!114 &7647219760085670388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927896324055163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0000
+  args: []
 --- !u!1 &6739927896404017322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1302,7 @@ GameObject:
   - component: {fileID: 6739927896404017323}
   - component: {fileID: 6739927896404017317}
   - component: {fileID: 6739927896404017316}
+  - component: {fileID: 2574050081967710336}
   m_Layer: 5
   m_Name: LAST DAY WINNER
   m_TagString: Untagged
@@ -1294,6 +1370,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: LAST DAY WINNER
+--- !u!114 &2574050081967710336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927896404017322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0006
+  args: []
 --- !u!1 &6739927896642933898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1395,7 @@ GameObject:
   - component: {fileID: 6739927896642933899}
   - component: {fileID: 6739927896642933893}
   - component: {fileID: 6739927896642933892}
+  - component: {fileID: 4991261045076698002}
   m_Layer: 5
   m_Name: prizeNum
   m_TagString: Untagged
@@ -1372,6 +1463,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $1,000
+--- !u!114 &4991261045076698002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927896642933898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - 1,000
 --- !u!1 &6739927896658648296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1637,7 @@ GameObject:
   - component: {fileID: 6739927896789146545}
   - component: {fileID: 6739927896789146547}
   - component: {fileID: 6739927896789146546}
+  - component: {fileID: 491204863213621008}
   m_Layer: 5
   m_Name: ticketNum
   m_TagString: Untagged
@@ -1598,6 +1705,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: You have <color=#FF8A01>10</color> ticket
+--- !u!114 &491204863213621008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927896789146544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0004
+  args:
+  - 10
 --- !u!1 &6739927896823686835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1971,7 @@ GameObject:
   - component: {fileID: 6739927896940847224}
   - component: {fileID: 6739927896940847226}
   - component: {fileID: 6739927896940847225}
+  - component: {fileID: 5902336882456604878}
   m_Layer: 5
   m_Name: prizetitle
   m_TagString: Untagged
@@ -1916,6 +2039,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: PRIZE POOL
+--- !u!114 &5902336882456604878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927896940847231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0002
+  args: []
 --- !u!1 &6739927897035076511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +2065,7 @@ GameObject:
   - component: {fileID: 6739927897035076506}
   - component: {fileID: 6739927897035076505}
   - component: {fileID: 3332194047298087162}
+  - component: {fileID: 2537566839592893397}
   m_Layer: 5
   m_Name: cashNum
   m_TagString: Untagged
@@ -2010,6 +2148,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &2537566839592893397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739927897035076511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &6739927897045125699
 GameObject:
   m_ObjectHideFlags: 0

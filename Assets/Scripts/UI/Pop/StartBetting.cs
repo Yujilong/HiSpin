@@ -126,8 +126,8 @@ public class StartBetting : PopUI
                 }
             }
         }
-        tipText.text = "More tickets you have, more chance to win!";
-        get_button_contentText.text = "TRY YOUR LUCK";
+        tipText.text = FontContains.getInstance().GetString("lang0119");
+        get_button_contentText.text = FontContains.getInstance().GetString("lang0121");
         List<AllData_BettingWinnerData_Winner> bettingWinners = Save.data.allData.award_ranking.ranking;
         string selfId = Save.data.allData.user_panel.user_id;
         AllData_BettingWinnerData_Winner willShow = bettingWinners[0];
@@ -136,8 +136,8 @@ public class StartBetting : PopUI
             if (winner.user_id.Equals(selfId))
             {
                 willShow = winner;
-                tipText.text = "Congratulations on winning the prize!!";
-                get_button_contentText.text = "TAKE YOUR MONEY!";
+                tipText.text = FontContains.getInstance().GetString("lang0122");
+                get_button_contentText.text = FontContains.getInstance().GetString("lang0123");
                 TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WinnerOnce, 1);
                 break;
             }

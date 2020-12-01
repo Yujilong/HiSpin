@@ -57,7 +57,7 @@ public class Slots : BaseUI
     }
     public void UpdateTimedownText(string time)
     {
-        time_downText.text = "NEXT SLOTS IN:\n" + time;
+        time_downText.text = FontContains.getInstance().GetString("lang0062", time); 
     }
     public void OnChangePackB()
     {

@@ -41,12 +41,12 @@ public class Cashout : BaseUI
             anchor_rect.GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.one;
         }
 
-        pt_cashout_leftButton.GetComponentInChildren<Text>().text = "$ " + 5;
-        pt_cashout_midButton.GetComponentInChildren<Text>().text = "$ " + 10;
-        pt_cashout_rightButton.GetComponentInChildren<Text>().text = "$ " + 50;
-        cashout_leftButton.GetComponentInChildren<Text>().text = "$ " + Cashout_Nums[0];
-        cashout_midButton.GetComponentInChildren<Text>().text = "$ " + Cashout_Nums[1];
-        cashout_rightButton.GetComponentInChildren<Text>().text = "$ " + Cashout_Nums[2];
+        pt_cashout_leftButton.GetComponentInChildren<Text>().text = FontContains.getInstance().GetString("lang0003", " 5"); 
+        pt_cashout_midButton.GetComponentInChildren<Text>().text = FontContains.getInstance().GetString("lang0003", " 10"); 
+        pt_cashout_rightButton.GetComponentInChildren<Text>().text = FontContains.getInstance().GetString("lang0003", " 50"); 
+        cashout_leftButton.GetComponentInChildren<Text>().text = FontContains.getInstance().GetString("lang0003"," "+ Cashout_Nums[0]);
+        cashout_midButton.GetComponentInChildren<Text>().text = FontContains.getInstance().GetString("lang0003", " " + Cashout_Nums[1]); 
+        cashout_rightButton.GetComponentInChildren<Text>().text = FontContains.getInstance().GetString("lang0003"," "+ Cashout_Nums[2]);
 
         pt_cashout_leftButton.AddClickEvent(() => { OnPtCashoutButtonClick(5);});
         pt_cashout_midButton.AddClickEvent(() => { OnPtCashoutButtonClick(10); });
@@ -70,18 +70,18 @@ public class Cashout : BaseUI
         if (Save.data.allData.fission_info.live_balance >= cashoutNum * PtCashoutRate * 100)
             UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.PT, cashoutNum * PtCashoutRate * 100);
         else
-            Master.Instance.ShowTip("Sorry, your balance is not enough.");
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0134"));
     }
     private void OnCashoutButtonClick(int cashoutNum)
     {
         if (Save.data.allData.user_panel.user_doller_live >= cashoutNum * 100)
             UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.Cash, cashoutNum * 100);
         else
-            Master.Instance.ShowTip("Sorry, your balance is not enough.");
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0134"));
     }
     private void OnGoldCashoutButtonClick()
     {
-        Master.Instance.ShowTip("Sorry, your balance is not enough.");
+        Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0134"));
     }
     private void OnAboutFeeClick()
     {
@@ -101,10 +101,10 @@ public class Cashout : BaseUI
         if (hasEmail)
             emailText.text = Save.data.allData.user_panel.user_paypal;
         else
-            emailText.text = "Please bind paypal account";
-        pt_numText.text = (int)Save.data.allData.fission_info.live_balance + "<size=40>  PT</size>";
-        pt_cashout_numText.text = "≈$" + ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString();
-        cash_numText.text = "$ " + Save.data.allData.user_panel.user_doller_live.GetCashShowString();
+            emailText.text = FontContains.getInstance().GetString("lang0017");
+        pt_numText.text = FontContains.getInstance().GetString("lang0012", (int)Save.data.allData.fission_info.live_balance);
+        pt_cashout_numText.text = FontContains.getInstance().GetString("lang0013", ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString()); 
+        cash_numText.text = FontContains.getInstance().GetString("lang0003", " " + Save.data.allData.user_panel.user_doller_live.GetCashShowString()); 
         gold_numText.text = Save.data.allData.user_panel.user_gold_live.GetTokenShowString();
     }
     bool isPause = false;

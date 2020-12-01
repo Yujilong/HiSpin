@@ -65,10 +65,7 @@ public class GetReward : PopUI
         }
         UI.ClosePopPanel(this);
     }
-    const string GoldTip = "OH YEEAAAAH!\nTOKEN HAUL!";
-    const string TicketTip = "THAT'S EPIC!\nYOU WON TICKET!";
-    const string levelupTip = "YOU REACH LV.{0}!\nTake these rewards!";
-    const string levelupTitle = "Congratulations!";
+    
     Reward reward_type = Reward.Null;
     GetRewardArea reward_area = GetRewardArea.Null;
     int reward_num = 0;
@@ -76,6 +73,12 @@ public class GetReward : PopUI
     Coroutine raiseAniamtion = null;
     protected override void BeforeShowAnimation(params int[] args)
     {
+
+        string GoldTip = FontContains.getInstance().GetString("lang0092");
+        string TicketTip = FontContains.getInstance().GetString("lang0093");
+        string levelupTip = FontContains.getInstance().GetFormatStr("lang0094");
+        string levelupTitle = "Congratulations!";
+
         clickAdTime = 0;
         reward_type = (Reward)args[0];
         reward_num = args[1];
@@ -93,16 +96,16 @@ public class GetReward : PopUI
                     case Reward.Gold:
                         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "gold");
                         tipText.text = GoldTip;
-                        double_getText.text = "GET   x2";
+                        double_getText.text = FontContains.getInstance().GetString("lang0091",2);
                         reward_mutiple = 2;
                         break;
                     case Reward.Ticket:
                         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "ticket");
                         tipText.text = TicketTip;
-                        double_getText.text = "GET   x3";
+                        double_getText.text = FontContains.getInstance().GetString("lang0091", 3);
                         reward_mutiple = 3;
                         int ticket_multiple = Save.data.allData.user_panel.user_double;
-                        ticket_multipleText.text = "x " +ticket_multiple.GetTicketMultipleString();
+                        ticket_multipleText.text = FontContains.getInstance().GetString("lang0069", " "+ ticket_multiple.GetTicketMultipleString());
                         break;
                     default:
                         Debug.LogError("奖励类型错误");
@@ -113,7 +116,7 @@ public class GetReward : PopUI
                 tipText.text = string.Format(levelupTip, args[3]);
                 titleText.text = levelupTitle;
                 reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, reward_type.ToString().ToLower());
-                double_getText.text= "GET   x3";
+                double_getText.text= FontContains.getInstance().GetString("lang0091", 3);
                 reward_mutiple = 3;
                 break;
         }

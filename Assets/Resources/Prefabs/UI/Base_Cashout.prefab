@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1106573825347740400}
   - component: {fileID: 1106573825347740402}
   - component: {fileID: 1106573825347740401}
+  - component: {fileID: 5768625657618349371}
   m_Layer: 5
   m_Name: cashout num
   m_TagString: Untagged
@@ -78,6 +79,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $ 10
+--- !u!114 &5768625657618349371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573825347740415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - ' 10'
 --- !u!1 &1106573825607676313
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +105,7 @@ GameObject:
   - component: {fileID: 1106573825607676314}
   - component: {fileID: 1106573825607676316}
   - component: {fileID: 1106573825607676315}
+  - component: {fileID: 8372795495970397115}
   m_Layer: 5
   m_Name: gold num
   m_TagString: Untagged
@@ -156,6 +173,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 500
+--- !u!114 &8372795495970397115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573825607676313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &1106573825688747555
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +469,7 @@ GameObject:
   - component: {fileID: 1106573825794891748}
   - component: {fileID: 1106573825794891750}
   - component: {fileID: 1106573825794891749}
+  - component: {fileID: 3472432249722929138}
   m_Layer: 5
   m_Name: cashout num
   m_TagString: Untagged
@@ -505,6 +537,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $ 10
+--- !u!114 &3472432249722929138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573825794891747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - ' 10'
 --- !u!1 &1106573825863925955
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +800,7 @@ GameObject:
   - component: {fileID: 1106573825962607436}
   - component: {fileID: 1106573825962607438}
   - component: {fileID: 1106573825962607437}
+  - component: {fileID: 2594898544916237845}
   m_Layer: 5
   m_Name: cashout num
   m_TagString: Untagged
@@ -820,6 +868,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $ 5
+--- !u!114 &2594898544916237845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573825962607435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - ' 5'
 --- !u!1 &1106573826058666236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1434,7 @@ GameObject:
   - component: {fileID: 1106573826714634567}
   - component: {fileID: 1106573826714634585}
   - component: {fileID: 1106573826714634584}
+  - component: {fileID: 6576927187377222806}
   m_Layer: 5
   m_Name: cash num
   m_TagString: Untagged
@@ -1438,6 +1502,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $ 10.21
+--- !u!114 &6576927187377222806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573826714634566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - ' 10.21'
 --- !u!1 &1106573826860306646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,6 +1528,7 @@ GameObject:
   - component: {fileID: 1106573826860306647}
   - component: {fileID: 1106573826860306473}
   - component: {fileID: 1106573826860306472}
+  - component: {fileID: 9175413382241508611}
   m_Layer: 5
   m_Name: pt num
   m_TagString: Untagged
@@ -1516,6 +1596,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 5,000,000<size=40>  PT</size>
+--- !u!114 &9175413382241508611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573826860306646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0012
+  args:
+  - 5,000,000
 --- !u!1 &1106573826899424094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,6 +1622,7 @@ GameObject:
   - component: {fileID: 1106573826899424095}
   - component: {fileID: 1106573826899424081}
   - component: {fileID: 1106573826899424080}
+  - component: {fileID: 2302431727258419199}
   m_Layer: 5
   m_Name: cashout num
   m_TagString: Untagged
@@ -1594,6 +1690,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $ 50
+--- !u!114 &2302431727258419199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573826899424094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - ' 50'
 --- !u!1 &1106573826912141125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1716,7 @@ GameObject:
   - component: {fileID: 1106573826912141126}
   - component: {fileID: 1106573826912141144}
   - component: {fileID: 1106573826912141127}
+  - component: {fileID: 4835993589033598979}
   m_Layer: 5
   m_Name: cashout num
   m_TagString: Untagged
@@ -1672,6 +1784,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $ 50
+--- !u!114 &4835993589033598979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573826912141125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - ' 50'
 --- !u!1 &1106573826944559831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1930,7 @@ GameObject:
   - component: {fileID: 1106573827012893595}
   - component: {fileID: 1106573827012893594}
   - component: {fileID: 8921492714860998979}
+  - component: {fileID: 4896758245747786567}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -1913,6 +2041,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4896758245747786567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573827012893592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0011
+  args: []
 --- !u!1 &1106573827035101683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2119,6 +2261,7 @@ GameObject:
   - component: {fileID: 1106573827129391697}
   - component: {fileID: 1106573827129391699}
   - component: {fileID: 1106573827129391698}
+  - component: {fileID: 3835815823707100691}
   m_Layer: 5
   m_Name: pt cashout num
   m_TagString: Untagged
@@ -2186,6 +2329,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u2248$50.00"
+--- !u!114 &3835815823707100691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573827129391696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0013
+  args:
+  - 50
 --- !u!1 &1106573827144806435
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2503,7 @@ GameObject:
   - component: {fileID: 1106573827276554174}
   - component: {fileID: 1106573827276554160}
   - component: {fileID: 1106573827276554175}
+  - component: {fileID: 7590663330402131502}
   m_Layer: 5
   m_Name: cashout num
   m_TagString: Untagged
@@ -2412,6 +2571,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $ 5
+--- !u!114 &7590663330402131502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573827276554173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - ' 5'
 --- !u!1 &1106573827349471391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,6 +2597,7 @@ GameObject:
   - component: {fileID: 1106573827349471376}
   - component: {fileID: 1106573827349471378}
   - component: {fileID: 1106573827349471377}
+  - component: {fileID: 5605518440538481903}
   m_Layer: 5
   m_Name: more gold to redeem
   m_TagString: Untagged
@@ -2490,6 +2665,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 5M coins redeem $5
+--- !u!114 &5605518440538481903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573827349471391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0014
+  args: []
 --- !u!1 &1188656642707708861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2786,6 +2975,7 @@ GameObject:
   - component: {fileID: 5342777085182976107}
   - component: {fileID: 4909706889380980691}
   - component: {fileID: 6281267856159325145}
+  - component: {fileID: 7834197070123189048}
   m_Layer: 5
   m_Name: AboutFee
   m_TagString: Untagged
@@ -2911,6 +3101,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7834197070123189048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5978333367789048363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0016
+  args: []
 --- !u!1 &7398602082482436823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,6 +3394,7 @@ GameObject:
   - component: {fileID: 172554957460643304}
   - component: {fileID: 3716631312495786356}
   - component: {fileID: 2046329575609108561}
+  - component: {fileID: 8588727574435491399}
   m_Layer: 5
   m_Name: HandlingFee
   m_TagString: Untagged
@@ -3259,3 +3464,17 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'IMPORTANT: Paypal will charge for each transfer. The service charge of
     each country is different, we can learn from the official website.'
+--- !u!114 &8588727574435491399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863339711557427459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0015
+  args: []

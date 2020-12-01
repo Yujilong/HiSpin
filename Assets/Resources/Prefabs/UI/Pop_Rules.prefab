@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 2534060185365447803}
   - component: {fileID: 3053822009604421316}
   - component: {fileID: 7795880392734822088}
+  - component: {fileID: 50979651633535686}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -199,6 +200,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "LET\u2019S  PLAY!"
+--- !u!114 &50979651633535686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195231710552323710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0110
+  args: []
 --- !u!1 &512902379857993960
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +349,7 @@ GameObject:
   - component: {fileID: 8783918046541057544}
   - component: {fileID: 2913025810545812385}
   - component: {fileID: 4610950410317361742}
+  - component: {fileID: 1457256318400237402}
   m_Layer: 5
   m_Name: InviteFriendRules
   m_TagString: Untagged
@@ -408,6 +424,20 @@ MonoBehaviour:
     income from friends.\n3. Points can be exchanged for money,\n    100,000 points
     equals 1 USD.\n<color=#FFE200>4. You can earn HUGE Pts by completing \n    the
     tasks in the offer.</color>"
+--- !u!114 &1457256318400237402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109699515746291123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0106
+  args: []
 --- !u!1 &1244792784956927955
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +568,7 @@ GameObject:
   - component: {fileID: 6193197124493602859}
   - component: {fileID: 8117697205927741622}
   - component: {fileID: 3570417829044451883}
+  - component: {fileID: 778708648758097600}
   m_Layer: 5
   m_Name: BettingRules1
   m_TagString: Untagged
@@ -610,6 +641,20 @@ MonoBehaviour:
     you have,\n    more chance to win.\n3. Every day at UTC 08:00:00, all your\n   
     tickets will be automatically put into the\n    prize pool, and  the Lucky Draw
     will be\n    done.\n4. There will be many winners with different\n    bonus."
+--- !u!114 &778708648758097600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212808755424918464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0103
+  args: []
 --- !u!1 &2296270890000964763
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +666,7 @@ GameObject:
   - component: {fileID: 7406022945299938058}
   - component: {fileID: 3792815898760953085}
   - component: {fileID: 2726581224947649142}
+  - component: {fileID: 5479684790162881596}
   m_Layer: 5
   m_Name: CashoutRules
   m_TagString: Untagged
@@ -690,6 +736,20 @@ MonoBehaviour:
   m_Text: "1. Win\_the\_jackpot\_and\_other\_cash\n   prizes\_in\_the\_Lucky\_Draw.\n\n2.Compete\_every
     day\_in\_the\_task \n   and\_win\_cash\_directly!\n\n3.Refer\_friends\_and\_get\_direct\n  
     cash and\_lots\_of\_tickets!"
+--- !u!114 &5479684790162881596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296270890000964763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0108
+  args: []
 --- !u!1 &4925321548883505185
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +881,7 @@ GameObject:
   - component: {fileID: 5470809035863031466}
   - component: {fileID: 3259391350393962560}
   - component: {fileID: 2640306926152164659}
+  - component: {fileID: 3322055504502432938}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1126,6 +1187,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &3322055504502432938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273311290218054473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0105
+  args: []
 --- !u!1 &5343661458855003398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1212,7 @@ GameObject:
   - component: {fileID: 8912935551277702577}
   - component: {fileID: 3928392033315653598}
   - component: {fileID: 6331547246396114419}
+  - component: {fileID: 9064292276259577459}
   m_Layer: 5
   m_Name: OfferwallRules
   m_TagString: Untagged
@@ -1208,6 +1284,20 @@ MonoBehaviour:
     \n    points as soon as possible. It may take \n    1-3 days.\n3. If your close
     friends complete the task, \n    you will earn extra 50% points, and \n    extra
     25%  from unfamiliar friends."
+--- !u!114 &9064292276259577459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5343661458855003398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0109
+  args: []
 --- !u!1 &5736795335471587024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1495,7 @@ GameObject:
   - component: {fileID: 6981046685320234629}
   - component: {fileID: 9104481806794022819}
   - component: {fileID: 2592873360415251436}
+  - component: {fileID: 7082421685107002661}
   m_Layer: 5
   m_Name: terms
   m_TagString: Untagged
@@ -1530,6 +1621,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7082421685107002661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990745749031375206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0102
+  args: []
 --- !u!1 &7649572397139813371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1646,7 @@ GameObject:
   - component: {fileID: 2849349460904013225}
   - component: {fileID: 6145596275759809321}
   - component: {fileID: 8483502612079775894}
+  - component: {fileID: 1520750877521475756}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -1608,6 +1714,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: CASH OUT
+--- !u!114 &1520750877521475756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649572397139813371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0026
+  args: []
 --- !u!1 &8017262896415536414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1739,7 @@ GameObject:
   - component: {fileID: 7838152275795684442}
   - component: {fileID: 1827821222525752071}
   - component: {fileID: 6962882573585357565}
+  - component: {fileID: 4838863085162581498}
   m_Layer: 5
   m_Name: BettingRules2
   m_TagString: Untagged
@@ -1693,6 +1814,20 @@ MonoBehaviour:
     - 16th prize        $20
 
     17nd - 50th prize       $10'
+--- !u!114 &4838863085162581498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8017262896415536414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0104
+  args: []
 --- !u!1 &8491804207360645034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1839,7 @@ GameObject:
   - component: {fileID: 8103349995836374005}
   - component: {fileID: 8791228366877008946}
   - component: {fileID: 8981905304881417723}
+  - component: {fileID: 5043876560342618243}
   m_Layer: 5
   m_Name: MyInfoRules
   m_TagString: Untagged
@@ -1774,6 +1910,20 @@ MonoBehaviour:
     level will\_unlock\_new\n    avatars\_and\_get\_tickets,\_also\_increase\n   
     the\_multiplier\_of\_getting\_tickets.\n3. The\_ticket\_multiplier\_is\_used\_to\n   
     increase\_tickets\_obtained\_by\_slots."
+--- !u!114 &5043876560342618243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491804207360645034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0107
+  args: []
 --- !u!1 &9141602686691059515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,6 +1935,7 @@ GameObject:
   - component: {fileID: 9141602686691059516}
   - component: {fileID: 9141602686691059518}
   - component: {fileID: 9141602686691059517}
+  - component: {fileID: 1496714904726464325}
   m_Layer: 5
   m_Name: PlaySlotsRules
   m_TagString: Untagged
@@ -1866,6 +2017,20 @@ MonoBehaviour:
     For offical rules, please see:</size>
 
 '
+--- !u!114 &1496714904726464325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141602686691059515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0101
+  args: []
 --- !u!1 &9141602687539517649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +2117,7 @@ GameObject:
   - component: {fileID: 9141602687780912147}
   - component: {fileID: 9141602687780912149}
   - component: {fileID: 9141602687780912148}
+  - component: {fileID: 3760051990741920895}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -2019,6 +2185,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: How it works
+--- !u!114 &3760051990741920895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141602687780912146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0023
+  args: []
 --- !u!1 &9141602687935579870
 GameObject:
   m_ObjectHideFlags: 0

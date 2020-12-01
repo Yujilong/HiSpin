@@ -16,7 +16,7 @@ public class FriendItem : MonoBehaviour
         starImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, distance == 1 ? "direct_friend" : "indirect_friend");
         nameText.text = name;
         dateText.text = date;
-        levelText.text = "Lv." + level;
+        levelText.text = FontContains.getInstance().GetString("lang0042",level);
         starImage.SetNativeSize();
     }
 }

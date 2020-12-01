@@ -37,7 +37,7 @@ public class InviteOk : PopUI
             }
         }
         if (inviteTaskData == null)
-            Master.Instance.ShowTip("Error: can not get task id", 2);
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0142"), 2);
         else
             //Server.Instance.OperationData_FinishTask(OnGetRewardCallback, null, inviteTaskData.task_id, doublReward, Reward.Cash, Reward.Ticket);
             Server_New.Instance.ConnectToServer_FinishTask(OnGetRewardCallback, null, null, true, inviteTaskData.task_id, doublReward, Reward.Cash, Reward.Ticket);
@@ -60,14 +60,14 @@ public class InviteOk : PopUI
         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, invite_ok_reward_type.ToString().ToLower());
         single_rewardButton.gameObject.SetActive(false);
         adGo.SetActive(false);
-        double_buttonText.text = "Claim";
+        double_buttonText.text = FontContains.getInstance().GetString("lang0096");
         if (invite_ok_reward_type == Reward.Cash)
         {
-            reward_numText.text = "x " + invite_ok_reward_num.GetCashShowString();
+            reward_numText.text = FontContains.getInstance().GetString("lang0069", " " + invite_ok_reward_num.GetCashShowString());
         }
         else
         {
-            reward_numText.text = "x " + invite_ok_reward_num.GetTokenShowString();
+            reward_numText.text = FontContains.getInstance().GetString("lang0069"," " + invite_ok_reward_num.GetTokenShowString());
         }
     }
 }

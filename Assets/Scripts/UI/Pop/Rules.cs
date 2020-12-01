@@ -38,19 +38,19 @@ public class Rules : PopUI
     {
         UI.ClosePopPanel(this);
     }
-    const string GameTitle = "CONTEST RULES";
-    const string BettingTitle = "How it works?";
-    const string PlaySlotsTitle= "How to win";
-    const string InviteFriendTitle = "How it works";
-    const string MyInfoTitle = "How it works";
-    const string OfferwallTitle = "How it works";
-    static string BettingContentTop = "1.  There is a prize of 1,000 USD in the Lucky\n    Draw every day.\n2. You must have {0} tickets to participate\n" +
-        "    in the Lucky Draw. More tickets you have,\n    more chance to win.\n3. Every day at UTC 08:00:00, all your\n    tickets will be automatically put into the\n" +
-        "    prize pool, and  the Lucky Draw will be\n    done.\n4. There will be many winners with different\n    bonus.";
-    const string CashoutTitle = "HOW TO MAKE MONEY";
+   
     private RuleArea ruleArea;
     protected override void BeforeShowAnimation(params int[] args)
     {
+        string GameTitle = FontContains.getInstance().GetString("lang0111");
+        string BettingTitle = FontContains.getInstance().GetString("lang023") + "?";
+        string PlaySlotsTitle =FontContains.getInstance().GetString("lang0113");
+        string InviteFriendTitle = FontContains.getInstance().GetString("lang023");
+        string MyInfoTitle = FontContains.getInstance().GetString("lang023");
+        string OfferwallTitle = FontContains.getInstance().GetString("lang023");
+        string BettingContentTop = FontContains.getInstance().GetFormatStr("lang0112");
+        string CashoutTitle = FontContains.getInstance().GetString("lang0114");
+
         ruleArea = (RuleArea)args[0];
         switch (ruleArea)
         {

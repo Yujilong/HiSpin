@@ -40,11 +40,12 @@ public class Betting : BaseUI
     protected override void BeforeShowAnimation(params int[] args)
     {
         if (Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag)
-            tipText.text = "More tickets, more\nchance to win! ";
+            tipText.text = FontContains.getInstance().GetString("lang0008");
         else
-            tipText.text = string.Format("You must have <color=#F4D10F>{0}</color> tickets\nto participate in the Lucky Draw.", Save.data.allData.award_ranking.ticktes_flag);
+            tipText.text = FontContains.getInstance().GetString("lang0009", Save.data.allData.award_ranking.ticktes_flag );
 
-        ticket_numText.text = Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag ? string.Format("You have <color=#FF8A01>{0}</color> tickets", Save.data.allData.user_panel.user_tickets) : "not enough tickets";
+        ticket_numText.text = FontContains.getInstance().GetString(Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag ? "lang0004" : "lang0010", Save.data.allData.user_panel.user_tickets) ;
+
         RefreshBettingWinner();
         UpdateTimeDownText(Master.time);
     }

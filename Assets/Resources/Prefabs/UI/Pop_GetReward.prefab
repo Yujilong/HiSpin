@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 767116248970314985}
   - component: {fileID: 6088909886769734356}
   - component: {fileID: 3927785657507266315}
+  - component: {fileID: 900625772891993448}
   m_Layer: 5
   m_Name: num
   m_TagString: Untagged
@@ -78,6 +79,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: x 1.2
+--- !u!114 &900625772891993448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610169291483165575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0069
+  args:
+  - ' 1.2'
 --- !u!1 &3220532274896776779
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +180,7 @@ GameObject:
   - component: {fileID: 9208908100491179600}
   - component: {fileID: 1905346894308284990}
   - component: {fileID: 5916951075016973122}
+  - component: {fileID: 6512978398120661005}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -231,6 +248,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Congratulations!
+--- !u!114 &6512978398120661005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3596462693536523833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0089
+  args: []
 --- !u!1 &7754015288434332342
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +541,7 @@ GameObject:
   - component: {fileID: 7754015289704760288}
   - component: {fileID: 7754015289704760294}
   - component: {fileID: 2828513234209842477}
+  - component: {fileID: 3292576441182367374}
   m_Layer: 5
   m_Name: reward_num
   m_TagString: Untagged
@@ -607,6 +639,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &3292576441182367374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7754015289704760290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &7754015289753375583
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +812,7 @@ GameObject:
   - component: {fileID: 7754015290069862479}
   - component: {fileID: 7754015290069862477}
   - component: {fileID: 7754015290069862476}
+  - component: {fileID: 642707015667035745}
   m_Layer: 5
   m_Name: get x2
   m_TagString: Untagged
@@ -833,6 +880,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: GET   x2
+--- !u!114 &642707015667035745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7754015290069862478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0091
+  args:
+  - 2
 --- !u!1 &7754015290074860511
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +906,7 @@ GameObject:
   - component: {fileID: 7754015290074860508}
   - component: {fileID: 7754015290074860482}
   - component: {fileID: 7754015290074860509}
+  - component: {fileID: 3682605309702359915}
   m_Layer: 5
   m_Name: tip
   m_TagString: Untagged
@@ -913,6 +976,20 @@ MonoBehaviour:
   m_Text: 'THAT''S EPIC!
 
     YOU WON TICKET!'
+--- !u!114 &3682605309702359915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7754015290074860511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0090
+  args: []
 --- !u!1 &7754015290326086073
 GameObject:
   m_ObjectHideFlags: 0

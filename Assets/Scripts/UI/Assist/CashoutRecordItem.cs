@@ -21,24 +21,24 @@ public class CashoutRecordItem : MonoBehaviour
         if (comsumeType == CashoutType.Cash)
             consume_numText.text = consumeNum.GetCashShowString();
         else if (comsumeType == CashoutType.PT)
-            consume_numText.text = consumeNum.GetTokenShowString() + " <size=60>Pt</size>";
+            consume_numText.text = consumeNum.GetTokenShowString() + " " + FontContains.getInstance().GetString("lang0020");
         else
             consume_numText.text = consumeNum.GetTokenShowString();
         consume_timeText.text = consumeTime;
 
-        cashout_numText.text = "+$" + cashNum.GetTokenShowString();
+        cashout_numText.text = FontContains.getInstance().GetString("lang0019", cashNum.GetTokenShowString());
         switch (result)
         {
             case 0:
-                resultText.text = "Reviewing";
+                resultText.text = FontContains.getInstance().GetString("lang0021");
                 helpButton.gameObject.SetActive(false);
                 break;
             case 1:
-                resultText.text = "Succeed";
+                resultText.text = FontContains.getInstance().GetString("lang0022");
                 helpButton.gameObject.SetActive(false);
                 break;
             case 2:
-                resultText.text = "Failed    ";
+                resultText.text = FontContains.getInstance().GetString("lang0018");
                 helpButton.gameObject.SetActive(true);
                 break;
         }

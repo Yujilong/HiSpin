@@ -12,6 +12,6 @@ public class I18nFont : MonoBehaviour
     private void Awake()
     {
         this.eText = this.gameObject.GetComponent<Text>();
-        if (this.eTid != null) FontContains.getInstance().GetString(this.eTid, this.args);
+        if (this.eTid != null) this.eText.text = FontContains.getInstance().GetString(this.eTid, this.args);
     }
 }

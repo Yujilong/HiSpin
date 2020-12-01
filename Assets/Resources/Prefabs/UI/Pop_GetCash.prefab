@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 1264094161810955647}
   - component: {fileID: 1264094161810955641}
   - component: {fileID: 1264094161810955640}
+  - component: {fileID: 2687014872945132058}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -235,6 +236,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Congratulation!
+--- !u!114 &2687014872945132058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264094161810955646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0087
+  args: []
 --- !u!1 &1264094161917383173
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +261,7 @@ GameObject:
   - component: {fileID: 1264094161917383174}
   - component: {fileID: 1264094161917383168}
   - component: {fileID: 1264094161917383175}
+  - component: {fileID: 1208082831812777702}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -313,6 +329,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Save in wallet
+--- !u!114 &1208082831812777702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264094161917383173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0088
+  args: []
 --- !u!1 &1264094161959674397
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +568,7 @@ GameObject:
   - component: {fileID: 7861301943675222422}
   - component: {fileID: 371331913578459346}
   - component: {fileID: 6344949251060211428}
+  - component: {fileID: 6993339768978207010}
   m_Layer: 5
   m_Name: cash
   m_TagString: Untagged
@@ -605,3 +636,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: $1.00
+--- !u!114 &6993339768978207010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984168329290592478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0003
+  args:
+  - 1.00

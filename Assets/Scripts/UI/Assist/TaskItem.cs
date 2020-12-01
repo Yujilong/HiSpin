@@ -70,20 +70,20 @@ public class TaskItem : MonoBehaviour
                 {
                     case PlayerTaskTarget.BuyTicketByGoldOnce:
                         adGo.SetActive(false);
-                        button_contentText.text = "BUY";
+                        button_contentText.text = FontContains.getInstance().GetString("lang0066");
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                         getButton.gameObject.SetActive(true);
                         break;
                     case PlayerTaskTarget.BuyTicketByRvOnce:
                         adGo.SetActive(true);
-                        button_contentText.text = "    GET";
+                        button_contentText.text = FontContains.getInstance().GetString("lang0063");
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                         getButton.gameObject.SetActive(true);
                         break;
                     case PlayerTaskTarget.InviteAFriend:
                     case PlayerTaskTarget.WritePaypalEmail:
                         adGo.SetActive(false);
-                        button_contentText.text = "GO TO";
+                        button_contentText.text =FontContains.getInstance().GetString("lang0067");
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                         getButton.gameObject.SetActive(true);
                         break;
@@ -96,7 +96,7 @@ public class TaskItem : MonoBehaviour
                     case PlayerTaskTarget.GetTicketFromSlotsOnce:
                     default:
                         adGo.SetActive(false);
-                        button_contentText.text = "CLAIM";
+                        button_contentText.text = FontContains.getInstance().GetString("lang0068");
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button_grey");
                         getButton.gameObject.SetActive(true);
                         break;
@@ -107,7 +107,7 @@ public class TaskItem : MonoBehaviour
                 if (taskTargetId == PlayerTaskTarget.InviteAFriend)
                 {
                     adGo.SetActive(false);
-                    button_contentText.text = "GO TO";
+                    button_contentText.text = FontContains.getInstance().GetString("lang0067");
                     getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                     getButton.gameObject.SetActive(true);
                     red_pointGo.SetActive(false);
@@ -116,7 +116,7 @@ public class TaskItem : MonoBehaviour
                 {
                     adGo.SetActive(false);
                     getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
-                    button_contentText.text = "CLAIM";
+                    button_contentText.text = FontContains.getInstance().GetString("lang0068"); ;
                     getButton.gameObject.SetActive(true);
                     red_pointGo.SetActive(true);
                 }
@@ -142,7 +142,7 @@ public class TaskItem : MonoBehaviour
                         Server_New.Instance.ConnectToServer_BuyTickets(OnFinishTaskCallback, OnErrorCallback, null, true, false);
                     }
                     else
-                        Master.Instance.ShowTip("Sorry, you have not enough coins");
+                        Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0133"));
                     break;
                 case PlayerTaskTarget.BuyTicketByRvOnce:
                     Ads._instance.ShowRewardVideo(OnAdBuyTicketCallback, 2, "rv买票",null);

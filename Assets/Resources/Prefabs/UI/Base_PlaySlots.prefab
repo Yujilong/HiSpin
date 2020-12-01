@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 9033475728737962994}
   - component: {fileID: 6330490379767573256}
   - component: {fileID: 595324202451801241}
+  - component: {fileID: 5281062375426147950}
   m_Layer: 5
   m_Name: exp
   m_TagString: Untagged
@@ -265,6 +266,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5281062375426147950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503422409137117627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0056
+  args:
+  - 5
 --- !u!1 &2368430639727172090
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +861,7 @@ GameObject:
   - component: {fileID: 5524393385676283738}
   - component: {fileID: 5524393385676283736}
   - component: {fileID: 5524393385676283739}
+  - component: {fileID: 7630043766084101798}
   m_Layer: 5
   m_Name: lefttime
   m_TagString: Untagged
@@ -912,6 +929,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 5/5
+--- !u!114 &7630043766084101798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524393385676283717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &5524393386382157002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1102,7 @@ GameObject:
   - component: {fileID: 1745802296568973134}
   - component: {fileID: 5961261692441057579}
   - component: {fileID: 2146110274408272748}
+  - component: {fileID: 3585282651696836574}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -1138,6 +1170,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 3 x     =     500
+--- !u!114 &3585282651696836574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451871264572849356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args: []
 --- !u!1 &7752095751066293536
 GameObject:
   m_ObjectHideFlags: 0

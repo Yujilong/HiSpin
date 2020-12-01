@@ -63,17 +63,17 @@ public class Me : BaseUI
     protected override void BeforeShowAnimation(params int[] args)
     {
         exp_progress_fillImage.fillAmount= (float)Save.data.allData.user_panel.user_exp / Save.data.allData.user_panel.level_exp;
-        lvText.text="Lv." + Save.data.allData.user_panel.user_level;
-        ticket_multipleText.text = string.Format("Ticket <color=#fff000>x {0}</color> Multiplier", Save.data.allData.user_panel.user_double.GetTicketMultipleString());
+        lvText.text = FontContains.getInstance().GetString("lang0042", Save.data.allData.user_panel.user_level);
+        ticket_multipleText.text = FontContains.getInstance().GetString("lang0044", "x "+Save.data.allData.user_panel.user_double.GetTicketMultipleString());
 
         current_levelText.text = Save.data.allData.user_panel.user_level.ToString();
         next_levelText.text = (Save.data.allData.user_panel.user_level + 1).ToString();
         lv_progress_fillImage.fillAmount = exp_progress_fillImage.fillAmount;
         lv_progress_desText.text = Save.data.allData.user_panel.user_exp + "/" + Save.data.allData.user_panel.level_exp;
-        current_ticket_multipleText.text = "Ticket x" + Save.data.allData.user_panel.user_double.GetTicketMultipleString();
-        next_ticket_multipleText.text = string.Format("<color=#0890DB>{0}</color> multiplier", Save.data.allData.user_panel.next_double.GetTicketMultipleString());
+        current_ticket_multipleText.text = FontContains.getInstance().GetString("lang0046"," x" + Save.data.allData.user_panel.user_double.GetTicketMultipleString());
+        next_ticket_multipleText.text = FontContains.getInstance().GetString("lang0047", Save.data.allData.user_panel.next_double.GetTicketMultipleString());
         level_up_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, Save.data.allData.user_panel.level_type.ToString());
-        level_up_reward_numText.text = string.Format("Extra {0}+{1}", Save.data.allData.user_panel.level_type, Save.data.allData.user_panel.next_level);
+        level_up_reward_numText.text = FontContains.getInstance().GetString("lang0051", Save.data.allData.user_panel.level_type, Save.data.allData.user_panel.next_level);
 
         RefreshName();
         RefreshAvatarList();
@@ -90,7 +90,7 @@ public class Me : BaseUI
         int idCount = avatar_id_list.Count;
         int idlevelCount = avatar_id_level_list.Count;
         if (idCount != idlevelCount)
-            Master.Instance.ShowTip("头像列表和头像等级限制列表不匹配", 2);
+            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0135"), 2);
         else
         {
             for (int i = 0; i < idCount; i++)

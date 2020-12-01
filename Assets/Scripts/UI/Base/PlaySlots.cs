@@ -253,7 +253,7 @@ public class PlaySlots : BaseUI
         cash_numText.text = "3 x     =     " + args[2].ToString();
         int totalExp = args[3];
         exp_once = totalExp / 5;
-        expText.text = "+ Exp " + exp_once;
+        expText.text = FontContains.getInstance().GetString("lang0056", exp_once);
 
         spinTime = 0;
         int enterSlotsTotalTimes = Save.data.allData.user_panel.lucky_count + 1;

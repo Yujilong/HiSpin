@@ -45,7 +45,7 @@ public class GetCash : PopUI
     {
         getCashArea = (GetCashArea)args[0];
         getcashNum = args[1];
-        cash_numText.text = "$" + getcashNum.GetCashShowString();
+        cash_numText.text = FontContains.getInstance().GetString("lang0003", getcashNum.GetCashShowString());
     }
     protected override void AfterShowAnimation(params int[] args)
     {

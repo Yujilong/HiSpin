@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 6174401957855754651}
   - component: {fileID: 2424405965951892747}
   - component: {fileID: 3309544536273797695}
+  - component: {fileID: 6403334318850370327}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -152,6 +153,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: How it works
+--- !u!114 &6403334318850370327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032788867197072634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0023
+  args: []
 --- !u!1 &1138131634980989750
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +178,7 @@ GameObject:
   - component: {fileID: 1355683671262707628}
   - component: {fileID: 1248540863406852299}
   - component: {fileID: 5365027649161570949}
+  - component: {fileID: 8272565110045523179}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -230,6 +246,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: CASH OUT
+--- !u!114 &8272565110045523179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138131634980989750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0026
+  args: []
 --- !u!1 &1417918206950396764
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +474,7 @@ GameObject:
   - component: {fileID: 7745103321545599877}
   - component: {fileID: 1247025706411937399}
   - component: {fileID: 7679736105553730008}
+  - component: {fileID: 7964735180061366795}
   m_Layer: 5
   m_Name: 'BANLANCE:'
   m_TagString: Untagged
@@ -511,6 +542,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'BANLANCE:'
+--- !u!114 &7964735180061366795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053930546479447629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0024
+  args: []
 --- !u!1 &2955545140278944091
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +642,7 @@ GameObject:
   - component: {fileID: 379280653413718543}
   - component: {fileID: 5675179684597687218}
   - component: {fileID: 5685089312539025962}
+  - component: {fileID: 1099195715504120473}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -664,6 +710,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Earn points     '
+--- !u!114 &1099195715504120473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020197141260294714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0053
+  args: []
 --- !u!1 &3332239082604702433
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +930,7 @@ GameObject:
   - component: {fileID: 3799507060037788362}
   - component: {fileID: 8162571971761125641}
   - component: {fileID: 7946497709849967840}
+  - component: {fileID: 4265910981578992738}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -937,6 +998,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SPONSORSHIP
+--- !u!114 &4265910981578992738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373803928669804926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0052
+  args: []
 --- !u!1 &4939980968856304052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1216,7 @@ GameObject:
   - component: {fileID: 7616013440933135166}
   - component: {fileID: 5535147641115958150}
   - component: {fileID: 7296973940301042374}
+  - component: {fileID: 4709165469440178856}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -1208,6 +1284,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Earn points     '
+--- !u!114 &4709165469440178856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5580188703303238515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: 
+  args:
+  - lang0053
 --- !u!1 &5587378067643973408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1459,7 @@ GameObject:
   - component: {fileID: 2029378714121013847}
   - component: {fileID: 7371956819733357292}
   - component: {fileID: 120372223797930294}
+  - component: {fileID: 4002947601957672096}
   m_Layer: 5
   m_Name: content
   m_TagString: Untagged
@@ -1435,6 +1527,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Loading...
+--- !u!114 &4002947601957672096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162855647279486865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0054
+  args: []
 --- !u!1 &7201704316263678528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,6 +1867,7 @@ GameObject:
   - component: {fileID: 5547713937712524144}
   - component: {fileID: 1324384652684629711}
   - component: {fileID: 497204135397087745}
+  - component: {fileID: 39417248855125862}
   m_Layer: 5
   m_Name: pt num
   m_TagString: Untagged
@@ -1828,6 +1935,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1,000,000,000 <size=70>Pt</size>
+--- !u!114 &39417248855125862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066553239088220561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTid: lang0025
+  args:
+  - 1,000,000,000
 --- !u!1 &8371335204946100972
 GameObject:
   m_ObjectHideFlags: 0
