@@ -7,6 +7,7 @@ public class Guide : PopUI
 {
     public Button bgButton;
     public Image guideImage;
+    public Text guideText;
     protected override void Awake()
     {
         base.Awake();
@@ -25,6 +26,8 @@ public class Guide : PopUI
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
         Vector3 screenPos = UI.MenuPanel.GetGudieMaskPosAndSize(guideStep, out Vector2 size);
         guideImage.transform.localPosition = new Vector3(-46, Master.IsBigScreen ? 1920 * Master.ExpandCoe/2f - 428 - Master.TopMoveDownOffset : 527, 0);
+        guideText.transform.localPosition = new Vector3(0, 80, 0);
+        guideText.text = FontContains.getInstance().GetString("lang0147");
         Master.Instance.SetGuideMask(guideStep);
         StartCoroutine("WaitForClick");
     }
@@ -41,6 +44,8 @@ public class Guide : PopUI
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
         Vector3 screenPos = UI.MenuPanel.GetGudieMaskPosAndSize(guideStep, out Vector2 size2);
         guideImage.transform.localPosition = new Vector3(20, -1920 * Master.ExpandCoe/2f + 471, 0);
+        guideText.transform.localPosition = new Vector3(0, 80, 0);
+        guideText.text = FontContains.getInstance().GetString("lang0149");
         Master.Instance.SetGuideMask(guideStep);
         yield return new WaitForSeconds(1);
         canGotoNextGuide = true;
@@ -52,6 +57,8 @@ public class Guide : PopUI
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
         screenPos = UI.MenuPanel.GetGudieMaskPosAndSize(guideStep, out Vector2 size3);
         guideImage.transform.localPosition = new Vector3(30, -1920 * Master.ExpandCoe/2f + 471, 0);
+        guideText.transform.localPosition = new Vector3(0, 190, 0);
+        guideText.text = FontContains.getInstance().GetString("lang0150");
         Master.Instance.SetGuideMask(guideStep);
         yield return new WaitForSeconds(1);
         canGotoNextGuide = true;

@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour, IUIBase
 
     public Button cashButton;
     public Button offerwallButton;
+    public Text offerwallText;
     public Button rankButton;
     public Button slotsButton;
     public Button lotteryButton;
@@ -223,7 +224,7 @@ public class Menu : MonoBehaviour, IUIBase
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;
 #if UNITY_IOS
-        offerwallButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, Save.data.isPackB ? "Offerwall_Off" : "Task_Off");
+        offerwallText.text = FontContains.getInstance().GetString("lang0159");
 #endif
         yield return null;
     }
