@@ -49,76 +49,22 @@ public class FontContains
     private void Init()
     {
         string sysLanguage = Application.systemLanguage.ToString();
-        DataSet dataSet = ReadExcel(Application.dataPath + "/Excel/" + "Font.xlsx");
-        if (dataSet == null)
-        {
-            return;
-        }
-        for (int i = 0; i < dataSet.Tables.Count; ++i)
-        {
-            DataTable tabel = dataSet.Tables[0];
-            if(tabel == null)
-            {
-                continue;
-            }
-            // 根据系统语言初始化 col
-            int col = this.AnalysisColByLanguage(tabel, sysLanguage);
-            this.ReadFont(tabel, col, this.pFonts);
-        }
-    }
-
-
-    private int AnalysisColByLanguage(DataTable tabel,string language)
-    {
-        for (int i = 1; i < tabel.Columns.Count; ++i)
-        {
-            object data = this.ReadDataByRowCol(tabel, 0, i);
-            if (data != null && language == data.ToString())
-            {
-                return i;
-            }
-        }
-        return 1;
-    }
-
-    private void ReadFont(DataTable tabel,int col, Dictionary<string, string> font)
-    {
-        for(int i = 1; i < tabel.Rows.Count; ++i)
-        {
-            object key = this.ReadDataByRowCol(tabel, i,0);
-            object value = this.ReadDataByRowCol(tabel, i, col);
-            if(key!=null && value != null)
-            {
-                font[key.ToString()] = value.ToString();
-            }
-        }       
-    }
-
-
-    private object ReadDataByRowCol(DataTable table, int row , int col)
-    {
-        DataRow dataRow = table.Rows[row];
-        if (dataRow.IsNull(0))
-        {
-            return null;
-        }
-        return dataRow[col];
-
-    }
-
-    private DataSet ReadExcel(string filePath)
-    {
         try
         {
-            FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-            DataSet result = excelReader.AsDataSet();
-            return result;
+            TextAsset text = Resources.Load<TextAsset>("Json/Font");
+            Dictionary<string, Dictionary<string, string>> fonts = LitJson.JsonMapper.ToObject<Dictionary<string, Dictionary<string, string>>>(new LitJson.JsonReader(text.text));
+            if (fonts.ContainsKey(sysLanguage))
+            {
+                this.pFonts = fonts[sysLanguage];
+            }
+            else
+            {
+                this.pFonts = fonts["ChineseSimplified"];
+            }
         }
         catch
         {
-            return null;
+            this.pFonts = new Dictionary<string, string>();
         }
     }
-
 }

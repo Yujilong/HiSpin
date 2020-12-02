@@ -9,3 +9,4 @@ Packages/
 *.sln
 build_info.txt
 Logs/Packages-Update.log
+build/
