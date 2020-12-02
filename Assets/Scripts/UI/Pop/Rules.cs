@@ -43,11 +43,11 @@ public class Rules : PopUI
     protected override void BeforeShowAnimation(params int[] args)
     {
         string GameTitle = FontContains.getInstance().GetString("lang0111");
-        string BettingTitle = FontContains.getInstance().GetString("lang023") + "?";
+        string BettingTitle = FontContains.getInstance().GetString("lang0023") + "?";
         string PlaySlotsTitle =FontContains.getInstance().GetString("lang0113");
         string InviteFriendTitle = FontContains.getInstance().GetString("lang023");
-        string MyInfoTitle = FontContains.getInstance().GetString("lang023");
-        string OfferwallTitle = FontContains.getInstance().GetString("lang023");
+        string MyInfoTitle = FontContains.getInstance().GetString("lang0023");
+        string OfferwallTitle = FontContains.getInstance().GetString("lang0023");
         string BettingContentTop = FontContains.getInstance().GetFormatStr("lang0112");
         string CashoutTitle = FontContains.getInstance().GetString("lang0114");
 

@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0036
+  eTid: 
   args:
   - 123456
 --- !u!1 &1866315796071951803
@@ -2684,7 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0035
+  eTid: 
   args: []
 --- !u!1 &7928999741053492980
 GameObject:

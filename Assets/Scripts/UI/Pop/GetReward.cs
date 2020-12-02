@@ -77,7 +77,7 @@ public class GetReward : PopUI
         string GoldTip = FontContains.getInstance().GetString("lang0092");
         string TicketTip = FontContains.getInstance().GetString("lang0093");
         string levelupTip = FontContains.getInstance().GetFormatStr("lang0094");
-        string levelupTitle = "Congratulations!";
+        string levelupTitle = FontContains.getInstance().GetString("lang0089");
 
         clickAdTime = 0;
         reward_type = (Reward)args[0];

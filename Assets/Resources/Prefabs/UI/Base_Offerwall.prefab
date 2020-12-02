@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0053
+  eTid: 
   args: []
 --- !u!1 &3332239082604702433
 GameObject:
@@ -1297,8 +1297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eTid: 
-  args:
-  - lang0053
+  args: []
 --- !u!1 &5587378067643973408
 GameObject:
   m_ObjectHideFlags: 0
