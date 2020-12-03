@@ -122,7 +122,7 @@ public class CashoutPop : PopUI
                 cashout_fail_helpCg.blocksRaycasts = true;
                 rate_usCg.alpha = 0;
                 rate_usCg.blocksRaycasts = false;
-                titleText.text = FontContains.getInstance().GetString("lang0085");
+                titleText.text = FontContains.getInstance().GetString("lang0018");
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_f");
                 break;
             case AsCashoutArea.Rateus:

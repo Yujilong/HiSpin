@@ -474,9 +474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0012
+  eTid: lang0145
   args:
-  - +1,000,000
+  - 1,000,000
 --- !u!1 &1369613589533625789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,7 +1184,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1,000,000 <size=55>Pt</size>
+  m_Text: 1,000,000 <size=60>Pt</size>
 --- !u!114 &2394557063015521526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0031
+  eTid: lang0020
   args:
   - 1,000,000
 --- !u!1 &2757604379079383521
@@ -3190,7 +3190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1,000,000 <size=55>Pt</size>
+  m_Text: 1,000,000 <size=60>Pt</size>
 --- !u!114 &1550278563695426602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3203,7 +3203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0031
+  eTid: lang0020
   args:
   - '1,000,000 '
 --- !u!1 &8838915761550358001
@@ -3284,7 +3284,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1,000,000,000 <size=70>Pt</size>
+  m_Text: 1,000,000,000 <size=60>Pt</size>
 --- !u!114 &6247186464341701704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3297,7 +3297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0025
+  eTid: lang0020
   args:
   - 1,000,000,000
 --- !u!1 &9144058841015614011

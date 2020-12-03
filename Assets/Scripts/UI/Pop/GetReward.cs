@@ -77,7 +77,7 @@ public class GetReward : PopUI
         string GoldTip = FontContains.getInstance().GetString("lang0092");
         string TicketTip = FontContains.getInstance().GetString("lang0093");
         string levelupTip = FontContains.getInstance().GetFormatStr("lang0094");
-        string levelupTitle = FontContains.getInstance().GetString("lang0089");
+        string levelupTitle = FontContains.getInstance().GetString("lang0087");
 
         clickAdTime = 0;
         reward_type = (Reward)args[0];
@@ -105,7 +105,7 @@ public class GetReward : PopUI
                         double_getText.text = FontContains.getInstance().GetString("lang0091", 3);
                         reward_mutiple = 3;
                         int ticket_multiple = Save.data.allData.user_panel.user_double;
-                        ticket_multipleText.text = FontContains.getInstance().GetString("lang0069", " "+ ticket_multiple.GetTicketMultipleString());
+                        ticket_multipleText.text = "x "+ ticket_multiple.GetTicketMultipleString();
                         break;
                     default:
                         Debug.LogError("奖励类型错误");

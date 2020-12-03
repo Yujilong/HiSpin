@@ -90,6 +90,6 @@ public class Offerwall : BaseUI
     {
         base.BeforeShowAnimation(args);
         cashoutButton.gameObject.SetActive(Save.data.isPackB);
-        pt_numText.text = FontContains.getInstance().GetString("lang0025", ((int)Save.data.allData.fission_info.live_balance).GetTokenShowString()); 
+        pt_numText.text = FontContains.getInstance().GetString("lang0020", ((int)Save.data.allData.fission_info.live_balance).GetTokenShowString()); 
     }
 }

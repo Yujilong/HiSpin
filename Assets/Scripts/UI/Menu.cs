@@ -155,8 +155,8 @@ public class Menu : MonoBehaviour, IUIBase
     public void UpdateHeadIcon()
     {
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + Save.data.allData.user_panel.user_title);
-        ticket_multipleText.text = FontContains.getInstance().GetString("lang0069", Save.data.allData.user_panel.user_double.GetTicketMultipleString());
-        exp_progressImage.fillAmount= (float)Save.data.allData.user_panel.user_exp / Save.data.allData.user_panel.level_exp;
+        ticket_multipleText.text = "x" + Save.data.allData.user_panel.user_double.GetTicketMultipleString();
+        exp_progressImage.fillAmount = (float)Save.data.allData.user_panel.user_exp / Save.data.allData.user_panel.level_exp;
 
         setting_rpGo.SetActive(false);
         foreach (var task in Save.data.allData.lucky_schedule.user_task)

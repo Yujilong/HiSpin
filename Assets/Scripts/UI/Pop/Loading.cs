@@ -26,7 +26,7 @@ public class Loading : MonoBehaviour,IUIBase
     IEnumerator LoadingSlider()
     {
         progressSlider.value = 0;
-        progressText.text = FontContains.getInstance().GetString("lang0098", 0);
+        progressText.text = "0%";
         float progress = 0;
         float speed = 1f;
         float loadingPointInterval = 1f;
@@ -60,13 +60,13 @@ public class Loading : MonoBehaviour,IUIBase
                         if (string.IsNullOrEmpty(Save.data.uuid))
                             uuidText.text = "";
                         else
-                            uuidText.text = FontContains.getInstance().GetString("lang0100") + Save.data.uuid;
+                            uuidText.text = "UUID: " + Save.data.uuid;
                     }, null, null, false);
                     hasRequestData = true;
                 }
             }
             progressSlider.value = progress;
-            progressText.text = FontContains.getInstance().GetString("lang0098",(int)(progress * 100));
+            progressText.text = (int)(progress * 100) + "%";
         }
         StopCoroutine("WaitFor");
         UI.ClosePopPanel(this);

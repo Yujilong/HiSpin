@@ -45,7 +45,7 @@ public class Rules : PopUI
         string GameTitle = FontContains.getInstance().GetString("lang0111");
         string BettingTitle = FontContains.getInstance().GetString("lang0023") + "?";
         string PlaySlotsTitle =FontContains.getInstance().GetString("lang0113");
-        string InviteFriendTitle = FontContains.getInstance().GetString("lang023");
+        string InviteFriendTitle = FontContains.getInstance().GetString("lang0023");
         string MyInfoTitle = FontContains.getInstance().GetString("lang0023");
         string OfferwallTitle = FontContains.getInstance().GetString("lang0023");
         string BettingContentTop = FontContains.getInstance().GetFormatStr("lang0112");

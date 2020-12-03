@@ -88,7 +88,7 @@ public class Server : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
 
-        titleText.text = FontContains.getInstance().GetString("ERROR");
+        titleText.text = FontContains.getInstance().GetString("lang0143");
         tipText.text = FontContains.getInstance().GetString("lang0144");
         state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "loading");
         retryButton.gameObject.SetActive(false);

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using Excel;
 using UnityEngine;
-
 
 public class FontContains 
 {
     protected Dictionary<string, string> pFonts = new Dictionary<string, string>();
-    private static FontContains _instance = null; 
+    private static FontContains _instance = null;
+   
     public static FontContains getInstance()
     {
         if(FontContains._instance == null)
@@ -48,7 +45,7 @@ public class FontContains
 
     private void Init()
     {
-        string sysLanguage = Application.systemLanguage.ToString();
+        string sysLanguage =this.GetLanguageShortName(Application.systemLanguage);
         try
         {
             TextAsset text = Resources.Load<TextAsset>("Json/Font");
@@ -59,12 +56,26 @@ public class FontContains
             }
             else
             {
-                this.pFonts = fonts["ChineseSimplified"];
+                this.pFonts = fonts["ru"];
             }
         }
         catch
         {
             this.pFonts = new Dictionary<string, string>();
         }
+    }
+    private string GetLanguageShortName(SystemLanguage language)
+    {
+        switch (language)
+        {
+            case SystemLanguage.English:
+                return "en";
+            case SystemLanguage.Chinese:
+            case SystemLanguage.ChineseSimplified:
+                return "cn";
+            case SystemLanguage.Russian:
+                return "ru";
+        }
+        return "en";
     }
 }

@@ -57,7 +57,7 @@ public class Slots : BaseUI
     }
     public void UpdateTimedownText(string time)
     {
-        time_downText.text = FontContains.getInstance().GetString("lang0062", time); 
+        time_downText.text =  time; 
     }
     public void OnChangePackB()
     {

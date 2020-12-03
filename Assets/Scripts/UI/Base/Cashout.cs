@@ -102,7 +102,7 @@ public class Cashout : BaseUI
             emailText.text = Save.data.allData.user_panel.user_paypal;
         else
             emailText.text = FontContains.getInstance().GetString("lang0017");
-        pt_numText.text = FontContains.getInstance().GetString("lang0012", (int)Save.data.allData.fission_info.live_balance);
+        pt_numText.text = FontContains.getInstance().GetString("lang0020", (int)Save.data.allData.fission_info.live_balance);
         pt_cashout_numText.text = FontContains.getInstance().GetString("lang0013", ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString()); 
         cash_numText.text = FontContains.getInstance().GetString("lang0003", " " + Save.data.allData.user_panel.user_doller_live.GetCashShowString()); 
         gold_numText.text = Save.data.allData.user_panel.user_gold_live.GetTokenShowString();

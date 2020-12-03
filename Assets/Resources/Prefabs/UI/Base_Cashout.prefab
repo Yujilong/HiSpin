@@ -1597,7 +1597,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5,000,000<size=40>  PT</size>
+  m_Text: 5,000,000<size=40>  Pt</size>
 --- !u!114 &9175413382241508611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0012
+  eTid: lang0020
   args:
   - 5,000,000
 --- !u!1 &1106573826899424094
@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32391043aa736cf4982a470fc155e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eTid: lang0011
+  eTid: lang0017
   args: []
 --- !u!1 &1106573827035101683
 GameObject:

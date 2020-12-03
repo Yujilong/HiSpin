@@ -107,12 +107,12 @@ public class Friends : BaseUI
     }
     public void RefreshFriendList()
     {
-        pt_numText.text = FontContains.getInstance().GetString("lang0025", " "+((int)Save.data.allData.fission_info.live_balance).GetTokenShowString()); 
+        pt_numText.text = FontContains.getInstance().GetString("lang0020", " "+((int)Save.data.allData.fission_info.live_balance).GetTokenShowString()); 
         int invite_people_num = Save.data.allData.fission_info.user_invite_people;
         int invite_people_receive = Save.data.allData.fission_info.reward_conf.invite_receive;
-        myfriends_numText.text = FontContains.getInstance().GetString("lang0027", invite_people_num.GetTokenShowString());
-        yesterday_pt_numText.text = FontContains.getInstance().GetString("lang0031", ((int)Save.data.allData.fission_info.up_user_info.yestday_team_all).GetTokenShowString());
-        total_pt_numText.text = FontContains.getInstance().GetString("lang0031", ((int)Save.data.allData.fission_info.user_total).GetTokenShowString());
+        myfriends_numText.text = FontContains.getInstance().GetString("lang0027") + invite_people_num.GetTokenShowString();
+        yesterday_pt_numText.text = FontContains.getInstance().GetString("lang0020", ((int)Save.data.allData.fission_info.up_user_info.yestday_team_all).GetTokenShowString());
+        total_pt_numText.text = FontContains.getInstance().GetString("lang0020", ((int)Save.data.allData.fission_info.user_total).GetTokenShowString());
 
         foreach (var friend in all_invite_friend_items)
             friend.gameObject.SetActive(false);
@@ -169,14 +169,14 @@ public class Friends : BaseUI
         int receiveTime = invite_people_receive + 1;
         if (receiveTime <= Save.data.allData.fission_info.reward_conf.invite_flag)
         {
-            invite_reward_numText.text = FontContains.getInstance().GetString("lang0029",
-                Save.data.allData.fission_info.reward_conf.lt_flag_type == Reward.Cash ? FontContains.getInstance().GetString("lang0003", Save.data.allData.fission_info.reward_conf.lt_flag_num.GetCashShowString())  : Save.data.allData.fission_info.reward_conf.lt_flag_num.GetTokenShowString());
+            invite_reward_numText.text = FontContains.getInstance().GetString("lang0029") +
+                (Save.data.allData.fission_info.reward_conf.lt_flag_type == Reward.Cash  ? FontContains.getInstance().GetString("lang0003", Save.data.allData.fission_info.reward_conf.lt_flag_num.GetCashShowString())  : Save.data.allData.fission_info.reward_conf.lt_flag_num.GetTokenShowString());
             invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.lt_flag_type.ToString().ToLower());
         }
         else
         {
-            invite_reward_numText.text = FontContains.getInstance().GetString("lang0029",
-                Save.data.allData.fission_info.reward_conf.gt_flag_type == Reward.Cash ? FontContains.getInstance().GetString("lang0003",Save.data.allData.fission_info.reward_conf.gt_flag_num.GetCashShowString()) : Save.data.allData.fission_info.reward_conf.gt_flag_num.GetTokenShowString());
+            invite_reward_numText.text = FontContains.getInstance().GetString("lang0029") +
+                (Save.data.allData.fission_info.reward_conf.gt_flag_type == Reward.Cash ? FontContains.getInstance().GetString("lang0003",Save.data.allData.fission_info.reward_conf.gt_flag_num.GetCashShowString()) : Save.data.allData.fission_info.reward_conf.gt_flag_num.GetTokenShowString());
             invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.gt_flag_type.ToString().ToLower());
         }
 

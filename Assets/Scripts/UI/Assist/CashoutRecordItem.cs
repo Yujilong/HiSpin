@@ -21,7 +21,7 @@ public class CashoutRecordItem : MonoBehaviour
         if (comsumeType == CashoutType.Cash)
             consume_numText.text = consumeNum.GetCashShowString();
         else if (comsumeType == CashoutType.PT)
-            consume_numText.text = consumeNum.GetTokenShowString() + " " + FontContains.getInstance().GetString("lang0020");
+            consume_numText.text = consumeNum.GetTokenShowString() + " " + FontContains.getInstance().GetString("lang0020", 0);     
         else
             consume_numText.text = consumeNum.GetTokenShowString();
         consume_timeText.text = consumeTime;

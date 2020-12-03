@@ -73,7 +73,20 @@ public class Me : BaseUI
         current_ticket_multipleText.text = FontContains.getInstance().GetString("lang0046"," x" + Save.data.allData.user_panel.user_double.GetTicketMultipleString());
         next_ticket_multipleText.text = FontContains.getInstance().GetString("lang0047", Save.data.allData.user_panel.next_double.GetTicketMultipleString());
         level_up_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, Save.data.allData.user_panel.level_type.ToString());
-        level_up_reward_numText.text = FontContains.getInstance().GetString("lang0051", Save.data.allData.user_panel.level_type, Save.data.allData.user_panel.next_level);
+        string text = "";
+        switch (Save.data.allData.user_panel.level_type)
+        {
+            case Reward.Cash:
+                text = FontContains.getInstance().GetString("lang0164");
+                break;
+            case Reward.Gold:
+                text = FontContains.getInstance().GetString("lang0163");
+                break;
+            case Reward.Ticket:
+                text = FontContains.getInstance().GetString("lang0165");
+                break;
+        }
+        level_up_reward_numText.text = text + "+" + Save.data.allData.user_panel.next_level;
 
         RefreshName();
         RefreshAvatarList();
@@ -90,7 +103,7 @@ public class Me : BaseUI
         int idCount = avatar_id_list.Count;
         int idlevelCount = avatar_id_level_list.Count;
         if (idCount != idlevelCount)
-            Master.Instance.ShowTip(FontContains.getInstance().GetString("lang0135"), 2);
+            Debug.LogError("头像列表和头像等级限制列表不匹配");
         else
         {
             for (int i = 0; i < idCount; i++)
