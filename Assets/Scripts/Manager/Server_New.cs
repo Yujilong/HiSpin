@@ -44,15 +44,16 @@ public class Server_New : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
 
         titleText.text = FontContains.getInstance().GetString("lang0143");
-        tipText.text = FontContains.getInstance().GetString("lang0144");
+        tipText.text = FontContains.getInstance().GetString("lang0167");    
+        
         state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "loading");
         retryButton.gameObject.SetActive(false);
-        while (isConnecting)
+        while (isConnecting)  
         {
             yield return null;
             state_iconImage.transform.Rotate(new Vector3(0, 0, -Time.deltaTime * 300));
         }
-    }
+    } 
 
 #if UNITY_IOS && !UNITY_EDITOR
     [DllImport("__Internal")]

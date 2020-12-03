@@ -57,7 +57,7 @@ public class Slots : BaseUI
     }
     public void UpdateTimedownText(string time)
     {
-        time_downText.text =  time; 
+        time_downText.text = string.Format("<size=60>{0}</size>",time); 
     }
     public void OnChangePackB()
     {
