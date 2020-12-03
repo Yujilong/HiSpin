@@ -30,7 +30,6 @@ public class Save
             data = JsonMapper.ToObject<PlayerLocalData>(dataString);
         if (data.lastClickFriendTime == null)
             data.lastClickFriendTime = System.DateTime.Now.AddDays(-1);
-        data.isPackB = true;
     }
     public static void SaveLocalData()
     {
