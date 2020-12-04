@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour, IUIBase
     public Button slotsButton;
     public Button lotteryButton;
     public Button firendButton;
+    public Button taskButton;
     public Button settingButton;
     public Button add_ticketButton;
     public Button backButton;
@@ -46,6 +47,7 @@ public class Menu : MonoBehaviour, IUIBase
         slotsButton.AddClickEvent(OnSlotsButtonClick);
         lotteryButton.AddClickEvent(OnLotteryButtonClick);
         firendButton.AddClickEvent(OnFriendButtonClick);
+        taskButton.AddClickEvent(OnTaskButtonClick);
         settingButton.AddClickEvent(OnSettingButtonClick);
         add_ticketButton.AddClickEvent(OnAddTicketButtonClick);
         backButton.AddClickEvent(OnBackButtonClick);
@@ -58,6 +60,9 @@ public class Menu : MonoBehaviour, IUIBase
             RectTransform topRect = all_topGo.transform as RectTransform;
             topRect.sizeDelta = new Vector2(topRect.sizeDelta.x, topRect.sizeDelta.y + 100);
         }
+#if UNITY_IOS
+        play_slots_helpButton.gameObject.SetActive(Save.data.isPackB);
+#endif
     }
     private void Start()
     {
@@ -75,13 +80,6 @@ public class Menu : MonoBehaviour, IUIBase
     }
     private void OnOfferwallButtonClick()
     {
-#if UNITY_IOS
-        if (!Save.data.isPackB)
-        {
-            UI.ShowBasePanel(BasePanel.Task);
-            return;
-        }
-#endif
         if (Save.data.allData.user_panel.user_level >= 4)
             UI.ShowBasePanel(BasePanel.Offerwall);
         else
@@ -108,6 +106,10 @@ public class Menu : MonoBehaviour, IUIBase
             friend_rpGo.SetActive(false);
         }
         Save.data.lastClickFriendTime = DateTime.Now;
+    }
+    private void OnTaskButtonClick()
+    {
+        UI.ShowBasePanel(BasePanel.Task);
     }
     private void OnSettingButtonClick()
     {
@@ -219,20 +221,35 @@ public class Menu : MonoBehaviour, IUIBase
         UpdateHeadIcon();
         UpdateFreeSlotsLeftNumText();
         UpdateFriendWetherClickToday();
+
+#if UNITY_IOS
+        bool isPackB = Save.data.isPackB;
+        offerwallButton.gameObject.SetActive(isPackB);
+        lotteryButton.gameObject.SetActive(isPackB);
+        firendButton.gameObject.SetActive(isPackB);
+        taskButton.gameObject.SetActive(!isPackB);
+#endif
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;
-#if UNITY_IOS
-        offerwallButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, Save.data.isPackB ? "Offerwall_Off" : "Task_Off");
-#endif
         yield return null;
     }
     public void RefreshTokenText()
     {
         UpdateGoldText();
         UpdateTicketText();
+#if UNITY_IOS
+        if(Save.data.isPackB)
+#endif
         if (!Save.data.allData.user_panel.new_reward)
             UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.NewPlayerReward, Save.data.allData.user_panel.new_data_num);
+#if UNITY_IOS
+        if (!Save.data.isPackB)
+        {
+            UpdateCashText();
+            return;
+        }
+#endif
         bool hasSelf = false;
         List<AllData_BettingWinnerData_Winner> bettingDatas = Save.data.allData.award_ranking.ranking;
         if (!Save.data.allData.day_flag && bettingDatas != null)
@@ -273,12 +290,6 @@ public class Menu : MonoBehaviour, IUIBase
         UpdateCashText();
         UpdateTicketText();
         UpdateHeadIcon();
-#if UNITY_IOS
-        if (currentBottomButton == offerwallButton)
-            offerwallButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, Save.data.isPackB ? "Offerwall_On" : "Task_On");
-        else
-            offerwallButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, Save.data.isPackB ? "Offerwall_Off" : "Task_Off");
-#endif
     }
 #endregion
     public void OnBasePanelShow(int panelIndex)
@@ -322,10 +333,6 @@ public class Menu : MonoBehaviour, IUIBase
                 play_slots_helpButton.gameObject.SetActive(false);
                 backButton.gameObject.SetActive(true);
                 settingButton.gameObject.SetActive(false);
-#if UNITY_IOS
-                if (!Save.data.isPackB)
-                    OnChangeBottomButton(offerwallButton);
-#endif
                 break;
             case BasePanel.PlaySlots:
                 all_topGo.SetActive(true);
@@ -454,28 +461,6 @@ public class Menu : MonoBehaviour, IUIBase
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             UI.CloseCurrentBasePanel(true);
-        }
-    }
-    [Space(15)]
-    public RectTransform guide_1Rect;
-    public RectTransform guide_2Rect;
-    public RectTransform guide_3Rect;
-    public Vector3 GetGudieMaskPosAndSize(int guideStep, out Vector2 size)
-    {
-        switch (guideStep)
-        {
-            case 1:
-                size = guide_1Rect.sizeDelta;
-                return guide_1Rect.position;
-            case 2:
-                size = guide_2Rect.sizeDelta;
-                return guide_2Rect.position;
-            case 3:
-                size = guide_3Rect.sizeDelta;
-                return guide_3Rect.position;
-            default:
-                size = Vector2.zero;
-                return Vector3.zero;
         }
     }
 }

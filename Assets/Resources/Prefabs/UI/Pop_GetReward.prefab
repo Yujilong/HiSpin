@@ -303,6 +303,7 @@ MonoBehaviour:
   ticket_multipleGo: {fileID: 3220532274896776779}
   double_getButton: {fileID: 7754015288754621746}
   nothanksButton: {fileID: 7754015290487060579}
+  adiconGo: {fileID: 7754015289753375583}
 --- !u!1 &7754015288754621708
 GameObject:
   m_ObjectHideFlags: 0

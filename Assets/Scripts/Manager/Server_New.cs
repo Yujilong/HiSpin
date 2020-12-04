@@ -141,6 +141,7 @@ public class Server_New : MonoBehaviour
             {
                 OnConnectServerFail();
                 _NetworkErrorCallback?.Invoke();
+                yield break;
             }
             else
             {
@@ -168,6 +169,7 @@ public class Server_New : MonoBehaviour
                     {
                         OnConnectServerFail();
                         _NetworkErrorCallback?.Invoke();
+                        yield break;
                     }
                     else
                     {

@@ -23,7 +23,6 @@ public class Guide : PopUI
         guideStep = 1;
         canGotoNextGuide = false;
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
-        Vector3 screenPos = UI.MenuPanel.GetGudieMaskPosAndSize(guideStep, out Vector2 size);
         guideImage.transform.localPosition = new Vector3(-46, Master.IsBigScreen ? 1920 * Master.ExpandCoe/2f - 428 - Master.TopMoveDownOffset : 527, 0);
         Master.Instance.SetGuideMask(guideStep);
         StartCoroutine("WaitForClick");
@@ -39,7 +38,6 @@ public class Guide : PopUI
         }
         canGotoNextGuide = false;
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
-        Vector3 screenPos = UI.MenuPanel.GetGudieMaskPosAndSize(guideStep, out Vector2 size2);
         guideImage.transform.localPosition = new Vector3(20, -1920 * Master.ExpandCoe/2f + 471, 0);
         Master.Instance.SetGuideMask(guideStep);
         yield return new WaitForSeconds(1);
@@ -50,7 +48,6 @@ public class Guide : PopUI
         }
         canGotoNextGuide = false;
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
-        screenPos = UI.MenuPanel.GetGudieMaskPosAndSize(guideStep, out Vector2 size3);
         guideImage.transform.localPosition = new Vector3(30, -1920 * Master.ExpandCoe/2f + 471, 0);
         Master.Instance.SetGuideMask(guideStep);
         yield return new WaitForSeconds(1);

@@ -60,6 +60,8 @@ public class Tasks : BaseUI
         for (int i = 0; i < allTaskCount; i++)
         {
             AllData_Task taskData = taskList[i];
+            if (!CheckIOSTaskIsShow(taskData.taskTargetId))
+                continue;
             switch (taskData.task_type)
             {
                 //gettickets
@@ -107,6 +109,32 @@ public class Tasks : BaseUI
         all_achievement_root.SetActive(hasAchievementTask);
         achievement_task_title.SetActive(hasAchievementTask);
         StartCoroutine("DelayRefreshLayout");
+    }
+    private bool CheckIOSTaskIsShow(PlayerTaskTarget taskTarget)
+    {
+#if UNITY_IOS
+        if (Save.data.isPackB)
+            return true;
+        switch (taskTarget)
+        {
+            case PlayerTaskTarget.BuyTicketByRvOnce:
+            case PlayerTaskTarget.WinnerOnce:
+            case PlayerTaskTarget.InviteAFriend:
+            case PlayerTaskTarget.WritePaypalEmail:
+            case PlayerTaskTarget.CashoutOnce:
+            case PlayerTaskTarget.WatchRvOnce:
+            case PlayerTaskTarget.PlayBettingOnce:
+                return false;
+            case PlayerTaskTarget.EnterSlotsOnce:
+            case PlayerTaskTarget.OwnSomeGold:
+            case PlayerTaskTarget.GetTicketFromSlotsOnce:
+            case PlayerTaskTarget.BuyTicketByGoldOnce:
+            default:
+                return true;
+        }
+#else
+        return true;
+#endif
     }
     private IEnumerator DelayRefreshLayout()
     {

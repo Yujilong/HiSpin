@@ -14,6 +14,7 @@ public class GetReward : PopUI
     public GameObject ticket_multipleGo;
     public Button double_getButton;
     public Button nothanksButton;
+    public GameObject adiconGo;
     protected override void Awake()
     {
         base.Awake();
@@ -117,6 +118,13 @@ public class GetReward : PopUI
                 reward_mutiple = 3;
                 break;
         }
+#if UNITY_IOS
+        if (!Save.data.isPackB)
+        {
+            double_getText.text = "GET";
+            adiconGo.SetActive(false);
+        }
+#endif
     }
     protected override void AfterShowAnimation(params int[] args)
     {
@@ -128,6 +136,9 @@ public class GetReward : PopUI
             reward_num = correntNum;
         }
         Master.Instance.ShowEffect(reward_type);
+#if UNITY_IOS
+        if(Save.data.isPackB)
+#endif
         StartCoroutine("DelayShowNothanks");
     }
     IEnumerator NumRaiseAnimation(int startNum, int endNum,int multiple)
