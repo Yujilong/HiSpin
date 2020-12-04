@@ -141,6 +141,7 @@ public class Server_New : MonoBehaviour
             {
                 OnConnectServerFail();
                 _NetworkErrorCallback?.Invoke();
+                yield break;
             }
             else
             {
@@ -168,6 +169,7 @@ public class Server_New : MonoBehaviour
                     {
                         OnConnectServerFail();
                         _NetworkErrorCallback?.Invoke();
+                        yield break;
                     }
                     else
                     {
@@ -248,6 +250,7 @@ public class Server_New : MonoBehaviour
         {
             OnConnectServerFail();
             _NetworkErrorCallback?.Invoke();
+            yield break;
         }
         else
         {
@@ -626,6 +629,7 @@ public class AllData_MainData
     public int new_data_num;//新手奖励数量
     public int lucky_count;//进入老虎机总次数
     public int lucky_total_cash;//老虎机获得的总共现金，不大于200
+    public int blue_cash;
 }
 public class AllData_SlotsState
 {

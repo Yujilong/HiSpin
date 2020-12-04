@@ -17,7 +17,13 @@ public class Cashout : BaseUI
     public Button pt_cashout_midButton;
     public Button pt_cashout_rightButton;
     [Space(15)]
+    public Text paypalCash_numText;
+    public Button paypalCashout_leftButton;
+    public Button paypalCashout_midButton;
+    public Button paypalCashout_rightButton;
+    [Space(15)]
     public Text cash_numText;
+    public Text cash_to_dollerText;
     public Button cashout_leftButton;
     public Button cashout_midButton;
     public Button cashout_rightButton;
@@ -44,16 +50,22 @@ public class Cashout : BaseUI
         pt_cashout_leftButton.GetComponentInChildren<Text>().text = "$ " + 5;
         pt_cashout_midButton.GetComponentInChildren<Text>().text = "$ " + 10;
         pt_cashout_rightButton.GetComponentInChildren<Text>().text = "$ " + 50;
-        cashout_leftButton.GetComponentInChildren<Text>().text = "$ " + Cashout_Nums[0];
-        cashout_midButton.GetComponentInChildren<Text>().text = "$ " + Cashout_Nums[1];
-        cashout_rightButton.GetComponentInChildren<Text>().text = "$ " + Cashout_Nums[2];
+        cashout_leftButton.GetComponentInChildren<Text>().text = "$ 200" ;
+        cashout_midButton.GetComponentInChildren<Text>().text = "$ 300" ;
+        cashout_rightButton.GetComponentInChildren<Text>().text = "$ 500" ;
+        paypalCashout_leftButton.GetComponentInChildren<Text>().text = "$ 10" ;
+        paypalCashout_midButton.GetComponentInChildren<Text>().text = "$ 50" ;
+        paypalCashout_rightButton.GetComponentInChildren<Text>().text = "$ 100" ;
 
         pt_cashout_leftButton.AddClickEvent(() => { OnPtCashoutButtonClick(5);});
         pt_cashout_midButton.AddClickEvent(() => { OnPtCashoutButtonClick(10); });
         pt_cashout_rightButton.AddClickEvent(() => { OnPtCashoutButtonClick(50); });
-        cashout_leftButton.AddClickEvent(() => { OnCashoutButtonClick(Cashout_Nums[0]); });
-        cashout_midButton.AddClickEvent(() => { OnCashoutButtonClick(Cashout_Nums[1]); });
-        cashout_rightButton.AddClickEvent(() => { OnCashoutButtonClick(Cashout_Nums[2]); });
+        cashout_leftButton.AddClickEvent(() => { OnCashoutButtonClick(200); });
+        cashout_midButton.AddClickEvent(() => { OnCashoutButtonClick(300); });
+        cashout_rightButton.AddClickEvent(() => { OnCashoutButtonClick(500); });
+        paypalCashout_leftButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(10); });
+        paypalCashout_midButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(50); });
+        paypalCashout_rightButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(100); });
 
         gold_redeemButton.AddClickEvent(OnGoldCashoutButtonClick);
     }
@@ -74,8 +86,15 @@ public class Cashout : BaseUI
     }
     private void OnCashoutButtonClick(int cashoutNum)
     {
-        if (Save.data.allData.user_panel.user_doller_live >= cashoutNum * 100)
-            UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.Cash, cashoutNum * 100);
+        if (Save.data.allData.user_panel.user_doller_live >= cashoutNum * CashToDollerRadio * 100)
+            UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.Cash, cashoutNum * CashToDollerRadio * 100);
+        else
+            Master.Instance.ShowTip("Sorry, your balance is not enough.");
+    }
+    private void OnPaypalCashoutButtonClick(int cashoutNum)
+    {
+        if (Save.data.allData.user_panel.user_doller_live >= cashoutNum)
+            UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.Blue_Cash, cashoutNum);
         else
             Master.Instance.ShowTip("Sorry, your balance is not enough.");
     }
@@ -95,6 +114,7 @@ public class Cashout : BaseUI
     const int CashoutNeedGold = 5000000;
     public const int GoldMaxNum = 4600000;
     const int PtCashoutRate = 1000;
+    public const int CashToDollerRadio = 25;
     protected override void BeforeShowAnimation(params int[] args)
     {
         bool hasEmail = !string.IsNullOrEmpty(Save.data.allData.user_panel.user_paypal);
@@ -104,7 +124,9 @@ public class Cashout : BaseUI
             emailText.text = "Please bind paypal account";
         pt_numText.text = (int)Save.data.allData.fission_info.live_balance + "<size=40>  PT</size>";
         pt_cashout_numText.text = "≈$" + ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString();
-        cash_numText.text = "$ " + Save.data.allData.user_panel.user_doller_live.GetCashShowString();
+        cash_numText.text = Save.data.allData.user_panel.user_doller_live.GetTokenShowString();
+        cash_to_dollerText.text = "≈$" + (Save.data.allData.user_panel.user_doller_live / CashToDollerRadio).GetCashShowString();
+        paypalCash_numText.text = "$" + Save.data.allData.user_panel.blue_cash.GetTokenShowString();
         gold_numText.text = Save.data.allData.user_panel.user_gold_live.GetTokenShowString();
     }
     bool isPause = false;
@@ -123,5 +145,6 @@ public enum CashoutType
 {
     PT,
     Cash,
-    Gold
+    Gold,
+    Blue_Cash,
 }

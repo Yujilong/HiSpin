@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class GetCash : PopUI
 {
-    public Button SaveInButton;
+    public Button tribleButton;
+    public Button nothanksButton;
     public Text cash_numText;
+    public Text add_cashpt_numText;
+    public Text trible_button_contentText;
+    public GameObject ad_iconGo;
     protected override void Awake()
     {
         base.Awake();
-        SaveInButton.AddClickEvent(OnSaveButtonClick);
+        tribleButton.AddClickEvent(OnSaveButtonClick);
     }
     private void OnSaveButtonClick()
     {
@@ -29,12 +33,12 @@ public class GetCash : PopUI
     private void OnGetSlotsRewardCallback()
     {
         Save.data.allData.user_panel.lucky_total_cash += getcashNum;
-        UI.FlyReward(Reward.Cash, getcashNum, SaveInButton.transform.position);
+        UI.FlyReward(Reward.Cash, getcashNum, tribleButton.transform.position);
         UI.ClosePopPanel(this);
     }
     private void OnGetNewplayerRewardCallback()
     {
-        UI.FlyReward(Reward.Cash, getcashNum, SaveInButton.transform.position);
+        UI.FlyReward(Reward.Cash, getcashNum, tribleButton.transform.position);
         UI.ClosePopPanel(this);
         if (Save.data.isPackB)
             UI.ShowPopPanel(PopPanel.Guide);
@@ -45,6 +49,24 @@ public class GetCash : PopUI
     {
         getCashArea = (GetCashArea)args[0];
         getcashNum = args[1];
+
+        switch (getCashArea)
+        {
+            case GetCashArea.NewPlayerReward:
+                ad_iconGo.SetActive(false);
+                trible_button_contentText.text = "Save in wallet";
+                cash_numText.text = "$" + getcashNum.GetCashShowString();
+                add_cashpt_numText.transform.parent.gameObject.SetActive(false);
+                break;
+            case GetCashArea.PlaySlots:
+                ad_iconGo.SetActive(true);
+                trible_button_contentText.text = "     Get x3";
+                cash_numText.text = "$" + (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
+                add_cashpt_numText.transform.parent.gameObject.SetActive(true);
+                add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
+                break;
+        }
+
         cash_numText.text = "$" + getcashNum.GetCashShowString();
     }
     protected override void AfterShowAnimation(params int[] args)
