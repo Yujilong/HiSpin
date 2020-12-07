@@ -25,7 +25,7 @@ public class PlaySlots : BaseUI
 
     static readonly SlotsRandomData[] emptyData = new SlotsRandomData[2]
     {
-        new SlotsRandomData(){type=Reward.Null,weight=90,mustGetRange=null,numRnage=null,blackbox=null},
+        new SlotsRandomData(){type=Reward.Null,weight=80,mustGetRange=null,numRnage=null,blackbox=null},
         new SlotsRandomData(){type=Reward.Null,weight=0,  mustGetRange=null,numRnage=null,blackbox=null}
     };
     static readonly SlotsRandomData[] goldData = new SlotsRandomData[2]
@@ -35,13 +35,33 @@ public class PlaySlots : BaseUI
     };
     static readonly SlotsRandomData[] ticketData = new SlotsRandomData[2]
     {
-        new SlotsRandomData(){type=Reward.Ticket,weight=20,mustGetRange=new Range(0,1),numRnage=new Range(10,10),blackbox=new List<int>(){1,2,4,5 } },
-        new SlotsRandomData(){type=Reward.Ticket,weight=10,mustGetRange=new Range(1,2),numRnage=new Range(10,10)}
+        new SlotsRandomData(){type=Reward.Ticket,weight=20,mustGetRange=new Range(0,1),numRnage=new Range(15,25),blackbox=null},
+        new SlotsRandomData(){type=Reward.Ticket,weight=20,mustGetRange=new Range(1,2),numRnage=new Range(15,25),blackbox=null}
     };
     static readonly SlotsRandomData[] cashData = new SlotsRandomData[2]
     {
-        new SlotsRandomData(){type=Reward.Cash,weight=5,mustGetRange=new Range(0,1),numRnage=new Range(10,20),blackbox=new List<int>(){1,3,6,10 } },
-        new SlotsRandomData(){type=Reward.Cash,weight=0,mustGetRange=null,numRnage=null}
+        new SlotsRandomData(){type=Reward.Cash,weight=90,mustGetRange=new Range(0,1),numRnage=null,blackbox=null },
+        new SlotsRandomData(){type=Reward.Cash,weight=90,mustGetRange=new Range(1,2),numRnage=null,blackbox=null}
+    };
+    struct CashNumRange
+    {
+        public int Max;
+        public Range NumRange;
+    }
+    static readonly CashNumRange[] slotsCashNumData = new CashNumRange[]
+    {
+        new CashNumRange(){Max=49500,NumRange=new Range(280,380)},
+        new CashNumRange(){Max=91875,NumRange=new Range(230,335)},
+        new CashNumRange(){Max=127125,NumRange=new Range(180,290)},
+        new CashNumRange(){Max=155250,NumRange=new Range(130,245)},
+        new CashNumRange(){Max=177750,NumRange=new Range(100,200)},
+        new CashNumRange(){Max=194625,NumRange=new Range(70,155)},
+        new CashNumRange(){Max=205875,NumRange=new Range(40,110)},
+        new CashNumRange(){Max=212250,NumRange=new Range(20,65)},
+        new CashNumRange(){Max=216375,NumRange=new Range(10,45)},
+        new CashNumRange(){Max=219000,NumRange=new Range(10,25)},
+        new CashNumRange(){Max=221250,NumRange=new Range(10,20)},
+        new CashNumRange(){Max=223500,NumRange=new Range(10,20)}
     };
 
     protected override void Awake()
@@ -297,6 +317,8 @@ public class PlaySlots : BaseUI
             cashMustGetTime = 0;
         if (Save.data.allData.user_panel.user_gold_live >= Cashout.GoldMaxNum)
             goldMustGetTime = 0;
+        if (Save.data.allData.user_panel.lucky_total_cash >= slotsCashNumData[slotsCashNumData.Length - 1].Max)
+            cashMustGetTime = 0;
 #if UNITY_IOS
         if (!Save.data.isPackB)
             cashMustGetTime = 0;
@@ -317,8 +339,8 @@ public class PlaySlots : BaseUI
     {
         SlotsRandomData empty = emptyData[isAd];
         SlotsRandomData gold = goldData[isAd];
-        SlotsRandomData ticket = ticketData[ticketMustGetTime <= -1 ? isAd : 0];
-        SlotsRandomData cash = cashData[cashMustGetTime <= -1 ? isAd : 0];
+        SlotsRandomData ticket = ticketData[isAd];
+        SlotsRandomData cash = cashData[isAd];
 
         Reward RewardTicket(out int num)
         {
@@ -345,7 +367,19 @@ public class PlaySlots : BaseUI
         }
         Reward RewardCash(out int num)
         {
-            num = cash.numRnage.RandomIncludeMax();
+            int gettotalcashFromSlots = Save.data.allData.user_panel.lucky_total_cash;
+            int length = slotsCashNumData.Length;
+            num = 0;
+            for(int i = 0; i < length; i++)
+            {
+                if (gettotalcashFromSlots < slotsCashNumData[i].Max)
+                {
+                    num = slotsCashNumData[i].NumRange.RandomIncludeMax();
+                    break;
+                }
+            }
+            if (num == 0)
+                return Reward.Null;
             cashMustGetTime--;
             spinTime++;
             left_timeText.text = (MaxSpinTime - spinTime) + "/" + MaxSpinTime;

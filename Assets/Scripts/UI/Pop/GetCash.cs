@@ -14,9 +14,22 @@ public class GetCash : PopUI
     protected override void Awake()
     {
         base.Awake();
-        tribleButton.AddClickEvent(OnSaveButtonClick);
+        tribleButton.AddClickEvent(OnGetClick);
+        nothanksButton.AddClickEvent(OnNothanksClick);
     }
-    private void OnSaveButtonClick()
+    private void OnNothanksClick()
+    {
+        switch (getCashArea)
+        {
+            case GetCashArea.PlaySlots:
+                Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetOneSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum);
+                break;
+            default:
+                Master.Instance.ShowTip("Error : Cash Area is not correct.");
+                break;
+        }
+    }
+    private void OnGetClick()
     {
         switch (getCashArea)
         {
@@ -26,11 +39,17 @@ public class GetCash : PopUI
                 break;
             case GetCashArea.PlaySlots:
                 //Server.Instance.OperationData_GetSlotsReward(OnGetSlotsRewardCallback, null, Reward.Cash, getcashNum);
-                Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum);
+                Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3);
                 break;
         }
     }
-    private void OnGetSlotsRewardCallback()
+    private void OnGetTribleSlotsRewardCallback()
+    {
+        Save.data.allData.user_panel.lucky_total_cash += getcashNum * 3;
+        UI.FlyReward(Reward.Cash, getcashNum, tribleButton.transform.position);
+        UI.ClosePopPanel(this);
+    }
+    private void OnGetOneSlotsRewardCallback()
     {
         Save.data.allData.user_panel.lucky_total_cash += getcashNum;
         UI.FlyReward(Reward.Cash, getcashNum, tribleButton.transform.position);
@@ -68,10 +87,25 @@ public class GetCash : PopUI
         }
 
         cash_numText.text = "$" + getcashNum.GetCashShowString();
+
+        nothanksButton.gameObject.SetActive(false);
     }
     protected override void AfterShowAnimation(params int[] args)
     {
         Master.Instance.ShowEffect(Reward.Cash);
+        if (getCashArea == GetCashArea.PlaySlots)
+        {
+            StartCoroutine("DelayShowNothanks");
+        }
+    }
+    protected override void BeforeCloseAnimation()
+    {
+        StopCoroutine("DelayShowNothanks");
+    }
+    private IEnumerator DelayShowNothanks()
+    {
+        yield return new WaitForSeconds(1);
+        nothanksButton.gameObject.SetActive(true);
     }
 }
 public enum GetCashArea
