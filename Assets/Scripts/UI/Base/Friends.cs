@@ -45,6 +45,9 @@ public class Friends : BaseUI
             viewport.sizeDelta += new Vector2(0, 1920 * (Master.ExpandCoe - 1) - Master.TopMoveDownOffset);
         }
         cashoutButton.gameObject.SetActive(Save.data.isPackB);
+#if UNITY_IOS
+        helpButton.gameObject.SetActive(Save.data.isPackB);
+#endif
     }
     #region ios share
     public void Init()

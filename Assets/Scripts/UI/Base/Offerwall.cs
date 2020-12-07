@@ -30,6 +30,9 @@ public class Offerwall : BaseUI
     {
         base.Awake();
         helpButton.AddClickEvent(OnHelpButtonClick);
+#if UNITY_IOS
+        helpButton.gameObject.SetActive(Save.data.isPackB);
+#endif
         cashoutButton.AddClickEvent(OnCashoutButtonClick);
         adgemButton.AddClickEvent(OnAdgemButtonClick);
         isButton.AddClickEvent(OnISButtonClick);

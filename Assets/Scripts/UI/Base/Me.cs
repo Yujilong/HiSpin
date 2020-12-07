@@ -40,6 +40,9 @@ public class Me : BaseUI
         }
 
         all_avatar_items.Add(sigle_avatar_item);
+#if UNITY_IOS
+        helpButton.gameObject.SetActive(Save.data.isPackB);
+#endif
     }
     private void OnInputNameValueChanged(string value)
     {

@@ -28,6 +28,9 @@ public class Betting : BaseUI
             allRect.sizeDelta += new Vector2(0, 1920 * (Master.ExpandCoe - 1) - Master.TopMoveDownOffset);
             allRect.GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.one;
         }
+#if UNITY_IOS
+        helpButton.gameObject.SetActive(Save.data.isPackB);
+#endif
     }
     private void OnHelpClick()
     {

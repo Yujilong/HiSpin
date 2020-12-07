@@ -297,6 +297,10 @@ public class PlaySlots : BaseUI
             cashMustGetTime = 0;
         if (Save.data.allData.user_panel.user_gold_live >= Cashout.GoldMaxNum)
             goldMustGetTime = 0;
+#if UNITY_IOS
+        if (!Save.data.isPackB)
+            cashMustGetTime = 0;
+#endif
         left_rewardImage.material.SetTextureOffset(MaterialOffsetProperty, new Vector2(0, type_offset_dic[Reward.Cash][0]));
         right_rewardImage.material.SetTextureOffset(MaterialOffsetProperty, new Vector2(0, type_offset_dic[Reward.Cash][0]));
         mid_rewardImage.material.SetTextureOffset(MaterialOffsetProperty, new Vector2(0, type_offset_dic[Reward.Cash][0]));
