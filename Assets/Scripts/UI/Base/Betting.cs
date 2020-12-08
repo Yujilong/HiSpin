@@ -9,10 +9,9 @@ public class Betting : BaseUI
     public ContentSizeFitter all_root;
     public Button helpButton;
     public Button get_ticketsButton;
-    public Text sum_prizesText;
     public Text time_downText;
-    public Text ticket_numText;
-    public Text tipText;
+    //public Text ticket_numText;
+    //public Text tipText;
     public BettingWinnerItem single_winner_item;
     private List<BettingWinnerItem> all_winner_items = new List<BettingWinnerItem>();
     protected override void Awake()
@@ -42,12 +41,6 @@ public class Betting : BaseUI
     }
     protected override void BeforeShowAnimation(params int[] args)
     {
-        if (Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag)
-            tipText.text = "More tickets, more\nchance to win! ";
-        else
-            tipText.text = string.Format("You must have <color=#F4D10F>{0}</color> tickets\nto participate in the Lucky Draw.", Save.data.allData.award_ranking.ticktes_flag);
-
-        ticket_numText.text = Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag ? string.Format("You have <color=#FF8A01>{0}</color> tickets", Save.data.allData.user_panel.user_tickets) : "not enough tickets";
         RefreshBettingWinner();
         UpdateTimeDownText(Master.time);
     }
@@ -83,5 +76,30 @@ public class Betting : BaseUI
         all_root.enabled = false;
         yield return new WaitForEndOfFrame();
         all_root.enabled = true;
+    }
+    [Space(15)]
+    public Text titleText;
+    public Text helpText;
+    public Text prize_poolText;
+    public Text ticket_numText;
+    public Text tipText;
+    public Text get_ticketsText;
+    public Text last_day_winnerText;
+    public override void SetContent()
+    {
+        titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_Title);
+        helpText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
+        prize_poolText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_PrizePool);
+
+        ticket_numText.text = Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag ?
+            string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_TicketNumEnough), Save.data.allData.user_panel.user_tickets) : Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_TicketNumNotEnough);
+
+        if (Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag)
+            tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_Tip1);
+        else
+            tipText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_Tip2), Save.data.allData.award_ranking.ticktes_flag);
+
+        get_ticketsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetTickets);
+        last_day_winnerText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_WinnerTitle);
     }
 }

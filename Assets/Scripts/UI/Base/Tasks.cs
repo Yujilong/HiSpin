@@ -142,4 +142,14 @@ public class Tasks : BaseUI
         yield return new WaitForEndOfFrame();
         all_root.enabled = true;
     }
+    [Space(15)]
+    public Text get_ticketsText;
+    public Text tasksText;
+    public Text achievementsText;
+    public override void SetContent()
+    {
+        get_ticketsText.text = "    " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetTickets);
+        tasksText.text = "    " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Tasks);
+        achievementsText.text = "    " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Achievements);
+    }
 }

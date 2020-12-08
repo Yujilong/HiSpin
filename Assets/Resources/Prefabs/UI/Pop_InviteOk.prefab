@@ -143,10 +143,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reward_iconImage: {fileID: 6890480431624882223}
   reward_numText: {fileID: 6890480429662578992}
-  double_buttonText: {fileID: 6890480430233880379}
   double_rewardButton: {fileID: 6890480430591747641}
   single_rewardButton: {fileID: 6890480430652561866}
   adGo: {fileID: 6890480431013308123}
+  tipText: {fileID: 6890480431531226068}
+  double_buttonText: {fileID: 6890480430233880379}
+  nothanksText: {fileID: 6890480430652561865}
 --- !u!1 &6890480430233880377
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2.7}
-  m_SizeDelta: {x: 231.22052, y: 94.096924}
+  m_SizeDelta: {x: 507.4356, y: 94.096924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6890480430233880378
 CanvasRenderer:
@@ -215,9 +217,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: d3d624ce138797e4caf9c1563fbd203d, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 7
-    m_MaxSize: 80
+    m_MaxSize: 75
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -894,7 +896,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 17.8}
-  m_SizeDelta: {x: 718.87134, y: 92.015625}
+  m_SizeDelta: {x: 998.4143, y: 92.015625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6890480431531226071
 CanvasRenderer:
@@ -927,7 +929,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: d3d624ce138797e4caf9c1563fbd203d, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 70
     m_Alignment: 4

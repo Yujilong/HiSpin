@@ -120,4 +120,12 @@ public class Rank : BaseUI
         InitCoinRanks();
         InitTicketRanks();
     }
+    [Space(15)]
+    public Text coinsText;
+    public Text ticketsText;
+    public override void SetContent()
+    {
+        coinsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rank_Coins);
+        ticketsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rank_Tickets);
+    }
 }

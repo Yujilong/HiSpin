@@ -25,6 +25,7 @@ public class AdjustEventLogger : MonoBehaviour
     public const string TOKEN_packB = "t9pcu1";
     public const string TOKEN_invite_button = "11h7xk";
     public const string TOKEN_invite_page = "yplpw8";
+    public const string TOKEN_ticket_over1000 = "seoxpb";
 #elif UNITY_ANDROID
     public const string APP_TOKEN = "nwle7bsx7itc";
     public const string TOKEN_open = "3grjd1";
@@ -37,6 +38,7 @@ public class AdjustEventLogger : MonoBehaviour
     public const string TOKEN_packB = "qskxn0";
     public const string TOKEN_invite_button = "idxf85";
     public const string TOKEN_invite_page = "7ixqy9";
+    public const string TOKEN_ticket_over1000 = "6ogglc";
 #endif
     public static AdjustEventLogger Instance;
     private void Awake()

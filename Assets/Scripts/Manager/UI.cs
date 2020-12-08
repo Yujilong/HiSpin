@@ -80,6 +80,7 @@ public sealed class UI
         GameObject menuPrefab = Resources.Load<GameObject>(menuPanelPath);
         MenuObj = GameObject.Instantiate(menuPrefab, MenuRoot);
         MenuPanel = MenuObj.GetComponent<Menu>();
+        MenuPanel.SetContent();
         TaskEngine.StartCoroutine(MenuPanel.Show());
     }
     static Coroutine _baseAnimationCor = null;
@@ -174,6 +175,7 @@ public sealed class UI
                 }
                 CurrentBasePanel = tempUI;
                 MenuPanel.OnBasePanelShow(panelIndex);
+                CurrentBasePanel.SetContent();
                 yield return CurrentBasePanel.Show(args);
             }
             else
@@ -201,6 +203,7 @@ public sealed class UI
                     }
                     CurrentBasePanel = tempUI;
                     MenuPanel.OnBasePanelShow(panelIndex);
+                    CurrentBasePanel.SetContent();
                     yield return CurrentBasePanel.Show(args);
                 }
                 else
@@ -231,6 +234,7 @@ public sealed class UI
                         }
                         CurrentBasePanel = tempUI;
                         MenuPanel.OnBasePanelShow(panelIndex);
+                        CurrentBasePanel.SetContent();
                         yield return CurrentBasePanel.Show(args);
                     }
                     else
@@ -284,6 +288,7 @@ public sealed class UI
                 CurrentPopPanel = tempUI;
                 CurrentBasePanel.Pause();
                 MenuPanel.Pause();
+                CurrentPopPanel.SetContent();
                 yield return CurrentPopPanel.Show(args);
             }
             else
@@ -303,6 +308,7 @@ public sealed class UI
                     CurrentPopPanel = tempUI;
                     CurrentBasePanel.Pause();
                     MenuPanel.Pause();
+                    CurrentPopPanel.SetContent();
                     yield return CurrentPopPanel.Show(args);
                 }
                 else
@@ -327,6 +333,7 @@ public sealed class UI
                             CurrentBasePanel.Pause();
                         if (MenuPanel is object)
                             MenuPanel.Pause();
+                        CurrentPopPanel.SetContent();
                         yield return CurrentPopPanel.Show(args);
                     }
                     else

@@ -83,4 +83,7 @@ public class PopUI : MonoBehaviour,IUIBase
     {
     }
 
+    public virtual void SetContent()
+    {
+    }
 }

@@ -43,8 +43,8 @@ public class Server_New : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
 
-        titleText.text = connectingTilte;
-        tipText.text = connectingString;
+        titleText.text = "";
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Server_Connecting);
         state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "loading");
         retryButton.gameObject.SetActive(false);
         while (isConnecting)
@@ -183,9 +183,11 @@ public class Server_New : MonoBehaviour
                 iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
                 iparams.Add(new MultipartFormDataSection("country", localCountry));
                 iparams.Add(new MultipartFormDataSection("ad_ios", Platform));
+                iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                 break;
             case Server_RequestType.TaskData:
                 iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
+                iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                 break;
             case Server_RequestType.ClickSlotsCard:
                 iparams.Add(new MultipartFormDataSection("lucky_id", _Args[0]));
@@ -193,10 +195,12 @@ public class Server_New : MonoBehaviour
             case Server_RequestType.GetSlotsReward:
                 iparams.Add(new MultipartFormDataSection("reward_type",_Args[0]));//获得奖励类型
                 iparams.Add(new MultipartFormDataSection("reward_num", _Args[1]));//获得奖励数量
+                iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                 break;
             case Server_RequestType.FinishTask:
                 iparams.Add(new MultipartFormDataSection("task_id", _Args[0]));
                 iparams.Add(new MultipartFormDataSection("double", _Args[1]));//是否双倍
+                iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                 break;
             case Server_RequestType.BuyTickets:
                 iparams.Add(new MultipartFormDataSection("reward_type", _Args[0]));//是否是看广告购买
@@ -211,6 +215,7 @@ public class Server_New : MonoBehaviour
                 iparams.Add(new MultipartFormDataSection("withdrawal_type", _Args[0]));//提现消耗类型
                 iparams.Add(new MultipartFormDataSection("withdrawal", _Args[1]));//提现消耗数量
                 iparams.Add(new MultipartFormDataSection("doller", _Args[2]));//提现现金数量
+                iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                 break;
             case Server_RequestType.GetLocalCountry:
                 Master.Instance.ShowTip("Error code : can not use this connecting.");
@@ -230,6 +235,7 @@ public class Server_New : MonoBehaviour
                 break;
             case Server_RequestType.GetNewPlayerReward:
                 iparams.Add(new MultipartFormDataSection("double", _Args[0]));//奖励倍数，默认1
+                iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                 break;
             case Server_RequestType.GetUUID:
                 Master.Instance.ShowTip("Error code : can not use this connecting.");
@@ -296,6 +302,13 @@ public class Server_New : MonoBehaviour
                         }
                         else
                             Save.data.allData.user_panel.user_tickets = receiveSlotsRewardData.user_tickets;
+                        if (Save.data.allData.user_panel.user_tickets >= 1000)
+                        {
+                            if (!Save.data.hasSendToThoundsEvent)
+                                Master.Instance.SendAdjustTicketOver1000Event();
+                        }
+                        else
+                            Save.data.hasSendToThoundsEvent = false;
                         break;
                     case Server_RequestType.FinishTask:
                         PlayerFinishTaskReceiveData receiveFinishTaskData = JsonMapper.ToObject<PlayerFinishTaskReceiveData>(downText);
@@ -315,6 +328,13 @@ public class Server_New : MonoBehaviour
                                     break;
                                 case Reward.Ticket:
                                     Save.data.allData.user_panel.user_tickets = receiveFinishTaskData.user_tickets;
+                                    if (Save.data.allData.user_panel.user_tickets >= 1000)
+                                    {
+                                        if (!Save.data.hasSendToThoundsEvent)
+                                            Master.Instance.SendAdjustTicketOver1000Event();
+                                    }
+                                    else
+                                        Save.data.hasSendToThoundsEvent = false;
                                     break;
                                 default:
                                     Debug.LogError("错误的任务完成变动类型");
@@ -333,6 +353,13 @@ public class Server_New : MonoBehaviour
                             Save.data.allData.user_panel.user_gold_live = receiveBuyTicketsData.user_gold_live;
                             Save.data.allData.user_panel.user_tickets = receiveBuyTicketsData.user_tickets;
                         }
+                        if (Save.data.allData.user_panel.user_tickets >= 1000)
+                        {
+                            if (!Save.data.hasSendToThoundsEvent)
+                                Master.Instance.SendAdjustTicketOver1000Event();
+                        }
+                        else
+                            Save.data.hasSendToThoundsEvent = false;
                         break;
                     case Server_RequestType.WatchRvEvent:
                         break;
@@ -377,6 +404,13 @@ public class Server_New : MonoBehaviour
                         Save.data.allData.user_panel.user_exp = receiveLevelupData.user_exp;
                         Save.data.allData.user_panel.title_list = receiveLevelupData.title_list;
                         Save.data.allData.user_panel.next_level = receiveLevelupData.next_level;
+                        if (Save.data.allData.user_panel.user_tickets >= 1000)
+                        {
+                            if (!Save.data.hasSendToThoundsEvent)
+                                Master.Instance.SendAdjustTicketOver1000Event();
+                        }
+                        else
+                            Save.data.hasSendToThoundsEvent = false;
                         break;
                     case Server_RequestType.GetNewPlayerReward:
                         GetNewPlayerRewardReceiveData receiveNewPlayerData = JsonMapper.ToObject<GetNewPlayerRewardReceiveData>(downText);
@@ -477,16 +511,16 @@ public class Server_New : MonoBehaviour
         switch (errorCode)
         {
             case "-2":
-                errorString = "Coin reaches the limit. Come back tomorrow.";
+                errorString = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ServerError2);
                 break;
             case "-3":
-                errorString = "The reward has been claimed.";
+                errorString = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ServerError3);
                 break;
             case "-6":
-                errorString = "Abnormal behavior, try again later.";
+                errorString = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ServerError6);
                 break;
             case "-7":
-                errorString = "Found historical records, data is being updated.";
+                errorString = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ServerError7);
                 break;
             default:
                 errorString = "Error code :" + errorCode;
@@ -495,18 +529,15 @@ public class Server_New : MonoBehaviour
         Master.Instance.ShowTip(errorString, 3);
     }
     #region connecting state
-    const string errorTitle = "ERROR";
-    const string connectingTilte = "";
-    const string errorString = "Network connection is\n unavailable, please check network \n settings.";
-    const string connectingString = "Connecting...";
     public void OnConnectServerFail()
     {
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
-        titleText.text = errorTitle;
-        tipText.text = errorString;
+        titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Server_Error);
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Server_ErrorTip);
         state_iconImage.transform.rotation = Quaternion.identity;
         state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "nonet");
+        retryButton.GetComponentInChildren<Text>().text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Server_RETRY);
         retryButton.gameObject.SetActive(true);
         StopCoroutine("WaitConnecting");
     }
@@ -699,6 +730,7 @@ public class AllData_FriendData_Friend
     public string user_name;
     public int user_level;
     public string user_time;
+    public int sum_coin;//累计收益
 }
 public class AllData_TaskData
 {

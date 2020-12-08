@@ -11,7 +11,7 @@ public class Master : MonoBehaviour
     public static float ExpandCoe = 1;
     public const float TopMoveDownOffset = 100;
     public const string PackageName = "com.HiSpin.DailyCash.HugeRewards.FreeGame";
-    public const int Version = 8;
+    public const int Version = 9;
     public const string AppleId = "1540900402";
     public static bool isLoadingEnd = false;
     public static Master Instance;
@@ -28,6 +28,8 @@ public class Master : MonoBehaviour
     public Save Save;
     [HideInInspector]
     public Audio Audio;
+    [HideInInspector]
+    public Language_M Language_M;
     private void Awake()
     {
         Instance = this;
@@ -38,6 +40,7 @@ public class Master : MonoBehaviour
         UI = new UI(this, BaseRoot, MenuRoot, PopRoot);
         Save = new Save();
         Audio = new Audio(AudioRoot);
+        Language_M = new Language_M();
         float coe = (float)Screen.height / Screen.width;
         float originCoe = 16f / 9;
         ExpandCoe = coe > originCoe ? coe / originCoe : originCoe / coe;
@@ -342,12 +345,20 @@ public class Master : MonoBehaviour
     }
     public void SendAdjustEnterInvitePageEvent()
     {
+        Save.data.hasSendToThoundsEvent = true;
 #if UNITY_EDITOR
         return;
 #endif
         AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_invite_page,
             ("player_id", Save.data.allData.user_panel.user_id)
             );
+    }
+    public void SendAdjustTicketOver1000Event()
+    {
+#if UNITY_EDITOR
+        return;
+#endif
+        AdjustEventLogger.Instance.AdjustEventNoParam(AdjustEventLogger.TOKEN_ticket_over1000);
     }
     public ParticleSystem left_particle;
     public ParticleSystem right_particle;

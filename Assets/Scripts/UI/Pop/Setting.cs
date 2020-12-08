@@ -12,7 +12,6 @@ public class Setting : MonoBehaviour, IUIBase
     public Image head_iconImage;
     public Image lv_progressImage;
     public GameObject head_redpointGo;
-    public Text ticket_multipleText;
     public Text lvText;
     public Text nameText;
     [Space(15)]
@@ -24,7 +23,7 @@ public class Setting : MonoBehaviour, IUIBase
     public Button soundButton;
     public Button musicButton;
     public Button emailButton;
-
+    public Dropdown languageSelect;
     public new AnimationCurve animation;
     public GameObject task_rpGo;
     CanvasGroup canvasGroup;
@@ -50,6 +49,7 @@ public class Setting : MonoBehaviour, IUIBase
         musicButton.AddClickEvent(OnMusicClick);
         emailButton.AddClickEvent(OnEmailClick);
         withdrawButton.gameObject.SetActive(Save.data.isPackB);
+        languageSelect.onValueChanged.AddListener((index) => { Language_M.ChangeLanguageCountry(index); SetContent();UI.MenuPanel.SetContent(); });
     }
     public void OnTaskFinishChange(bool hasFinish)
     {
@@ -135,7 +135,6 @@ public class Setting : MonoBehaviour, IUIBase
         musicButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "music_" + (Save.data.music_on ? "on" : "off"));
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + Save.data.allData.user_panel.user_title);
         nameText.text = Save.data.allData.user_panel.user_name;
-        ticket_multipleText.text = string.Format("Ticker <color=#fff000>x {0}</color>\nMultiplier ", Save.data.allData.user_panel.user_double.GetTicketMultipleString());
         lvText.text = "Lv." + Save.data.allData.user_panel.user_level;
         lv_progressImage.fillAmount = (float)Save.data.allData.user_panel.user_exp / Save.data.allData.user_panel.level_exp;
         head_redpointGo.SetActive(false);//检测是否有新头像
@@ -206,6 +205,21 @@ public class Setting : MonoBehaviour, IUIBase
     public void OnChangePackB()
     {
         withdrawButton.gameObject.SetActive(true);
+    }
+    [Space(15)]
+    public Text ticket_multipleText;
+    public Text withdrawText;
+    public Text taskrewardsText;
+    public Text itemofuseText;
+    public Text cantactusText;
+    public void SetContent()
+    {
+        ticket_multipleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Reward_Ticket) + " <color=#fff000>x {0}</color>\n " 
+            + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Multiplier), Save.data.allData.user_panel.user_double.GetTicketMultipleString());
+        withdrawText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Withdraw);
+        taskrewardsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.TaskRewards);
+        itemofuseText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ItemOfUse);
+        cantactusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ContactUs);
     }
 
     #endregion

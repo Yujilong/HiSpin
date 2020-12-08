@@ -8,13 +8,11 @@ public class StartBetting : PopUI
     public GameObject allFlyticketGo;
     public Text yesterday_ticket_numText;
     public RectTransform lightRect;
-    public Text tipText;
     public RectTransform all_card_rootRect;
     public List<RectTransform> all_fly_cards;
     public CardItem single_card_item;
     public RectTransform fly_targetRect;
     public Button getButton;
-    public Text get_button_contentText;
     protected override void Awake()
     {
         base.Awake();
@@ -126,8 +124,8 @@ public class StartBetting : PopUI
                 }
             }
         }
-        tipText.text = "More tickets you have, more chance to win!";
-        get_button_contentText.text = "TRY YOUR LUCK";
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OpenPrize_Tip1);
+        get_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OpenPrize_Button1);
         List<AllData_BettingWinnerData_Winner> bettingWinners = Save.data.allData.award_ranking.ranking;
         string selfId = Save.data.allData.user_panel.user_id;
         AllData_BettingWinnerData_Winner willShow = bettingWinners[0];
@@ -136,8 +134,8 @@ public class StartBetting : PopUI
             if (winner.user_id.Equals(selfId))
             {
                 willShow = winner;
-                tipText.text = "Congratulations on winning the prize!!";
-                get_button_contentText.text = "TAKE YOUR MONEY!";
+                tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OpenPrize_Tip2);
+                get_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OpenPrize_Button2);
                 TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WinnerOnce, 1);
                 break;
             }
@@ -168,5 +166,15 @@ public class StartBetting : PopUI
     protected override void AfterShowAnimation(params int[] args)
     {
         StartCoroutine(AutoSpinCards());
+    }
+    [Space(15)]
+    public Text titleText;
+    public Text tipText;
+    public Text get_button_contentText;
+    public override void SetContent()
+    {
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OpenPrize_Title);
+
+
     }
 }

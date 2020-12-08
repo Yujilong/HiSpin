@@ -15,7 +15,7 @@ public class CardItem : MonoBehaviour
     {
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_icon_index);
         idText.text = id;
-        numText.text = "$" + cashNum.GetCashShowString();
+        numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + cashNum.GetCashShowString();
         StartCoroutine(AutoOn());
         StartCoroutine(AutoDealyOrder());
     }

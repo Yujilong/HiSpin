@@ -7,7 +7,6 @@ public class InviteOk : PopUI
 {
     public Image reward_iconImage;
     public Text reward_numText;
-    public Text double_buttonText;
     public Button double_rewardButton;
     public Button single_rewardButton;
     public GameObject adGo;
@@ -60,7 +59,6 @@ public class InviteOk : PopUI
         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, invite_ok_reward_type.ToString().ToLower());
         single_rewardButton.gameObject.SetActive(false);
         adGo.SetActive(false);
-        double_buttonText.text = "Claim";
         if (invite_ok_reward_type == Reward.Cash)
         {
             reward_numText.text = "x " + invite_ok_reward_num.GetCashShowString();
@@ -69,5 +67,15 @@ public class InviteOk : PopUI
         {
             reward_numText.text = "x " + invite_ok_reward_num.GetTokenShowString();
         }
+    }
+    [Space(15)]
+    public Text tipText;
+    public Text double_buttonText;
+    public Text nothanksText;
+    public override void SetContent()
+    {
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InviteOk_Tip);
+        double_buttonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CLAIM);
+        nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CLAIM);
     }
 }

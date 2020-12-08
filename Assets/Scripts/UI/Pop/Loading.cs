@@ -10,12 +10,11 @@ public class Loading : MonoBehaviour,IUIBase
     public Text uuidText;
     public Slider progressSlider;
     public Text progressText;
-    public Text loadingText;
     CanvasGroup canvasGroup;
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        loadingText.text = "loading";
+        loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
         StartCoroutine(LoadingSlider());
         contact_usButton.AddClickEvent(Setting.SendEmail);
         if (Master.IsBigScreen)
@@ -44,7 +43,7 @@ public class Loading : MonoBehaviour,IUIBase
                 intervalTimer = 0;
                 loadingText.text += ".";
                 if (loadingText.text.Length > 10)
-                    loadingText.text = "loading";
+                    loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
             }
             progress += deltatime * speed;
             progress = Mathf.Clamp(progress, 0, 1);
@@ -121,6 +120,12 @@ public class Loading : MonoBehaviour,IUIBase
         canvasGroup.blocksRaycasts = false;
         Destroy(gameObject);
         yield return null;
+    }
+    public Text loadingText;
+    public Text contactusText;
+    public void SetContent()
+    {
+        contactusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ContactUs);
     }
 }
 

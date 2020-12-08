@@ -7,9 +7,7 @@ public class GetCash : PopUI
 {
     public Button tribleButton;
     public Button nothanksButton;
-    public Text cash_numText;
     public Text add_cashpt_numText;
-    public Text trible_button_contentText;
     public GameObject ad_iconGo;
     protected override void Awake()
     {
@@ -73,20 +71,20 @@ public class GetCash : PopUI
         {
             case GetCashArea.NewPlayerReward:
                 ad_iconGo.SetActive(false);
-                trible_button_contentText.text = "Save in wallet";
-                cash_numText.text = "$" + getcashNum.GetCashShowString();
+                trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
+                trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
+                cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + getcashNum.GetCashShowString();
                 add_cashpt_numText.transform.parent.gameObject.SetActive(false);
                 break;
             case GetCashArea.PlaySlots:
                 ad_iconGo.SetActive(true);
-                trible_button_contentText.text = "     Get x3";
-                cash_numText.text = "$" + (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
+                trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x3";
+                trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
+                cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
                 add_cashpt_numText.transform.parent.gameObject.SetActive(true);
                 add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
                 break;
         }
-
-        cash_numText.text = "$" + getcashNum.GetCashShowString();
 
         nothanksButton.gameObject.SetActive(false);
     }
@@ -106,6 +104,18 @@ public class GetCash : PopUI
     {
         yield return new WaitForSeconds(1);
         nothanksButton.gameObject.SetActive(true);
+    }
+    [Space(15)]
+    public Text titleText;
+    public Text cash_numText;
+    public Text trible_button_contentText;
+    public Text nothanksText;
+    public override void SetContent()
+    {
+        titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Congratulation);
+
+
+        nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
     }
 }
 public enum GetCashArea

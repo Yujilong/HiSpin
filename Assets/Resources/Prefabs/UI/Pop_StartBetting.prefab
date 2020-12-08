@@ -295,7 +295,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 11, y: 420}
-  m_SizeDelta: {x: 1031.7251, y: 131.91699}
+  m_SizeDelta: {x: 1058, y: 131.91699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2431416864339872190
 CanvasRenderer:
@@ -328,9 +328,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: d3d624ce138797e4caf9c1563fbd203d, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 110
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -404,7 +404,6 @@ MonoBehaviour:
   allFlyticketGo: {fileID: 7517830876985570522}
   yesterday_ticket_numText: {fileID: 4516353831351602033}
   lightRect: {fileID: 3114091290023928458}
-  tipText: {fileID: 2431416864339872191}
   all_card_rootRect: {fileID: 3385598241450879262}
   all_fly_cards:
   - {fileID: 3449228242467719970}
@@ -416,6 +415,8 @@ MonoBehaviour:
   single_card_item: {fileID: 3849897500713065414}
   fly_targetRect: {fileID: 8416180644449384725}
   getButton: {fileID: 780284992784896575}
+  titleText: {fileID: 0}
+  tipText: {fileID: 2431416864339872191}
   get_button_contentText: {fileID: 4244306167064389640}
 --- !u!1 &2431416865387089413
 GameObject:
@@ -452,7 +453,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000024319, y: 587}
-  m_SizeDelta: {x: 785.5398, y: 131.91699}
+  m_SizeDelta: {x: 1080, y: 131.91699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2431416865387089410
 CanvasRenderer:
@@ -485,9 +486,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 273b5038ccad1a646895fe261cfaf8b7, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 110
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1451,7 +1452,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 12.4}
-  m_SizeDelta: {x: 559.2035, y: 106.44446}
+  m_SizeDelta: {x: 699.0001, y: 135.25464}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3062114324952993953
 CanvasRenderer:
@@ -1484,7 +1485,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: d3d624ce138797e4caf9c1563fbd203d, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 8
     m_MaxSize: 80
     m_Alignment: 4

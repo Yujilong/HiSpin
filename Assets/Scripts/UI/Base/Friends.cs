@@ -9,9 +9,7 @@ public class Friends : BaseUI
     [Space(15)]
     public Button backButton;
     public Button helpButton;
-    public Text pt_numText;
     public Button cashoutButton;
-    public Text myfriends_numText;
     [Space(15)]
     public Button myfriendsButton;
     public Image friend_headImage1;
@@ -19,11 +17,8 @@ public class Friends : BaseUI
     public Image friend_headImage3;
     [Space(15)]
     public Button inviteButton;
-    public Text invite_reward_numText;
     public Image invite_reward_iconImage;
     [Space(15)]
-    public Text yesterday_pt_numText;
-    public Text total_pt_numText;
     public GameObject lastdayGo;
     public GameObject nofriend_tipGo;
     public FriendInviteRecordItem single_invite_record_item;
@@ -110,12 +105,13 @@ public class Friends : BaseUI
     }
     public void RefreshFriendList()
     {
-        pt_numText.text = ((int)Save.data.allData.fission_info.live_balance).GetTokenShowString() + " <size=70>Pt</size>";
+        string ptStr = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT);
+        pt_numText.text = ((int)Save.data.allData.fission_info.live_balance).GetTokenShowString() + " <size=70>" + ptStr + "</size>";
         int invite_people_num = Save.data.allData.fission_info.user_invite_people;
         int invite_people_receive = Save.data.allData.fission_info.reward_conf.invite_receive;
-        myfriends_numText.text = string.Format("My friends: <color=#0596E4>{0}</color>", invite_people_num.GetTokenShowString());
-        yesterday_pt_numText.text = ((int)Save.data.allData.fission_info.up_user_info.yestday_team_all).GetTokenShowString() + " <size=55>Pt</size>";
-        total_pt_numText.text = ((int)Save.data.allData.fission_info.user_total).GetTokenShowString() +" <size=55>Pt</size>";
+        myfriends_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_Myfriends) + " <color=#0596E4>{0}</color>", invite_people_num.GetTokenShowString());
+        yesterday_pt_numText.text = ((int)Save.data.allData.fission_info.up_user_info.yestday_team_all).GetTokenShowString() + " <size=55>"+ ptStr + "</size>";
+        total_pt_numText.text = ((int)Save.data.allData.fission_info.user_total).GetTokenShowString() + " <size=55>" + ptStr + "</size>";
 
         foreach (var friend in all_invite_friend_items)
             friend.gameObject.SetActive(false);
@@ -172,13 +168,13 @@ public class Friends : BaseUI
         int receiveTime = invite_people_receive + 1;
         if (receiveTime <= Save.data.allData.fission_info.reward_conf.invite_flag)
         {
-            invite_reward_numText.text = string.Format("Invite friends to get <color=#FF9732>{0}</color>",
+            invite_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteRewardTip) + " <color=#FF9732>{0}</color>",
                 Save.data.allData.fission_info.reward_conf.lt_flag_type == Reward.Cash ? "$" + Save.data.allData.fission_info.reward_conf.lt_flag_num.GetCashShowString() : Save.data.allData.fission_info.reward_conf.lt_flag_num.GetTokenShowString());
             invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.lt_flag_type.ToString().ToLower());
         }
         else
         {
-            invite_reward_numText.text = string.Format("Invite friends to get <color=#FF9732>{0}</color>",
+            invite_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteRewardTip)+ " <color=#FF9732>{0}</color>",
                 Save.data.allData.fission_info.reward_conf.gt_flag_type == Reward.Cash ? "$" + Save.data.allData.fission_info.reward_conf.gt_flag_num.GetCashShowString() : Save.data.allData.fission_info.reward_conf.gt_flag_num.GetTokenShowString());
             invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.gt_flag_type.ToString().ToLower());
         }
@@ -196,5 +192,37 @@ public class Friends : BaseUI
     public void OnChangePackB()
     {
         cashoutButton.gameObject.SetActive(true);
+    }
+    [Space(15)]
+    public Text helpText;
+    public Text balanceText;
+    public Text pt_numText;
+    public Text cashoutText;
+    public Text myfriends_numText;
+    public Text invitefriendText;
+    public Text invite_reward_numText;
+    public Text myincomeText;
+    public Text yesterday_pt_numText;
+    public Text yesterdatyincomeText;
+    public Text total_pt_numText;
+    public Text totalincomText;
+    public Text lastdaydetailsText;
+    public Text nofriend_tipText;
+    public override void SetContent()
+    {
+        helpText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
+        balanceText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Balance);
+
+        cashoutText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
+
+        invitefriendText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InviteFriends);
+
+        myincomeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_MyIncome);
+
+        yesterdatyincomeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_YesterdayIncome);
+
+        totalincomText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_TotalIncome);
+        lastdaydetailsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_LastDayDetails);
+        nofriend_tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_NofriendTip);
     }
 }

@@ -43,24 +43,28 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: ba37bfc78694d1e44a8b3376c02c9c41, type: 3}
-    totalSpriteSurfaceArea: 2123919
+    totalSpriteSurfaceArea: 2433193
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 96d7ca8413743e14b90b2976914748ae, type: 3}
+  - {fileID: 21300000, guid: 6b2293204b5974845909206ff5f757a0, type: 3}
+  - {fileID: 21300000, guid: bafff7e0c8758a146bb1d2f442611717, type: 3}
+  - {fileID: 21300000, guid: 13f6294313ddfc44e9eaad99e5be9ccd, type: 3}
   - {fileID: 21300000, guid: 637a38274ae339541abd4878dbe6c244, type: 3}
+  - {fileID: 21300000, guid: 78b5dd777ea3efd41af91be2a252b236, type: 3}
   - {fileID: 21300000, guid: ce99edd89fbf1784bb4e0aa9a9a8f088, type: 3}
   - {fileID: 21300000, guid: b509e9294fc29d84087333e7af6db081, type: 3}
-  - {fileID: 21300000, guid: a741bd8a83ef63a4da42945e61797b7e, type: 3}
-  - {fileID: 21300000, guid: efdb025c7397ddd49870cde2c4bc1bc0, type: 3}
   - {fileID: 21300000, guid: 5a01990d05801c546bc658135bce80a4, type: 3}
+  - {fileID: 21300000, guid: d5d1707eee407cb4a999ffb240cadde2, type: 3}
   m_PackedSpriteNamesToIndex:
   - base
+  - cash pt bg
+  - ad
   - mask
+  - cash icon
   - guide_1
   - guide_2
-  - yellowbutton
-  - close
   - guide_3
+  - button
   m_Tag: GetCash
   m_IsVariant: 0

@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.2, y: -560.8}
-  m_SizeDelta: {x: 516.886, y: 58.208984}
+  m_SizeDelta: {x: 739.68115, y: 58.208984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4179875110117061320
 CanvasRenderer:
@@ -68,9 +68,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 273b5038ccad1a646895fe261cfaf8b7, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 35
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -338,6 +338,7 @@ MonoBehaviour:
   progressSlider: {fileID: 5509980033001083458}
   progressText: {fileID: 2602812538209336148}
   loadingText: {fileID: 4728707000085166129}
+  contactusText: {fileID: 7007532456912682930}
 --- !u!1 &5763555205414496681
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +477,7 @@ GameObject:
   - component: {fileID: 6766608631371886150}
   - component: {fileID: 7007532456912682930}
   - component: {fileID: 2243716460217559552}
+  - component: {fileID: 5247621954290911150}
   m_Layer: 5
   m_Name: contact us
   m_TagString: Untagged
@@ -499,9 +501,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -165.30988, y: -93.79999}
-  m_SizeDelta: {x: 270.89554, y: 84.73297}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -29.86206, y: -93.79999}
+  m_SizeDelta: {x: 0, y: 84.73297}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6766608631371886150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -586,6 +588,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5247621954290911150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060937332868983081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &6111465243266695905
 GameObject:
   m_ObjectHideFlags: 0

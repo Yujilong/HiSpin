@@ -31,7 +31,6 @@ public class Menu : MonoBehaviour, IUIBase
     public GameObject all_bottomGo;
     public GameObject all_topGo;
     public GameObject all_tokenGo;
-    public Text top_titleText;
     [Space(15)]
     public Image head_iconImage;
     public Image exp_progressImage;
@@ -83,7 +82,7 @@ public class Menu : MonoBehaviour, IUIBase
         if (Save.data.allData.user_panel.user_level >= 4)
             UI.ShowBasePanel(BasePanel.Offerwall);
         else
-            Master.Instance.ShowTip("Unlock at level 4.", 2);
+            Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ClickUnlockOfferwall), 2);
     }
     private void OnRankButtonClick()
     {
@@ -136,9 +135,13 @@ public class Menu : MonoBehaviour, IUIBase
         string offSpriteName = currentBottomButton == null ? "" : currentBottomButton.name + "_Off";
         string onSpriteName = clickButton.name + "_On";
         if (currentBottomButton != null)
+        {
             currentBottomButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, offSpriteName);
+            currentBottomButton.GetComponentInChildren<Text>().color = button_off_textColor;
+        }
         currentBottomButton = clickButton;
         currentBottomButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, onSpriteName);
+        currentBottomButton.GetComponentInChildren<Text>().color = button_on_textColor;
     }
 #region update top token text
     public void UpdateGoldText()
@@ -306,7 +309,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "CASH OUT";
+                top_titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
                 all_bottomGo.SetActive(false);
                 backButton.gameObject.SetActive(true);
                 settingButton.gameObject.SetActive(false);
@@ -317,7 +320,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "RECORD";
+                top_titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.RECORD);
                 all_bottomGo.SetActive(false);
                 backButton.gameObject.SetActive(true);
                 settingButton.gameObject.SetActive(false);
@@ -354,7 +357,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "LAST DAY RANKING";
+                top_titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Menu_Title_LastDayRanking);
                 backButton.gameObject.SetActive(false);
                 settingButton.gameObject.SetActive(true);
                 all_bottomGo.SetActive(true);
@@ -373,7 +376,7 @@ public class Menu : MonoBehaviour, IUIBase
                 all_topGo.SetActive(true);
                 all_tokenGo.SetActive(false);
                 top_titleText.gameObject.SetActive(true);
-                top_titleText.text = "ME";
+                top_titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Menu_Title_ME);
                 all_bottomGo.SetActive(false);
                 backButton.gameObject.SetActive(true);
                 settingButton.gameObject.SetActive(false);
@@ -462,5 +465,28 @@ public class Menu : MonoBehaviour, IUIBase
         {
             UI.CloseCurrentBasePanel(true);
         }
+    }
+    [Space(15)]
+    public Text offerwallText;
+    public Text rankText;
+    public Text giveawaysText;
+    public Text friendsText;
+    public Text taskText;
+    public Text top_titleText;
+    public Color button_on_textColor;
+    public Color button_off_textColor;
+    public void SetContent()
+    {
+        offerwallText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Menu_Offerwall);
+        rankText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Menu_Ranking);
+        giveawaysText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Menu_Giveaways);
+        friendsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Menu_Friends);
+        taskText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Menu_Tasks);
+
+        offerwallText.color = button_off_textColor;
+        rankText.color = button_off_textColor;
+        giveawaysText.color = button_off_textColor;
+        friendsText.color = button_off_textColor;
+        taskText.color = button_off_textColor;
     }
 }

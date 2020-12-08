@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IUIBase
+public interface IUIBase : ILanguage
 {
     IEnumerator Show(params int[] args);
     void Pause();

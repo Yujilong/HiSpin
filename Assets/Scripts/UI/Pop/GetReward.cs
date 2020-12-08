@@ -5,11 +5,8 @@ using UnityEngine.UI;
 
 public class GetReward : PopUI
 {
-    public Text titleText;
     public Image reward_iconImage;
-    public Text tipText;
     public Text reward_numText;
-    public Text double_getText;
     public Text ticket_multipleText;
     public GameObject ticket_multipleGo;
     public Button double_getButton;
@@ -66,10 +63,6 @@ public class GetReward : PopUI
         }
         UI.ClosePopPanel(this);
     }
-    const string GoldTip = "OH YEEAAAAH!\nTOKEN HAUL!";
-    const string TicketTip = "THAT'S EPIC!\nYOU WON TICKET!";
-    const string levelupTip = "YOU REACH LV.{0}!\nTake these rewards!";
-    const string levelupTitle = "Congratulations!";
     Reward reward_type = Reward.Null;
     GetRewardArea reward_area = GetRewardArea.Null;
     int reward_num = 0;
@@ -93,14 +86,14 @@ public class GetReward : PopUI
                 {
                     case Reward.Gold:
                         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "gold");
-                        tipText.text = GoldTip;
-                        double_getText.text = "GET   x2";
+                        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetReward_GetgoldTip);
+                        double_getText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + "   x2";
                         reward_mutiple = 2;
                         break;
                     case Reward.Ticket:
                         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "ticket");
-                        tipText.text = TicketTip;
-                        double_getText.text = "GET   x3";
+                        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetReward_GetticketsTip);
+                        double_getText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + "   x3";
                         reward_mutiple = 3;
                         int ticket_multiple = Save.data.allData.user_panel.user_double;
                         ticket_multipleText.text = "x " +ticket_multiple.GetTicketMultipleString();
@@ -111,18 +104,20 @@ public class GetReward : PopUI
                 }
                 break;
             case GetRewardArea.LevelUp:
-                tipText.text = string.Format(levelupTip, args[3]);
-                titleText.text = levelupTitle;
+                tipText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetReward_LevelupTip), args[3]);
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Congratulation);
                 reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, reward_type.ToString().ToLower());
-                double_getText.text= "GET   x3";
+                double_getText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + "   x3";
                 reward_mutiple = 3;
                 break;
         }
+        double_getText.GetComponent<RectTransform>().sizeDelta = new Vector2(524, 107);
 #if UNITY_IOS
         if (!Save.data.isPackB)
         {
-            double_getText.text = "GET";
+            double_getText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) ;
             adiconGo.SetActive(false);
+            double_getText.GetComponent<RectTransform>().sizeDelta = new Vector2(666, 107);
         }
 #endif
     }
@@ -181,6 +176,16 @@ public class GetReward : PopUI
     {
         yield return new WaitForSeconds(1);
         nothanksButton.gameObject.SetActive(true);
+    }
+    [Space(15)]
+    public Text titleText;
+    public Text tipText;
+    public Text double_getText;
+    public Text nothanksText;
+    public override void SetContent()
+    {
+
+        nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
     }
 }
 public enum GetRewardArea

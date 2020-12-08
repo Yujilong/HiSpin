@@ -21,7 +21,8 @@ public class Save
                 isPackB = false,
                 head_icon_hasCheck = new List<bool>(),
                 lastClickFriendTime = System.DateTime.Now.AddDays(-1),
-                uuid = string.Empty
+                uuid = string.Empty,
+                hasSendToThoundsEvent= false
             };
             PlayerPrefs.SetString("local_Data", JsonMapper.ToJson(data));
             PlayerPrefs.Save();
@@ -52,4 +53,5 @@ public class PlayerLocalData
     public System.DateTime lastClickFriendTime;
     public string uuid;
     public string adid;
+    public bool hasSendToThoundsEvent;
 }

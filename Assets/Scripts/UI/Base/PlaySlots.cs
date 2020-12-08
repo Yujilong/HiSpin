@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlaySlots : BaseUI
 {
+    public Button helpButton;
     public Image titleImage;
     public Button spinButton;
     public Text left_timeText;
@@ -68,6 +69,7 @@ public class PlaySlots : BaseUI
     {
         base.Awake();
         spinButton.AddClickEvent(OnSpinButtonClick);
+        helpButton.AddClickEvent(() => { UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.PlaySlots); });
     }
     bool isSpining = false;
     private void OnSpinButtonClick()

@@ -10,7 +10,6 @@ public class FriendList : BaseUI
     public GameObject direct_friend_underline;
     public Button indirect_friendButton;
     public GameObject indirect_friend_underline;
-    public Text list_titleText;
     public FriendItem single_friend_item;
     private List<FriendItem> all_friends = new List<FriendItem>();
     public RectTransform allRect;
@@ -57,16 +56,22 @@ public class FriendList : BaseUI
             else
                 indirect_friend_list.Add(all_friend_list[i]);
         }
+        direct_friend_list.Sort(SortFunc);
+        indirect_friend_list.Sort(SortFunc);
         SetFriendListShow(true);
     }
-    const string direct_title = "Friends you invited";
-    const string indirect_title = "Friends invited by your friends";
+    private int SortFunc(AllData_FriendData_Friend a, AllData_FriendData_Friend b)
+    {
+        if (a.sum_coin > b.sum_coin) return 1; 
+        if (a.sum_coin == b.sum_coin) return 0; 
+        return -1;
+    }
     private void SetFriendListShow(bool isDirect)
     {
         direct_friend_underline.SetActive(isDirect);
         indirect_friend_underline.SetActive(!isDirect);
         List<AllData_FriendData_Friend> willBeShow = isDirect ? direct_friend_list : indirect_friend_list;
-        list_titleText.text = isDirect ? direct_title : indirect_title;
+        list_titleText.text = isDirect ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendList_DirectTitle) : Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendList_IndirectTitle);
         foreach (var friend in all_friends)
             friend.gameObject.SetActive(false);
         int willbeShowCount = willBeShow.Count;
@@ -79,7 +84,16 @@ public class FriendList : BaseUI
             }
             AllData_FriendData_Friend frinedInfo = willBeShow[i];
             all_friends[i].gameObject.SetActive(true);
-            all_friends[i].Init(frinedInfo.user_img, frinedInfo.distance, frinedInfo.user_name, frinedInfo.user_time, frinedInfo.user_level);
+            all_friends[i].Init(frinedInfo.user_img, frinedInfo.distance, frinedInfo.user_name, frinedInfo.user_time, frinedInfo.user_level, frinedInfo.sum_coin);
         }
+    }
+    [Space(15)]
+    public Text closefriendsText;
+    public Text unfamiliarfriendsText;
+    public Text list_titleText;
+    public override void SetContent()
+    {
+        closefriendsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendList_CloseFriends);
+        unfamiliarfriendsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendList_UnfamiliarFriends);
     }
 }

@@ -412,27 +412,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchor_rect: {fileID: 5336304172172643554}
-  emailText: {fileID: 1106573827012893594}
   emailInputButton: {fileID: 8921492714860998979}
   recordButton: {fileID: 1106573825919095388}
-  pt_numText: {fileID: 1106573826860306472}
-  pt_cashout_numText: {fileID: 1106573827129391698}
   pt_cashout_leftButton: {fileID: 1106573826608997580}
   pt_cashout_midButton: {fileID: 1106573826319754986}
   pt_cashout_rightButton: {fileID: 1106573825688747557}
-  paypalCash_numText: {fileID: 1541377155926679712}
-  paypalCash_to_dollerText: {fileID: 0}
   paypalCashout_leftButton: {fileID: 4872533292732231394}
   paypalCashout_midButton: {fileID: 2124140366364029852}
   paypalCashout_rightButton: {fileID: 4047918577861755070}
-  cash_numText: {fileID: 1106573826714634584}
-  cash_to_dollerText: {fileID: 4488056543068918480}
   cashout_leftButton: {fileID: 1106573825863925957}
   cashout_midButton: {fileID: 1106573826944559657}
   cashout_rightButton: {fileID: 1106573827035101685}
   gold_numText: {fileID: 1106573825607676315}
   gold_redeemButton: {fileID: 2464521123487527430}
   about_feeButton: {fileID: 6281267856159325145}
+  paypal_account_frontText: {fileID: 7780096054040720034}
+  paypal_account_placeholderText: {fileID: 1106573827012893594}
+  recordText: {fileID: 6084013615220230048}
+  pt_numText: {fileID: 1106573826860306472}
+  pt_cashout_numText: {fileID: 1106573827129391698}
+  pt_cashout_left_buttonText: {fileID: 1106573825962607437}
+  pt_cashout_mid_buttonText: {fileID: 1106573825347740401}
+  pt_cashout_right_buttonText: {fileID: 1106573826912141127}
+  paypalCash_numText: {fileID: 1541377155926679712}
+  paypal_cashout_left_buttonText: {fileID: 5086493435188148215}
+  paypal_cashout_mid_buttonText: {fileID: 3709931741100425773}
+  paypal_cashout_right_buttonText: {fileID: 208255569703863754}
+  cash_numText: {fileID: 1106573826714634584}
+  cash_to_dollerText: {fileID: 4488056543068918480}
+  cash_cashout_left_buttonText: {fileID: 1106573827276554175}
+  cash_cashout_mid_buttonText: {fileID: 1106573825794891749}
+  cash_cashout_right_buttonText: {fileID: 1106573826899424080}
+  gold_redeem_buttonText: {fileID: 1106573827349471377}
+  paypal_fee_ruleText: {fileID: 2046329575609108561}
+  about_paypal_feeText: {fileID: 5342777085182976107}
 --- !u!1 &1106573825787233453
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +729,7 @@ GameObject:
   - component: {fileID: 1106573825919095390}
   - component: {fileID: 6084013615220230048}
   - component: {fileID: 1106573825919095388}
+  - component: {fileID: 6709970862108910648}
   m_Layer: 5
   m_Name: RECORD
   m_TagString: Untagged
@@ -736,12 +750,12 @@ RectTransform:
   m_Children:
   - {fileID: 3236395033319221707}
   m_Father: {fileID: 2927133696475686103}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 423.9, y: -54.6}
-  m_SizeDelta: {x: 132, y: 53.000244}
+  m_SizeDelta: {x: 0, y: 53.000244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1106573825919095390
 CanvasRenderer:
@@ -827,6 +841,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6709970862108910648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573825919095386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &1106573825962607435
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +966,7 @@ RectTransform:
   - {fileID: 1106573825607676314}
   - {fileID: 7290672978410342815}
   m_Father: {fileID: 2927133696475686103}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1017,7 +1045,7 @@ RectTransform:
   - {fileID: 1106573826319754985}
   - {fileID: 1106573825688747556}
   m_Father: {fileID: 2927133696475686103}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1210,12 +1238,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1106573827012893593}
-  m_Father: {fileID: 2927133696475686103}
-  m_RootOrder: 1
+  m_Father: {fileID: 1106573826682050641}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -25.72, y: -57.555054}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 246.48062, y: 0.05517578}
   m_SizeDelta: {x: 479.32806, y: 46.845703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1106573826337121353
@@ -1240,7 +1268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1385,6 +1413,7 @@ GameObject:
   - component: {fileID: 1106573826682050641}
   - component: {fileID: 1106573826682050643}
   - component: {fileID: 7780096054040720034}
+  - component: {fileID: 5447421407156146691}
   m_Layer: 5
   m_Name: 'Paypal Email:'
   m_TagString: Untagged
@@ -1402,15 +1431,16 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1106573826337121398}
   m_Father: {fileID: 2927133696475686103}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -379, y: -57.555054}
-  m_SizeDelta: {x: 226.40118, y: 57.889587}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -492.2006, y: -57.555054}
+  m_SizeDelta: {x: 0, y: 57.889587}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1106573826682050643
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1441,10 +1471,10 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 75c54e4f6b69bcc48ba937ca0d80cd4a, type: 3}
     m_FontSize: 45
-    m_FontStyle: 1
-    m_BestFit: 0
+    m_FontStyle: 0
+    m_BestFit: 1
     m_MinSize: 4
-    m_MaxSize: 47
+    m_MaxSize: 45
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1452,6 +1482,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Paypal Email:'
+--- !u!114 &5447421407156146691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106573826682050640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &1106573826714634566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,9 +1996,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 75c54e4f6b69bcc48ba937ca0d80cd4a, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 41
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2160,7 +2204,7 @@ RectTransform:
   - {fileID: 1106573826944559656}
   - {fileID: 1106573827035101684}
   m_Father: {fileID: 2927133696475686103}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2625,7 +2669,7 @@ RectTransform:
   - {fileID: 925187065926431646}
   - {fileID: 1518616964298810160}
   m_Father: {fileID: 2927133696475686103}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2818,13 +2862,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1106573826682050641}
-  - {fileID: 1106573826337121398}
   - {fileID: 1106573825919095387}
   - {fileID: 1106573826082618946}
   - {fileID: 7718425378509356330}
   - {fileID: 1106573827091514392}
   - {fileID: 1106573826058666237}
   - {fileID: 172554957460643304}
+  - {fileID: 1646337146505790616}
   m_Father: {fileID: 5336304172172643554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3396,6 +3440,7 @@ GameObject:
   - component: {fileID: 5342777085182976107}
   - component: {fileID: 4909706889380980691}
   - component: {fileID: 6281267856159325145}
+  - component: {fileID: 8234342433558656946}
   m_Layer: 5
   m_Name: AboutFee
   m_TagString: Untagged
@@ -3415,14 +3460,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5563531489091480828}
-  m_Father: {fileID: 172554957460643304}
-  m_RootOrder: 0
+  m_Father: {fileID: 2927133696475686103}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 138.20001, y: -195.74011}
+  m_AnchoredPosition: {x: 53.549988, y: -1195.3954}
   m_SizeDelta: {x: 0, y: 59.684387}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1615084428778506583
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3521,6 +3566,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8234342433558656946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5978333367789048363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &6253774408389511393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,15 +4032,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1646337146505790616}
+  m_Children: []
   m_Father: {fileID: 2927133696475686103}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2250}
-  m_SizeDelta: {x: 955.30005, y: 183.70007}
+  m_AnchoredPosition: {x: 0, y: -2278.1}
+  m_SizeDelta: {x: 955.30005, y: 239.86761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3716631312495786356
 CanvasRenderer:
@@ -4005,7 +4063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4014,9 +4072,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 75c54e4f6b69bcc48ba937ca0d80cd4a, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 51
+    m_MaxSize: 59
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1

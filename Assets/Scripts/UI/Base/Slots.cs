@@ -7,7 +7,6 @@ public class Slots : BaseUI
 {
     public List<SlotItem> allSlotsItems = new List<SlotItem>();
     public Button cash_outButton;
-    public Text time_downText;
     bool isFirstEnter = true;
     protected override void Awake()
     {
@@ -57,10 +56,17 @@ public class Slots : BaseUI
     }
     public void UpdateTimedownText(string time)
     {
-        time_downText.text = "NEXT SLOTS IN:\n" + time;
+        time_downText.text = nextslotsin + "\n" + time;
     }
     public void OnChangePackB()
     {
         cash_outButton.gameObject.SetActive(true);
+    }
+    [Space(15)]
+    public Text time_downText;
+    private string nextslotsin;
+    public override void SetContent()
+    {
+        nextslotsin = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Slots_NextSlotsIn);
     }
 }

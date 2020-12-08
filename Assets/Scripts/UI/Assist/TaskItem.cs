@@ -13,7 +13,7 @@ public class TaskItem : MonoBehaviour
     public RectTransform butttonRect;
     public GameObject adGo;
     public Text button_contentText;
-    public GameObject doneGo;
+    public Text doneText;
     public GameObject red_pointGo;
 
     private Reward RewardType;
@@ -28,6 +28,7 @@ public class TaskItem : MonoBehaviour
     }
     public void Init(int task_id,string title, string des,PlayerTaskTarget taskTargetId, Reward rewardType, int rewardNum, bool hasdone, bool hasFinish,int taskType)
     {
+        doneText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.DONE);
         Task_ID = task_id;
         titleText.text = title;
         desText.text = des;
@@ -36,6 +37,43 @@ public class TaskItem : MonoBehaviour
         TaskTarget = taskTargetId;
         HasFinish = hasFinish;
         TaskType = taskType;
+
+        switch (taskTargetId)
+        {
+            case PlayerTaskTarget.EnterSlotsOnce:
+                titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_EnterSlotsOnce), "0");
+                break;
+            case PlayerTaskTarget.PlayBettingOnce:
+                titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_PlayBettingOnce), "0");
+                break;
+            case PlayerTaskTarget.WatchRvOnce:
+                titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_WatchRvOnce), "0");
+                break;
+            case PlayerTaskTarget.CashoutOnce:
+                titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_CashoutOnce), "0");
+                break;
+            case PlayerTaskTarget.WritePaypalEmail:
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_WritePaypalEmail);
+                break;
+            case PlayerTaskTarget.OwnSomeGold:
+                titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_OwnSomeGold), "0");
+                break;
+            case PlayerTaskTarget.WinnerOnce:
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_WinnerOnce);
+                break;
+            case PlayerTaskTarget.InviteAFriend:
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InviteFriends);
+                break;
+            case PlayerTaskTarget.GetTicketFromSlotsOnce:
+                titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_GetTicketFromSlotsOnce), "0");
+                break;
+            case PlayerTaskTarget.BuyTicketByGoldOnce:
+                titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_BuyTicketByGoldOnce), "0");
+                break;
+            case PlayerTaskTarget.BuyTicketByRvOnce:
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_BuyTicketByRvOnce);
+                break;
+        }
 
         switch (RewardType)
         {
@@ -57,12 +95,12 @@ public class TaskItem : MonoBehaviour
         }
         if (hasdone)
         {
-            doneGo.SetActive(true);
+            doneText.transform.parent.gameObject.SetActive(true);
             getButton.gameObject.SetActive(false);
         }
         else
         {
-            doneGo.SetActive(false);
+            doneText.transform.parent.gameObject.SetActive(false);
             if (!hasFinish)
             {
                 red_pointGo.SetActive(false);
@@ -70,20 +108,20 @@ public class TaskItem : MonoBehaviour
                 {
                     case PlayerTaskTarget.BuyTicketByGoldOnce:
                         adGo.SetActive(false);
-                        button_contentText.text = "BUY";
+                        button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BUY);
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                         getButton.gameObject.SetActive(true);
                         break;
                     case PlayerTaskTarget.BuyTicketByRvOnce:
                         adGo.SetActive(true);
-                        button_contentText.text = "    GET";
+                        button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET);
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                         getButton.gameObject.SetActive(true);
                         break;
                     case PlayerTaskTarget.InviteAFriend:
                     case PlayerTaskTarget.WritePaypalEmail:
                         adGo.SetActive(false);
-                        button_contentText.text = "GO TO";
+                        button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GOTO);
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                         getButton.gameObject.SetActive(true);
                         break;
@@ -96,7 +134,7 @@ public class TaskItem : MonoBehaviour
                     case PlayerTaskTarget.GetTicketFromSlotsOnce:
                     default:
                         adGo.SetActive(false);
-                        button_contentText.text = "CLAIM";
+                        button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CLAIM);
                         getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button_grey");
                         getButton.gameObject.SetActive(true);
                         break;
@@ -107,7 +145,7 @@ public class TaskItem : MonoBehaviour
                 if (taskTargetId == PlayerTaskTarget.InviteAFriend)
                 {
                     adGo.SetActive(false);
-                    button_contentText.text = "GO TO";
+                    button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GOTO);
                     getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
                     getButton.gameObject.SetActive(true);
                     red_pointGo.SetActive(false);
@@ -116,12 +154,16 @@ public class TaskItem : MonoBehaviour
                 {
                     adGo.SetActive(false);
                     getButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "button");
-                    button_contentText.text = "CLAIM";
+                    button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CLAIM);
                     getButton.gameObject.SetActive(true);
                     red_pointGo.SetActive(true);
                 }
             }
         }
+        if (adGo.activeSelf)
+            button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(147.65f, 64.3f);
+        else
+            button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(226.1f, 64.3f);
     }
     private void OnGetButtonClick()
     {
@@ -142,7 +184,7 @@ public class TaskItem : MonoBehaviour
                         Server_New.Instance.ConnectToServer_BuyTickets(OnFinishTaskCallback, OnErrorCallback, null, true, false);
                     }
                     else
-                        Master.Instance.ShowTip("Sorry, you have not enough coins");
+                        Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_NotEnoughtCoins));
                     break;
                 case PlayerTaskTarget.BuyTicketByRvOnce:
                     Ads._instance.ShowRewardVideo(OnAdBuyTicketCallback, 2, "rv买票",null);
@@ -190,23 +232,6 @@ public class TaskItem : MonoBehaviour
     }
     private void OnErrorCallback()
     {
-        //Server.Instance.RequestData(Server.Server_RequestType.TaskData, () =>
-        //{
-        //    Tasks tasks = UI.GetUI(BasePanel.Task) as Tasks;
-        //    tasks.RefreshTaskInfo();
-        //    bool hasFinish = false;
-        //    foreach (var task in Save.data.allData.lucky_schedule.user_task)
-        //    {
-        //        if (task.taskTargetId == PlayerTaskTarget.InviteAFriend)
-        //            continue;
-        //        if (task.task_cur >= task.task_tar && !task.task_receive)
-        //        {
-        //            hasFinish = true;
-        //            break;
-        //        }
-        //    }
-        //    UI.OnHasTaskFinished(hasFinish);
-        //}, null);
         Server_New.Instance.ConnectToServer_GetTaskData(() =>
         {
             Tasks tasks = UI.GetUI(BasePanel.Task) as Tasks;
@@ -227,7 +252,6 @@ public class TaskItem : MonoBehaviour
     }
     private void OnAdBuyTicketCallback()
     {
-        //Server.Instance.OperationData_BuyTickets(OnFinishTaskCallback, OnErrorCallback, true);
         Server_New.Instance.ConnectToServer_BuyTickets(OnFinishTaskCallback, OnErrorCallback, null, true, true);
     }
 }

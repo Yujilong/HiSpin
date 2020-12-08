@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class Guide : PopUI
 {
     public Button bgButton;
+    public Text tipText;
     public Image guideImage;
+    Vector3 topTipLocalPos = new Vector3(0, 79.11f, 0);
+    Vector3 downTipLocalPos = new Vector3(0, 189.19f, 0);
     protected override void Awake()
     {
         base.Awake();
@@ -24,6 +27,8 @@ public class Guide : PopUI
         canGotoNextGuide = false;
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
         guideImage.transform.localPosition = new Vector3(-46, Master.IsBigScreen ? 1920 * Master.ExpandCoe/2f - 428 - Master.TopMoveDownOffset : 527, 0);
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide1);
+        tipText.transform.localPosition = topTipLocalPos;
         Master.Instance.SetGuideMask(guideStep);
         StartCoroutine("WaitForClick");
     }
@@ -39,6 +44,8 @@ public class Guide : PopUI
         canGotoNextGuide = false;
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
         guideImage.transform.localPosition = new Vector3(20, -1920 * Master.ExpandCoe/2f + 471, 0);
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide2);
+        tipText.transform.localPosition = downTipLocalPos;
         Master.Instance.SetGuideMask(guideStep);
         yield return new WaitForSeconds(1);
         canGotoNextGuide = true;
@@ -49,6 +56,8 @@ public class Guide : PopUI
         canGotoNextGuide = false;
         guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
         guideImage.transform.localPosition = new Vector3(30, -1920 * Master.ExpandCoe/2f + 471, 0);
+        tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide3);
+        tipText.transform.localPosition = downTipLocalPos;
         Master.Instance.SetGuideMask(guideStep);
         yield return new WaitForSeconds(1);
         canGotoNextGuide = true;

@@ -41,10 +41,6 @@ public class Ads : MonoBehaviour
 		//IronSource.Agent.validateIntegration();
 
 		// SDK init
-		IronSource.Agent.init(IS_APP_KEY);
-		IronSource.Agent.loadInterstitial();
-		AdGem.loadOfferWallBeforeShowing = true;
-		AdGem.startSession(AdGem_APP_ID, false, false, true);
 	}
 	OfferWallRequester offerWallRequester;
 	public void InitFyber(string userid)
@@ -56,6 +52,14 @@ public class Ads : MonoBehaviour
 		offerWallRequester = OfferWallRequester.Create();
 		offerWallRequester.Request();
 		offerWallRequester.CloseOnRedirect(false);
+
+		IronSource.Agent.setUserId(userid);
+		IronSource.Agent.init(IS_APP_KEY);
+		IronSource.Agent.loadInterstitial();
+
+		AdGem.loadOfferWallBeforeShowing = true;
+		AdGem.player_id = userid;
+		AdGem.startSession(AdGem_APP_ID, false, false, true);
 	}
 	ShowOfferwallAds ofwScripts = null;
 	public bool ShowOfferwallAd(Offerwall_Co _Co)
@@ -182,11 +186,10 @@ public class Ads : MonoBehaviour
 		IronSource.Agent.onApplicationPause(isPaused);
 	}
 	public GameObject adLoadingTip;
-	const string text = "No Video is ready , please try again later.";
 	IEnumerator WaitLoadAD(bool isRewardedAd,int clickAdTime)
 	{
 		adLoadingTip.SetActive(true);
-		StringBuilder content = new StringBuilder("Loading.");
+		StringBuilder content = new StringBuilder(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading));
 		Text noticeText = adLoadingTip.GetComponentInChildren<Text>();
 		noticeText.text = content.ToString();
 		int timeOut = 6;
@@ -208,7 +211,7 @@ public class Ads : MonoBehaviour
 		if (clickAdTime >= 2)
 		{
 			rewardFailCallback?.Invoke();
-			Master.Instance.ShowTip(text, 2);
+			Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_NoAd), 2);
 		}
 	}
 	Action rewardCallback;

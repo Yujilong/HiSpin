@@ -50,4 +50,7 @@ public class BaseUI : MonoBehaviour, IUIBase
     {
     }
 
+    public virtual void SetContent()
+    {
+    }
 }

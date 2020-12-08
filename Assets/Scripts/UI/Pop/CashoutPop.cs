@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CashoutPop : PopUI
 {
-    public Text titleText;
     public Image baseImage;
     public Button closeButton;
     [Space(15)]
@@ -14,8 +13,6 @@ public class CashoutPop : PopUI
     public Button confirm_accountButton;
     [Space(15)]
     public CanvasGroup Cash_outCg;
-    public Text cashout_numText;
-    public Text handling_feeText;
     public Button cashoutButton;
     [Space(15)]
     public CanvasGroup cashout_fail_helpCg;
@@ -58,7 +55,7 @@ public class CashoutPop : PopUI
     {
         string email = paypal_accountInput.text;
         if (string.IsNullOrEmpty(email) || string.IsNullOrWhiteSpace(email))
-            Master.Instance.ShowTip("Account is empty!");
+            Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_EmptyEmail));
         else
             //Server.Instance.OperationData_BindPaypal(OnConfirmCallback, null, paypal_accountInput.text);
             Server_New.Instance.ConnectToServer_BindPaypal(OnConfirmCallback, null, null, true, email);
@@ -70,7 +67,7 @@ public class CashoutPop : PopUI
     }
     private void OnCashoutCallback()
     {
-        Master.Instance.ShowTip("Succeed! We will finish it in 7 working days.",3);
+        Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_CashoutSuccess), 3);
         UI.ClosePopPanel(this);
     }
     AsCashoutArea asArea;
@@ -92,7 +89,7 @@ public class CashoutPop : PopUI
                 cashout_fail_helpCg.blocksRaycasts = false;
                 rate_usCg.alpha = 0;
                 rate_usCg.blocksRaycasts = false;
-                titleText.text = "PAYPAL ACCOUNT";
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputPaypal_WindowTitle);
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
                 break;
             case AsCashoutArea.Cashout:
@@ -108,8 +105,8 @@ public class CashoutPop : PopUI
                 cashoutNum = args[1];
                 cashoutType = (CashoutType)args[2];
                 cashoutTypeNum = args[3];
-                cashout_numText.text = "$ " + args[1].GetTokenShowString();
-                titleText.text = "CASH OUT";
+                cashout_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + " " + args[1].GetTokenShowString();
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
                 break;
             case AsCashoutArea.FailHelp:
@@ -122,7 +119,7 @@ public class CashoutPop : PopUI
                 cashout_fail_helpCg.blocksRaycasts = true;
                 rate_usCg.alpha = 0;
                 rate_usCg.blocksRaycasts = false;
-                titleText.text = "FAILED";
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Failed).ToUpper();
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_f");
                 break;
             case AsCashoutArea.Rateus:
@@ -135,10 +132,47 @@ public class CashoutPop : PopUI
                 cashout_fail_helpCg.blocksRaycasts = false;
                 rate_usCg.alpha = 1;
                 rate_usCg.blocksRaycasts = true;
-                titleText.text = "RATE US";
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_WindowTitle);
                 baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
                 break;
         }
+    }
+    [Space(15)]
+    public Text titleText;
+
+    public Text input_paypal_account_tipText;
+    public Text input_paypal_placeholderText;
+    public Text input_paypal_confirmText;
+    public Text input_paypal_cautionText;
+
+    public Text cashout_numText;
+    public Text cashout_cashoutText;
+    public Text cashout_cautionText;
+
+    public Text cashoutfailed_titleText;
+    public Text cashoutfailed_reasonText;
+    public Text cashoutfailed_contactText;
+
+    public Text rateus_tipText;
+    public Text rateus_noText;
+    public Text rateus_yesText;
+    public override void SetContent()
+    {
+        input_paypal_account_tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputPaypal_Tip);
+        input_paypal_placeholderText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputPaypal_Placeholder);
+        input_paypal_confirmText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CONFIRM);
+        input_paypal_cautionText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Check_Caution);
+
+        cashout_cashoutText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT) + "!";
+        cashout_cautionText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Check_Caution);
+
+        cashoutfailed_titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashoutfailed_Title);
+        cashoutfailed_reasonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashoutfailed_Reason);
+        cashoutfailed_contactText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashoutfailed_Contact);
+
+        rateus_tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_Tip);
+        rateus_noText.text = "1~4 " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_Stars);
+        rateus_yesText.text = "5 " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_Stars);
     }
 }
 public enum AsCashoutArea

@@ -14,7 +14,7 @@ public class FriendInviteRecordItem : MonoBehaviour
     {
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_icon_id);
         nameText.text = name;
-        reward_pt_numText.text = string.Format("+{0} <size=40>Pt</size>", rewardPtNum.GetTokenShowString());
+        reward_pt_numText.text = string.Format("+{0} <size=40>" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>", rewardPtNum.GetTokenShowString());
         starImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, distance == 1 ? "direct_friend" : "indirect_friend");
         starImage.SetNativeSize();
     }

@@ -24,7 +24,7 @@ public class AvatarItem : MonoBehaviour
         this.index = index;
         headid = head_icon_index;
         head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_icon_index);
-        lockText.text = "Lv." + unlock_lv + "\nunlock";
+        lockText.text = "Lv." + unlock_lv + "\n" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Me_Unlock);
         isLock = unlock_lv > Save.data.allData.user_panel.user_level;
         lockImage.SetActive(isLock);
         newGo.SetActive(!isLock && !isSelect && isNew);
@@ -35,7 +35,7 @@ public class AvatarItem : MonoBehaviour
     {
         if (isSelect) return;
         if (isLock)
-            Master.Instance.ShowTip("Level up to unlock", 2);
+            Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ClickUnlockHead), 2);
         else
             //Server.Instance.OperationData_ChangeHead_Name(OnChangeHeadCallback, null, headid, null);
             Server_New.Instance.ConnectToServer_ChangeHedOrName(OnChangeHeadCallback, null, null, true, headid, null);

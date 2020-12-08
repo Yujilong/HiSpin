@@ -9,7 +9,9 @@ public class SlotItem : MonoBehaviour
     public Image bgImage;
     public Image titleImage;
     public Text reward_numText;
+    public Text reward_winText;
     public GameObject ad_maskGo;
+    public Text ad_tipText;
     public Button button;
     [NonSerialized]
     public bool isAd = false;
@@ -21,6 +23,8 @@ public class SlotItem : MonoBehaviour
     }
     public void Init(bool isFree,int index)
     {
+        reward_winText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Slots_Win);
+        ad_tipText.text = "%100" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Slots_Win) + "!";
         this.index = index;
         bgImage.sprite = Sprites.GetBGSprite("bg_" + index);
         titleImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Slots, "title_" + index);

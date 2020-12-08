@@ -10,17 +10,13 @@ public class Me : BaseUI
     public Image exp_progress_fillImage;
     public Text lvText;
     public InputField nameInputfield;
-    public Text ticket_multipleText;
     public Button helpButton;
     [Space(15)]
     public Text current_levelText;
     public Text next_levelText;
     public Image lv_progress_fillImage;
     public Text lv_progress_desText;
-    public Text current_ticket_multipleText;
-    public Text next_ticket_multipleText;
     public Image level_up_reward_iconImage;
-    public Text level_up_reward_numText;
     [Space(15)]
     public ContentSizeFitter bottom_sizefitter;
     public AvatarItem sigle_avatar_item;
@@ -67,16 +63,12 @@ public class Me : BaseUI
     {
         exp_progress_fillImage.fillAmount= (float)Save.data.allData.user_panel.user_exp / Save.data.allData.user_panel.level_exp;
         lvText.text="Lv." + Save.data.allData.user_panel.user_level;
-        ticket_multipleText.text = string.Format("Ticket <color=#fff000>x {0}</color> Multiplier", Save.data.allData.user_panel.user_double.GetTicketMultipleString());
 
         current_levelText.text = Save.data.allData.user_panel.user_level.ToString();
         next_levelText.text = (Save.data.allData.user_panel.user_level + 1).ToString();
         lv_progress_fillImage.fillAmount = exp_progress_fillImage.fillAmount;
         lv_progress_desText.text = Save.data.allData.user_panel.user_exp + "/" + Save.data.allData.user_panel.level_exp;
-        current_ticket_multipleText.text = "Ticket x" + Save.data.allData.user_panel.user_double.GetTicketMultipleString();
-        next_ticket_multipleText.text = string.Format("<color=#0890DB>{0}</color> multiplier", Save.data.allData.user_panel.next_double.GetTicketMultipleString());
         level_up_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, Save.data.allData.user_panel.level_type.ToString());
-        level_up_reward_numText.text = string.Format("Extra {0}+{1}", Save.data.allData.user_panel.level_type, Save.data.allData.user_panel.next_level);
 
         RefreshName();
         RefreshAvatarList();
@@ -115,5 +107,39 @@ public class Me : BaseUI
         bottom_sizefitter.enabled = false;
         yield return new WaitForEndOfFrame();
         bottom_sizefitter.enabled = true;
+    }
+    [Space(15)]
+    public Text ticket_multipleText;
+    public Text helpText;
+    public Text levelText;
+    public Text current_ticket_multipleText;
+    public Text next_ticket_multipleText;
+    public Text level_up_reward_numText;
+    public Text avatarText;
+    public override void SetContent()
+    {
+        string ticketStr = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Reward_Ticket);
+        string multiplerStr = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Multiplier);
+        ticket_multipleText.text = string.Format(ticketStr + " <color=#fff000>x {0}</color> " + multiplerStr, Save.data.allData.user_panel.user_double.GetTicketMultipleString());
+        helpText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
+        levelText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Me_Level);
+        current_ticket_multipleText.text = ticketStr + " x<size=40>" + Save.data.allData.user_panel.user_double.GetTicketMultipleString()+"</size>";
+        next_ticket_multipleText.text = string.Format("<size=40><color=#0890DB>{0}</color></size> " + multiplerStr.ToLower(), Save.data.allData.user_panel.next_double.GetTicketMultipleString());
+        level_up_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Me_Extra) + " {0}+{1}", GetRewardTypeString(Save.data.allData.user_panel.level_type), Save.data.allData.user_panel.next_level);
+        avatarText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Me_Avatar);
+    }
+    static string GetRewardTypeString(Reward reward)
+    {
+        switch (reward)
+        {
+            case Reward.Gold:
+                return Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Reward_Gold);
+            case Reward.Cash:
+                return Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Reward_Cash);
+            case Reward.Ticket:
+                return Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Reward_Ticket);
+            default:
+                return "";
+        }
     }
 }

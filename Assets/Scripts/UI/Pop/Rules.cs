@@ -8,7 +8,6 @@ public class Rules : PopUI
     public Text titleText;
     public RectTransform play_slots_rulesRect;
     public RectTransform betting_rulesRect;
-    public RectTransform game_rulesRect;
     public RectTransform invite_firend_rulesRect;
     public RectTransform myinfoRect;
     public RectTransform cashoutRect;
@@ -38,7 +37,6 @@ public class Rules : PopUI
     {
         UI.ClosePopPanel(this);
     }
-    const string GameTitle = "CONTEST RULES";
     const string BettingTitle = "How it works?";
     const string PlaySlotsTitle= "How to win";
     const string InviteFriendTitle = "How it works";
@@ -54,22 +52,8 @@ public class Rules : PopUI
         ruleArea = (RuleArea)args[0];
         switch (ruleArea)
         {
-            case RuleArea.GameRule:
-                titleText.text = GameTitle;
-                game_rulesRect.gameObject.SetActive(true);
-                betting_rulesRect.gameObject.SetActive(false);
-                play_slots_rulesRect.gameObject.SetActive(false);
-                invite_firend_rulesRect.gameObject.SetActive(false);
-                myinfoRect.gameObject.SetActive(false);
-                cashoutRect.gameObject.SetActive(false);
-                offerwallRect.gameObject.SetActive(false);
-                cashoutButton.gameObject.SetActive(false);
-                sureButton.gameObject.SetActive(true);
-                sureButton.transform.localPosition = new Vector3(0, game_rulesRect.localPosition.y - game_rulesRect.sizeDelta.y- 50);
-                break;
             case RuleArea.Betting:
                 titleText.text = BettingTitle;
-                game_rulesRect.gameObject.SetActive(false);
                 betting_rulesRect.gameObject.SetActive(true);
                 play_slots_rulesRect.gameObject.SetActive(false);
                 invite_firend_rulesRect.gameObject.SetActive(false);
@@ -83,7 +67,6 @@ public class Rules : PopUI
                 break;
             case RuleArea.PlaySlots:
                 titleText.text = PlaySlotsTitle;
-                game_rulesRect.gameObject.SetActive(false);
                 betting_rulesRect.gameObject.SetActive(false);
                 play_slots_rulesRect.gameObject.SetActive(true);
                 invite_firend_rulesRect.gameObject.SetActive(false);
@@ -96,7 +79,6 @@ public class Rules : PopUI
                 break;
             case RuleArea.InviteFriend:
                 titleText.text = InviteFriendTitle;
-                game_rulesRect.gameObject.SetActive(false);
                 betting_rulesRect.gameObject.SetActive(false);
                 play_slots_rulesRect.gameObject.SetActive(false);
                 invite_firend_rulesRect.gameObject.SetActive(true);
@@ -109,7 +91,6 @@ public class Rules : PopUI
                 break;
             case RuleArea.MyInfo:
                 titleText.text = MyInfoTitle;
-                game_rulesRect.gameObject.SetActive(false);
                 betting_rulesRect.gameObject.SetActive(false);
                 play_slots_rulesRect.gameObject.SetActive(false);
                 invite_firend_rulesRect.gameObject.SetActive(false);
@@ -122,7 +103,6 @@ public class Rules : PopUI
                 break;
             case RuleArea.Cashout:
                 titleText.text = CashoutTitle;
-                game_rulesRect.gameObject.SetActive(false);
                 betting_rulesRect.gameObject.SetActive(false);
                 play_slots_rulesRect.gameObject.SetActive(false);
                 invite_firend_rulesRect.gameObject.SetActive(false);
@@ -135,7 +115,6 @@ public class Rules : PopUI
                 break;
             case RuleArea.Offerwall:
                 titleText.text = OfferwallTitle;
-                game_rulesRect.gameObject.SetActive(false);
                 betting_rulesRect.gameObject.SetActive(false);
                 play_slots_rulesRect.gameObject.SetActive(false);
                 invite_firend_rulesRect.gameObject.SetActive(false);
@@ -151,7 +130,6 @@ public class Rules : PopUI
 }
 public enum RuleArea
 {
-    GameRule,
     Betting,
     PlaySlots,
     InviteFriend,
