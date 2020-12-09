@@ -311,13 +311,21 @@ MonoBehaviour:
         17nd
         - 50th prize $10'
     - area: 127
-      value: "1.You can earn points by friends watch ad and complete tasks, and you
-        can also get points from a friends of friends.\n<color=#FFE200>We will give
-        75% of AD revenue to players. So, You will earn 50% of your close friends\u2019
-        AD revenue and 25% of your unfamiliar friends\u2019 AD revenue.</color>\n2.Every
-        day UTC 10:00:00, you can review yesterday\u2019s income from friends.\n3.Points
-        can be exchanged for money, 100,000 points equals 1 USD.\n4.<color=#FFE200>You
-        can earn HUGE Pts by completing the tasks in the offer.</color>"
+      value: '1.You can earn points by friends watch ad and complete tasks, and you
+        can also get points from a friends of friends.
+
+        <color=#FFE200>We
+        will give 75% of AD revenue to players. So, You will earn 50% of your close
+        friends'' AD revenue and 25% of your unfamiliar friends''AD revenue.</color>
+
+        2.Every
+        day UTC 10:00:00, you can review yesterday''s income from friends.
+
+        3.Points
+        can be exchanged for money, 100,000 points equals 1 USD.
+
+        4.<color=#FFE200>You
+        can earn HUGE Pts by completing the tasks in the offer.</color>'
     - area: 128
       value: "1.Play slots to get experience for upgrade level.\n2.Upgrade the level
         will unlock new avatars and get tickets, also increase the multiplier of

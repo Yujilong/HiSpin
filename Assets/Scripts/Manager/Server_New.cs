@@ -730,7 +730,7 @@ public class AllData_FriendData_Friend
     public string user_name;
     public int user_level;
     public string user_time;
-    public int sum_coin;//累计收益
+    public double sum_coin;//累计收益
 }
 public class AllData_TaskData
 {

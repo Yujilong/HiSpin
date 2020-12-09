@@ -84,7 +84,7 @@ public class FriendList : BaseUI
             }
             AllData_FriendData_Friend frinedInfo = willBeShow[i];
             all_friends[i].gameObject.SetActive(true);
-            all_friends[i].Init(frinedInfo.user_img, frinedInfo.distance, frinedInfo.user_name, frinedInfo.user_time, frinedInfo.user_level, frinedInfo.sum_coin);
+            all_friends[i].Init(frinedInfo.user_img, frinedInfo.distance, frinedInfo.user_name, frinedInfo.user_time, frinedInfo.user_level, (int)frinedInfo.sum_coin);
         }
     }
     [Space(15)]

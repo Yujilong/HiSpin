@@ -35,7 +35,7 @@ public class Master : MonoBehaviour
         Instance = this;
         Application.targetFrameRate = 60;
 #if !UNITY_EDITOR
-        Debug.unityLogger.logEnabled = false;
+        //Debug.unityLogger.logEnabled = false;
 #endif
         UI = new UI(this, BaseRoot, MenuRoot, PopRoot);
         Save = new Save();

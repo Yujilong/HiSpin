@@ -56,7 +56,7 @@ public class Tools
         {
             float offsetWidth = maxLength - totalLengths[i];
             int addSpaceCount = Mathf.CeilToInt(offsetWidth / spaceLength);
-            int insertIndex = content[i].IndexOf("$") - 1;
+            int insertIndex = content[i].IndexOf("$");
             for (int j = 0; j < addSpaceCount; j++)
                 content[i] = content[i].Insert(insertIndex, " ");
         }
