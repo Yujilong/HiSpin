@@ -137,11 +137,13 @@ public class Menu : MonoBehaviour, IUIBase
         if (currentBottomButton != null)
         {
             currentBottomButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, offSpriteName);
-            currentBottomButton.GetComponentInChildren<Text>().color = button_off_textColor;
+            if (currentBottomButton != slotsButton)
+                currentBottomButton.GetComponentInChildren<Text>().color = button_off_textColor;
         }
         currentBottomButton = clickButton;
         currentBottomButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, onSpriteName);
-        currentBottomButton.GetComponentInChildren<Text>().color = button_on_textColor;
+        if (currentBottomButton != slotsButton)
+            currentBottomButton.GetComponentInChildren<Text>().color = button_on_textColor;
     }
 #region update top token text
     public void UpdateGoldText()
@@ -150,7 +152,7 @@ public class Menu : MonoBehaviour, IUIBase
     }
     public void UpdateCashText()
     {
-        cash_numText.text = Save.data.allData.user_panel.user_doller_live.GetCashShowString();
+        cash_numText.text = Save.data.allData.user_panel.user_doller_live.GetBigTokenString();
     }
     public void UpdateTicketText()
     {

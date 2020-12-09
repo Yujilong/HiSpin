@@ -72,7 +72,7 @@ public class Tasks : BaseUI
                         get_tickets_items.Add(newTaskItem);
                     }
                     get_tickets_items[getticketsTaskIndex].gameObject.SetActive(true);
-                    get_tickets_items[getticketsTaskIndex].Init(taskData.task_id, taskData.task_title, taskData.task_describe, taskData.taskTargetId, taskData.reward_type, taskData.task_reward, taskData.task_receive, taskData.task_complete, 0);
+                    get_tickets_items[getticketsTaskIndex].Init(taskData.task_id, taskData.task_title, taskData.task_describe, taskData.taskTargetId, taskData.reward_type, taskData.task_reward, taskData.task_receive, taskData.task_complete, 0, taskData.task_tar);
                     getticketsTaskIndex++;
                     break;
                 //daily task
@@ -83,7 +83,7 @@ public class Tasks : BaseUI
                         daily_task_items.Add(newTaskItem);
                     }
                     daily_task_items[dailyTaskIndex].gameObject.SetActive(true);
-                    daily_task_items[dailyTaskIndex].Init(taskData.task_id, taskData.task_title, taskData.task_describe, taskData.taskTargetId, taskData.reward_type, taskData.task_reward, taskData.task_receive, taskData.task_complete, 1);
+                    daily_task_items[dailyTaskIndex].Init(taskData.task_id, taskData.task_title, taskData.task_describe, taskData.taskTargetId, taskData.reward_type, taskData.task_reward, taskData.task_receive, taskData.task_complete, 1, taskData.task_tar);
                     dailyTaskIndex++;
                     break;
                 //achievement
@@ -94,7 +94,7 @@ public class Tasks : BaseUI
                         achievement_task_items.Add(newTaskItem);
                     }
                     achievement_task_items[achievementIndex].gameObject.SetActive(true);
-                    achievement_task_items[achievementIndex].Init(taskData.task_id, taskData.task_title, taskData.task_describe, taskData.taskTargetId, taskData.reward_type, taskData.task_reward, taskData.task_receive, taskData.task_complete, 2);
+                    achievement_task_items[achievementIndex].Init(taskData.task_id, taskData.task_title, taskData.task_describe, taskData.taskTargetId, taskData.reward_type, taskData.task_reward, taskData.task_receive, taskData.task_complete, 2, taskData.task_tar);
                     achievementIndex++;
                     break;
             }

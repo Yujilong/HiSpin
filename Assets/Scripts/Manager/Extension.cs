@@ -94,4 +94,40 @@ public static class Extension
         }
         return result;
     }
+    public static string GetBigTokenString(this int num)
+    {
+        if (num < 1000)
+            return num.ToString();
+        string numStr = num.ToString();
+        int frontNum = numStr.Length % 3;
+        if (frontNum == 0)
+        {
+            frontNum = 3;
+        }
+        return numStr.Substring(0, frontNum + 1).Insert(frontNum, ".") + GetNumAbb((numStr.Length - 1) / 3);
+    }
+    private static string GetNumAbb(int numDevideThree)
+    {
+        switch (numDevideThree)
+        {
+            case 1:
+                return "K";
+            case 2:
+                return "M";
+            case 3:
+                return "B";
+            case 4:
+                return "T";
+            case 5:
+                return "Q";
+            case 6:
+                return "S";
+            case 7:
+                return "O";
+            case 8:
+                return "N";
+            default:
+                return "E+" + numDevideThree * 3;
+        }
+    }
 }

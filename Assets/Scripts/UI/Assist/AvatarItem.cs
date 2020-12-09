@@ -28,6 +28,7 @@ public class AvatarItem : MonoBehaviour
         isLock = unlock_lv > Save.data.allData.user_panel.user_level;
         lockImage.SetActive(isLock);
         newGo.SetActive(!isLock && !isSelect && isNew);
+        newGo.GetComponentInChildren<Text>().text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Me_New);
         selectGo.SetActive(!isLock && isSelect);
         this.isSelect = isSelect;
     }

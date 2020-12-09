@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class Rules : PopUI
 {
     public Text titleText;
-    public RectTransform play_slots_rulesRect;
-    public RectTransform betting_rulesRect;
-    public RectTransform invite_firend_rulesRect;
-    public RectTransform myinfoRect;
-    public RectTransform cashoutRect;
-    public RectTransform offerwallRect;
+    [Space(15)]
+    public Text oneRule;
+    public ContentSizeFitter all_rules_content;
+    private List<Text> all_rules = new List<Text>();
+    [Space(15)]
     public Button closeButton;
     public Button sureButton;
     public Button termsButton;
@@ -23,6 +22,7 @@ public class Rules : PopUI
         sureButton.AddClickEvent(ClosePop);
         termsButton.AddClickEvent(OnTermsClick);
         cashoutButton.AddClickEvent(OnCashoutButtonClick);
+        all_rules.Add(oneRule);
     }
     private void OnCashoutButtonClick()
     {
@@ -37,95 +37,103 @@ public class Rules : PopUI
     {
         UI.ClosePopPanel(this);
     }
-    const string BettingTitle = "How it works?";
-    const string PlaySlotsTitle= "How to win";
-    const string InviteFriendTitle = "How it works";
-    const string MyInfoTitle = "How it works";
-    const string OfferwallTitle = "How it works";
-    static string BettingContentTop = "1.  There is a prize of 1,000 USD in the Lucky\n    Draw every day.\n2. You must have {0} tickets to participate\n" +
-        "    in the Lucky Draw. More tickets you have,\n    more chance to win.\n3. Every day at UTC 08:00:00, all your\n    tickets will be automatically put into the\n" +
-        "    prize pool, and  the Lucky Draw will be\n    done.\n4. There will be many winners with different\n    bonus.";
-    const string CashoutTitle = "HOW TO MAKE MONEY";
     private RuleArea ruleArea;
     protected override void BeforeShowAnimation(params int[] args)
     {
+        List<string> allStr = null;
+        List<string> centerAlignStr = null;
         ruleArea = (RuleArea)args[0];
         switch (ruleArea)
         {
             case RuleArea.Betting:
-                titleText.text = BettingTitle;
-                betting_rulesRect.gameObject.SetActive(true);
-                play_slots_rulesRect.gameObject.SetActive(false);
-                invite_firend_rulesRect.gameObject.SetActive(false);
-                myinfoRect.gameObject.SetActive(false);
-                cashoutRect.gameObject.SetActive(false);
-                offerwallRect.gameObject.SetActive(false);
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
+                allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_BettingFront));
+                allStr[1] = string.Format(allStr[1], Save.data.allData.award_ranking.ticktes_flag);
+                List<string> behind = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_BettingBehind));
+                centerAlignStr = Tools.GetTextMiddleCenterContent(oneRule, behind);
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
-                sureButton.transform.localPosition = new Vector3(0, betting_rulesRect.localPosition.y - betting_rulesRect.sizeDelta.y - 50);
-                betting_rulesRect.GetComponent<Text>().text = string.Format(BettingContentTop, Save.data.allData.award_ranking.ticktes_flag);
                 break;
             case RuleArea.PlaySlots:
-                titleText.text = PlaySlotsTitle;
-                betting_rulesRect.gameObject.SetActive(false);
-                play_slots_rulesRect.gameObject.SetActive(true);
-                invite_firend_rulesRect.gameObject.SetActive(false);
-                myinfoRect.gameObject.SetActive(false);
-                cashoutRect.gameObject.SetActive(false);
-                offerwallRect.gameObject.SetActive(false);
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlotsTitle);
+                allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlots));
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
-                sureButton.transform.localPosition = new Vector3(0, play_slots_rulesRect.localPosition.y - play_slots_rulesRect.sizeDelta.y - 50);
                 break;
             case RuleArea.InviteFriend:
-                titleText.text = InviteFriendTitle;
-                betting_rulesRect.gameObject.SetActive(false);
-                play_slots_rulesRect.gameObject.SetActive(false);
-                invite_firend_rulesRect.gameObject.SetActive(true);
-                myinfoRect.gameObject.SetActive(false);
-                cashoutRect.gameObject.SetActive(false);
-                offerwallRect.gameObject.SetActive(false);
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
+                allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_InviteFrineds));
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
-                sureButton.transform.localPosition = new Vector3(0, invite_firend_rulesRect.localPosition.y - invite_firend_rulesRect.sizeDelta.y - 50);
                 break;
             case RuleArea.MyInfo:
-                titleText.text = MyInfoTitle;
-                betting_rulesRect.gameObject.SetActive(false);
-                play_slots_rulesRect.gameObject.SetActive(false);
-                invite_firend_rulesRect.gameObject.SetActive(false);
-                myinfoRect.gameObject.SetActive(true);
-                cashoutRect.gameObject.SetActive(false);
-                offerwallRect.gameObject.SetActive(false);
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
+                allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Me));
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
-                sureButton.transform.localPosition = new Vector3(0, myinfoRect.localPosition.y - myinfoRect.sizeDelta.y - 50);
                 break;
             case RuleArea.Cashout:
-                titleText.text = CashoutTitle;
-                betting_rulesRect.gameObject.SetActive(false);
-                play_slots_rulesRect.gameObject.SetActive(false);
-                invite_firend_rulesRect.gameObject.SetActive(false);
-                myinfoRect.gameObject.SetActive(false);
-                cashoutRect.gameObject.SetActive(true);
-                offerwallRect.gameObject.SetActive(false);
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_CashoutTitle);
+                allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Cashout));
                 cashoutButton.gameObject.SetActive(true);
                 sureButton.gameObject.SetActive(false);
-                cashoutButton.transform.localPosition = new Vector3(0, cashoutRect.localPosition.y - cashoutRect.sizeDelta.y - 150);
                 break;
             case RuleArea.Offerwall:
-                titleText.text = OfferwallTitle;
-                betting_rulesRect.gameObject.SetActive(false);
-                play_slots_rulesRect.gameObject.SetActive(false);
-                invite_firend_rulesRect.gameObject.SetActive(false);
-                myinfoRect.gameObject.SetActive(false);
-                cashoutRect.gameObject.SetActive(false);
-                offerwallRect.gameObject.SetActive(true);
+                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
+                allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Offerwall));
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
-                sureButton.transform.localPosition = new Vector3(0, offerwallRect.localPosition.y - offerwallRect.sizeDelta.y - 150);
                 break;
         }
+        foreach (var text in all_rules)
+            text.gameObject.SetActive(false);
+        int sectionCount = allStr.Count;
+        for (int i = 0; i < sectionCount; i++)
+        {
+            if (i > all_rules.Count - 1)
+            {
+                Text newRule = Instantiate(oneRule.gameObject, oneRule.transform.parent).GetComponent<Text>();
+                all_rules.Add(newRule);
+            }
+            all_rules[i].alignment= TextAnchor.UpperLeft;
+            all_rules[i].gameObject.SetActive(true);
+            all_rules[i].text = allStr[i];
+            if (!string.IsNullOrEmpty(allStr[i]))
+            {
+                if (int.TryParse(allStr[i][0].ToString(), out int num))
+                {
+                    all_rules[i].transform.GetChild(0).gameObject.SetActive(true);
+                    all_rules[i].text = allStr[i].Substring(2);
+                }
+                else
+                    all_rules[i].transform.GetChild(0).gameObject.SetActive(false);
+            }
+            else
+                all_rules[i].transform.GetChild(0).gameObject.SetActive(false);
+        }
+        if (centerAlignStr != null && centerAlignStr.Count > 0)
+        {
+            int centerStrCount = centerAlignStr.Count;
+            for (int i = 0; i < centerStrCount; i++)
+            {
+                if (i + sectionCount > all_rules.Count - 1)
+                {
+                    Text newRule = Instantiate(oneRule.gameObject, oneRule.transform.parent).GetComponent<Text>();
+                    all_rules.Add(newRule);
+                }
+                all_rules[i + sectionCount].alignment = TextAnchor.UpperCenter;
+                all_rules[i + sectionCount].gameObject.SetActive(true);
+                all_rules[i + sectionCount].text = centerAlignStr[i];
+                all_rules[i + sectionCount].transform.GetChild(0).gameObject.SetActive(false);
+            }
+        }
+        StartCoroutine("DelayRefreshLayout");
+    }
+    private IEnumerator DelayRefreshLayout()
+    {
+        all_rules_content.enabled = false;
+        yield return new WaitForEndOfFrame();
+        all_rules_content.enabled = true;
     }
 }
 public enum RuleArea
