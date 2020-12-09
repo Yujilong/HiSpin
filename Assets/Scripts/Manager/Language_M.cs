@@ -46,6 +46,12 @@ public class Language_M
             case SystemLanguage.Russian:
                 languageCountry = LanguageCountryEnum.俄文;
                 break;
+            case SystemLanguage.Korean:
+                languageCountry = LanguageCountryEnum.韩文;
+                break;
+            case SystemLanguage.German:
+                languageCountry = LanguageCountryEnum.德文;
+                break;
             default:
                 languageCountry = LanguageCountryEnum.英文;
                 break;

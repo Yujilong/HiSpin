@@ -74,6 +74,8 @@ public class Menu : MonoBehaviour, IUIBase
     #region button event
     private void OnCashButtonClick()
     {
+        if (UI.CurrentBasePanel == UI.GetUI(BasePanel.PlaySlots))
+            return;
         if (Save.data.isPackB)
             UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.Cashout);
     }

@@ -133,4 +133,5 @@ public enum LanguageAreaEnum
     Rules_CashoutTitle,
     Rules_Offerwall,
     Rules_LetusPlay,
+    Invite_word,
 }

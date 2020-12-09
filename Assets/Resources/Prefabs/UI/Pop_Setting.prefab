@@ -427,7 +427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u82F1\u6587"
+  m_Text: 
 --- !u!1 &2122320563010266370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,15 +2771,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: "\u82F1\u6587"
-      m_Image: {fileID: 0}
-    - m_Text: "\u4FC4\u6587"
-      m_Image: {fileID: 0}
-    - m_Text: "\u65E5\u6587"
-      m_Image: {fileID: 0}
-    - m_Text: "\u4E2D\u6587"
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

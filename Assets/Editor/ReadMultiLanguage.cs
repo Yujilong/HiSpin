@@ -50,6 +50,7 @@ public class ReadMultiLanguage : Editor
                 continue;
             countryString.Append("\n    " + value + ",");
         }
+        countryString.Append("\n    LanguageTypeNum");
 
 
 

@@ -49,6 +49,13 @@ public class Setting : MonoBehaviour, IUIBase
         musicButton.AddClickEvent(OnMusicClick);
         emailButton.AddClickEvent(OnEmailClick);
         withdrawButton.gameObject.SetActive(Save.data.isPackB);
+        int languageCount = (int)LanguageCountryEnum.LanguageTypeNum + 1;
+        List<string> allLanguage = new List<string>();
+        for (int i = 0; i < languageCount; i++)
+        {
+            allLanguage.Add(((LanguageCountryEnum)i).ToString());
+        }
+        languageSelect.AddOptions(allLanguage);
         languageSelect.onValueChanged.AddListener((index) => { Language_M.ChangeLanguageCountry(index); SetContent();UI.MenuPanel.SetContent(); });
     }
     public void OnTaskFinishChange(bool hasFinish)
