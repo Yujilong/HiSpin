@@ -17,7 +17,7 @@ public class FriendItem : MonoBehaviour
         nameText.text = name;
         dateText.text = "Lv." + level;
         //levelText.text = "Lv." + level;
-        levelText.text = sumpt + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT);
+        levelText.text = sumpt + " " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT);
         starImage.SetNativeSize();
     }
 }

@@ -132,4 +132,5 @@ public enum LanguageAreaEnum
     Rules_Cashout,
     Rules_CashoutTitle,
     Rules_Offerwall,
+    Rules_LetusPlay,
 }

@@ -315,8 +315,6 @@ public class PlaySlots : BaseUI
             }
         if (!hasSetCashblackbox)
             cashMustGetTime = cashData[isAd].mustGetRange == null ? -1 : cashData[isAd].mustGetRange.RandomIncludeMax();
-        if (Save.data.allData.user_panel.lucky_total_cash >= 200)
-            cashMustGetTime = 0;
         if (Save.data.allData.user_panel.user_gold_live >= Cashout.GoldMaxNum)
             goldMustGetTime = 0;
         if (Save.data.allData.user_panel.lucky_total_cash >= slotsCashNumData[slotsCashNumData.Length - 1].Max)

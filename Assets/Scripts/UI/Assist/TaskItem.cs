@@ -83,7 +83,7 @@ public class TaskItem : MonoBehaviour
                 break;
             case Reward.Cash:
                 reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "cash");
-                reward_numText.text = rewardNum.GetCashShowString();
+                reward_numText.text = rewardNum.GetTokenShowString();
                 break;
             case Reward.Ticket:
                 reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "ticket");

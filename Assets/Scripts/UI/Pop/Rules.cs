@@ -53,10 +53,13 @@ public class Rules : PopUI
                 centerAlignStr = Tools.GetTextMiddleCenterContent(oneRule, behind);
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
+                termsButton.gameObject.SetActive(false);
                 break;
             case RuleArea.PlaySlots:
                 titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlotsTitle);
                 allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlots));
+                termsButton.GetComponent<Text>().text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlotsBottom);
+                termsButton.gameObject.SetActive(true);
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
                 break;
@@ -65,24 +68,28 @@ public class Rules : PopUI
                 allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_InviteFrineds));
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
+                termsButton.gameObject.SetActive(false);
                 break;
             case RuleArea.MyInfo:
                 titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
                 allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Me));
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
+                termsButton.gameObject.SetActive(false);
                 break;
             case RuleArea.Cashout:
                 titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_CashoutTitle);
                 allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Cashout));
                 cashoutButton.gameObject.SetActive(true);
                 sureButton.gameObject.SetActive(false);
+                termsButton.gameObject.SetActive(false);
                 break;
             case RuleArea.Offerwall:
                 titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
                 allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Offerwall));
                 cashoutButton.gameObject.SetActive(false);
                 sureButton.gameObject.SetActive(true);
+                termsButton.gameObject.SetActive(false);
                 break;
         }
         foreach (var text in all_rules)
@@ -134,6 +141,11 @@ public class Rules : PopUI
         all_rules_content.enabled = false;
         yield return new WaitForEndOfFrame();
         all_rules_content.enabled = true;
+    }
+    public override void SetContent()
+    {
+        cashoutButton.GetComponentInChildren<Text>().text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
+        sureButton.GetComponentInChildren<Text>().text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_LetusPlay);
     }
 }
 public enum RuleArea

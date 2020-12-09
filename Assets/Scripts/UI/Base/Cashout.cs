@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Cashout : BaseUI
 {
     public RectTransform anchor_rect;
+    public ContentSizeFitter all_content_sizefitter;
     [Space(15)]
     public Button emailInputButton;
     public Button recordButton;
@@ -165,6 +166,13 @@ public class Cashout : BaseUI
         gold_redeem_buttonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_GoldRedeemTip);
         paypal_fee_ruleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_PaypalFeeTip);
         about_paypal_feeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_AboutFee);
+        StartCoroutine("DelayRefreshLayout");
+    }
+    private IEnumerator DelayRefreshLayout()
+    {
+        all_content_sizefitter.enabled = false;
+        yield return new WaitForEndOfFrame();
+        all_content_sizefitter.enabled = true;
     }
 }
 public enum CashoutType

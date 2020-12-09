@@ -62,9 +62,9 @@ public class FriendList : BaseUI
     }
     private int SortFunc(AllData_FriendData_Friend a, AllData_FriendData_Friend b)
     {
-        if (a.sum_coin > b.sum_coin) return 1; 
+        if (a.sum_coin > b.sum_coin) return -1; 
         if (a.sum_coin == b.sum_coin) return 0; 
-        return -1;
+        return 1;
     }
     private void SetFriendListShow(bool isDirect)
     {
