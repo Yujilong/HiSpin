@@ -53,12 +53,11 @@ public class CashoutPop : PopUI
     }
     private void OnConfirmAccountClick()
     {
-        string email = paypal_accountInput.text;
-        if (string.IsNullOrEmpty(email) || string.IsNullOrWhiteSpace(email))
-            Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_EmptyEmail));
-        else
-            //Server.Instance.OperationData_BindPaypal(OnConfirmCallback, null, paypal_accountInput.text);
-            Server_New.Instance.ConnectToServer_BindPaypal(OnConfirmCallback, null, null, true, email);
+        //string email = paypal_accountInput.text;
+        //if (string.IsNullOrEmpty(email) || string.IsNullOrWhiteSpace(email))
+        //    Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_EmptyEmail));
+        //else
+        //    Server_New.Instance.ConnectToServer_BindPaypal(OnConfirmCallback, null, null, true, email);
     }
     private void OnCashoutClick()
     {
@@ -79,19 +78,6 @@ public class CashoutPop : PopUI
         asArea = (AsCashoutArea)args[0];
         switch (asArea)
         {
-            case AsCashoutArea.PaypalEmail:
-                closeButton.gameObject.SetActive(true);
-                Input_emailCg.alpha = 1;
-                Input_emailCg.blocksRaycasts = true;
-                Cash_outCg.alpha = 0;
-                Cash_outCg.blocksRaycasts = false;
-                cashout_fail_helpCg.alpha = 0;
-                cashout_fail_helpCg.blocksRaycasts = false;
-                rate_usCg.alpha = 0;
-                rate_usCg.blocksRaycasts = false;
-                titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputPaypal_WindowTitle);
-                baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
-                break;
             case AsCashoutArea.Cashout:
                 closeButton.gameObject.SetActive(true);
                 Input_emailCg.alpha = 0;
@@ -158,10 +144,6 @@ public class CashoutPop : PopUI
     public Text rateus_yesText;
     public override void SetContent()
     {
-        input_paypal_account_tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputPaypal_Tip);
-        input_paypal_placeholderText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputPaypal_Placeholder);
-        input_paypal_confirmText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CONFIRM);
-        input_paypal_cautionText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Check_Caution);
 
         cashout_cashoutText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT) + "!";
         cashout_cautionText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Check_Caution);
@@ -177,7 +159,6 @@ public class CashoutPop : PopUI
 }
 public enum AsCashoutArea
 {
-    PaypalEmail,
     Cashout,
     FailHelp,
     Rateus,

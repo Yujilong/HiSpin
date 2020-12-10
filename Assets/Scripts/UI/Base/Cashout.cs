@@ -61,7 +61,7 @@ public class Cashout : BaseUI
     }
     private void OnEmailInput()
     {
-        UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.PaypalEmail);
+        UI.ShowPopPanel(PopPanel.InputPaypalEmail);
     }
     private void OnPtCashoutButtonClick(int cashoutNum)
     {

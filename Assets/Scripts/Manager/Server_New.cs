@@ -209,6 +209,8 @@ public class Server_New : MonoBehaviour
                 break;
             case Server_RequestType.BindPaypal:
                 iparams.Add(new MultipartFormDataSection("paypal", _Args[0]));
+                iparams.Add(new MultipartFormDataSection("first_name", _Args[1]));
+                iparams.Add(new MultipartFormDataSection("last_name", _Args[2]));
                 break;
             case Server_RequestType.Cashout:
                 iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
@@ -477,9 +479,9 @@ public class Server_New : MonoBehaviour
     {
         ConnectToServer(Server_RequestType.WatchRvEvent, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow);
     }
-    public void ConnectToServer_BindPaypal(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,string _Paypal)
+    public void ConnectToServer_BindPaypal(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,string _Paypal,string _FirstName,string _LastName)
     {
-        ConnectToServer(Server_RequestType.BindPaypal, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _Paypal);
+        ConnectToServer(Server_RequestType.BindPaypal, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _Paypal, _FirstName, _LastName);
     }
     public void ConnectToServer_Cashout(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,CashoutType _CashoutNeedType,int _CashoutNeedTypeNum,int _ExchangeCashNum)
     {
@@ -661,6 +663,8 @@ public class AllData_MainData
     public int lucky_count;//进入老虎机总次数
     public int lucky_total_cash;//老虎机获得的总共现金，不大于200
     public int blue_cash;
+    public string first_name;
+    public string last_name;
 }
 public class AllData_SlotsState
 {

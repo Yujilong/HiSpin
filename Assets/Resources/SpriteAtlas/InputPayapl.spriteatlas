@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: InputPayapl
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: bd9c937a23856e843a0f850a1e479c4d, type: 3}
+    totalSpriteSurfaceArea: 1387490
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1a131420f1cfbcb41823e7281d129fdc, type: 3}
+  - {fileID: 21300000, guid: ac1bba5027882674892866035b902214, type: 3}
+  - {fileID: 21300000, guid: 09a7908410b642e45bc4d12af010bd90, type: 3}
+  - {fileID: 21300000, guid: d1e2b1779d115fb42b49b71915e66bd2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - BASE
+  - button
+  - inpurfiled
+  - close
+  m_Tag: InputPayapl
+  m_IsVariant: 0

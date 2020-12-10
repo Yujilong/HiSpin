@@ -27,17 +27,17 @@ public class GetCash : PopUI
                 break;
         }
     }
+    int clickAdTime = 0;
     private void OnGetClick()
     {
         switch (getCashArea)
         {
             case GetCashArea.NewPlayerReward:
-                //Server.Instance.OperationData_GetNewPlayerReawrd(OnGetNewplayerRewardCallback, null);
                 Server_New.Instance.ConnectToServer_GetNewPlayerReward(OnGetNewplayerRewardCallback, null, null, true);
                 break;
             case GetCashArea.PlaySlots:
-                //Server.Instance.OperationData_GetSlotsReward(OnGetSlotsRewardCallback, null, Reward.Cash, getcashNum);
-                Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3);
+                clickAdTime++;
+                Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "现金翻倍", OnNothanksClick);
                 break;
         }
     }
@@ -64,6 +64,7 @@ public class GetCash : PopUI
     int getcashNum;
     protected override void BeforeShowAnimation(params int[] args)
     {
+        clickAdTime = 0;
         getCashArea = (GetCashArea)args[0];
         getcashNum = args[1];
 
@@ -80,7 +81,7 @@ public class GetCash : PopUI
                 ad_iconGo.SetActive(true);
                 trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x3";
                 trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
-                cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
+                cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
                 add_cashpt_numText.transform.parent.gameObject.SetActive(true);
                 add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
                 break;

@@ -41,6 +41,7 @@ public sealed class UI
         { (int)PopPanel.StartBetting,"Prefabs/UI/Pop_StartBetting" },
         { (int)PopPanel.GetCash,"Prefabs/UI/Pop_GetCash" },
         { (int)PopPanel.Guide,"Prefabs/UI/Pop_Guide" },
+        { (int)PopPanel.InputPaypalEmail,"Prefabs/UI/Pop_InputPaypalEmail" },
     };
     //除菜单外所有面板已经加载的资源
     static readonly Dictionary<int, GameObject> loadedpanelPrefabDic = new Dictionary<int, GameObject>();
@@ -60,6 +61,7 @@ public sealed class UI
         new PopTask() { panelType = PopPanel.StartBetting, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.GetCash, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.Guide, taskQueue = new Queue<int[]>() },
+        new PopTask() { panelType = PopPanel.InputPaypalEmail, taskQueue = new Queue<int[]>() },
     };
     class PopTask
     {
@@ -401,4 +403,5 @@ public enum PopPanel
     StartBetting = 17,
     GetCash = 18,
     Guide = 19,
+    InputPaypalEmail = 20,
 }

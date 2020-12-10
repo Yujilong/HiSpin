@@ -98,6 +98,7 @@ public class Offerwall : BaseUI
         helpText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
         balanceText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Balance);
         pt_numText.text = ((int)Save.data.allData.fission_info.live_balance).GetTokenShowString() + " <size=70>" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
+        cashoutText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
         sponsorshipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Offerwall_SPONSORSHIP);
         loading = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Offerwall_Loading);
         ready = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Offerwall_EranPts);
