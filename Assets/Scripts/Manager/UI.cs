@@ -113,6 +113,7 @@ public sealed class UI
     }
     public static void CloseCurrentBasePanel(bool isPhoneBack=false)
     {
+        if (CurrentPopPanel != null) return;
         int panelIndex = BasePanelHistoryRecord.Peek();
         if (isPhoneBack)
             if (panelIndex == (int)BasePanel.PlaySlots) return;

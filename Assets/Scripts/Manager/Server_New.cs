@@ -211,6 +211,7 @@ public class Server_New : MonoBehaviour
                 iparams.Add(new MultipartFormDataSection("paypal", _Args[0]));
                 iparams.Add(new MultipartFormDataSection("first_name", _Args[1]));
                 iparams.Add(new MultipartFormDataSection("last_name", _Args[2]));
+                iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                 break;
             case Server_RequestType.Cashout:
                 iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
@@ -368,6 +369,8 @@ public class Server_New : MonoBehaviour
                     case Server_RequestType.BindPaypal:
                         PlayerBindPaypalReceiveData paypalData = JsonMapper.ToObject<PlayerBindPaypalReceiveData>(downText);
                         Save.data.allData.user_panel.user_paypal = paypalData.user_paypal;
+                        Save.data.allData.user_panel.first_name = paypalData.first_name;
+                        Save.data.allData.user_panel.last_name = paypalData.last_name;
                         break;
                     case Server_RequestType.Cashout:
                         PlayerCashoutReceiveData receiveCashoutData = JsonMapper.ToObject<PlayerCashoutReceiveData>(downText);
@@ -595,6 +598,8 @@ public class PlayerBuyTicketReceiveData
 public class PlayerBindPaypalReceiveData
 {
     public string user_paypal;
+    public string first_name;
+    public string last_name;
 }
 public class PlayerCashoutReceiveData
 {

@@ -114,6 +114,7 @@ public class Cashout : BaseUI
     {
         if (!isPause) return;
         isPause = false;
+        SetContent();
         BeforeShowAnimation();
     }
     [Space(15)]

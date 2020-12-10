@@ -55,5 +55,8 @@ public class InputPaypalEmail : PopUI
         paypalemailPlaceholder.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputPaypal_PayapalPlaceholder);
         confirm_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CONFIRM);
         tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Check_Caution);
+        firstnameInput.SetTextWithoutNotify(Save.data.allData.user_panel.first_name);
+        lastnameInput.SetTextWithoutNotify(Save.data.allData.user_panel.last_name);
+        paypalemailInput.SetTextWithoutNotify(Save.data.allData.user_panel.user_paypal);
     }
 }
