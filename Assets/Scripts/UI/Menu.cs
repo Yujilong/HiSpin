@@ -94,7 +94,7 @@ namespace HiSpin
         }
         private void OnSlotsButtonClick()
         {
-            UI.ShowBasePanel(BasePanel.Slots);
+            UI.ShowBasePanel(BasePanel.MergeBall);
         }
         private void OnLotteryButtonClick()
         {
@@ -370,7 +370,7 @@ namespace HiSpin
                     add_ticketButton.gameObject.SetActive(true);
                     play_slots_helpButton.gameObject.SetActive(false);
                     break;
-                case BasePanel.Slots:
+                case BasePanel.MergeBall:
                     OnChangeBottomButton(slotsButton);
                     OnBottomBasePanelShow();
                     break;

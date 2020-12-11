@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Hi Spin
-  productName: Hi Spin
+  companyName: 2048 Merge Ball
+  productName: 2048 Merge Ball
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -131,7 +131,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 10
+  bundleVersion: 2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -175,9 +175,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.HiSpin.DailyCash.HugeRewards.FreeGame
+    Android: com.MergeBall.LuckyGame.HugePrizes.Rewards
   buildNumber: {}
-  AndroidBundleVersionCode: 10
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 29
   AndroidPreferredInstallLocation: 1
@@ -255,8 +255,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: "D:/\u5305/HiSpin.keystore"
-  AndroidKeyaliasName: hispin
+  AndroidKeystoreName: "D:/\u5305/mergeball.keystore"
+  AndroidKeyaliasName: 2048mergeball
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
@@ -275,7 +275,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 10f41eee976c0b24f937c204bc3db0da, type: 3}
+      m_Icon: {fileID: 2800000, guid: 79dfc7decc17b1a48876bfd9d6a7b935, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

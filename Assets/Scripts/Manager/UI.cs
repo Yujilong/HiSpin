@@ -22,7 +22,7 @@ namespace HiSpin
     {
         { (int)BasePanel.Offerwall,"Prefabs/UI/Base_Offerwall" },
         { (int)BasePanel.Rank,"Prefabs/UI/Base_Rank" },
-        { (int)BasePanel.Slots,"Prefabs/UI/Base_Slots" },
+        { (int)BasePanel.MergeBall,"Prefabs/UI/Base_MergeBall" },
         { (int)BasePanel.Betting,"Prefabs/UI/Base_Betting" },
 
         { (int)BasePanel.Cashout,"Prefabs/UI/Base_Cashout" },
@@ -399,7 +399,7 @@ namespace HiSpin
     {
         Offerwall = 0,
         Rank = 1,
-        Slots = 2,
+        MergeBall = 2,
         Friend = 3,
         Betting = 4,
 

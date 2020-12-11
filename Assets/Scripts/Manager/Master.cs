@@ -11,9 +11,9 @@ namespace HiSpin
         public static bool IsBigScreen = false;
         public static float ExpandCoe = 1;
         public const float TopMoveDownOffset = 100;
-        public const string PackageName = "com.HiSpin.DailyCash.HugeRewards.FreeGame";
-        public const int Version = 10;
-        public const string AppleId = "1540900402";
+        public const string PackageName = "com.MergeBall.LuckyGame.HugePrizes.Rewards";
+        public const int Version = 2;
+        public const string AppleId = "";
         public static bool isLoadingEnd = false;
         public static Master Instance;
         public Image bgImage;
@@ -94,7 +94,7 @@ namespace HiSpin
         }
         public void OnChangePackb()
         {
-            Slots slots = UI.GetUI(BasePanel.Slots) as Slots;
+            Slots slots = UI.GetUI(BasePanel.MergeBall) as Slots;
             if (slots != null)
                 slots.OnChangePackB();
             Friends friends = UI.GetUI(BasePanel.Friend) as Friends;
@@ -108,6 +108,10 @@ namespace HiSpin
         {
             bgImage.sprite = Sprites.GetBGSprite("bg_" + index);
         }
+        public void SetBgState(bool show)
+        {
+            bgImage.gameObject.SetActive(show);
+        }
         public static string time;
         private IEnumerator AutoTimedown(int leftSeconds)
         {
@@ -118,7 +122,7 @@ namespace HiSpin
                 int minute = leftSeconds % 3600 / 60;
                 int hour = leftSeconds / 3600;
                 time = (hour < 10 ? "0" + hour : hour.ToString()) + ":" + (minute < 10 ? "0" + minute : minute.ToString()) + ":" + (second < 10 ? "0" + second : second.ToString());
-                Slots slots = UI.GetUI(BasePanel.Slots) as Slots;
+                Slots slots = UI.GetUI(BasePanel.MergeBall) as Slots;
                 if (slots != null)
                     slots.UpdateTimedownText(time);
                 Betting betting = UI.GetUI(BasePanel.Betting) as Betting;
@@ -142,9 +146,9 @@ namespace HiSpin
         {
             StartTimeDown();
             UI.MenuPanel.RefreshTokenText();
-            if (UI.CurrentBasePanel == UI.GetUI(BasePanel.Slots))
+            if (UI.CurrentBasePanel == UI.GetUI(BasePanel.MergeBall))
             {
-                Slots slots = UI.GetUI(BasePanel.Slots) as Slots;
+                Slots slots = UI.GetUI(BasePanel.MergeBall) as Slots;
                 slots.RefreshSlotsCardState();
             }
             if (UI.CurrentBasePanel == UI.GetUI(BasePanel.Task))

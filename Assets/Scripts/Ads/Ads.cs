@@ -12,20 +12,20 @@ namespace HiSpin
 	{
 		//ios FBID 728969364687204  Hi Spin
 #if UNITY_ANDROID
-		private const string IS_APP_KEY = "de040b19";
-		private const int AdGem_APP_ID = 3449;
-		private const string Fyber_APP_ID = "123524";
-		private const string Fyber_Security_Token = "08f6b24fef833c25ab8dd9591a64b14c";
+		private const string IS_APP_KEY = "dbcff7a9";
+		private const int AdGem_APP_ID = 3503;
+		private const string Fyber_APP_ID = "123542";
+		private const string Fyber_Security_Token = "a88137defdbf3b99ddd4014ffe4ede10";
 #elif UNITY_IOS
-	private const string IS_APP_KEY = "debe9209";
-	private const int AdGem_APP_ID = 3450;
-	private const string Fyber_APP_ID = "123525";
-	private const string Fyber_Security_Token = "10854f9e6c64bbd9e8b8a6145144f3c5";
+	private const string IS_APP_KEY = "";
+	private const int AdGem_APP_ID = ;
+	private const string Fyber_APP_ID = "";
+	private const string Fyber_Security_Token = "";
 #endif
 		public static Ads _instance;
 		[NonSerialized]
 		public string adDes = string.Empty;
-		public const string AppName = "A048_HiSpin";
+		public const string AppName = "A040_MergeBall";
 		private void Awake()
 		{
 			_instance = this;

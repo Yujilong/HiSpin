@@ -16,9 +16,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 844252163015410
+  - 994037641075648
   appLabels:
-  - Hi Spin
+  - 2048 MergeBall
   cookie: 1
   logging: 1
   status: 1
