@@ -10,7 +10,6 @@ namespace HiSpin
 {
 	public class Ads : MonoBehaviour
 	{
-		//ios FBID 728969364687204  Hi Spin
 #if UNITY_ANDROID
 		private const string IS_APP_KEY = "dbcff7a9";
 		private const int AdGem_APP_ID = 3503;

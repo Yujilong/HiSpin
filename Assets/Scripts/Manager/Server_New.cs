@@ -96,23 +96,23 @@ namespace HiSpin
         }
         static readonly Dictionary<Server_RequestType, string> getdata_uri_dic = new Dictionary<Server_RequestType, string>()
     {
-        {Server_RequestType.AllData,"http://admin.crsdk.com:8000/lucky_all_data/" },
-        {Server_RequestType.TaskData,"http://admin.crsdk.com:8000/lucky_schedule/" },
+        {Server_RequestType.AllData,"http://192.168.10.54:8800/lucky_all_data/" },
+        {Server_RequestType.TaskData,"http://192.168.10.54:8800/lucky_schedule/" },
 
-        {Server_RequestType.ClickSlotsCard,"http://admin.crsdk.com:8000/lucky_free/" },
-        {Server_RequestType.GetSlotsReward,"http://admin.crsdk.com:8000/lucky_reward/" },
-        {Server_RequestType.FinishTask,"http://admin.crsdk.com:8000/lucky_task/" },
-        {Server_RequestType.BuyTickets,"http://admin.crsdk.com:8000/lucky_exchange/" },
-        {Server_RequestType.WatchRvEvent,"http://admin.crsdk.com:8000/lucky_rv/" },
-        {Server_RequestType.BindPaypal,"http://admin.crsdk.com:8000/lucky_paypal/" },
-        {Server_RequestType.Cashout,"http://admin.crsdk.com:8000/lucky_apply/" },
+        {Server_RequestType.ClickSlotsCard,"http://192.168.10.54:8800/lucky_free/" },
+        {Server_RequestType.GetSlotsReward,"http://192.168.10.54:8800/lucky_reward/" },
+        {Server_RequestType.FinishTask,"http://192.168.10.54:8800/lucky_task/" },
+        {Server_RequestType.BuyTickets,"http://192.168.10.54:8800/lucky_exchange/" },
+        {Server_RequestType.WatchRvEvent,"http://192.168.10.54:8800/lucky_rv/" },
+        {Server_RequestType.BindPaypal,"http://192.168.10.54:8800/lucky_paypal/" },
+        {Server_RequestType.Cashout,"http://192.168.10.54:8800/lucky_apply/" },
         {Server_RequestType.GetLocalCountry,"https://a.mafiagameglobal.com/event/country/" },
-        {Server_RequestType.OpenBettingPrize,"http://admin.crsdk.com:8000/lucky_flag/" },
-        {Server_RequestType.ChangeHead_Name,"http://admin.crsdk.com:8000/update_user/" },
-        {Server_RequestType.GetLevelUpReward,"http://admin.crsdk.com:8000/level_reward/" },
-        {Server_RequestType.GetNewPlayerReward,"http://admin.crsdk.com:8000/new_data/" },
+        {Server_RequestType.OpenBettingPrize,"http://192.168.10.54:8800/lucky_flag/" },
+        {Server_RequestType.ChangeHead_Name,"http://192.168.10.54:8800/update_user/" },
+        {Server_RequestType.GetLevelUpReward,"http://192.168.10.54:8800/level_reward/" },
+        {Server_RequestType.GetNewPlayerReward,"http://192.168.10.54:8800/new_data/" },
         {Server_RequestType.GetUUID,"http://aff.luckyclub.vip:8000/get_random_id/" },
-        {Server_RequestType.GetCashoutRecordList,"http://admin.crsdk.com:8000/lucky_record/" },
+        {Server_RequestType.GetCashoutRecordList,"http://192.168.10.54:8800/lucky_record/" },
     };
         Server_RequestType RequestType;
         Action ServerResponseOkCallback;
@@ -153,6 +153,7 @@ namespace HiSpin
             }
             #endregion
             iparams.Add(new MultipartFormDataSection("uuid", Save.data.uuid));
+            iparams.Add(new MultipartFormDataSection("app_name", Ads.AppName));
             if (!string.IsNullOrEmpty(adID))
             {
                 Save.data.adid = adID;
