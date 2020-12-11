@@ -79,8 +79,8 @@ public class Cashout : BaseUI
     }
     private void OnPaypalCashoutButtonClick(int cashoutNum)
     {
-        if (Save.data.allData.user_panel.user_doller_live >= cashoutNum)
-            UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.Blue_Cash, cashoutNum);
+        if (Save.data.allData.user_panel.blue_cash >= cashoutNum * 100)
+            UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.Blue_Cash, cashoutNum * 100);
         else
             Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_CashOutNotEnough));
     }
