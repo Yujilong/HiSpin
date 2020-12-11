@@ -168,16 +168,22 @@ public class Friends : BaseUI
         int receiveTime = invite_people_receive + 1;
         if (receiveTime <= Save.data.allData.fission_info.reward_conf.invite_flag)
         {
+            Reward lt = Save.data.allData.fission_info.reward_conf.lt_flag_type;
             invite_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteRewardTip) + " <color=#FF9732>{0}</color>",
-                Save.data.allData.fission_info.reward_conf.lt_flag_type == Reward.Cash ? "$" + Save.data.allData.fission_info.reward_conf.lt_flag_num.GetCashShowString() : Save.data.allData.fission_info.reward_conf.lt_flag_num.GetTokenShowString());
+                (lt == Reward.Cash||lt==Reward.Paypal) ? (Save.data.isPackB ? "$" : "") + Save.data.allData.fission_info.reward_conf.lt_flag_num.GetCashShowString() : Save.data.allData.fission_info.reward_conf.lt_flag_num.GetTokenShowString());
             invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.lt_flag_type.ToString().ToLower());
         }
         else
         {
-            invite_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteRewardTip)+ " <color=#FF9732>{0}</color>",
-                Save.data.allData.fission_info.reward_conf.gt_flag_type == Reward.Cash ? "$" + Save.data.allData.fission_info.reward_conf.gt_flag_num.GetCashShowString() : Save.data.allData.fission_info.reward_conf.gt_flag_num.GetTokenShowString());
+            Reward gt = Save.data.allData.fission_info.reward_conf.gt_flag_type;
+            invite_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteRewardTip) + " <color=#FF9732>{0}</color>",
+                (gt == Reward.Cash||gt==Reward.Paypal) ? (Save.data.isPackB ? "$" : "") + Save.data.allData.fission_info.reward_conf.gt_flag_num.GetCashShowString() : Save.data.allData.fission_info.reward_conf.gt_flag_num.GetTokenShowString());
             invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.gt_flag_type.ToString().ToLower());
         }
+        if (!Save.data.isPackB && Save.data.allData.fission_info.reward_conf.lt_flag_type == Reward.Paypal)
+            invite_reward_iconImage.gameObject.SetActive(false);
+        else
+            invite_reward_iconImage.gameObject.SetActive(true);
 
         int not_received_invite_reward = invite_people_num - invite_people_receive;
         for (int i = 0; i < not_received_invite_reward; i++)

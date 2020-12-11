@@ -81,7 +81,7 @@ public class Menu : MonoBehaviour, IUIBase
     }
     private void OnOfferwallButtonClick()
     {
-        if (Save.data.allData.user_panel.user_level >= 4)
+        if (Save.data.allData.user_panel.user_level >= 2)
             UI.ShowBasePanel(BasePanel.Offerwall);
         else
             Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ClickUnlockOfferwall), 2);
@@ -266,7 +266,7 @@ public class Menu : MonoBehaviour, IUIBase
                 if (winner.user_id == Save.data.allData.user_panel.user_id)
                 {
                     hasSelf = true;
-                    cash_numText.text = (Save.data.allData.user_panel.user_doller_live - winner.user_num).GetCashShowString();
+                    cash_numText.text = (Save.data.allData.user_panel.user_doller_live - winner.user_num).GetBigTokenString();
                     break;
                 }
             }

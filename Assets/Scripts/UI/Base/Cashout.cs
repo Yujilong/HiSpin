@@ -155,7 +155,7 @@ public class Cashout : BaseUI
         pt_cashout_left_buttonText.text = dollar + " 5";
         pt_cashout_mid_buttonText.text = dollar + " 10";
         pt_cashout_right_buttonText.text = dollar + " 50";
-        paypalCash_numText.text = dollar + Save.data.allData.user_panel.blue_cash.GetTokenShowString();
+        paypalCash_numText.text = dollar + Save.data.allData.user_panel.blue_cash.GetCashShowString();
         paypal_cashout_left_buttonText.text = dollar + " 10";
         paypal_cashout_mid_buttonText.text = dollar + " 50";
         paypal_cashout_right_buttonText.text = dollar + " 100";

@@ -19,7 +19,7 @@ public class CashoutRecordItem : MonoBehaviour
     {
         consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, comsumeType.ToString());
         if (comsumeType == CashoutType.Cash)
-            consume_numText.text = consumeNum.GetCashShowString();
+            consume_numText.text = consumeNum.GetBigTokenString();
         else if (comsumeType == CashoutType.PT)
             consume_numText.text = consumeNum.GetTokenShowString() + " <size=60>" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
         else

@@ -74,7 +74,7 @@ public class TaskItem : MonoBehaviour
                 titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_BuyTicketByRvOnce);
                 break;
         }
-
+        reward_iconImage.gameObject.SetActive(true);
         switch (RewardType)
         {
             case Reward.Gold:
@@ -82,8 +82,17 @@ public class TaskItem : MonoBehaviour
                 reward_numText.text = rewardNum.GetTokenShowString();
                 break;
             case Reward.Cash:
-                reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "cash");
-                reward_numText.text = rewardNum.GetTokenShowString();
+                if (taskTargetId == PlayerTaskTarget.InviteAFriend)
+                {
+                    reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "paypal");
+                    reward_iconImage.gameObject.SetActive(Save.data.isPackB);
+                    reward_numText.text =(Save.data.isPackB?"$":"")+ rewardNum.GetCashShowString();
+                }
+                else
+                {
+                    reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "cash");
+                    reward_numText.text = rewardNum.GetTokenShowString();
+                }
                 break;
             case Reward.Ticket:
                 reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "ticket");

@@ -117,7 +117,7 @@ MonoBehaviour:
     - area: 47
       value: TICKETS
     - area: 48
-      value: 'FREE SLOTS :'
+      value: FREE SLOTS
     - area: 49
       value: WIN
     - area: 50
@@ -264,7 +264,7 @@ MonoBehaviour:
     - area: 115
       value: is not available.
     - area: 116
-      value: Unlock at level 4.
+      value: Unlock at level 2.
     - area: 117
       value: "Enter\_complete\_information."
     - area: 118
@@ -470,7 +470,7 @@ MonoBehaviour:
     - area: 47
       value: "\u0411\u0418\u041B\u0415\u0422\u042B"
     - area: 48
-      value: "\u0411\u0415\u0421\u041F\u041B\u0410\u0422\u041D\u042B\u0415 \u0421\u041B\u041E\u0422\u042B:"
+      value: "\u0411\u0415\u0421\u041F\u041B\u0410\u0422\u041D\u042B\u0415 \u0421\u041B\u041E\u0422\u042B"
     - area: 49
       value: "\u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C"
     - area: 50
@@ -645,7 +645,7 @@ MonoBehaviour:
       value: "\u043D\u0435 \u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D."
     - area: 116
       value: "\u0420\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u0443\u0435\u0442\u0441\u044F
-        \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435 4."
+        \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435 2."
     - area: 117
       value: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435\_\u043F\u043E\u043B\u043D\u0443\u044E\_\u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E."
     - area: 118
@@ -879,7 +879,7 @@ MonoBehaviour:
     - area: 47
       value: "\u30C1\u30B1\u30C3\u30C8"
     - area: 48
-      value: "\u7121\u6599\u30B9\u30ED\u30C3\u30C8\uFF1A"
+      value: "\u7121\u6599\u30B9\u30ED\u30C3\u30C8"
     - area: 49
       value: "\u5F97\u308B"
     - area: 50
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     - area: 115
       value: "\u5229\u7528\u4E0D\u53EF\u3002"
     - area: 116
-      value: "\u30EC\u30D9\u30EB4\u3067\u30ED\u30C3\u30AF\u89E3\u9664\u3002"
+      value: "\u30EC\u30D9\u30EB2\u3067\u30ED\u30C3\u30AF\u89E3\u9664\u3002"
     - area: 117
       value: "\u5B8C\u5168\u306A\u60C5\u5831\u3092\u5165\u529B\u3057\u307E\u3059\u3002"
     - area: 118
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     - area: 47
       value: "\uD2F0\uCF13"
     - area: 48
-      value: "\uBB34\uB8CC \uC2AC\uB86F :"
+      value: "\uBB34\uB8CC \uC2AC\uB86F "
     - area: 49
       value: "\uC2B9\uB9AC"
     - area: 50
@@ -1314,7 +1314,7 @@ MonoBehaviour:
     - area: 115
       value: "\uC720\uD6A8\uD558\uC9C0 \uC54A\uB2E4."
     - area: 116
-      value: "\uB808\uBCA8 4\uC5D0\uC11C \uC7A0\uAE08 \uD574\uC81C\uD558\uC2ED\uC2DC\uC624."
+      value: "\uB808\uBCA8 2\uC5D0\uC11C \uC7A0\uAE08 \uD574\uC81C\uD558\uC2ED\uC2DC\uC624."
     - area: 117
       value: "\uC644\uC804\uD55C\_\uC815\uBCF4\uB97C\_\uC785\uB825\uD558\uC2ED\uC2DC\uC624."
     - area: 118
@@ -1500,7 +1500,7 @@ MonoBehaviour:
     - area: 47
       value: TICKETS
     - area: 48
-      value: 'FREI SLOTS :'
+      value: FREI SLOTS
     - area: 49
       value: SIEG
     - area: 50
@@ -1647,7 +1647,7 @@ MonoBehaviour:
     - area: 115
       value: "nicht verf\xFCgbar."
     - area: 116
-      value: Unlock auf Ebene 4.
+      value: Unlock auf Ebene 2.
     - area: 117
       value: "Geben\_Sie\_alle\_Informationen."
     - area: 118

@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 268d709bc0ef0b84d8d389033eda81a7, type: 3}
-    totalSpriteSurfaceArea: 375676
+    totalSpriteSurfaceArea: 386576
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -43,6 +43,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6dc508f97d14d8a4ea0a873eacfa5f12, type: 3}
   - {fileID: 21300000, guid: fb86321af61a8b54b9932891e3872379, type: 3}
   - {fileID: 21300000, guid: a8d50b2abe1c2654ca87b8d3f952820d, type: 3}
+  - {fileID: 21300000, guid: b576afac612cbbc43b68db0d16bb7259, type: 3}
   m_PackedSpriteNamesToIndex:
   - ad
   - button_grey
@@ -52,5 +53,6 @@ SpriteAtlas:
   - itembg
   - gold
   - done
+  - paypal
   m_Tag: Task&Achievement
   m_IsVariant: 0

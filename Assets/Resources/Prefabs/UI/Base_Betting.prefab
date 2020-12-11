@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head_iconImage: {fileID: 6739927896046231366}
-  cash_iconGo: {fileID: 0}
+  cash_iconGo: {fileID: 6739927897100366837}
   nameText: {fileID: 6739927895865401557}
   prize_cash_num_Text: {fileID: 6739927897035076505}
 --- !u!1 &6739927897174254332

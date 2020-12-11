@@ -57,11 +57,15 @@ public class InviteOk : PopUI
         invite_ok_reward_type = (Reward)args[0];
         invite_ok_reward_num = args[1];
         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, invite_ok_reward_type.ToString().ToLower());
+        if ((invite_ok_reward_type == Reward.Cash || invite_ok_reward_type == Reward.Paypal) && !Save.data.isPackB)
+            reward_iconImage.gameObject.SetActive(false);
+        else
+            reward_iconImage.gameObject.SetActive(true);
         single_rewardButton.gameObject.SetActive(false);
         adGo.SetActive(false);
         if (invite_ok_reward_type == Reward.Cash)
         {
-            reward_numText.text = "x " + invite_ok_reward_num.GetCashShowString();
+            reward_numText.text = "x " + invite_ok_reward_num.ToString();
         }
         else
         {
