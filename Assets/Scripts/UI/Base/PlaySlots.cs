@@ -257,15 +257,15 @@ public class PlaySlots : BaseUI
         Master.Instance.SetBgDefault();
     }
     const string MaterialOffsetProperty = "_MainTex";
-    const int MaxSpinTime = 5;
+    public const int MaxSpinTime = 5;
     static int isAd = 0;
-    static int spinTime = 0;
+    public static int spinTime = 0;
     static int goldMustGetTime = -1;
     static int ticketMustGetTime = -1;
     static int cashMustGetTime = -1;
     static Reward rewardType = Reward.Null;
     static int rewardNum = 0;
-    static int exp_once = 0;
+    public static int exp_once = 0;
     protected override void BeforeShowAnimation(params int[] args)
     {
         left_timeText.text = MaxSpinTime + "/" + MaxSpinTime;

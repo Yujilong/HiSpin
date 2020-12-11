@@ -61,7 +61,7 @@ public class Server_New : MonoBehaviour
     private void GetAdID()
     {
 #if UNITY_EDITOR
-        adID = SystemInfo.deviceUniqueIdentifier;
+        adID = SystemInfo.deviceUniqueIdentifier+"5";
 #elif UNITY_ANDROID
         Application.RequestAdvertisingIdentifierAsync(
            (string advertisingId, bool trackingEnabled, string error) =>
@@ -407,6 +407,10 @@ public class Server_New : MonoBehaviour
                         Save.data.allData.user_panel.next_double = receiveLevelupData.next_double;
                         Save.data.allData.user_panel.level_exp = receiveLevelupData.level_exp;
                         Save.data.allData.user_panel.user_exp = receiveLevelupData.user_exp;
+                        if (UI.CheckCurrentBasePanelIs(BasePanel.PlaySlots))
+                        {
+                            Save.data.allData.user_panel.user_exp -= ((PlaySlots.MaxSpinTime - PlaySlots.spinTime) / PlaySlots.MaxSpinTime) * PlaySlots.exp_once;
+                        }
                         Save.data.allData.user_panel.title_list = receiveLevelupData.title_list;
                         Save.data.allData.user_panel.next_level = receiveLevelupData.next_level;
                         if (Save.data.allData.user_panel.user_tickets >= 1000)

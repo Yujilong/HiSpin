@@ -377,6 +377,22 @@ public sealed class UI
         if (setting != null)
             setting.OnTaskFinishChange(hasFinished);
     }
+    public static bool CheckCurrentPopPanelIs(PopPanel popPanel)
+    {
+        if(allPanelDic.TryGetValue((int)popPanel,out IUIBase pop))
+        {
+            return CurrentPopPanel == pop;
+        }
+        return false;
+    }
+    public static bool CheckCurrentBasePanelIs(BasePanel basePanel)
+    {
+        if (allPanelDic.TryGetValue((int)basePanel, out IUIBase pop))
+        {
+            return CurrentPopPanel == pop;
+        }
+        return false;
+    }
 }
 public enum BasePanel
 {
