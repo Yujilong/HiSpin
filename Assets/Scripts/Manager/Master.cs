@@ -12,7 +12,7 @@ namespace HiSpin
         public static float ExpandCoe = 1;
         public const float TopMoveDownOffset = 100;
         public const string PackageName = "com.HiSpin.DailyCash.HugeRewards.FreeGame";
-        public const int Version = 10;
+        public const int Version = 11;
         public const string AppleId = "1540900402";
         public static bool isLoadingEnd = false;
         public static Master Instance;
@@ -58,14 +58,14 @@ namespace HiSpin
         }
         public void OnLoadingEnd()
         {
-            isLoadingEnd = true;
+            //isLoadingEnd = true;
             CheckLocalSavaData();
             StartTimeDown();
             if (!Save.data.isPackB)
             {
                 Save.data.isPackB = Save.data.allData.fission_info.up_user;
                 if (Save.data.isPackB)
-                    Master.Instance.SendAdjustPackBEvent();
+                    SendAdjustPackBEvent();
             }
             UI.ShowMenuPanel();
         }
