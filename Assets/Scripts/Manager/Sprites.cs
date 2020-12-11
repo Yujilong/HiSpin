@@ -19,6 +19,7 @@ public static class Sprites
         { SpriteAtlas_Name.InviteOk,"SpriteAtlas/InviteOk"},
         { SpriteAtlas_Name.Friend,"SpriteAtlas/Friend"},
         { SpriteAtlas_Name.GetCash,"SpriteAtlas/GetCash"},
+        { SpriteAtlas_Name.GetNewPlayerReward,"SpriteAtlas/GetNewPlayerReward"},
     };
     static readonly Dictionary<SpriteAtlas_Name, SpriteAtlas> loadedSpriteAtlasDic = new Dictionary<SpriteAtlas_Name, SpriteAtlas>();
     static readonly Dictionary<string, Sprite> loadedSpriteDic = new Dictionary<string, Sprite>();
@@ -139,4 +140,5 @@ public enum SpriteAtlas_Name
     InviteOk,
     Friend,
     GetCash,
+    GetNewPlayerReward,
 }

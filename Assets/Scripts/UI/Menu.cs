@@ -250,6 +250,7 @@ public class Menu : MonoBehaviour, IUIBase
 #endif
         if (!Save.data.allData.user_panel.new_reward)
             UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.NewPlayerReward, Save.data.allData.user_panel.new_data_num);
+        UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 0);
 #if UNITY_IOS
         if (!Save.data.isPackB)
         {
