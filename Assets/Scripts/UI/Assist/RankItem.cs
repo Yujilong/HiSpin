@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class RankItem : MonoBehaviour
+namespace HiSpin
 {
-    public Image head_iconImage;
-    public Text nameText;
-    public Text rankText;
-    public Text numText;
-    public void Init(int user_head_id,string id,int rank,int token)
+    public class RankItem : MonoBehaviour
     {
-        head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + user_head_id);
-        nameText.text = id;
-        if (rankText != null)
-            rankText.text = "No." + (rank > 0 ? rank.ToString() : "25+");
-        numText.text = token.GetTokenShowString();
+        public Image head_iconImage;
+        public Text nameText;
+        public Text rankText;
+        public Text numText;
+        public void Init(int user_head_id, string id, int rank, int token)
+        {
+            head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + user_head_id);
+            nameText.text = id;
+            if (rankText != null)
+                rankText.text = "No." + (rank > 0 ? rank.ToString() : "25+");
+            numText.text = token.GetTokenShowString();
+        }
     }
 }

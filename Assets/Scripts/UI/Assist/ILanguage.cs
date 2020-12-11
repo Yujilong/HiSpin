@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public interface ILanguage
+namespace HiSpin
 {
-    void SetContent();
+    public interface ILanguage
+    {
+        void SetContent();
+    }
 }
