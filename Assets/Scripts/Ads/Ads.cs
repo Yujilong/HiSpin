@@ -124,11 +124,10 @@ namespace HiSpin
 			rewardCallback = rewardedCallback;
 			rewardFailCallback = failCallback;
 #if UNITY_EDITOR
-			//Server.Instance.OperationData_RvEvent(rewardCallback, null);
-			Server_New.Instance.ConnectToServer_WatchRvEvent(rewardedCallback, null, null, true);
-			TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WatchRvOnce, 1);
-			Debug.Log("RV:【" + des + "】");
-			return true;
+            Server_New.Instance.ConnectToServer_WatchRvEvent(rewardedCallback, null, null, true);
+            TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WatchRvOnce, 1);
+            Debug.Log("RV:【" + des + "】");
+            return true;
 #endif
 #if UNITY_IOS
 		if (!Save.data.isPackB)
@@ -137,7 +136,7 @@ namespace HiSpin
 			return true;
 		}
 #endif
-			if (IronSource.Agent.isRewardedVideoAvailable())
+            if (IronSource.Agent.isRewardedVideoAvailable())
 			{
 				IronSource.Agent.showRewardedVideo();
 				return true;

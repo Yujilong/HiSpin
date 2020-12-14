@@ -51,5 +51,13 @@ namespace UI
             MainController.Instance.hasShowBuyEnergyPanel = false;
             GameManager.ShowNextPanel();
         }
+        [Space(15)]
+        public Text energyText;
+        public Text freeText;
+        public override void SetContent()
+        {
+            energyText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ENERGY);
+            freeText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FREE);
+        }
     }
 }

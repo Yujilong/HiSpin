@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UI;
 namespace HiSpin
 {
     public class Mergeball : BaseUI
@@ -14,6 +15,10 @@ namespace HiSpin
         {
             Master.Instance.SetBgState(true);
             yield return null;
+        }
+        public override void SetContent()
+        {
+            GameManager.Instance.UIManager.GetUIPanel(UI_Panel.MenuPanel)?.SetContent();
         }
     }
 }

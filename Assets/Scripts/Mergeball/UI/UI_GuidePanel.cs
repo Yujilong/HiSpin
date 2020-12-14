@@ -44,5 +44,15 @@ namespace UI
         {
             UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.GiftPanel);
         }
+        [Space(15)]
+        public Text guideTip1;
+        public Text guideTip2;
+        public Text guideTip3;
+        public override void SetContent()
+        {
+            guideTip1.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Mergeball_Guide1);
+            guideTip2.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Mergeball_Guide2);
+            guideTip3.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Mergeball_Guide3);
+        }
     }
 }

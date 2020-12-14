@@ -785,6 +785,7 @@ MonoBehaviour:
   ConfirmReward_Type: 0
   ConfirmRewrad_Num: 0
   ConfirmReward_Needad: 1
+  ConfirmReward_IsSlots: 0
   OpenGoldBallReward_Num: 0
   hand: {fileID: 1992148415}
 --- !u!114 &109883648
@@ -2343,7 +2344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 88.5}
+  m_AnchoredPosition: {x: 0, y: 88}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &629251368

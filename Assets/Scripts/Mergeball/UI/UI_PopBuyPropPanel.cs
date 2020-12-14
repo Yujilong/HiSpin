@@ -33,7 +33,7 @@ namespace UI
         private void OnCoinBuyClick()
         {
             GameManager.PlayButtonClickSound();
-            HiSpin.Server_New.Instance.ConnectToServer_BuyMergeball(OnCoinBuyCallback, null, null, true, needCoinNum);
+            HiSpin.Server_New.Instance.ConnectToServer_BuyMergeball(OnCoinBuyCallback, null, null, true, 2500, HiSpin.Reward.Cash);
         }
         private void OnCoinBuyCallback()
         {
@@ -85,7 +85,7 @@ namespace UI
             clickAdTime = 0;
             isProp1 = GameManager.WillBuyProp == Reward.Prop1;
             needCoinNum = isProp1 ? GameManager.GetProp1NeedCoinNum() : GameManager.GetProp2NeedCoinNum();
-            needCoinNumText.text = needCoinNum.ToString();
+            needCoinNumText.text = GameManager.GetIsPackB() ? "1.00" : HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "1.00";
             icon.sprite = isProp1 ? prop1icon : prop2icon;
             coinBuyButton.gameObject.SetActive(false);
             adBuyButton.gameObject.SetActive(true);
@@ -106,6 +106,14 @@ namespace UI
             yield return new WaitForSeconds(1);
             coinBuyButton.gameObject.SetActive(true);
             adBuyButton.gameObject.SetActive(false);
+        }
+        [Space(15)]
+        public Text buyText;
+        public Text freeText;
+        public override void SetContent()
+        {
+            buyText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BUY);
+            freeText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FREE);
         }
     }
 }

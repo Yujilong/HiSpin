@@ -72,6 +72,18 @@ namespace HiSpin
         public void OnTaskFinishChange(bool hasFinish)
         {
             setting_rpGo.SetActive(hasFinish);
+            int lv = Save.data.allData.user_panel.user_level;
+            List<int> avatar_level_list = Save.data.allData.user_panel.title_level;
+            List<bool> avatar_check = Save.data.head_icon_hasCheck;
+            int count = avatar_level_list.Count;
+            for (int i = 0; i < count; i++)
+            {
+                if (lv >= avatar_level_list[i] && !avatar_check[i])
+                {
+                    setting_rpGo.SetActive(true);
+                    break;
+                }
+            }
         }
         #region button event
         private void OnCashButtonClick()
@@ -152,7 +164,7 @@ namespace HiSpin
         }
         public void UpdateCashText()
         {
-            cash_numText.text = Save.data.allData.user_panel.user_doller_live.GetBigTokenString();
+            cash_numText.text = (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
         }
         public void UpdateTicketText()
         {
@@ -188,7 +200,7 @@ namespace HiSpin
                 }
             }
         }
-        public void UpdateFreeSlotsLeftNumText()
+        public void UpdateEnergyNumText()
         {
             int mergeballEnergy = GameManager.Instance.PlayerDataManager.playerData.energy;
             slots_left_free_numText.text = mergeballEnergy.ToString();
@@ -221,7 +233,7 @@ namespace HiSpin
         {
             RefreshTokenText();
             UpdateHeadIcon();
-            UpdateFreeSlotsLeftNumText();
+            UpdateEnergyNumText();
             UpdateFriendWetherClickToday();
 
 #if UNITY_IOS

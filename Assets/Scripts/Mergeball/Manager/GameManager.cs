@@ -338,7 +338,7 @@ public class GameManager : MonoBehaviour
     public bool nextSlotsIsUpgradeSlots = false;
     public int RandomSlotsReward()
     {
-        SlotsData slotsData = ConfigManager.GetSlotsData(HiSpin.Save.data.allData.user_panel.lucky_total_cash);
+        SlotsData slotsData = ConfigManager.GetSlotsData(GetTotalCash());
         int total = slotsData.cashWeight + slotsData.coinWeight;
         int result = Random.Range(0, total);
         if (result < slotsData.cashWeight && GetTodayCanGetCashTime() > 0)
@@ -349,17 +349,19 @@ public class GameManager : MonoBehaviour
     public Reward ConfirmReward_Type = Reward.Null;
     public int ConfirmRewrad_Num = 0;
     public bool ConfirmReward_Needad = true;
-    public void ShowConfirmRewardPanel(Reward type, int num, bool needAd = true)
+    public bool ConfirmReward_IsSlots = false;
+    public void ShowConfirmRewardPanel(Reward type, int num, bool needAd = true, bool isSlots = false)
     {
         ConfirmReward_Type = type;
         ConfirmRewrad_Num = num;
         ConfirmReward_Needad = needAd;
+        ConfirmReward_IsSlots = isSlots;
         if (type == Reward.Cash)
         {
-            HiSpin.UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.Mergeball, num);
+            HiSpin.UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.Mergeball, num, isSlots ? 1 : 0);
         }
         else
-        UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.RewardNoCashPanel);
+            UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.RewardNoCashPanel);
     }
     private struct WheelRandom
     {
@@ -379,13 +381,13 @@ public class GameManager : MonoBehaviour
         int count = allWheelDatas.Count;
         for(int i = 0; i < count; i++)
         {
-            List<int> blackBox = allWheelDatas[i].blackbox;
-            foreach(int time in blackBox)
-            {
-                if (time == playTime)
-                    return i;
-            }
-            if (allWheelDatas[i].limitCash < 0 || (GetCash() < allWheelDatas[i].limitCash && GetTodayCanGetCashTime() > 0))
+            //List<int> blackBox = allWheelDatas[i].blackbox;
+            //foreach(int time in blackBox)
+            //{
+            //    if (time == playTime)
+            //        return i;
+            //}
+            if (allWheelDatas[i].limitCash < 0 || (GetTotalCash() < allWheelDatas[i].limitCash && GetTodayCanGetCashTime() > 0))
             {
                 total += allWheelDatas[i].weight;
                 WheelRandom random = new WheelRandom
@@ -420,7 +422,7 @@ public class GameManager : MonoBehaviour
         bool isPackB = true;
         if (isPackB)
         {
-            GiftDataB giftDataB = ConfigManager.GetGiftBData(GetCash());
+            GiftDataB giftDataB = ConfigManager.GetGiftBData(GetTotalCash());
             return Random.Range(giftDataB.fallBallNumRange.x, giftDataB.fallBallNumRange.y);
         }
         else
@@ -429,12 +431,16 @@ public class GameManager : MonoBehaviour
             return Random.Range(giftDataA.fallBallNumRange.x, giftDataA.fallBallNumRange.y);
         }
     }
+    private int GetTotalCash()
+    {
+        return Save.data.allData.user_panel.lucky_total_cash / 25;
+    }
     public Reward RandomGiftReward(out int rewardNum)
     {
         bool isPackB = true;
         if (isPackB)
         {
-            GiftDataB giftDataB = ConfigManager.GetGiftBData(GetCash());
+            GiftDataB giftDataB = ConfigManager.GetGiftBData(GetTotalCash());
             if (GetTodayCanGetCashTime() <= 0)
             {
                 rewardNum = Random.Range(giftDataB.rewardCoinNumRange.x, giftDataB.rewardCoinNumRange.y);
@@ -444,7 +450,7 @@ public class GameManager : MonoBehaviour
             int result = Random.Range(0, total);
             if (result < giftDataB.cashWeight)
             {
-                rewardNum = Random.Range(giftDataB.rewardCashNumRange.x, giftDataB.rewardCashNumRange.y);
+                rewardNum = Random.Range(giftDataB.rewardCashNumRange.x, giftDataB.rewardCashNumRange.y) * 25;
                 return Reward.Cash;
             }
             else
@@ -509,7 +515,7 @@ public class GameManager : MonoBehaviour
     public int OpenGoldBallReward_Num = 0;
     public void WhenGetGoldBall()
     {
-        OpenGoldBallReward_Num = Random.Range(300, 501);
+        OpenGoldBallReward_Num = Random.Range(30, 51);
         if (!UIManager.PanelWhetherShowAnyone() && WillShowOpenGoldBall <= 0)
             UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.OpenGoldBallPanel);
         else
@@ -517,7 +523,7 @@ public class GameManager : MonoBehaviour
     }
     public void WhenGetTicketBall()
     {
-        OpenGoldBallReward_Num = Random.Range(20, 31);
+        OpenGoldBallReward_Num = -Random.Range(20, 31);
         if (!UIManager.PanelWhetherShowAnyone() && WillShowOpenGoldBall <= 0)
             UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.OpenGoldBallPanel);
         else
@@ -594,6 +600,7 @@ public class GameManager : MonoBehaviour
         if (value == 1)
             PlayerDataManager.playerData.lastGetNaturalEnergyTime = System.DateTime.Now.ToString();
         MainController.Instance.RefreshEnergyText();
+        HiSpin.UI.MenuPanel.UpdateEnergyNumText();
         return PlayerDataManager.playerData.energy;
     }
     public void AddBuyEnergyTime(int value = 1)

@@ -83,7 +83,7 @@ namespace UI
                     Debug.LogError("奖励类型错误，该面板不会奖励现金");
                     break;
                 case Reward.Coin:
-                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Gold, num);
+                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Gold, num, GameManager.ConfirmReward_IsSlots);
                     break;
                 case Reward.Amazon:
                     GameManager.AddAmazon(num);
@@ -113,6 +113,16 @@ namespace UI
             if (needAd)
                 StopCoroutine(nothanksDelay);
             GameManager.ShowNextPanel();
+        }
+        [Space(15)]
+        public Text titleText;
+        public Text getText;
+        public Text nothanksText;
+        public override void SetContent()
+        {
+            titleText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Congratulation);
+            getText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x2";
+            nothanksText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
         }
     }
 }

@@ -93,5 +93,23 @@ namespace UI
             scoreText.text = GameManager.GetScore().ToString();
             bestText.text = GameManager.GetBestScore().ToString();
         }
+        [Space(15)]
+        public Text continueTitleText;
+        public Text continueText;
+        public Text nothanksText;
+        public Text gameoverText;
+        public Text scoreContentText;
+        public Text bestContentText;
+        public Text restartText;
+        public override void SetContent()
+        {
+            continueTitleText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CONTINUE) + "?";
+            continueText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CONTINUE);
+            nothanksText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
+            gameoverText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GAMEOVER);
+            scoreContentText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.SCORE);
+            bestContentText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BEST);
+            restartText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.RESTART);
+        }
     }
 }

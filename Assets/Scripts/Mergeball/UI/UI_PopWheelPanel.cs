@@ -109,7 +109,7 @@ namespace UI
             {
                 yield return null;
             }
-            GameManager.ShowConfirmRewardPanel(rewardTypes[endIndex], rewardNums[endIndex]);
+            GameManager.ShowConfirmRewardPanel(rewardTypes[endIndex], rewardNums[endIndex] * 25);
             if (hasFree)
                 GameManager.UseFreeWheel();
             CheckHasFree();
@@ -158,6 +158,14 @@ namespace UI
         {
             StopCoroutine(closeDelay);
             GameManager.ShowNextPanel();
+        }
+        [Space(15)]
+        public Text titleText;
+        public Text spinText;
+        public override void SetContent()
+        {
+            titleText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.LUCKY_WHEEL);
+            spinText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.SPIN);
         }
     }
 }

@@ -247,9 +247,11 @@ namespace HiSpin
                 case Server_RequestType.GetMergeballReward:
                     iparams.Add(new MultipartFormDataSection("reward_type", _Args[0]));
                     iparams.Add(new MultipartFormDataSection("reward_num", _Args[1]));
+                    iparams.Add(new MultipartFormDataSection("lucky_flag", _Args[2]));
                     break;
                 case Server_RequestType.BuyMerballThings:
                     iparams.Add(new MultipartFormDataSection("gold_num", _Args[0]));
+                    iparams.Add(new MultipartFormDataSection("consume_type", _Args[1]));
                     break;
                 default:
                     break;
@@ -410,6 +412,7 @@ namespace HiSpin
                             Save.data.allData.user_panel.user_exp = mergeballNumReceiveData.user_exp;
                             Save.data.allData.user_panel.level_exp = mergeballNumReceiveData.level_exp;
                             UI.MenuPanel.UpdateHeadIcon();
+                            TaskAgent.TriggerTaskEvent(PlayerTaskTarget.MergeballOnce, int.Parse(_Args[0]));
                             break;
                         case Server_RequestType.GetMergeballReward:
                             PlayerGetMergeballRewardReceiveData getMergeballRewardReceiveData = JsonMapper.ToObject<PlayerGetMergeballRewardReceiveData>(downText);
@@ -427,12 +430,23 @@ namespace HiSpin
                             {
                                 Save.data.allData.user_panel.user_tickets = getMergeballRewardReceiveData.user_tickets;
                             }
+                            if (_Args[2].Equals("1") && _Args[1].Equals("2"))
+                                TaskAgent.TriggerTaskEvent(PlayerTaskTarget.GetCashFromSlotsOnce, 1);
                             break;
                         case Server_RequestType.BuyMerballThings:
                             BuyMergeballThingReceiveData mergeballThingReceiveData = JsonMapper.ToObject<BuyMergeballThingReceiveData>(downText);
-                            Save.data.allData.user_panel.user_gold = mergeballThingReceiveData.user_gold;
-                            Save.data.allData.user_panel.user_gold_live = mergeballThingReceiveData.user_gold_live;
-                            UI.MenuPanel.UpdateGoldText();
+                            if (_Args[1].Equals("1"))
+                            {
+                                Save.data.allData.user_panel.user_gold = mergeballThingReceiveData.user_gold;
+                                Save.data.allData.user_panel.user_gold_live = mergeballThingReceiveData.user_gold_live;
+                                UI.MenuPanel.UpdateGoldText();
+                            }
+                            else if (_Args[1].Equals("2"))
+                            {
+                                Save.data.allData.user_panel.user_doller = mergeballThingReceiveData.user_doller;
+                                Save.data.allData.user_panel.user_doller_live = mergeballThingReceiveData.user_doller_live;
+                                UI.MenuPanel.UpdateCashText();
+                            }
                             break;
                         default:
                             break;
@@ -501,7 +515,7 @@ namespace HiSpin
         {
             return ConnectToServer(Server_RequestType.SendMergeballNum, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, false,_MergeNum.ToString());
         }
-        public void ConnectToServer_GetMergeballReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,Reward _Type,int _Num)
+        public void ConnectToServer_GetMergeballReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, Reward _Type, int _Num, bool isSlots = false)
         {
             string type;
             switch (_Type)
@@ -518,11 +532,23 @@ namespace HiSpin
                 default:
                     return;
             }
-            ConnectToServer(Server_RequestType.GetMergeballReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, type, _Num.ToString());
+            ConnectToServer(Server_RequestType.GetMergeballReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, type, _Num.ToString(), isSlots ? "1" : "0");
         }
-        public void ConnectToServer_BuyMergeball(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,int _Goldnum)
+        public void ConnectToServer_BuyMergeball(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,int _ConsumeNum,Reward reward)
         {
-            ConnectToServer(Server_RequestType.BuyMerballThings, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _Goldnum.ToString());
+            string type;
+            switch (reward)
+            {
+                case Reward.Gold:
+                    type = "1";
+                    break;
+                case Reward.Cash:
+                    type = "2";
+                    break;
+                default:
+                    return;
+            }
+            ConnectToServer(Server_RequestType.BuyMerballThings, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _ConsumeNum.ToString(), type);
         }
         private void ShowConnectErrorTip(string errorCode)
         {
@@ -575,7 +601,7 @@ namespace HiSpin
     }
     public enum PlayerTaskTarget
     {
-        MergeballOnce,//
+        GetCashFromSlotsOnce,//
         PlayBettingOnce,
         WatchRvOnce,//
         CashoutOnce,
@@ -586,6 +612,7 @@ namespace HiSpin
         GetTicketFromSlotsOnce,//
         BuyTicketByGoldOnce,
         BuyTicketByRvOnce,
+        MergeballOnce
     }
     public class SendMergeballNumReceiveData
     {
@@ -605,6 +632,8 @@ namespace HiSpin
     {
         public int user_gold;
         public int user_gold_live;
+        public int user_doller;
+        public int user_doller_live;
     }
     public class PlayerFinishTaskReceiveData
     {

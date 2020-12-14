@@ -11,7 +11,7 @@ namespace HiSpin
         public Audio(GameObject audioRoot)
         {
             Root = audioRoot;
-            PlayBgm();
+            //PlayBgm();
         }
         private static readonly Dictionary<AudioPlayArea, string> audioClipPathDic = new Dictionary<AudioPlayArea, string>()
     {

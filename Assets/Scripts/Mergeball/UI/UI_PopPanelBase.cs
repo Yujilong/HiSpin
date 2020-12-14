@@ -10,7 +10,9 @@ namespace UI
         {
             base.Awake();
             _CanvasGroup.interactable = false;
+            orginScale = transform.GetChild(1).localScale.x;
         }
+        float orginScale = 1;
         protected override IEnumerator Show()
         {
             _CanvasGroup.blocksRaycasts = true;
@@ -20,14 +22,14 @@ namespace UI
             float scaleEndTime = scaleCurve[scaleCurve.length - 1].time;
             float alphaEndTime = alphaCurve[alphaCurve.length - 1].time;
             float maxTime = Mathf.Max(scaleEndTime, alphaEndTime);
-            content.localScale = Vector3.one * scaleCurve[0].value;
+            content.localScale = Vector3.one * scaleCurve[0].value * orginScale;
             _CanvasGroup.alpha = alphaCurve[0].value;
             float progress = 0;
             while (progress < maxTime)
             {
                 progress += Mathf.Clamp(Time.unscaledDeltaTime, 0, 0.04f);
                 progress = Mathf.Clamp(progress, 0, maxTime);
-                content.localScale = Vector3.one * scaleCurve.Evaluate(progress > scaleEndTime ? scaleEndTime : progress);
+                content.localScale = Vector3.one * scaleCurve.Evaluate(progress > scaleEndTime ? scaleEndTime : progress) * orginScale;
                 _CanvasGroup.alpha = alphaCurve.Evaluate(progress > alphaEndTime ? alphaEndTime : progress);
                 yield return null;
             }
@@ -42,14 +44,14 @@ namespace UI
             float scaleEndTime = scaleCurve[scaleCurve.length - 1].time;
             float alphaEndTime = alphaCurve[alphaCurve.length - 1].time;
             float maxTime = Mathf.Max(scaleEndTime, alphaEndTime);
-            content.localScale = Vector3.one * scaleCurve[0].value;
+            content.localScale = Vector3.one * scaleCurve[0].value * orginScale;
             _CanvasGroup.alpha = alphaCurve[0].value;
             float progress = maxTime;
             while (progress > 0)
             {
                 progress -= Mathf.Clamp(Time.unscaledDeltaTime, 0, 0.04f);
                 progress = Mathf.Clamp(progress, 0, maxTime);
-                content.localScale = Vector3.one * scaleCurve.Evaluate(progress > scaleEndTime ? scaleEndTime : progress);
+                content.localScale = Vector3.one * scaleCurve.Evaluate(progress > scaleEndTime ? scaleEndTime : progress) * orginScale;
                 _CanvasGroup.alpha = alphaCurve.Evaluate(progress > alphaEndTime ? alphaEndTime : progress);
                 yield return null;
             }

@@ -41,7 +41,7 @@ namespace HiSpin
 
             switch (taskTargetId)
             {
-                case PlayerTaskTarget.MergeballOnce:
+                case PlayerTaskTarget.GetCashFromSlotsOnce:
                     titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_EnterSlotsOnce), task_tar);
                     break;
                 case PlayerTaskTarget.PlayBettingOnce:
@@ -73,6 +73,9 @@ namespace HiSpin
                     break;
                 case PlayerTaskTarget.BuyTicketByRvOnce:
                     titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_BuyTicketByRvOnce);
+                    break;
+                case PlayerTaskTarget.MergeballOnce:
+                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_MergeballOnce), task_tar);
                     break;
             }
             reward_iconImage.gameObject.SetActive(true);

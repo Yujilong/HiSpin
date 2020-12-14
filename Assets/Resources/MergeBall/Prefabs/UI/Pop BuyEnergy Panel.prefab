@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88.3, y: 2.9}
+  m_AnchoredPosition: {x: -179, y: 2.9}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8648208957859794151
@@ -943,6 +943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1095920438423206826}
   adbuyButton: {fileID: 8635883707443459012}
+  energyText: {fileID: 7908248582513180239}
+  freeText: {fileID: 1037121941635065838}
 --- !u!1 &7912758860317440912
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1057799128101623096}
   - component: {fileID: 4636934139383378832}
-  - component: {fileID: 3991933436986940278}
+  - component: {fileID: 1037121941635065838}
   m_Layer: 5
   m_Name: free
   m_TagString: Untagged
@@ -977,8 +979,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42.4, y: 2.9}
-  m_SizeDelta: {x: 141, y: 66}
+  m_AnchoredPosition: {x: 53.971, y: 2.9}
+  m_SizeDelta: {x: 385.94147, y: 99.63257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4636934139383378832
 CanvasRenderer:
@@ -988,7 +990,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7912758860317440912}
   m_CullTransparentMesh: 0
---- !u!114 &3991933436986940278
+--- !u!114 &1037121941635065838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -997,7 +999,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7912758860317440912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1007,16 +1009,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4c7295263d3c17c42bc8a647078510a3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 273b5038ccad1a646895fe261cfaf8b7, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 67
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: FREE
 --- !u!1 &8877775062124929286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,9 +1033,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9138232933667074981}
   - component: {fileID: 2122718098080960860}
-  - component: {fileID: 3288694848269808065}
+  - component: {fileID: 7908248582513180239}
   m_Layer: 5
-  m_Name: buy
+  m_Name: ENERGY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,7 +1058,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -16.8}
-  m_SizeDelta: {x: 387, y: 110}
+  m_SizeDelta: {x: 842.979, y: 171.13672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2122718098080960860
 CanvasRenderer:
@@ -1062,7 +1068,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8877775062124929286}
   m_CullTransparentMesh: 0
---- !u!114 &3288694848269808065
+--- !u!114 &7908248582513180239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1071,7 +1077,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8877775062124929286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1081,13 +1087,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf8e0550319a6e64cbc5d7a90aa569cc, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 273b5038ccad1a646895fe261cfaf8b7, type: 3}
+    m_FontSize: 97
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 105
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: ENERGY

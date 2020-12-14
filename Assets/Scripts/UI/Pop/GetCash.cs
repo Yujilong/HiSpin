@@ -22,7 +22,7 @@ namespace HiSpin
             switch (getCashArea)
             {
                 case GetCashArea.Mergeball:
-                    Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetOneSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum);
+                    Ads._instance.ShowInterstialAd(OnGetOneSlotsRewardCallback, "获得现金 nothanks");
                     break;
                 default:
                     Master.Instance.ShowTip("Error : Cash Area is not correct.");
@@ -39,20 +39,18 @@ namespace HiSpin
                     break;
                 case GetCashArea.Mergeball:
                     clickAdTime++;
-                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "现金翻倍", OnNothanksClick);
+                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum , isMergeballSlots); }, clickAdTime, "现金翻倍", OnNothanksClick);
                     break;
             }
         }
         private void OnGetTribleSlotsRewardCallback()
         {
-            Save.data.allData.user_panel.lucky_total_cash += getcashNum * 3;
+            Save.data.allData.user_panel.lucky_total_cash += getcashNum;
             UI.FlyReward(Reward.Cash, getcashNum, tribleButton.transform.position);
             UI.ClosePopPanel(this);
         }
         private void OnGetOneSlotsRewardCallback()
         {
-            Save.data.allData.user_panel.lucky_total_cash += getcashNum;
-            UI.FlyReward(Reward.Cash, getcashNum, tribleButton.transform.position);
             UI.ClosePopPanel(this);
         }
         private void OnGetNewplayerRewardCallback()
@@ -64,11 +62,14 @@ namespace HiSpin
         }
         GetCashArea getCashArea;
         int getcashNum;
+        bool isMergeballSlots;
         protected override void BeforeShowAnimation(params int[] args)
         {
             clickAdTime = 0;
             getCashArea = (GetCashArea)args[0];
             getcashNum = args[1];
+            isMergeballSlots = args[2] == 1;
+            bool isPackB = Save.data.isPackB;
 
             switch (getCashArea)
             {
@@ -76,16 +77,18 @@ namespace HiSpin
                     ad_iconGo.SetActive(false);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
-                    cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + getcashNum.GetCashShowString();
+                    cash_numText.text = (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + getcashNum.GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(false);
+                    nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
                     break;
                 case GetCashArea.Mergeball:
                     ad_iconGo.SetActive(true);
-                    trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x3";
+                    trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
-                    cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
+                    cash_numText.text = (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(true);
-                    add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
+                    add_cashpt_numText.text = "+" + (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
+                    nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
                     break;
             }
 
@@ -102,6 +105,8 @@ namespace HiSpin
         protected override void BeforeCloseAnimation()
         {
             StopCoroutine("DelayShowNothanks");
+            if (getCashArea == GetCashArea.Mergeball)
+                GameManager.Instance.ReduceTodayCanGetCashTime();
         }
         private IEnumerator DelayShowNothanks()
         {
@@ -118,7 +123,6 @@ namespace HiSpin
             titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Congratulation);
 
 
-            nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
         }
     }
     public enum GetCashArea

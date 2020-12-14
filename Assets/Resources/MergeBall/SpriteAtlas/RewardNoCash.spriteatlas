@@ -31,17 +31,18 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 41d202cb6f77ebf4aa2bdb8f7d5298b9, type: 3}
-    totalSpriteSurfaceArea: 710557
+    totalSpriteSurfaceArea: 714463
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: f308994094c7570499d95e1a153ccf70, type: 3}
   - {fileID: 21300000, guid: ad01b0f165915ab42b3f4bb0b84280b7, type: 3}
   - {fileID: 21300000, guid: 79062402b0e30ed44b5a565029e3db9a, type: 3}
   - {fileID: 21300000, guid: 555922e28d5aa0d489fd25250f15ee99, type: 3}
   - {fileID: 21300000, guid: d92baa865d007074f8374d509d129568, type: 3}
   - {fileID: 21300000, guid: fe74ed865f2432f449eb78c30c23e9df, type: 3}
+  - {fileID: 21300000, guid: 45ef14a6ab3ada348832193ff4d00122, type: 3}
   - {fileID: 21300000, guid: 4b5636a6156a64d499a2f7a44f45fa98, type: 3}
-  - {fileID: 21300000, guid: 439ef6d6dc9d10c41b443b94a08bc002, type: 3}
   - {fileID: 21300000, guid: d5b01627d6859514fa5703d7e4bda9f3, type: 3}
   - {fileID: 21300000, guid: d2872bf82e0349948a0d02f4ab494cab, type: 3}
   - {fileID: 21300000, guid: b65c8dfa6197ae1439b25a06d4ef562c, type: 3}
@@ -50,13 +51,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d3fe4bdefac8bbe43ac8a0b4d44075e0, type: 3}
   - {fileID: 21300000, guid: 2eb60aaf422c4d44887e8ee78042e50d, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Ticket
   - base
   - titlebg
   - Prop1
   - GETx10
   - NoThanks-shen
+  - multiple
   - button
-  - Ticket
   - WheelTicket
   - title
   - GETx2

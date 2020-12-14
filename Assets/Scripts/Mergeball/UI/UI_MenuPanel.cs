@@ -187,54 +187,12 @@ namespace UI
             int prop1Num = GameManager.GetProp1Num();
             prop1NumText.text = "x" + prop1Num;
             hasProp1 = prop1Num > 0;
-            if (prop1Num <= 0)
-            {
-                int needCoin = GameManager.GetProp1NeedCoinNum();
-                if (GameManager.GetCoin() >= needCoin)
-                {
-                    prop1NeedIcon.sprite = coinIcon;
-                    prop1NeedNumText.text = needCoin.ToString();
-                }
-                else
-                {
-                    prop1NeedIcon.sprite = adIcon;
-                    prop1NeedNumText.text = "FREE";
-                }
-                prop1NeedIcon.gameObject.SetActive(true);
-                prop1NeedNumText.gameObject.SetActive(true);
-            }
-            else
-            {
-                prop1NeedIcon.gameObject.SetActive(false);
-                prop1NeedNumText.gameObject.SetActive(false);
-            }
         }
         public void RefreshProp2()
         {
             int prop2Num = GameManager.GetProp2Num();
             prop2NumText.text = "x" + prop2Num;
             hasProp2 = prop2Num > 0;
-            if (prop2Num <= 0)
-            {
-                int needCoin = GameManager.GetProp2NeedCoinNum();
-                if (GameManager.GetCoin() >= needCoin)
-                {
-                    prop2NeedIcon.sprite = coinIcon;
-                    prop2NeedNumText.text = needCoin.ToString();
-                }
-                else
-                {
-                    prop2NeedIcon.sprite = adIcon;
-                    prop2NeedNumText.text = "FREE";
-                }
-                prop2NeedIcon.gameObject.SetActive(true);
-                prop2NeedNumText.gameObject.SetActive(true);
-            }
-            else
-            {
-                prop2NeedIcon.gameObject.SetActive(false);
-                prop2NeedNumText.gameObject.SetActive(false);
-            }
         }
         const float FillStart = 0.33f;
         const float FillEnd = 0.673f;
@@ -288,15 +246,12 @@ namespace UI
             RefreshScoreText();
             MainController.Instance.RefreshEnergyText();
             RefreshBestScoreText();
+            RefreshProp1();
+            RefreshProp2();
             SetStageInfo();
             StartCoroutine("StageProgressAnimation");
             StartCoroutine("AutoRotateWheelIcon");
             yield return null;
-        }
-        public void RefreshProp()
-        {
-            RefreshProp1();
-            RefreshProp2();
         }
         protected override IEnumerator Close()
         {
@@ -425,6 +380,12 @@ namespace UI
                 yield return null;
                 wheelIcon.Rotate(new Vector3(0, 0, -Time.deltaTime * 250));
             }
+        }
+        [Space(15)]
+        public Text bestText;
+        public override void SetContent()
+        {
+            bestText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BEST);
         }
     }
 }

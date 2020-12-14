@@ -64,10 +64,10 @@ public class UI_SlotsPanel : UI_PopPanelBase
         reward = GameManager.RandomSlotsReward();
         if (reward < 0)
         {
-            endOffset = rewards_Y_Offsets[0];
+            endOffset = rewards_Y_Offsets[1];
         }
         else
-            endOffset = rewards_Y_Offsets[1];
+            endOffset = rewards_Y_Offsets[0];
         StartCoroutine("AutoSpinSlots");
     }
     const float SpinSpeed = 8;
@@ -120,7 +120,7 @@ public class UI_SlotsPanel : UI_PopPanelBase
         UIManager.ClosePopPanel(this);
         Reward type = reward < 0 ? Reward.Cash : Reward.Coin;
         reward = Mathf.Abs(reward);
-        GameManager.ShowConfirmRewardPanel(type, reward);
+        GameManager.ShowConfirmRewardPanel(type, reward, true);
         isSpining = false;
     }
     static Vector2 noadSpincontentPos = new Vector2(0, 2.4f);
@@ -158,5 +158,13 @@ public class UI_SlotsPanel : UI_PopPanelBase
         material_L.SetTextureOffset(ShaderProperty, offset);
         material_M.SetTextureOffset(ShaderProperty, offset);
         material_R.SetTextureOffset(ShaderProperty, offset);
+    }
+    [Space(15)]
+    public Text titleText;
+    public Text spinText;
+    public override void SetContent()
+    {
+        titleText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.LUCKY_SLOTS);
+        spinText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.SPIN);
     }
 }

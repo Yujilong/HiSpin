@@ -82,5 +82,15 @@ namespace UI
                 StopCoroutine(closeDelay);
             }
         }
+        [Space(15)]
+        public Text tipText;
+        public Text openText;
+        public Text nothanksText;
+        public override void SetContent()
+        {
+            tipText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Mergeball_GiftTip);
+            openText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OPEN);
+            nothanksText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
+        }
     }
 }

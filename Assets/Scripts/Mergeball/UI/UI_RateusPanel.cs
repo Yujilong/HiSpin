@@ -38,5 +38,17 @@ namespace UI
         {
             GameManager.ShowNextPanel();
         }
+        [Space(15)]
+        public Text titleText;
+        public Text tipText;
+        public Text noText;
+        public Text yesText;
+        public override void SetContent()
+        {
+            titleText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_WindowTitle);
+            tipText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_Tip);
+            noText.text = "1-4 " + HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_Stars);
+            yesText.text = "5 " + HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rateus_Stars);
+        }
     }
 }

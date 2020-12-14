@@ -33,6 +33,7 @@ namespace UI
                 Debug.LogError("面板ID错误：未初始化面板ID.");
                 yield break;
             }
+            SetContent();
             OnStartShow();
             yield return Show();
             State = UI_State.Show;
@@ -87,6 +88,10 @@ namespace UI
             throw new System.Exception("未设置关闭动画!");
         }
         protected virtual void OnEndClose()
+        {
+
+        }
+        public virtual void SetContent()
         {
 
         }

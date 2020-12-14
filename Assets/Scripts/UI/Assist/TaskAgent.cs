@@ -25,7 +25,7 @@ namespace HiSpin
                         task.task_complete = true;
                         hasFinished++;
                     }
-                    else
+                    else if (task.task_receive)
                         task.task_describe = "";
                 }
             }
