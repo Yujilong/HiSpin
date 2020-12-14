@@ -37,7 +37,6 @@ namespace UI
         {
             num *= 2;
             GetReward();
-            UIManager.ClosePopPanel(this);
         }
         private void OnNothanksClick()
         {
@@ -47,7 +46,6 @@ namespace UI
         private void OnNothanksIVCallback()
         {
             GetReward();
-            UIManager.ClosePopPanel(this);
         }
         Reward type = Reward.Null;
         int num = 0;
@@ -74,27 +72,41 @@ namespace UI
                 case Reward.Prop1:
                     GameManager.AddProp1Num(num);
                     UIManager.FlyReward(Reward.Prop1, num, transform.position);
+                    UIManager.ClosePopPanel(this);
                     break;
                 case Reward.Prop2:
                     GameManager.AddProp2Num(num);
                     UIManager.FlyReward(Reward.Prop2, num, transform.position);
+                    UIManager.ClosePopPanel(this);
                     break;
                 case Reward.Cash:
                     Debug.LogError("奖励类型错误，该面板不会奖励现金");
                     break;
                 case Reward.Coin:
-                    GameManager.AddCoin(num);
-                    UIManager.FlyReward(Reward.Coin, num, transform.position);
+                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Gold, num);
                     break;
                 case Reward.Amazon:
                     GameManager.AddAmazon(num);
                     UIManager.FlyReward(Reward.Amazon, num, transform.position);
+                    UIManager.ClosePopPanel(this);
                     break;
                 case Reward.WheelTicket:
                     GameManager.AddWheelTicket(num);
                     UIManager.FlyReward(Reward.WheelTicket, num, transform.position);
+                    UIManager.ClosePopPanel(this);
                     break;
             }
+        }
+        private void OnGetRewardCallback()
+        {
+            UIManager.FlyReward(Reward.Coin, num, transform.position);
+            UI_MenuPanel _MenuPanel = UIManager.GetUIPanel(UI_Panel.MenuPanel) as UI_MenuPanel;
+            if (_MenuPanel != null)
+            {
+                _MenuPanel.RefreshProp1();
+                _MenuPanel.RefreshProp2();
+            }
+            UIManager.ClosePopPanel(this);
         }
         protected override void OnEndClose()
         {

@@ -99,11 +99,9 @@ namespace HiSpin
             }
             else
             {
-                if (!Master.isLoadingEnd)
-                {
-                    Save.data.isPackB = true;
+                if (!Save.data.isPackB)
                     Master.Instance.SendAdjustPackBEvent();
-                }
+                Save.data.isPackB = true;
             }
         }
         private string AppName = Ads.AppName;
@@ -120,11 +118,9 @@ namespace HiSpin
             {
                 if (web.downloadHandler.text.Equals("1"))
                 {
-                    if (!Master.isLoadingEnd)
-                    {
-                        Save.data.isPackB = true;
+                    if (!Save.data.isPackB)
                         Master.Instance.SendAdjustPackBEvent();
-                    }
+                    Save.data.isPackB = true;
                 }
             }
         }

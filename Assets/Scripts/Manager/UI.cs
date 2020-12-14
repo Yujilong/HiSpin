@@ -28,7 +28,6 @@ namespace HiSpin
         { (int)BasePanel.Cashout,"Prefabs/UI/Base_Cashout" },
         { (int)BasePanel.CashoutRecord,"Prefabs/UI/Base_CashoutRecord" },
         { (int)BasePanel.Task,"Prefabs/UI/Base_Task&Achievement" },
-        { (int)BasePanel.PlaySlots,"Prefabs/UI/Base_PlaySlots" },
         { (int)BasePanel.Friend,"Prefabs/UI/Base_Friend" },
         { (int)BasePanel.Me,"Prefabs/UI/Base_Me" },
         { (int)BasePanel.FriendList,"Prefabs/UI/Base_FriendList" },
@@ -116,8 +115,6 @@ namespace HiSpin
         {
             if (CurrentPopPanel != null) return;
             int panelIndex = BasePanelHistoryRecord.Peek();
-            if (isPhoneBack)
-                if (panelIndex == (int)BasePanel.PlaySlots) return;
             if (panelIndex > (int)BasePanel.Betting)
             {
                 BasePanelHistoryRecord.Pop();
@@ -354,9 +351,9 @@ namespace HiSpin
             CurrentPopPanel = null;
             _popCloseCor = null;
         }
-        public static void FlyReward(Reward type, int num, Vector3 startWorldPos)
+        public static void FlyReward(Reward type, int num, Vector3 startWorldPos, bool isMergeball = false)
         {
-            MenuPanel.FlyReward_GetTargetPosAndCallback_ThenFly(type, num, startWorldPos);
+            MenuPanel.FlyReward_GetTargetPosAndCallback_ThenFly(type, num, startWorldPos, isMergeball);
         }
         private static IUIBase GetUI(int panelIndex)
         {
@@ -406,7 +403,6 @@ namespace HiSpin
         Cashout = 5,
         CashoutRecord = 6,
         Task = 7,
-        PlaySlots = 8,
         Me = 9,
         FriendList = 10,
     }

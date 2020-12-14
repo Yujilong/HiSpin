@@ -15,9 +15,6 @@ public class PlayerDataManager
             {
                 playerData = new PlayerData()
                 {
-                    isPackB = false,
-                    cash = 0,
-                    coin = 1000,
                     amazon = 0,
                     energy = GameManager.originEnergy,
                     prop1Num = 0,
@@ -49,6 +46,7 @@ public class PlayerDataManager
                     soundOn = true,
                     todayBuyEnergyTime = 0,
                     hasGuideHowtoplay = false,
+                    unSendMergeNum = 0,
 
                     logPerTenBall = 0,
                     logRestartTime = 0,
@@ -59,7 +57,7 @@ public class PlayerDataManager
                     logGoldBallAppearTime = 0,
                     logGoldBallGetx10Time = 0
                 };
-                Save();
+                SaveLocalData();
             }
             else
                 playerData = JsonUtility.FromJson<PlayerData>(dataStr);
@@ -88,18 +86,7 @@ public class PlayerDataManager
             if (tomorrow)
                 playerData.todayBuyEnergyTime = 0;
 
-            Save();
         }
-    }
-    public bool GetIsPackB()
-    {
-        return playerData.isPackB;
-    }
-    public void SetIsPackB()
-    {
-        if (playerData.isPackB) return;
-        playerData.isPackB = true;
-        Save();
     }
     public bool SetScore(int value)
     {
@@ -110,15 +97,13 @@ public class PlayerDataManager
             isBest = true;
             playerData.bestScore = value;
         }
-        Save();
         return isBest;
     }
     public void SetLevel(int value)
     {
         playerData.level = value;
-        Save();
     }
-    public void Save()
+    public void SaveLocalData()
     {
         if (!GameManager.isLoadingEnd) return;
         if (AnimationAutoEnd.IsAnimation) return;
@@ -140,14 +125,6 @@ public class PlayerDataManager
     public int CurrentBallNum()
     {
         return playerData.currentBallNum;
-    }
-    public int GetCoin()
-    {
-        return playerData.coin;
-    }
-    public int GetCash()
-    {
-        return playerData.cash;
     }
     public int GetAmazon()
     {
@@ -199,7 +176,6 @@ public class PlayerDataManager
     public void UseFreeWheel()
     {
         playerData.lastUseFreeWheelTime = DateTime.Now.ToString();
-        Save();
     }
     public int GetTodayCanGetCashTime()
     {
@@ -222,7 +198,6 @@ public class PlayerDataManager
         {
             playerData.todayCanGetCashTime = GameManager.canGetCashTimesPerDay;
             playerData.lastGetCashTime = now.ToString();
-            Save();
         }
         return playerData.todayCanGetCashTime;
     }
@@ -234,50 +209,31 @@ public class PlayerDataManager
     {
         return playerData.targetLevelBallNum;
     }
-    public int AddCoin(int value)
-    {
-        playerData.coin += value;
-        playerData.coin = Mathf.Clamp(playerData.coin, 0, int.MaxValue);
-        Save();
-        return playerData.coin;
-    }
-    public int AddCash(int value)
-    {
-        playerData.cash += value;
-        playerData.cash = Mathf.Clamp(playerData.cash, 0, int.MaxValue);
-        Save();
-        return playerData.cash;
-    }
     public int AddAmazon(int value)
     {
         playerData.amazon += value;
         playerData.amazon = Mathf.Clamp(playerData.amazon, 0, int.MaxValue);
-        Save();
         return playerData.amazon;
     }
     public int AddPop1Num(int value)
     {
         playerData.prop1Num += value;
         playerData.prop1Num = Mathf.Clamp(playerData.prop1Num, 0, int.MaxValue);
-        Save();
         return playerData.prop1Num;
     }
     public int AddPop2Num(int value)
     {
         playerData.prop2Num += value;
         playerData.prop2Num = Mathf.Clamp(playerData.prop2Num, 0, int.MaxValue);
-        Save();
         return playerData.prop2Num;
     }
     public void SetProp1NeedCoinNum(int value)
     {
         playerData.prop1NeedCoinNum = value;
-        Save();
     }
     public void SetProp2NeedCoinNum(int value)
     {
         playerData.prop2NeedCoinNum = value;
-        Save();
     }
     public int ReduceTodayCanGetCashTime(int value = -1)
     {
@@ -285,50 +241,43 @@ public class PlayerDataManager
         if (playerData.todayCanGetCashTime < 0)
             playerData.todayCanGetCashTime = 0;
         playerData.lastGetCashTime = DateTime.Now.ToString();
-        Save();
         return playerData.todayCanGetCashTime;
     }
     public int AddSpinWheelTimeTotal(int value = 1)
     {
         playerData.spinWheelTimeTotal += value;
-        Save();
         return playerData.spinWheelTimeTotal;
     }
     public int AddWheelTicket(int value)
     {
         playerData.wheelTicket += value;
         playerData.wheelTicket = Mathf.Clamp(playerData.wheelTicket, 0, int.MaxValue);
-        Save();
         return playerData.wheelTicket;
     }
     public int AddFallBallNum(int value = 1)
     {
         playerData.fallBallNum += value;
-        Save();
         return playerData.fallBallNum;
     }
     public int AddLevelTargetBallNum()
     {
         playerData.targetLevelBallNum *= 2;
-        Save();
         return playerData.targetLevelBallNum;
     }
     public void ReSetLevelTargetBallNum()
     {
         playerData.targetLevelBallNum = GameManager.levelStartTargetBallNum;
-        Save();
     }
     public void ClearFallBallNum()
     {
         playerData.fallBallNum = 0;
-        Save();
     }
     public void SaveBallData(List<Vector2> ballPos,List<int> ballNum,int currentBallNum)
     {
         playerData.ballPos = ballPos;
         playerData.ballNum = ballNum;
         playerData.currentBallNum = currentBallNum;
-        Save();
+        SaveLocalData();
     }
     public List<Vector2> GetBallData(out List<int> ballNum,out int currentBallNum)
     {
@@ -343,7 +292,6 @@ public class PlayerDataManager
     public void SetFirstPlayFalse()
     {
         playerData.isFirstPlay = false;
-        Save();
     }
     public bool GetWhetherRateus()
     {
@@ -352,7 +300,6 @@ public class PlayerDataManager
     public void SetHasRateus()
     {
         playerData.hasRateus = true;
-        Save();
     }
     public bool GetWhetherGuideCash()
     {
@@ -361,15 +308,11 @@ public class PlayerDataManager
     public void SetHasGuideCash()
     {
         playerData.hasGuideCash = true;
-        Save();
     }
 }
 [System.Serializable]
 public class PlayerData
 {
-    public bool isPackB;
-    public int cash;
-    public int coin;
     public int amazon;
     public int energy;
     public int prop1Num;
@@ -401,6 +344,7 @@ public class PlayerData
     public bool soundOn;
     public int todayBuyEnergyTime;
     public bool hasGuideHowtoplay;
+    public int unSendMergeNum;
 
     public int logPerTenBall;
     public int logRestartTime;

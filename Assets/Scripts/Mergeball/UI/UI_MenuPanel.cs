@@ -160,11 +160,11 @@ namespace UI
         }
         public void RefreshCashText()
         {
-            cashText.text = ToolManager.GetCashShowString(GameManager.GetCash());
+            //cashText.text = ToolManager.GetCashShowString(GameManager.GetCash());
         }
         public void RefreshCoinText()
         {
-            coinText.text = GameManager.GetCoin().ToString();
+            //coinText.text = GameManager.GetCoin().ToString();
         }
         public void RefreshScoreText()
         {
@@ -256,6 +256,7 @@ namespace UI
         private float currentProgress = 0;
         private IEnumerator StageProgressAnimation()
         {
+            yield break;
             while (true)
             {
                 if (currentProgress<targetProgress)
@@ -287,12 +288,15 @@ namespace UI
             RefreshScoreText();
             MainController.Instance.RefreshEnergyText();
             RefreshBestScoreText();
-            RefreshProp1();
-            RefreshProp2();
             SetStageInfo();
             StartCoroutine("StageProgressAnimation");
             StartCoroutine("AutoRotateWheelIcon");
             yield return null;
+        }
+        public void RefreshProp()
+        {
+            RefreshProp1();
+            RefreshProp2();
         }
         protected override IEnumerator Close()
         {
@@ -339,6 +343,11 @@ namespace UI
                 wheelPanel.RefreshTicketShowText();
                 return;
             }
+            else if (type == Reward.Energy)
+            {
+                MainController.Instance.RefreshEnergyText();
+                return;
+            }
             StopCoroutine("ExpandTarget");
             StartCoroutine("ExpandTarget", type);
         }
@@ -347,13 +356,14 @@ namespace UI
             if (!rewardTargetTransform.TryGetValue(_flyTarget, out Transform tempTrans))
                 yield break;
             bool toBiger = true;
+            float originScale = tempTrans.localScale.x;
             while (true)
             {
                 yield return null;
                 if (toBiger)
                 {
                     tempTrans.localScale += Vector3.one * Time.deltaTime * 3;
-                    if (tempTrans.localScale.x >= 1.3f)
+                    if (tempTrans.localScale.x >= originScale * 1.3f)
                     {
                         toBiger = false;
                         switch (_flyTarget)
@@ -379,12 +389,12 @@ namespace UI
                 else
                 {
                     tempTrans.localScale -= Vector3.one * Time.deltaTime * 3;
-                    if (tempTrans.localScale.x <= 1f)
+                    if (tempTrans.localScale.x <= originScale)
                         break;
                 }
             }
             yield return null;
-            tempTrans.localScale = Vector3.one;
+            tempTrans.localScale = Vector3.one * originScale;
         }
         private Vector3 GetFlyTargetPos(Reward type)
         {

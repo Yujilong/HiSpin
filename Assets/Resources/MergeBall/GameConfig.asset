@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   BallBaseDatas:
+  - BallNum: -4
+    BallSize: 0.6490909
+    BallSpriteName: 20
   - BallNum: -3
     BallSize: 0.6490909
     BallSpriteName: 19
@@ -294,14 +297,14 @@ MonoBehaviour:
     num: 1000
     weight: 10
     blackbox: ffffffff
-    limitCash: 3000
+    limitCash: 10000
   - type: 6
     num: 2
     weight: 100
     blackbox: ffffffff
     limitCash: -1
   - type: 4
-    num: 50
+    num: 30
     weight: 200
     blackbox: ffffffff
     limitCash: -1
@@ -314,7 +317,7 @@ MonoBehaviour:
     num: 100
     weight: 100
     blackbox: 01000000040000000a000000
-    limitCash: 9600
+    limitCash: 13000
   - type: 1
     num: 2
     weight: 40
@@ -331,7 +334,7 @@ MonoBehaviour:
     blackbox: ffffffff
     limitCash: -1
   - type: 1
-    num: 1
+    num: 5
     weight: 40
     blackbox: ffffffff
     limitCash: -1
@@ -339,7 +342,7 @@ MonoBehaviour:
     num: 10
     weight: 100
     blackbox: ffffffff
-    limitCash: 9600
+    limitCash: 13000
   - type: 4
     num: 200
     weight: 40
@@ -475,7 +478,7 @@ MonoBehaviour:
     coinWeight: 70
     rewardCashNumRange: {x: 1, y: 2}
     rewardCoinNumRange: {x: 150, y: 150}
-  - maxCash: 10000
+  - maxCash: 13000
     fallBallNumRange: {x: 9999999, y: 9999999}
     cashWeight: 0
     coinWeight: 70

@@ -41,7 +41,7 @@ namespace HiSpin
 
             switch (taskTargetId)
             {
-                case PlayerTaskTarget.EnterSlotsOnce:
+                case PlayerTaskTarget.MergeballOnce:
                     titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_EnterSlotsOnce), task_tar);
                     break;
                 case PlayerTaskTarget.PlayBettingOnce:
@@ -137,7 +137,7 @@ namespace HiSpin
                             break;
                         case PlayerTaskTarget.OwnSomeGold:
                         case PlayerTaskTarget.WatchRvOnce:
-                        case PlayerTaskTarget.EnterSlotsOnce:
+                        case PlayerTaskTarget.MergeballOnce:
                         case PlayerTaskTarget.PlayBettingOnce:
                         case PlayerTaskTarget.CashoutOnce:
                         case PlayerTaskTarget.WinnerOnce:
@@ -213,7 +213,7 @@ namespace HiSpin
             {
                 switch (TaskTarget)
                 {
-                    case PlayerTaskTarget.EnterSlotsOnce:
+                    case PlayerTaskTarget.MergeballOnce:
                     case PlayerTaskTarget.PlayBettingOnce:
                     case PlayerTaskTarget.WatchRvOnce:
                     case PlayerTaskTarget.CashoutOnce:

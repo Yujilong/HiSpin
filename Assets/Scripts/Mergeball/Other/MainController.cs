@@ -30,6 +30,7 @@ public class MainController : MonoBehaviour
     private GameObject go_currentBall;
     private GameObject go_currentGiftBall = null;
     private GameObject go_currentGoldBall = null;
+    private GameObject go_currentTicketBall = null;
     public void Init()
     {
         Instance = this;
@@ -196,9 +197,7 @@ public class MainController : MonoBehaviour
     private void OnApplicationFocus(bool focus)
     {
         if (!focus)
-        {
             SaveData();
-        }
     }
     private void OnApplicationQuit()
     {
@@ -253,6 +252,13 @@ public class MainController : MonoBehaviour
                     go_currentGoldBall = newBall;
                 else
                     Debug.LogError("存档错误，存在两个金币球");
+            }
+            else if (ballNum[i] == -4)
+            {
+                if (go_currentTicketBall is null)
+                    go_currentTicketBall = newBall;
+                else
+                    Debug.LogError("存档错误，存在两个票球");
             }
         }
         go_currentBall.transform.SetAsLastSibling();
@@ -475,12 +481,24 @@ public class MainController : MonoBehaviour
     }
     public void SpawnNewGoldBall()
     {
-        if (go_currentGoldBall != null && go_currentGoldBall.GetComponent<Ball>().Num == -3)
-            Destroy(go_currentGoldBall);
-        GameObject newBall = Instantiate(prefab_ball, rect_ballPool);
-        go_currentGoldBall = newBall;
-        newBall.GetComponent<Ball>().InitBall(-3);
-        float offset = GetBallCircleHalf(-3);
+        int index = UnityEngine.Random.Range(0, 100) < 40 ? -3 : -4;
+        GameObject newBall;
+        if (index == -3)
+        {
+            if (go_currentGoldBall != null && go_currentGoldBall.GetComponent<Ball>().Num == -3)
+                Destroy(go_currentGoldBall);
+            newBall = Instantiate(prefab_ball, rect_ballPool);
+            go_currentGoldBall = newBall;
+        }
+        else
+        {
+            if (go_currentTicketBall != null && go_currentTicketBall.GetComponent<Ball>().Num == -4)
+                Destroy(go_currentTicketBall);
+            newBall = Instantiate(prefab_ball, rect_ballPool);
+            go_currentTicketBall = newBall;
+        }
+        newBall.GetComponent<Ball>().InitBall(index);
+        float offset = GetBallCircleHalf(index);
         float x = UnityEngine.Random.Range(rect_leftBorder.localPosition.x, rect_rightBorder.localPosition.x);
         newBall.transform.localPosition = new Vector2(x, -offset * 2);
         //GameManager.Instance.AddGiftBallAppearTime();

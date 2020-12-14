@@ -351,8 +351,22 @@ namespace UI
         }
         public void FlyReward(Reward type, int num, Vector3 startWorldPos)
         {
-            var menu = GetUIPanel(UI_Panel.MenuPanel) as UI_MenuPanel;
-            menu.FlyReward_GetTargetPosAndCallback_ThenFly(type, num, startWorldPos);
+            switch (type)
+            {
+                case Reward.Cash:
+                    HiSpin.UI.FlyReward(HiSpin.Reward.Cash, num, startWorldPos, true);
+                    break;
+                case Reward.Coin:
+                    HiSpin.UI.FlyReward(HiSpin.Reward.Gold, num, startWorldPos, true);
+                    break;
+                case Reward.Ticket:
+                    HiSpin.UI.FlyReward(HiSpin.Reward.Ticket, num, startWorldPos, true);
+                    break;
+                default:
+                    var menu = GetUIPanel(UI_Panel.MenuPanel) as UI_MenuPanel;
+                    menu.FlyReward_GetTargetPosAndCallback_ThenFly(type, num, startWorldPos);
+                    break;
+            }
         }
     }
     public struct UI_Panel

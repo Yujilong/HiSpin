@@ -632,7 +632,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d92baa865d007074f8374d509d129568, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b65c8dfa6197ae1439b25a06d4ef562c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -706,7 +706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardNum: {fileID: 1264144816500537328}
+  iconImage: {fileID: 2900623721362844470}
   adButton: {fileID: 1656105773998479030}
+  ad_button_contentText: {fileID: 4400795541522458059}
   nothanksButton: {fileID: 974634546549215219}
 --- !u!1 &6495620823395415826
 GameObject:
@@ -849,13 +851,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bc63e0dcf798d4144abc0d54acca4e2c, type: 2}
-    m_FontSize: 0
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 75c54e4f6b69bcc48ba937ca0d80cd4a, type: 3}
+    m_FontSize: 35
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 173
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

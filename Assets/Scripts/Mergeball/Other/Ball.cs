@@ -86,7 +86,7 @@ public class Ball : MonoBehaviour
     {
         if (!hasSpawNew)
         {
-            if (Num != -2 && Num != -3)
+            if (Num > -2)
             {
                 GameManager.Instance.AddBallFallNum();
                 MainController.Instance.SpawnNewBall();
@@ -101,16 +101,15 @@ public class Ball : MonoBehaviour
             {
                 if (willBeDestory)
                     return;
+                if (otherBall.Num < -1) return;
                 switch (Num)
                 {
                     case -1:
-                        if (otherBall.Num == -2 || otherBall.Num == -3) return;
                         otherBall.MergeSelfNum();
                         willBeDestory = true;
                         Destroy(gameObject);
                         return;
                     case -2:
-                        if (otherBall.Num == -3) return;
                         if (otherBall.rect_self.localPosition.y >= rect_self.localPosition.y)
                         {
                             otherBall.willBeDestory = true;
@@ -121,13 +120,22 @@ public class Ball : MonoBehaviour
                         }
                         return;
                     case -3:
-                        if (otherBall.Num == -2) return;
                         if (otherBall.rect_self.localPosition.y >= rect_self.localPosition.y)
                         {
                             otherBall.willBeDestory = true;
                             InitBall(otherBall.Num);
                             Destroy(otherBall.gameObject);
                             GameManager.Instance.WhenGetGoldBall();
+                            PlayMergeEffect();
+                        }
+                        return;
+                    case -4:
+                        if (otherBall.rect_self.localPosition.y >= rect_self.localPosition.y)
+                        {
+                            otherBall.willBeDestory = true;
+                            InitBall(otherBall.Num);
+                            Destroy(otherBall.gameObject);
+                            GameManager.Instance.WhenGetTicketBall();
                             PlayMergeEffect();
                         }
                         return;

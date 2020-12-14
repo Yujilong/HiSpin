@@ -8,8 +8,6 @@ namespace HiSpin
     [RequireComponent(typeof(CanvasGroup))]
     public class Loading : MonoBehaviour, IUIBase
     {
-        public Button contact_usButton;
-        public Text uuidText;
         public Slider progressSlider;
         public Text progressText;
         CanvasGroup canvasGroup;
@@ -18,11 +16,6 @@ namespace HiSpin
             canvasGroup = GetComponent<CanvasGroup>();
             loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
             StartCoroutine(LoadingSlider());
-            contact_usButton.AddClickEvent(Setting.SendEmail);
-            if (Master.IsBigScreen)
-            {
-                contact_usButton.transform.localPosition -= new Vector3(0, Master.TopMoveDownOffset, 0);
-            }
         }
         IEnumerator LoadingSlider()
         {
@@ -58,10 +51,6 @@ namespace HiSpin
                         Server_New.Instance.ConnectToServer_GetAllData(() =>
                         {
                             speed = 1;
-                            if (string.IsNullOrEmpty(Save.data.uuid))
-                                uuidText.text = "";
-                            else
-                                uuidText.text = "UUID: " + Save.data.uuid;
                         }, null, null, false);
                         hasRequestData = true;
                     }
@@ -89,8 +78,9 @@ namespace HiSpin
             {
                 if (webRequest.downloadHandler.text.Equals("{\"store_review\": true}"))
                 {
+                    if (!Save.data.isPackB)
+                        Master.Instance.SendAdjustPackBEvent();
                     Save.data.isPackB = true;
-                    Master.Instance.SendAdjustPackBEvent();
                 }
             }
         }
@@ -99,10 +89,6 @@ namespace HiSpin
             canvasGroup.alpha = 1;
             canvasGroup.blocksRaycasts = true;
             canvasGroup.interactable = true;
-            if (string.IsNullOrEmpty(Save.data.uuid))
-                uuidText.text = "";
-            else
-                uuidText.text = "UUID: " + Save.data.uuid;
             yield return null;
         }
 
@@ -124,10 +110,8 @@ namespace HiSpin
             yield return null;
         }
         public Text loadingText;
-        public Text contactusText;
         public void SetContent()
         {
-            contactusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ContactUs);
         }
     }
 }

@@ -8,7 +8,9 @@ namespace UI
     public class UI_OpenGoldBallPanel : UI_PopPanelBase
     {
         public Text rewardNum;
+        public Image iconImage;
         public Button adButton;
+        public Image ad_button_contentText;
         public Button nothanksButton;
         protected override void Awake()
         {
@@ -26,10 +28,7 @@ namespace UI
         }
         private void OnAdGetDoubleCallback()
         {
-            num *= 10;
-            GetReward();
-            GameManager.AddGoldBallx10Time();
-            UIManager.ClosePopPanel(this);
+            GetReward(true);
         }
         private void OnNothanksClick()
         {
@@ -38,8 +37,7 @@ namespace UI
         }
         private void OnNothanksIVCallback()
         {
-            GetReward();
-            UIManager.ClosePopPanel(this);
+            GetReward(false);
         }
         int num = 0;
         Coroutine nothanksDelay = null;
@@ -48,12 +46,32 @@ namespace UI
             clickAdTime = 0;
             num = GameManager.OpenGoldBallReward_Num;
             rewardNum.text = "x" + num;
+            iconImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.RewardNoCash, num>100?"Coin":"Ticket");
+            ad_button_contentText.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.RewardNoCash, num > 100 ? "GETx10" : "GETx2");
             nothanksDelay = StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(nothanksButton.gameObject));
         }
-        private void GetReward()
+        int rewardnum = 0;
+        private void GetReward(bool addmultiple)
         {
-            GameManager.AddCoin(num);
-            UIManager.FlyReward(Reward.Coin, num, transform.position);
+            HiSpin.Reward type;
+            if (num > 100)
+            {
+                type = HiSpin.Reward.Gold;
+                rewardnum = addmultiple ? num * 10 : num;
+            }
+            else
+            {
+                type = HiSpin.Reward.Ticket;
+                rewardnum = addmultiple ? num * 2 : num;
+            }
+            HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, type, rewardnum);
+        }
+        private void OnGetRewardCallback()
+        {
+            UIManager.FlyReward(num > 100 ? Reward.Coin : Reward.Ticket, num, transform.position);
+            if (rewardnum > 1000)
+                GameManager.AddGoldBallx10Time();
+            UIManager.ClosePopPanel(this);
         }
         protected override void OnEndClose()
         {

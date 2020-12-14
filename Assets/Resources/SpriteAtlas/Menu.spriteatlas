@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: cbb863edee6e50648ae434482ab09119, type: 3}
-    totalSpriteSurfaceArea: 465494
+    totalSpriteSurfaceArea: 461616
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -40,7 +40,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 27b5ed81c36af994f8f1b70f3868353b, type: 3}
   - {fileID: 21300000, guid: fe9f60333c23f4e47949cf767f39222e, type: 3}
   - {fileID: 21300000, guid: da86144360b79bb44a921cfae448a685, type: 3}
-  - {fileID: 21300000, guid: 971b0e43c34110e479d71f4f92cc72cc, type: 3}
   - {fileID: 21300000, guid: 2e25f0c4e959c1341af1a3b2e54ef183, type: 3}
   - {fileID: 21300000, guid: 53deb625c47230c4d8b796b6cc4f5982, type: 3}
   - {fileID: 21300000, guid: dcf18c5526fd08a4caaa627704b2dc97, type: 3}
@@ -61,14 +60,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c4b72fcdb924d8942a23d5d61833b000, type: 3}
   - {fileID: 21300000, guid: 6b2fe08e36c71f340bf20684e77accf6, type: 3}
   - {fileID: 21300000, guid: 74e3c9fedf0ca6740afa6670d477ab39, type: 3}
-  - {fileID: 21300000, guid: 5ac892bfce576ff40af73a4a0ea8326d, type: 3}
+  - {fileID: 21300000, guid: af534efeebb38294e9656199a58cf64f, type: 3}
+  - {fileID: 21300000, guid: 0248f12f1f996ff4e9ed83f47b9ac509, type: 3}
   m_PackedSpriteNamesToIndex:
   - Friend_On
   - Back
   - Rank_Off
   - Setting
   - Offerwall_Off
-  - Slots_Off
   - head_out_bg
   - head_out_fill
   - num bg
@@ -90,5 +89,6 @@ SpriteAtlas:
   - Task_On
   - Rank_On
   - Slots_On
+  - Slots_Off
   m_Tag: Menu
   m_IsVariant: 0

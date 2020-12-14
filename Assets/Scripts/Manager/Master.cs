@@ -1,4 +1,5 @@
 ﻿using LitJson;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -68,6 +69,7 @@ namespace HiSpin
                     Master.Instance.SendAdjustPackBEvent();
             }
             UI.ShowMenuPanel();
+            GameManager.Instance.WhenLoadingGameEnd();
         }
         public void StartTimeDown()
         {
@@ -94,9 +96,9 @@ namespace HiSpin
         }
         public void OnChangePackb()
         {
-            Slots slots = UI.GetUI(BasePanel.MergeBall) as Slots;
-            if (slots != null)
-                slots.OnChangePackB();
+            Mergeball mergeball = UI.GetUI(BasePanel.MergeBall) as Mergeball;
+
+
             Friends friends = UI.GetUI(BasePanel.Friend) as Friends;
             if (friends != null)
                 friends.OnChangePackB();
@@ -122,9 +124,6 @@ namespace HiSpin
                 int minute = leftSeconds % 3600 / 60;
                 int hour = leftSeconds / 3600;
                 time = (hour < 10 ? "0" + hour : hour.ToString()) + ":" + (minute < 10 ? "0" + minute : minute.ToString()) + ":" + (second < 10 ? "0" + second : second.ToString());
-                Slots slots = UI.GetUI(BasePanel.MergeBall) as Slots;
-                if (slots != null)
-                    slots.UpdateTimedownText(time);
                 Betting betting = UI.GetUI(BasePanel.Betting) as Betting;
                 if (betting != null)
                     betting.UpdateTimeDownText(time);
@@ -146,11 +145,11 @@ namespace HiSpin
         {
             StartTimeDown();
             UI.MenuPanel.RefreshTokenText();
-            if (UI.CurrentBasePanel == UI.GetUI(BasePanel.MergeBall))
-            {
-                Slots slots = UI.GetUI(BasePanel.MergeBall) as Slots;
-                slots.RefreshSlotsCardState();
-            }
+            //if (UI.CurrentBasePanel == UI.GetUI(BasePanel.MergeBall))
+            //{
+            //    Mergeball slots = UI.GetUI(BasePanel.MergeBall) as Slots;
+            //    slots.RefreshSlotsCardState();
+            //}
             if (UI.CurrentBasePanel == UI.GetUI(BasePanel.Task))
             {
                 Tasks tasks = UI.GetUI(BasePanel.Task) as Tasks;
@@ -181,15 +180,16 @@ namespace HiSpin
         {
             bgImage.sprite = Sprites.GetBGSprite("bg");
         }
-        public void AddLocalExp(int value)
+        public void AddLocalExp()
         {
-            Save.data.allData.user_panel.user_exp += value;
+            Save.data.allData.user_panel.user_exp += 2;
             UI.MenuPanel.UpdateHeadIcon();
             if (Save.data.allData.user_panel.user_exp >= Save.data.allData.user_panel.level_exp)
             {
                 Save.data.allData.user_panel.user_level++;
                 Save.data.allData.user_panel.user_exp -= Save.data.allData.user_panel.level_exp;
                 UI.ShowPopPanel(PopPanel.GetReward, (int)Save.data.allData.user_panel.level_type, Save.data.allData.user_panel.next_level, (int)GetRewardArea.LevelUp, Save.data.allData.user_panel.user_level);
+                GameManager.Instance.OnLevelUpAndStopSendMergeNum();
             }
         }
         private void OnApplicationFocus(bool focus)
@@ -429,6 +429,11 @@ namespace HiSpin
                     guideGo.SetActive(false);
                     break;
             }
+        }
+
+        public static Coroutine ConnectServerToSendMergeNum(Action successCallback,int num)
+        {
+            return Server_New.Instance.ConnectToServer_SendMergeballNum_Mute(successCallback, null, null, num);
         }
     }
     public enum Reward

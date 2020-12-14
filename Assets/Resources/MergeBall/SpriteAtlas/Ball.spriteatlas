@@ -31,12 +31,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: dcf51dfc1efcd1f4bb85d9b1750f8ed8, type: 3}
-    totalSpriteSurfaceArea: 1723017
+    totalSpriteSurfaceArea: 1640013
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 7518ed3096d47ed4ba6174913c974573, type: 3}
-  - {fileID: 21300000, guid: 8f3c7270c007d674c8daa66dfe70002b, type: 3}
   - {fileID: 21300000, guid: d9e2170120f68ab489216e24745b2e43, type: 3}
   - {fileID: 21300000, guid: 92233b22c7013ce41904cf813f249d11, type: 3}
   - {fileID: 21300000, guid: 46da2c32519fc754d9b561959c9585fc, type: 3}
@@ -50,23 +49,23 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5b1ff625d245c0744ac0c09e728d47ef, type: 3}
   - {fileID: 21300000, guid: f0686d16a03f5a3469e9fcf4259ebf3a, type: 3}
   - {fileID: 21300000, guid: 667fb4f6205dcd14a83a233760d298f0, type: 3}
-  - {fileID: 21300000, guid: eb898ad7af230d4439e0159bbd1fb138, type: 3}
   - {fileID: 21300000, guid: 1cc8d53995ac0ab4c880ffb60fd29bc9, type: 3}
   - {fileID: 21300000, guid: ea1f6f69fe8156148b470e5cb79ea9ba, type: 3}
   - {fileID: 21300000, guid: 6d472ffac170f554d861a9004cf1f530, type: 3}
   - {fileID: 21300000, guid: 2dc68c3bd613c9347bb469948ddd4867, type: 3}
   - {fileID: 21300000, guid: 1fb81d3b1ef1a4d4b97213fa24b90780, type: 3}
+  - {fileID: 21300000, guid: 279913bb1ae2dfd439b5ea44961ab675, type: 3}
   - {fileID: 21300000, guid: 337a0ccb545723247bc12816a26f721d, type: 3}
-  - {fileID: 21300000, guid: ef3182dc823f02a42a65f252ca2947e5, type: 3}
+  - {fileID: 21300000, guid: 1d4164ece67b21442b783afdba592b19, type: 3}
   - {fileID: 21300000, guid: 41d429ec71080fe4bb08fe11ba3f49e3, type: 3}
   - {fileID: 21300000, guid: 0c459bec964e3284ca9b1da3385b4b0c, type: 3}
   - {fileID: 21300000, guid: 007bb1fc78c82c5488d2e30d9ab9ffb8, type: 3}
   - {fileID: 21300000, guid: 6d0cd2ed563169c40b71ed636f798363, type: 3}
   - {fileID: 21300000, guid: a5f67cfe72f02b64999309bbcd1b6c83, type: 3}
+  - {fileID: 21300000, guid: e9bf8d5f25b64ff4f8de2e2b70864381, type: 3}
   - {fileID: 21300000, guid: fd1b0bbfee45b484db7baed1b2ce7027, type: 3}
   m_PackedSpriteNamesToIndex:
   - explosion_4
-  - 20
   - 11
   - explosion_3
   - 7
@@ -80,12 +79,12 @@ SpriteAtlas:
   - 8
   - 16
   - explosion_7
-  - 18
   - explosion_2
   - explosion_5
   - 14
   - explosion_1
   - 10
+  - 20
   - 2
   - 19
   - 15
@@ -93,6 +92,7 @@ SpriteAtlas:
   - 17
   - 1
   - explosion_0
+  - 18
   - 12
   m_Tag: Ball
   m_IsVariant: 0

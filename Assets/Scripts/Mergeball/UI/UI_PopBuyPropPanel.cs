@@ -33,7 +33,10 @@ namespace UI
         private void OnCoinBuyClick()
         {
             GameManager.PlayButtonClickSound();
-            GameManager.AddCoin(-needCoinNum);
+            HiSpin.Server_New.Instance.ConnectToServer_BuyMergeball(OnCoinBuyCallback, null, null, true, needCoinNum);
+        }
+        private void OnCoinBuyCallback()
+        {
             if (isProp1)
             {
                 GameManager.AddProp1Num(1);

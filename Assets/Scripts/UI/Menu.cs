@@ -76,8 +76,6 @@ namespace HiSpin
         #region button event
         private void OnCashButtonClick()
         {
-            if (UI.CurrentBasePanel == UI.GetUI(BasePanel.PlaySlots))
-                return;
             if (Save.data.isPackB)
                 UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.Cashout);
         }
@@ -116,8 +114,6 @@ namespace HiSpin
         }
         private void OnSettingButtonClick()
         {
-            if (UI.CurrentBasePanel == UI.GetUI(BasePanel.PlaySlots))
-                return;
             UI.ShowPopPanel(PopPanel.Setting);
         }
         private void OnAddTicketButtonClick()
@@ -194,12 +190,9 @@ namespace HiSpin
         }
         public void UpdateFreeSlotsLeftNumText()
         {
-            int freeNum = 0;
-            foreach (var free in Save.data.allData.lucky_status.white_lucky)
-                if (free == 0)
-                    freeNum++;
-            slots_left_free_numText.text = freeNum.ToString();
-            slots_left_free_numText.transform.parent.gameObject.SetActive(freeNum > 0);
+            int mergeballEnergy = GameManager.Instance.PlayerDataManager.playerData.energy;
+            slots_left_free_numText.text = mergeballEnergy.ToString();
+            slots_left_free_numText.transform.parent.gameObject.SetActive(mergeballEnergy > 0);
         }
         public void UpdateFriendWetherClickToday()
         {
@@ -343,16 +336,6 @@ namespace HiSpin
                     backButton.gameObject.SetActive(true);
                     settingButton.gameObject.SetActive(false);
                     break;
-                case BasePanel.PlaySlots:
-                    all_topGo.SetActive(true);
-                    all_tokenGo.SetActive(true);
-                    top_titleText.gameObject.SetActive(false);
-                    all_bottomGo.SetActive(false);
-                    backButton.gameObject.SetActive(false);
-                    settingButton.gameObject.SetActive(true);
-                    add_ticketButton.gameObject.SetActive(false);
-                    play_slots_helpButton.gameObject.SetActive(false);
-                    break;
                 case BasePanel.Friend:
                     OnChangeBottomButton(firendButton);
                     all_bottomGo.SetActive(true);
@@ -409,9 +392,9 @@ namespace HiSpin
             add_ticketButton.gameObject.SetActive(true);
             play_slots_helpButton.gameObject.SetActive(false);
         }
-        public void FlyReward_GetTargetPosAndCallback_ThenFly(Reward type, int num, Vector3 startWorldPos)
+        public void FlyReward_GetTargetPosAndCallback_ThenFly(Reward type, int num, Vector3 startWorldPos,bool isMergeball=false)
         {
-            FlyReward.Instance.FlyToTarget(startWorldPos, GetFlyTargetPos(type), num, type, FlyOverCallback);
+            FlyReward.Instance.FlyToTarget(startWorldPos, GetFlyTargetPos(type), num, type, FlyOverCallback,isMergeball);
         }
         private void FlyOverCallback(Reward type)
         {

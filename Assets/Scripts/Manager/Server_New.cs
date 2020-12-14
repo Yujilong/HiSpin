@@ -62,7 +62,7 @@ namespace HiSpin
         private void GetAdID()
         {
 #if UNITY_EDITOR
-            adID = SystemInfo.deviceUniqueIdentifier + "5";
+            adID = SystemInfo.deviceUniqueIdentifier;
 #elif UNITY_ANDROID
         Application.RequestAdvertisingIdentifierAsync(
            (string advertisingId, bool trackingEnabled, string error) =>
@@ -79,8 +79,6 @@ namespace HiSpin
             AllData,
             TaskData,
 
-            ClickSlotsCard,
-            GetSlotsReward,
             FinishTask,
             BuyTickets,
             WatchRvEvent,
@@ -93,14 +91,16 @@ namespace HiSpin
             GetNewPlayerReward,
             GetUUID,
             GetCashoutRecordList,
+
+            SendMergeballNum,
+            GetMergeballReward,
+            BuyMerballThings,
         }
         static readonly Dictionary<Server_RequestType, string> getdata_uri_dic = new Dictionary<Server_RequestType, string>()
     {
         {Server_RequestType.AllData,"http://192.168.10.54:8800/lucky_all_data/" },
         {Server_RequestType.TaskData,"http://192.168.10.54:8800/lucky_schedule/" },
 
-        {Server_RequestType.ClickSlotsCard,"http://192.168.10.54:8800/lucky_free/" },
-        {Server_RequestType.GetSlotsReward,"http://192.168.10.54:8800/lucky_reward/" },
         {Server_RequestType.FinishTask,"http://192.168.10.54:8800/lucky_task/" },
         {Server_RequestType.BuyTickets,"http://192.168.10.54:8800/lucky_exchange/" },
         {Server_RequestType.WatchRvEvent,"http://192.168.10.54:8800/lucky_rv/" },
@@ -113,6 +113,10 @@ namespace HiSpin
         {Server_RequestType.GetNewPlayerReward,"http://192.168.10.54:8800/new_data/" },
         {Server_RequestType.GetUUID,"http://aff.luckyclub.vip:8000/get_random_id/" },
         {Server_RequestType.GetCashoutRecordList,"http://192.168.10.54:8800/lucky_record/" },
+
+        {Server_RequestType.SendMergeballNum,"http://192.168.10.54:8800/synthetic_exp/" },
+        {Server_RequestType.GetMergeballReward,"http://192.168.10.54:8800/synthetic_reward/" },
+        {Server_RequestType.BuyMerballThings,"http://192.168.10.54:8800/synthetic_gold/" },
     };
         Server_RequestType RequestType;
         Action ServerResponseOkCallback;
@@ -120,7 +124,7 @@ namespace HiSpin
         Action NetworkErrorCallback;
         bool ShowConnectingWindow;
         string[] Args;
-        private void ConnectToServer(Server_RequestType _RequestType, Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, params string[] _Args)
+        private Coroutine ConnectToServer(Server_RequestType _RequestType, Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, params string[] _Args)
         {
             RequestType = _RequestType;
             ServerResponseOkCallback = _ServerResponseOkCallback;
@@ -128,7 +132,7 @@ namespace HiSpin
             NetworkErrorCallback = _NetworkErrorCallback;
             ShowConnectingWindow = _ShowConnectingWindow;
             Args = _Args;
-            StartCoroutine(ConnectToServerThread(_RequestType, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, Args));
+            return StartCoroutine(ConnectToServerThread(_RequestType, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, Args));
         }
         private IEnumerator ConnectToServerThread(Server_RequestType _RequestType, Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, params string[] _Args)
         {
@@ -154,6 +158,7 @@ namespace HiSpin
             #endregion
             iparams.Add(new MultipartFormDataSection("uuid", Save.data.uuid));
             iparams.Add(new MultipartFormDataSection("app_name", Ads.AppName));
+            iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
             if (!string.IsNullOrEmpty(adID))
             {
                 Save.data.adid = adID;
@@ -185,24 +190,13 @@ namespace HiSpin
                     iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
                     iparams.Add(new MultipartFormDataSection("country", localCountry));
                     iparams.Add(new MultipartFormDataSection("ad_ios", Platform));
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.TaskData:
                     iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
-                    break;
-                case Server_RequestType.ClickSlotsCard:
-                    iparams.Add(new MultipartFormDataSection("lucky_id", _Args[0]));
-                    break;
-                case Server_RequestType.GetSlotsReward:
-                    iparams.Add(new MultipartFormDataSection("reward_type", _Args[0]));//获得奖励类型
-                    iparams.Add(new MultipartFormDataSection("reward_num", _Args[1]));//获得奖励数量
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.FinishTask:
                     iparams.Add(new MultipartFormDataSection("task_id", _Args[0]));
                     iparams.Add(new MultipartFormDataSection("double", _Args[1]));//是否双倍
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.BuyTickets:
                     iparams.Add(new MultipartFormDataSection("reward_type", _Args[0]));//是否是看广告购买
@@ -213,14 +207,12 @@ namespace HiSpin
                     iparams.Add(new MultipartFormDataSection("paypal", _Args[0]));
                     iparams.Add(new MultipartFormDataSection("first_name", _Args[1]));
                     iparams.Add(new MultipartFormDataSection("last_name", _Args[2]));
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.Cashout:
                     iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
                     iparams.Add(new MultipartFormDataSection("withdrawal_type", _Args[0]));//提现消耗类型
                     iparams.Add(new MultipartFormDataSection("withdrawal", _Args[1]));//提现消耗数量
                     iparams.Add(new MultipartFormDataSection("doller", _Args[2]));//提现现金数量
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.GetLocalCountry:
                     Master.Instance.ShowTip("Error code : can not use this connecting.");
@@ -237,10 +229,10 @@ namespace HiSpin
                     break;
                 case Server_RequestType.GetLevelUpReward:
                     iparams.Add(new MultipartFormDataSection("double", _Args[0]));//升级奖励倍数
+                    iparams.Add(new MultipartFormDataSection("ball_num", _Args[1]));
                     break;
                 case Server_RequestType.GetNewPlayerReward:
                     iparams.Add(new MultipartFormDataSection("double", _Args[0]));//奖励倍数，默认1
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.GetUUID:
                     Master.Instance.ShowTip("Error code : can not use this connecting.");
@@ -248,6 +240,16 @@ namespace HiSpin
                     OnConnectServerSuccess();
                     yield break;
                 case Server_RequestType.GetCashoutRecordList:
+                    break;
+                case Server_RequestType.SendMergeballNum:
+                    iparams.Add(new MultipartFormDataSection("ball_num", _Args[0]));
+                    break;
+                case Server_RequestType.GetMergeballReward:
+                    iparams.Add(new MultipartFormDataSection("reward_type", _Args[0]));
+                    iparams.Add(new MultipartFormDataSection("reward_num", _Args[1]));
+                    break;
+                case Server_RequestType.BuyMerballThings:
+                    iparams.Add(new MultipartFormDataSection("gold_num", _Args[0]));
                     break;
                 default:
                     break;
@@ -265,7 +267,8 @@ namespace HiSpin
             }
             else
             {
-                OnConnectServerSuccess();
+                if (_ShowConnectingWindow)
+                    OnConnectServerSuccess();
                 string downText = www.downloadHandler.text;
                 www.Dispose();
                 if (int.TryParse(downText, out int errorcode) && errorcode < 0)
@@ -286,34 +289,6 @@ namespace HiSpin
                         case Server_RequestType.TaskData:
                             AllData_TaskData taskData = JsonMapper.ToObject<AllData_TaskData>(downText);
                             Save.data.allData.lucky_schedule = taskData;
-                            break;
-                        case Server_RequestType.ClickSlotsCard:
-                            AllData_SlotsState slotsStateData = JsonMapper.ToObject<AllData_SlotsState>(downText);
-                            Save.data.allData.lucky_status = slotsStateData;
-                            break;
-                        case Server_RequestType.GetSlotsReward:
-                            PlayerGetSlotsRewardReceiveData receiveSlotsRewardData = JsonMapper.ToObject<PlayerGetSlotsRewardReceiveData>(downText);
-                            int slotsRewardType = int.Parse(_Args[0]);
-                            //int slotsRewardNum = int.Parse(_Args[1]);
-                            if (slotsRewardType == 0)
-                            {
-                                Save.data.allData.user_panel.user_gold = receiveSlotsRewardData.user_gold;
-                                Save.data.allData.user_panel.user_gold_live = receiveSlotsRewardData.user_gold_live;
-                            }
-                            else if (slotsRewardType == 2)
-                            {
-                                Save.data.allData.user_panel.user_doller = receiveSlotsRewardData.user_doller;
-                                Save.data.allData.user_panel.user_doller_live = receiveSlotsRewardData.user_doller_live;
-                            }
-                            else
-                                Save.data.allData.user_panel.user_tickets = receiveSlotsRewardData.user_tickets;
-                            if (Save.data.allData.user_panel.user_tickets >= 1000)
-                            {
-                                if (!Save.data.hasSendToThoundsEvent)
-                                    Master.Instance.SendAdjustTicketOver1000Event();
-                            }
-                            else
-                                Save.data.hasSendToThoundsEvent = false;
                             break;
                         case Server_RequestType.FinishTask:
                             PlayerFinishTaskReceiveData receiveFinishTaskData = JsonMapper.ToObject<PlayerFinishTaskReceiveData>(downText);
@@ -409,10 +384,6 @@ namespace HiSpin
                             Save.data.allData.user_panel.next_double = receiveLevelupData.next_double;
                             Save.data.allData.user_panel.level_exp = receiveLevelupData.level_exp;
                             Save.data.allData.user_panel.user_exp = receiveLevelupData.user_exp;
-                            if (UI.CheckCurrentBasePanelIs(BasePanel.PlaySlots))
-                            {
-                                Save.data.allData.user_panel.user_exp -= ((PlaySlots.MaxSpinTime - PlaySlots.spinTime) / PlaySlots.MaxSpinTime) * PlaySlots.exp_once;
-                            }
                             Save.data.allData.user_panel.title_list = receiveLevelupData.title_list;
                             Save.data.allData.user_panel.next_level = receiveLevelupData.next_level;
                             if (Save.data.allData.user_panel.user_tickets >= 1000)
@@ -433,6 +404,36 @@ namespace HiSpin
                             AllData_CashoutRecordData casoutRecordData = JsonMapper.ToObject<AllData_CashoutRecordData>(downText);
                             Save.data.allData.lucky_record = casoutRecordData;
                             break;
+                        case Server_RequestType.SendMergeballNum:
+                            SendMergeballNumReceiveData mergeballNumReceiveData = JsonMapper.ToObject<SendMergeballNumReceiveData>(downText);
+                            Save.data.allData.user_panel.user_level = mergeballNumReceiveData.user_level;
+                            Save.data.allData.user_panel.user_exp = mergeballNumReceiveData.user_exp;
+                            Save.data.allData.user_panel.level_exp = mergeballNumReceiveData.level_exp;
+                            UI.MenuPanel.UpdateHeadIcon();
+                            break;
+                        case Server_RequestType.GetMergeballReward:
+                            PlayerGetMergeballRewardReceiveData getMergeballRewardReceiveData = JsonMapper.ToObject<PlayerGetMergeballRewardReceiveData>(downText);
+                            if (_Args[0].Equals("0"))
+                            {
+                                Save.data.allData.user_panel.user_gold = getMergeballRewardReceiveData.user_gold;
+                                Save.data.allData.user_panel.user_gold_live = getMergeballRewardReceiveData.user_gold_live;
+                            }
+                            else if (_Args[0].Equals("2"))
+                            {
+                                Save.data.allData.user_panel.user_doller = getMergeballRewardReceiveData.user_doller;
+                                Save.data.allData.user_panel.user_doller_live = getMergeballRewardReceiveData.user_doller_live;
+                            }
+                            else if (_Args[0].Equals("1"))
+                            {
+                                Save.data.allData.user_panel.user_tickets = getMergeballRewardReceiveData.user_tickets;
+                            }
+                            break;
+                        case Server_RequestType.BuyMerballThings:
+                            BuyMergeballThingReceiveData mergeballThingReceiveData = JsonMapper.ToObject<BuyMergeballThingReceiveData>(downText);
+                            Save.data.allData.user_panel.user_gold = mergeballThingReceiveData.user_gold;
+                            Save.data.allData.user_panel.user_gold_live = mergeballThingReceiveData.user_gold_live;
+                            UI.MenuPanel.UpdateGoldText();
+                            break;
                         default:
                             break;
                     }
@@ -447,26 +448,6 @@ namespace HiSpin
         public void ConnectToServer_GetTaskData(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow)
         {
             ConnectToServer(Server_RequestType.TaskData, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow);
-        }
-        public void ConnectToServer_ClickSlotsCard(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, int _SlotsIndex)
-        {
-            ConnectToServer(Server_RequestType.ClickSlotsCard, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _SlotsIndex.ToString());
-        }
-        public void ConnectToServer_GetSlotsReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, Reward _SlotsRewardType, int _SlotsRewardNum)
-        {
-            int typeIndex;
-            if (_SlotsRewardType == Reward.Gold)
-                typeIndex = 0;
-            else if (_SlotsRewardType == Reward.Ticket)
-                typeIndex = 1;
-            else if (_SlotsRewardType == Reward.Cash)
-                typeIndex = 2;
-            else
-            {
-                Debug.LogError("老虎机奖励类型错误");
-                return;
-            }
-            ConnectToServer(Server_RequestType.GetSlotsReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, typeIndex.ToString(), _SlotsRewardNum.ToString());
         }
         public void ConnectToServer_FinishTask(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, int _TaskID, bool _Double, params Reward[] opTypes)
         {
@@ -504,9 +485,9 @@ namespace HiSpin
         {
             ConnectToServer(Server_RequestType.ChangeHead_Name, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _NewHeadID >= 0 ? _NewHeadID.ToString() : null, _NewName);
         }
-        public void ConnectToServer_GetLevelupReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, int _RewardMultiple)
+        public void ConnectToServer_GetLevelupReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, int _RewardMultiple,int _UnSendMergeNum)
         {
-            ConnectToServer(Server_RequestType.GetLevelUpReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _RewardMultiple.ToString());
+            ConnectToServer(Server_RequestType.GetLevelUpReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _RewardMultiple.ToString(), _UnSendMergeNum.ToString());
         }
         public void ConnectToServer_GetNewPlayerReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, int _RewardMultiple = 1)
         {
@@ -515,6 +496,33 @@ namespace HiSpin
         public void ConnectToServer_GetCashoutRecordList(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow)
         {
             ConnectToServer(Server_RequestType.GetCashoutRecordList, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow);
+        }
+        public Coroutine ConnectToServer_SendMergeballNum_Mute(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback,int _MergeNum)
+        {
+            return ConnectToServer(Server_RequestType.SendMergeballNum, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, false,_MergeNum.ToString());
+        }
+        public void ConnectToServer_GetMergeballReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,Reward _Type,int _Num)
+        {
+            string type;
+            switch (_Type)
+            {
+                case Reward.Gold:
+                    type = "0";
+                    break;
+                case Reward.Cash:
+                    type = "2";
+                    break;
+                case Reward.Ticket:
+                    type = "1";
+                    break;
+                default:
+                    return;
+            }
+            ConnectToServer(Server_RequestType.GetMergeballReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, type, _Num.ToString());
+        }
+        public void ConnectToServer_BuyMergeball(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,int _Goldnum)
+        {
+            ConnectToServer(Server_RequestType.BuyMerballThings, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _Goldnum.ToString());
         }
         private void ShowConnectErrorTip(string errorCode)
         {
@@ -567,7 +575,7 @@ namespace HiSpin
     }
     public enum PlayerTaskTarget
     {
-        EnterSlotsOnce,//
+        MergeballOnce,//
         PlayBettingOnce,
         WatchRvOnce,//
         CashoutOnce,
@@ -579,13 +587,24 @@ namespace HiSpin
         BuyTicketByGoldOnce,
         BuyTicketByRvOnce,
     }
-    public class PlayerGetSlotsRewardReceiveData
+    public class SendMergeballNumReceiveData
+    {
+        public int user_level;
+        public int user_exp;
+        public int level_exp;
+    }
+    public class PlayerGetMergeballRewardReceiveData
     {
         public int user_gold;
         public int user_gold_live;
         public int user_tickets;
         public int user_doller;
         public int user_doller_live;
+    }
+    public class BuyMergeballThingReceiveData
+    {
+        public int user_gold;
+        public int user_gold_live;
     }
     public class PlayerFinishTaskReceiveData
     {

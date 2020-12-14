@@ -21,8 +21,8 @@ namespace HiSpin
         {
             switch (getCashArea)
             {
-                case GetCashArea.PlaySlots:
-                    Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetOneSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum);
+                case GetCashArea.Mergeball:
+                    Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetOneSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum);
                     break;
                 default:
                     Master.Instance.ShowTip("Error : Cash Area is not correct.");
@@ -37,9 +37,9 @@ namespace HiSpin
                 case GetCashArea.NewPlayerReward:
                     Server_New.Instance.ConnectToServer_GetNewPlayerReward(OnGetNewplayerRewardCallback, null, null, true);
                     break;
-                case GetCashArea.PlaySlots:
+                case GetCashArea.Mergeball:
                     clickAdTime++;
-                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "现金翻倍", OnNothanksClick);
+                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "现金翻倍", OnNothanksClick);
                     break;
             }
         }
@@ -79,7 +79,7 @@ namespace HiSpin
                     cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + getcashNum.GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(false);
                     break;
-                case GetCashArea.PlaySlots:
+                case GetCashArea.Mergeball:
                     ad_iconGo.SetActive(true);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x3";
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
@@ -94,7 +94,7 @@ namespace HiSpin
         protected override void AfterShowAnimation(params int[] args)
         {
             Master.Instance.ShowEffect(Reward.Cash);
-            if (getCashArea == GetCashArea.PlaySlots)
+            if (getCashArea == GetCashArea.Mergeball)
             {
                 StartCoroutine("DelayShowNothanks");
             }
@@ -124,6 +124,6 @@ namespace HiSpin
     public enum GetCashArea
     {
         NewPlayerReward,
-        PlaySlots
+        Mergeball
     }
 }

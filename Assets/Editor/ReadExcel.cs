@@ -12,7 +12,7 @@ public class ReadExcel : Editor
     [MenuItem("ReadConfigExcel/Read")]
     public static void ReadConfig()
     {
-        GameConfig _config = Resources.Load<GameConfig>("GameConfig");
+        GameConfig _config = Resources.Load<GameConfig>("Mergeball/GameConfig");
         _config.BallBaseDatas.Clear();
         _config.BallSpawnDatas.Clear();
         _config.StageScoreDatas.Clear();

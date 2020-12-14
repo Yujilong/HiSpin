@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     [System.NonSerialized]
     public UIManager UIManager;
-    private PlayerDataManager PlayerDataManager = null;
+    public PlayerDataManager PlayerDataManager = null;
     private ConfigManager ConfigManager = null;
     private LevelManager LevelManager = null;
     private AudioManager AudioManager = null;
@@ -61,25 +61,18 @@ public class GameManager : MonoBehaviour
         ConfigManager = new ConfigManager();
         AudioManager = new AudioManager(audioRoot);
 
-        UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.LoadingPanel);
+        //UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.LoadingPanel);
         RefreshUpgradeNeedScore();
         CurrentLevelProgress = GetLevel() + GetScore() / (UpgradeNeedScore * 1f);
         LevelManager.SetTargetBallNum(PlayerDataManager.GetLevelTargetBallNum());
     }
     public bool GetIsPackB()
     {
-#if UNITY_EDITOR
-        return true;
-#endif
-        return PlayerDataManager.GetIsPackB();
+        return HiSpin.Save.data.isPackB;
     }
     public void SetIsPackB()
     {
-        if (!GetIsPackB())
-        {
-            PlayerDataManager.SetIsPackB();
-            SendAdjustChangePackBEvent();
-        }
+
     }
     public int GetCurrentStageUpgradeNeedScore(int currentStage)
     {
@@ -87,6 +80,10 @@ public class GameManager : MonoBehaviour
     }
     public void AddScore(int value)
     {
+        PlayerDataManager.playerData.unSendMergeNum++;
+        Master.Instance.AddLocalExp();
+        StopCoroutine("DealySendMergeNum");
+        StartCoroutine("DealySendMergeNum");
         bool isBest = PlayerDataManager.SetScore(GetScore() + value);
         SetCurrentLevelScore(GetCurrentLevelScore() + value);
         if (!GetWhetherRateus() && GetScore() >= 1000)
@@ -109,6 +106,45 @@ public class GameManager : MonoBehaviour
                 _MenuPanel.RefreshBestScoreText();
         }
     }
+    float delaySecond = 2;
+    int lastSendMergeNum = 0;
+    Coroutine sendCor = null;
+    IEnumerator DealySendMergeNum()
+    {
+        if (sendCor != null)
+            StopCoroutine(sendCor);
+        float timer = 0;
+        while (true)
+        {
+            yield return null;
+            timer += Time.deltaTime;
+            if (timer >= delaySecond)
+            {
+                if (AnimationAutoEnd.IsAnimation)
+                    continue;
+                if (HiSpin.UI.CheckCurrentPopPanelIs(PopPanel.GetReward))
+                    continue;
+                if (PlayerDataManager.playerData.unSendMergeNum > 0)
+                {
+                    lastSendMergeNum = PlayerDataManager.playerData.unSendMergeNum;
+                    sendCor = Master.ConnectServerToSendMergeNum(OnSendCallback, lastSendMergeNum);
+                    yield break;
+                }
+            }
+        }
+    }
+    void OnSendCallback()
+    {
+        PlayerDataManager.playerData.unSendMergeNum -= lastSendMergeNum;
+        MainController.Instance.SaveData();
+        lastSendMergeNum = 0;
+    }
+    public void OnLevelUpAndStopSendMergeNum()
+    {
+        StopCoroutine("DealySendMergeNum");
+        if (sendCor != null)
+            StopCoroutine(sendCor);
+    }
     public int GetScore()
     {
         return PlayerDataManager.GetScore();
@@ -120,7 +156,6 @@ public class GameManager : MonoBehaviour
     public void SetCurrentLevelScore(int value)
     {
         PlayerDataManager.playerData.currentLevelScore = value;
-        PlayerDataManager.Save();
     }
     public int GetBestScore()
     {
@@ -136,11 +171,11 @@ public class GameManager : MonoBehaviour
     }
     public int GetCoin()
     {
-        return PlayerDataManager.GetCoin();
+        return Save.data.allData.user_panel.user_gold_live;
     }
     public int GetCash()
     {
-        return PlayerDataManager.GetCash();
+        return Save.data.allData.user_panel.user_doller_live;
     }
     public int GetAmazon()
     {
@@ -193,40 +228,6 @@ public class GameManager : MonoBehaviour
     {
         LevelManager.SetTargetBallNum(PlayerDataManager.GetLevelTargetBallNum());
     }
-    public int AddCoin(int value)
-    {
-        int endValue= PlayerDataManager.AddCoin(value);
-        UI_MenuPanel _MenuPanel = UIManager.GetUIPanel(UI_Panel.MenuPanel) as UI_MenuPanel;
-        if (_MenuPanel != null)
-        {
-            if (value < 0)
-                _MenuPanel.RefreshCoinText();
-            _MenuPanel.RefreshProp1();
-            _MenuPanel.RefreshProp2();
-        }
-        return endValue;
-    }
-    public int AddCash(int value)
-    {
-        int endValue= PlayerDataManager.AddCash(value);
-        UI_MenuPanel _MenuPanel = UIManager.GetUIPanel(UI_Panel.MenuPanel) as UI_MenuPanel;
-        if (_MenuPanel != null)
-        {
-            if (value < 0)
-                _MenuPanel.RefreshCashText();
-            if (GetIsPackB() && !PlayerDataManager.GetWhetherGuideCash())
-            {
-                PlayerDataManager.SetHasGuideCash();
-                UI_PanelBase wheelPanel = UIManager.GetUIPanel(UI_Panel.UI_PopPanel.WheelPanel);
-                if (wheelPanel != null)
-                {
-                    UIManager.ClosePopPanel(wheelPanel);
-                }
-                _MenuPanel.ShowGuideCash();
-            }
-        }
-        return endValue;
-    }
     public int AddAmazon(int value)
     {
         int endValue = PlayerDataManager.AddAmazon(value);
@@ -270,7 +271,6 @@ public class GameManager : MonoBehaviour
         {
             SendAdjustPerTenBallEvent();
             PlayerDataManager.playerData.logGoldBallAppearTime++;
-            PlayerDataManager.Save();
             SendAdjustSpawnGoldBallEvent();
             MainController.Instance.SpawnNewGoldBall();
         }
@@ -287,7 +287,6 @@ public class GameManager : MonoBehaviour
     public void AddGoldBallx10Time(int value = 1)
     {
         PlayerDataManager.playerData.logGoldBallGetx10Time += value;
-        PlayerDataManager.Save();
     }
     [System.NonSerialized]
     public bool isPropGift = false;
@@ -339,7 +338,7 @@ public class GameManager : MonoBehaviour
     public bool nextSlotsIsUpgradeSlots = false;
     public int RandomSlotsReward()
     {
-        SlotsData slotsData = ConfigManager.GetSlotsData(PlayerDataManager.GetCash());
+        SlotsData slotsData = ConfigManager.GetSlotsData(HiSpin.Save.data.allData.user_panel.lucky_total_cash);
         int total = slotsData.cashWeight + slotsData.coinWeight;
         int result = Random.Range(0, total);
         if (result < slotsData.cashWeight && GetTodayCanGetCashTime() > 0)
@@ -355,7 +354,12 @@ public class GameManager : MonoBehaviour
         ConfirmReward_Type = type;
         ConfirmRewrad_Num = num;
         ConfirmReward_Needad = needAd;
-        UIManager.ShowPopPanelByType(type == Reward.Cash ? UI_Panel.UI_PopPanel.RewardCashPanel : UI_Panel.UI_PopPanel.RewardNoCashPanel);
+        if (type == Reward.Cash)
+        {
+            HiSpin.UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.Mergeball, num);
+        }
+        else
+        UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.RewardNoCashPanel);
     }
     private struct WheelRandom
     {
@@ -505,7 +509,15 @@ public class GameManager : MonoBehaviour
     public int OpenGoldBallReward_Num = 0;
     public void WhenGetGoldBall()
     {
-        OpenGoldBallReward_Num = 30;
+        OpenGoldBallReward_Num = Random.Range(300, 501);
+        if (!UIManager.PanelWhetherShowAnyone() && WillShowOpenGoldBall <= 0)
+            UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.OpenGoldBallPanel);
+        else
+            WillShowOpenGoldBall++;
+    }
+    public void WhenGetTicketBall()
+    {
+        OpenGoldBallReward_Num = Random.Range(20, 31);
         if (!UIManager.PanelWhetherShowAnyone() && WillShowOpenGoldBall <= 0)
             UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.OpenGoldBallPanel);
         else
@@ -562,7 +574,6 @@ public class GameManager : MonoBehaviour
     public void SetHasGetFreeGift()
     {
         PlayerDataManager.playerData.hasGetFreeGift = true;
-        PlayerDataManager.Save();
     }
     public int GetCurrentEnergy()
     {
@@ -582,14 +593,12 @@ public class GameManager : MonoBehaviour
             PlayerDataManager.playerData.energy += value;
         if (value == 1)
             PlayerDataManager.playerData.lastGetNaturalEnergyTime = System.DateTime.Now.ToString();
-        PlayerDataManager.Save();
         MainController.Instance.RefreshEnergyText();
         return PlayerDataManager.playerData.energy;
     }
     public void AddBuyEnergyTime(int value = 1)
     {
         PlayerDataManager.playerData.todayBuyEnergyTime += value;
-        PlayerDataManager.Save();
     }
     public bool CheckHasBuyEnergyTime()
     {
@@ -598,22 +607,18 @@ public class GameManager : MonoBehaviour
     public void AddGiftBallAppearTime(int num = 1)
     {
         PlayerDataManager.playerData.logGiftBallAppearTime += num;
-        PlayerDataManager.Save();
     }
     public void AddOpenGiftBallNum(int num = 1)
     {
         PlayerDataManager.playerData.logOpenGiftBallTime += num;
-        PlayerDataManager.Save();
     }
     public void AddSpinWheelTime(int num = 1)
     {
         PlayerDataManager.playerData.logSpinWheelTime += num;
-        PlayerDataManager.Save();
     }
     public void AddSpinSlotsTime(int num = 1)
     {
         PlayerDataManager.playerData.logSpinSlotsTime += num;
-        PlayerDataManager.Save();
     }
 
     public RectTransform hand;
@@ -627,7 +632,6 @@ public class GameManager : MonoBehaviour
     {
         stopGuideGame = true;
         PlayerDataManager.playerData.hasGuideGame = true;
-        PlayerDataManager.Save();
     }
     IEnumerator ShakeGuidegameHand()
     {
@@ -656,7 +660,6 @@ public class GameManager : MonoBehaviour
     public void SetHasGuideHowtoplay()
     {
         PlayerDataManager.playerData.hasGuideHowtoplay = true;
-        PlayerDataManager.Save();
     }
 
 
@@ -667,7 +670,6 @@ public class GameManager : MonoBehaviour
     public void SetSaveMusicState(bool isOn)
     {
         PlayerDataManager.playerData.musicOn = isOn;
-        PlayerDataManager.Save();
         AudioManager.SetMusicState(isOn);
     }
     public bool GetSoundOn()
@@ -677,7 +679,6 @@ public class GameManager : MonoBehaviour
     public void SetSaveSoundState(bool isOn)
     {
         PlayerDataManager.playerData.soundOn = isOn;
-        PlayerDataManager.Save();
         AudioManager.SetSoundState(isOn);
     }
     public void PlayButtonClickSound()
@@ -885,5 +886,6 @@ public enum Reward
     Coin,
     Amazon,
     WheelTicket,
-    Energy
+    Energy,
+    Ticket
 }

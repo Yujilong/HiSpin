@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 namespace HiSpin
@@ -38,20 +39,22 @@ namespace HiSpin
             switch (reward_area)
             {
                 case GetRewardArea.PlaySlots:
-                    //Server.Instance.OperationData_GetSlotsReward(OnRequestCallback, null, reward_type, reward_num * reward_mutiple);
-                    Server_New.Instance.ConnectToServer_GetSlotsReward(OnRequestCallback, null, null, true, reward_type, multiple ? reward_num * reward_mutiple : reward_num);
+                    //Server_New.Instance.ConnectToServer_GetSlotsReward(OnRequestCallback, null, null, true, reward_type, multiple ? reward_num * reward_mutiple : reward_num);
                     break;
                 case GetRewardArea.LevelUp:
-                    //Server.Instance.OperationData_GetLevelupReward(OnRequestCallback, null, reward_mutiple);
-                    Server_New.Instance.ConnectToServer_GetLevelupReward(OnRequestCallback, null, null, true, multiple ? reward_mutiple : 1);
+                    sendMergeNum = GameManager.Instance.PlayerDataManager.playerData.unSendMergeNum;
+                    Server_New.Instance.ConnectToServer_GetLevelupReward(OnRequestCallback, null, null, true, multiple ? reward_mutiple : 1, sendMergeNum);
                     break;
                 default:
                     Debug.LogError("奖励获得区域错误");
                     break;
             }
         }
+        int sendMergeNum = 0;
         private void OnRequestCallback()
         {
+            GameManager.Instance.PlayerDataManager.playerData.unSendMergeNum -= sendMergeNum;
+            TaskAgent.TriggerTaskEvent(PlayerTaskTarget.MergeballOnce, sendMergeNum);
             UI.FlyReward(reward_type, reward_num, double_getButton.transform.position);
             if (reward_type == Reward.Gold)
             {
@@ -172,6 +175,12 @@ namespace HiSpin
             StopCoroutine("DelayShowNothanks");
             if (raiseAniamtion != null)
                 StopCoroutine(raiseAniamtion);
+            GameManager.Instance.nextSlotsIsUpgradeSlots = true;
+            if (!GameManager.Instance.UIManager.PanelWhetherShowAnyone() && GameManager.Instance.WillShowSlots <= 0)
+                GameManager.Instance.UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.SlotsPanel);
+            else
+                GameManager.Instance.WillShowSlots++;
+            GameManager.Instance.SpawnAGiftBall();
         }
         IEnumerator DelayShowNothanks()
         {

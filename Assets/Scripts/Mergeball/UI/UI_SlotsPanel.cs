@@ -22,10 +22,10 @@ public class UI_SlotsPanel : UI_PopPanelBase
     };
     static readonly bool[] rewards_isCash = new bool[4]
     {
-        true,
         false,
         true,
-        false
+        false,
+        true
     };
     protected override void Awake()
     {

@@ -25,10 +25,13 @@ namespace HiSpin
         Vector3 TargetPos = Vector3.zero;
         Reward flyType;
         int flyNum = 0;
-        public void FlyToTarget(Vector3 startWorldPos, Vector3 targetWorldPos, int num, Reward flyType, Action<Reward> callback)
+        public void FlyToTarget(Vector3 startWorldPos, Vector3 targetWorldPos, int num, Reward flyType, Action<Reward> callback,bool isMergeball=false)
         {
             this.flyType = flyType;
-            StartPos = startWorldPos;
+            if (isMergeball)
+                StartPos = Camera.main.WorldToScreenPoint(startWorldPos);
+            else
+                StartPos = startWorldPos;
             TargetPos = targetWorldPos;
             flyNum = num;
 
