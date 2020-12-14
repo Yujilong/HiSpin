@@ -11,8 +11,6 @@ public class UI_SlotsPanel : UI_PopPanelBase
     public Image rewards_L;
     public Image rewards_M;
     public Image rewards_R;
-    public GameObject adIcon;
-    public RectTransform spinContentRect;
     static readonly float[] rewards_Y_Offsets = new float[4]
     {
         -0.02f,
@@ -52,8 +50,6 @@ public class UI_SlotsPanel : UI_PopPanelBase
         {
             Debug.Log("观看广告转动老虎机");
             needAd = true;
-            adIcon.SetActive(true);
-            spinContentRect.localPosition = adSpincontentPos;
         }
         else
         {
@@ -134,14 +130,10 @@ public class UI_SlotsPanel : UI_PopPanelBase
         if (GameManager.nextSlotsIsUpgradeSlots)
         {
             needAd = false;
-            adIcon.SetActive(false);
-            spinContentRect.localPosition = noadSpincontentPos;
         }
         else
         {
             needAd = true;
-            adIcon.SetActive(true);
-            spinContentRect.localPosition = adSpincontentPos;
         }
         closeDelay= StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(closeButton.gameObject));
     }

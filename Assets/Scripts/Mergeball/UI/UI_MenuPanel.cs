@@ -298,20 +298,16 @@ namespace UI
                 wheelPanel.RefreshTicketShowText();
                 return;
             }
-            else if (type == Reward.Energy)
-            {
-                MainController.Instance.RefreshEnergyText();
-                return;
-            }
             StopCoroutine("ExpandTarget");
             StartCoroutine("ExpandTarget", type);
         }
+        public readonly Dictionary<Reward, float> dic_type_originScale = new Dictionary<Reward, float>();
         IEnumerator ExpandTarget(Reward _flyTarget)
         {
             if (!rewardTargetTransform.TryGetValue(_flyTarget, out Transform tempTrans))
                 yield break;
             bool toBiger = true;
-            float originScale = tempTrans.localScale.x;
+            float originScale = dic_type_originScale[_flyTarget];
             while (true)
             {
                 yield return null;
@@ -365,6 +361,9 @@ namespace UI
             rewardTargetTransform.Add(Reward.Cash, cashButton.transform);
             rewardTargetTransform.Add(Reward.Coin, coinButton.transform);
             rewardTargetTransform.Add(Reward.Energy, MainController.Instance.energyText.transform);
+            dic_type_originScale.Add(Reward.Prop1, propButton1.transform.localScale.x);
+            dic_type_originScale.Add(Reward.Prop2, propButton2.transform.localScale.x);
+            dic_type_originScale.Add(Reward.Energy, MainController.Instance.energyText.transform.localScale.x);
             if (!GameManager.CheckWhetherGuideHowtoplay())
             {
                 MainController.Instance.SetCurrentBallState(false);

@@ -13,7 +13,6 @@ namespace UI
         public Button adButton;
         public Button nothanksButton;
         public GameObject adicon;
-        public RectTransform adContentRect;
         protected override void Awake()
         {
             base.Awake();
@@ -61,7 +60,6 @@ namespace UI
             rewardNum.text = "x" + num;
             adicon.SetActive(needAd);
             nothanksButton.gameObject.SetActive(needAd);
-            adContentRect.localPosition = needAd ? new Vector3(49.3f, 5.7f, 0) : new Vector3(0, 5.7f, 0);
             if(needAd)
                 nothanksDelay= StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(nothanksButton.gameObject));
         }

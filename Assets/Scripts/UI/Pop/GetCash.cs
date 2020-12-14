@@ -68,7 +68,8 @@ namespace HiSpin
             clickAdTime = 0;
             getCashArea = (GetCashArea)args[0];
             getcashNum = args[1];
-            isMergeballSlots = args[2] == 1;
+            if (getCashArea == GetCashArea.Mergeball)
+                isMergeballSlots = args[2] == 1;
             bool isPackB = Save.data.isPackB;
 
             switch (getCashArea)

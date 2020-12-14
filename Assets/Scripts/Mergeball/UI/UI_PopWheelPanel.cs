@@ -109,7 +109,9 @@ namespace UI
             {
                 yield return null;
             }
-            GameManager.ShowConfirmRewardPanel(rewardTypes[endIndex], rewardNums[endIndex] * 25);
+            Reward rewardType = rewardTypes[endIndex];
+            int rewardNum = rewardNums[endIndex];
+            GameManager.ShowConfirmRewardPanel(rewardType, rewardType == Reward.Cash ? rewardNum * 25 : rewardNum);
             if (hasFree)
                 GameManager.UseFreeWheel();
             CheckHasFree();
