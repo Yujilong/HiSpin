@@ -563,6 +563,7 @@ MonoBehaviour:
   needCoinNumText: {fileID: 309846661942052923}
   buyText: {fileID: 1990444048733679179}
   freeText: {fileID: 4093647601892723469}
+  cashText: {fileID: 309846661942052923}
 --- !u!1 &3116029295093953874
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.9058824, b: 0.50980395, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -710,7 +711,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 75c54e4f6b69bcc48ba937ca0d80cd4a, type: 3}
     m_FontSize: 33
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4

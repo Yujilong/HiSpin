@@ -94,10 +94,12 @@ namespace UI
         [Space(15)]
         public Text buyText;
         public Text freeText;
+        public Text cashText;
         public override void SetContent()
         {
             buyText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BUY);
             freeText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FREE);
+            cashText.text = GameManager.GetIsPackB() ? HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "100" : "100";
         }
     }
 }
