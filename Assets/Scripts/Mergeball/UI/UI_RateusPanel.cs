@@ -25,7 +25,7 @@ namespace UI
         {
             GameManager.PlayButtonClickSound();
 #if UNITY_ANDROID
-            Application.OpenURL("https://play.google.com/store/apps/details?id=com.MergeBall.LuckyGame.HugePrizes.Rewards");
+            Application.OpenURL("https://play.google.com/store/apps/details?id=" + HiSpin.Master.PackageName);
 #elif UNITY_IOS
         var url = string.Format(
            "itms-apps://itunes.apple.com/cn/app/id{0}?mt=8&action=write-review",

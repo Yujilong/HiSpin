@@ -12,7 +12,6 @@ namespace UI
         public Button closeButton;
         public GameObject adIcon;
         public GameObject redeemTip;
-        public RectTransform openContentRect;
         protected override void Awake()
         {
             base.Awake();
@@ -67,7 +66,6 @@ namespace UI
             adIcon.SetActive(needAd);
             closeButton.gameObject.SetActive(needAd);
             redeemTip.SetActive(GameManager.GetIsPackB());
-            openContentRect.localPosition = needAd ? new Vector3(41.5f, 3.1f, 0) : new Vector3(0, 3.1f, 0);
             if (needAd)
             {
                 nothanksDelay= StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(nothanksButton.gameObject));

@@ -16,6 +16,7 @@ namespace HiSpin
         public const int Version = 2;
         public const string AppleId = "";
         public static bool isLoadingEnd = false;
+        public static bool isPackB_Advance = false;
         public static Master Instance;
         public Image bgImage;
         public Transform BaseRoot;
@@ -65,11 +66,13 @@ namespace HiSpin
             if (!Save.data.isPackB)
             {
                 Save.data.isPackB = Save.data.allData.fission_info.up_user;
+                if (!Save.data.isPackB)
+                    Save.data.isPackB = isPackB_Advance;
                 if (Save.data.isPackB)
-                    Master.Instance.SendAdjustPackBEvent();
+                    SendAdjustPackBEvent();
             }
-            UI.ShowMenuPanel();
             GameManager.Instance.WhenLoadingGameEnd();
+            UI.ShowMenuPanel();
         }
         public void StartTimeDown()
         {
@@ -224,16 +227,26 @@ namespace HiSpin
 #endif
             string player_id = "None";
             if (Save.data == null || Save.data.allData == null || Save.data.allData.user_panel == null || string.IsNullOrEmpty(Save.data.allData.user_panel.user_id))
-            {
                 player_id = "None";
+            else
+                player_id = Save.data.allData.user_panel.user_id;
+            string player_cash = "0";
+            string player_gold = "0";
+            if (Save.data == null || Save.data.allData == null || Save.data.allData.user_panel == null)
+            {
+                player_cash = "0";
+                player_gold = "0";
             }
             else
             {
-                player_id = Save.data.allData.user_panel.user_id;
+                player_cash = Save.data.allData.user_panel.user_doller_live.ToString();
+                player_gold = Save.data.allData.user_panel.user_gold_live.ToString();
             }
             AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_open,
                 ("player_id", player_id),
-                ("install_version", Version.ToString())
+                ("install_version", Version.ToString()),
+                ("other_int1",player_cash),
+                ("other_int2", player_gold)
                 );
         }
         public void SendAdjustPlayAdEvent(bool hasAd, bool isRewardAd, string adByWay)
@@ -247,25 +260,59 @@ namespace HiSpin
                 ("id", adByWay),
                 //广告类型，0插屏1奖励视频
                 ("type", isRewardAd ? "1" : "0"),
-                //当前票
-                ("other_int1", Save.data.allData.user_panel.user_tickets.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
                 //当前金币
                 ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
                 );
         }
-        public void SendAdjustEnterSlotsEvent(bool isAd)
+        public void SendAdjustPerTenBallEvent(int time,int currentMaxNum)
         {
 #if UNITY_EDITOR
             return;
 #endif
             AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_stage_end,
                 ("player_id", Save.data.allData.user_panel.user_id),
-                //第几个老虎机
-                ("id", (Save.data.allData.user_panel.lucky_count + 1).ToString()),
-                //老虎机类型
-                ("type", isAd ? "1" : "0"),
-                //累计美元
-                ("other_int1", Save.data.allData.user_panel.user_tickets.ToString()),
+                //第几次10次掉落
+                ("id", time.ToString()),
+                //当前合成的最大数字
+                ("reason", currentMaxNum.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
+                );
+        }
+        public void SendAdjustGameOverEvent(int timeGame, int lv, bool passive, int stageMaxNum)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_stage_over,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", timeGame.ToString()),
+                ("next_stage_id", lv.ToString()),
+                ("result", passive ? "0" : "1"),
+                ("reason", stageMaxNum.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
+                );
+        }
+        public void SendAdjustPropChangeEvent(int propID,int operation,int stageBallNum,string offset)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_item_change,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", propID.ToString()),
+                ("type", operation.ToString()),
+                ("stage_id", stageBallNum.ToString()),
+                ("value", offset),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
                 //当前金币
                 ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
                 );
@@ -298,7 +345,7 @@ namespace HiSpin
                 ("value", rewardNum.ToString()),
                 //奖励类型
                 ("power_ok", rewardTypeIndex.ToString()),
-                //累计美元
+                //当前票
                 ("other_int1", Save.data.allData.user_panel.user_tickets.ToString()),
                 //当前金币
                 ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
@@ -316,7 +363,7 @@ namespace HiSpin
                 ("id", email),
                 //第几次填写
                 ("type", Save.data.input_eamil_time.ToString()),
-                //累计美元
+                //当前票
                 ("other_int1", Save.data.allData.user_panel.user_tickets.ToString()),
                 //当前金币
                 ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
@@ -327,9 +374,29 @@ namespace HiSpin
 #if UNITY_EDITOR
             return;
 #endif
+            string player_id = "None";
+            if (Save.data == null || Save.data.allData == null || Save.data.allData.user_panel == null || string.IsNullOrEmpty(Save.data.allData.user_panel.user_id))
+                player_id = "None";
+            else
+                player_id = Save.data.allData.user_panel.user_id;
+            string player_cash = "0";
+            string player_gold = "0";
+            if (Save.data == null || Save.data.allData == null || Save.data.allData.user_panel == null)
+            {
+                player_cash = "0";
+                player_gold = "0";
+            }
+            else
+            {
+                player_cash = Save.data.allData.user_panel.user_doller_live.ToString();
+                player_gold = Save.data.allData.user_panel.user_gold_live.ToString();
+            }
             AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_deeplink,
-                    ("link", uri),
-                    ("order_id", uri)
+                 ("link", uri),
+                 ("order_id", uri),
+                 ("player_id", player_id),
+                 ("other_int1", player_cash),
+                 ("other_int2", player_gold)
                 );
         }
         public void SendAdjustPackBEvent()
@@ -337,7 +404,97 @@ namespace HiSpin
 #if UNITY_EDITOR
             return;
 #endif
-            AdjustEventLogger.Instance.AdjustEventNoParam(AdjustEventLogger.TOKEN_packB);
+            string player_id = Save.data.allData.user_panel.user_id;
+            string player_cash = Save.data.allData.user_panel.user_doller_live.ToString();
+            string player_gold = Save.data.allData.user_panel.user_gold_live.ToString();
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_packb,
+                 ("player_id", player_id),
+                 ("other_int1", player_cash),
+                 ("other_int2", player_gold)
+                );
+        }
+        public void SendAdjustSpawnGiftballEvent(int appearTime,int openTime)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_box,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", appearTime.ToString()),
+                ("time", openTime.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
+                );
+        }
+        public void SendAdjustSpinWheelEvent(int spinTime)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_wheel,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", spinTime.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
+                );
+        }
+        public void SendAdjustSpinSlotsEvent(int spinTime)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_slots,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", spinTime.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
+                );
+        }
+        public void SendAdjustSpawnGoldBallEvent(int appearTime,int adTime)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_Gold_ball,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", appearTime.ToString()),
+                ("time", adTime.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
+                );
+        }
+        public void SendAdjustGuideEvent(int step,bool isMergeball)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            string guide = isMergeball ? (step * 10).ToString() : step.ToString();
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_novice,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", guide)
+                );
+        }
+        public void SendAdjustSpawnTicketBallEvent(int appearTime)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_Ticket_ball,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", appearTime.ToString()),
+                //当前美元
+                ("other_int1", Save.data.allData.user_panel.user_doller_live.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
+                );
         }
         public void SendAdjustClickInviteButtonEvent()
         {
@@ -345,7 +502,11 @@ namespace HiSpin
             return;
 #endif
             AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_invite_button,
-                ("player_id", Save.data.allData.user_panel.user_id)
+                ("player_id", Save.data.allData.user_panel.user_id),
+                //当前票
+                ("other_int1", Save.data.allData.user_panel.user_tickets.ToString()),
+                //当前金币
+                ("other_int2", Save.data.allData.user_panel.user_gold_live.ToString())
                 );
         }
         public void SendAdjustEnterInvitePageEvent()

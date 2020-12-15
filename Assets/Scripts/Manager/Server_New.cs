@@ -98,25 +98,25 @@ namespace HiSpin
         }
         static readonly Dictionary<Server_RequestType, string> getdata_uri_dic = new Dictionary<Server_RequestType, string>()
     {
-        {Server_RequestType.AllData,"http://192.168.10.54:8800/lucky_all_data/" },
-        {Server_RequestType.TaskData,"http://192.168.10.54:8800/lucky_schedule/" },
+        {Server_RequestType.AllData,"http://aff.luckyclub.vip:8000/lucky_all_data/" },
+        {Server_RequestType.TaskData,"http://aff.luckyclub.vip:8000/lucky_schedule/" },
 
-        {Server_RequestType.FinishTask,"http://192.168.10.54:8800/lucky_task/" },
-        {Server_RequestType.BuyTickets,"http://192.168.10.54:8800/lucky_exchange/" },
-        {Server_RequestType.WatchRvEvent,"http://192.168.10.54:8800/lucky_rv/" },
-        {Server_RequestType.BindPaypal,"http://192.168.10.54:8800/lucky_paypal/" },
-        {Server_RequestType.Cashout,"http://192.168.10.54:8800/lucky_apply/" },
+        {Server_RequestType.FinishTask,"http://aff.luckyclub.vip:8000/lucky_task/" },
+        {Server_RequestType.BuyTickets,"http://aff.luckyclub.vip:8000/lucky_exchange/" },
+        {Server_RequestType.WatchRvEvent,"http://aff.luckyclub.vip:8000/lucky_rv/" },
+        {Server_RequestType.BindPaypal,"http://aff.luckyclub.vip:8000/lucky_paypal/" },
+        {Server_RequestType.Cashout,"http://aff.luckyclub.vip:8000/lucky_apply/" },
         {Server_RequestType.GetLocalCountry,"https://a.mafiagameglobal.com/event/country/" },
-        {Server_RequestType.OpenBettingPrize,"http://192.168.10.54:8800/lucky_flag/" },
-        {Server_RequestType.ChangeHead_Name,"http://192.168.10.54:8800/update_user/" },
-        {Server_RequestType.GetLevelUpReward,"http://192.168.10.54:8800/level_reward/" },
-        {Server_RequestType.GetNewPlayerReward,"http://192.168.10.54:8800/new_data/" },
+        {Server_RequestType.OpenBettingPrize,"http://aff.luckyclub.vip:8000/lucky_flag/" },
+        {Server_RequestType.ChangeHead_Name,"http://aff.luckyclub.vip:8000/update_user/" },
+        {Server_RequestType.GetLevelUpReward,"http://aff.luckyclub.vip:8000/level_reward/" },
+        {Server_RequestType.GetNewPlayerReward,"http://aff.luckyclub.vip:8000/new_data/" },
         {Server_RequestType.GetUUID,"http://aff.luckyclub.vip:8000/get_random_id/" },
-        {Server_RequestType.GetCashoutRecordList,"http://192.168.10.54:8800/lucky_record/" },
+        {Server_RequestType.GetCashoutRecordList,"http://aff.luckyclub.vip:8000/lucky_record/" },
 
-        {Server_RequestType.SendMergeballNum,"http://192.168.10.54:8800/synthetic_exp/" },
-        {Server_RequestType.GetMergeballReward,"http://192.168.10.54:8800/synthetic_reward/" },
-        {Server_RequestType.BuyMerballThings,"http://192.168.10.54:8800/synthetic_gold/" },
+        {Server_RequestType.SendMergeballNum,"http://aff.luckyclub.vip:8000/synthetic_exp/" },
+        {Server_RequestType.GetMergeballReward,"http://aff.luckyclub.vip:8000/synthetic_reward/" },
+        {Server_RequestType.BuyMerballThings,"http://aff.luckyclub.vip:8000/synthetic_gold/" },
     };
         Server_RequestType RequestType;
         Action ServerResponseOkCallback;
@@ -286,7 +286,7 @@ namespace HiSpin
                             AllData allData = JsonMapper.ToObject<AllData>(downText);
                             Save.data.allData = allData;
                             Save.data.uuid = string.IsNullOrEmpty(allData.user_uuid) ? Save.data.uuid : allData.user_uuid;
-                            Ads._instance.InitFyber(allData.user_uuid);
+                            Ads._instance.IniAd(allData.user_uuid);
                             break;
                         case Server_RequestType.TaskData:
                             AllData_TaskData taskData = JsonMapper.ToObject<AllData_TaskData>(downText);
@@ -430,8 +430,9 @@ namespace HiSpin
                             {
                                 Save.data.allData.user_panel.user_tickets = getMergeballRewardReceiveData.user_tickets;
                             }
-                            if (_Args[2].Equals("1") && _Args[1].Equals("2"))
-                                TaskAgent.TriggerTaskEvent(PlayerTaskTarget.GetCashFromSlotsOnce, 1);
+                            Debug.Log(_Args[2]);
+                            if (_Args[2].Equals("1"))
+                                TaskAgent.TriggerTaskEvent(PlayerTaskTarget.SpinWheelOnce, 1);
                             break;
                         case Server_RequestType.BuyMerballThings:
                             BuyMergeballThingReceiveData mergeballThingReceiveData = JsonMapper.ToObject<BuyMergeballThingReceiveData>(downText);
@@ -515,7 +516,7 @@ namespace HiSpin
         {
             return ConnectToServer(Server_RequestType.SendMergeballNum, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, false,_MergeNum.ToString());
         }
-        public void ConnectToServer_GetMergeballReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, Reward _Type, int _Num, bool isSlots = false)
+        public void ConnectToServer_GetMergeballReward(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow, Reward _Type, int _Num, bool isWheel = false)
         {
             string type;
             switch (_Type)
@@ -529,10 +530,13 @@ namespace HiSpin
                 case Reward.Ticket:
                     type = "1";
                     break;
+                case Reward.Null:
+                    type = "-1";
+                    break;
                 default:
                     return;
             }
-            ConnectToServer(Server_RequestType.GetMergeballReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, type, _Num.ToString(), isSlots ? "1" : "0");
+            ConnectToServer(Server_RequestType.GetMergeballReward, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, type, _Num.ToString(), isWheel ? "1" : "0");
         }
         public void ConnectToServer_BuyMergeball(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,int _ConsumeNum,Reward reward)
         {
@@ -601,7 +605,7 @@ namespace HiSpin
     }
     public enum PlayerTaskTarget
     {
-        GetCashFromSlotsOnce,//
+        SpinWheelOnce,//
         PlayBettingOnce,
         WatchRvOnce,//
         CashoutOnce,

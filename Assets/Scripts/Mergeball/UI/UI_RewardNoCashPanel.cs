@@ -71,27 +71,31 @@ namespace UI
                     GameManager.AddProp1Num(num);
                     UIManager.FlyReward(Reward.Prop1, num, transform.position);
                     UIManager.ClosePopPanel(this);
+                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
                 case Reward.Prop2:
                     GameManager.AddProp2Num(num);
                     UIManager.FlyReward(Reward.Prop2, num, transform.position);
                     UIManager.ClosePopPanel(this);
+                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
                 case Reward.Cash:
                     Debug.LogError("奖励类型错误，该面板不会奖励现金");
                     break;
                 case Reward.Coin:
-                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Gold, num, GameManager.ConfirmReward_IsSlots);
+                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Gold, num, GameManager.ConfirmReward_IsWheel);
                     break;
                 case Reward.Amazon:
                     GameManager.AddAmazon(num);
                     UIManager.FlyReward(Reward.Amazon, num, transform.position);
                     UIManager.ClosePopPanel(this);
+                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
                 case Reward.WheelTicket:
                     GameManager.AddWheelTicket(num);
                     UIManager.FlyReward(Reward.WheelTicket, num, transform.position);
                     UIManager.ClosePopPanel(this);
+                    HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
             }
         }

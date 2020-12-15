@@ -443,8 +443,6 @@ MonoBehaviour:
   rewards_L: {fileID: 2828076119592047436}
   rewards_M: {fileID: 2032761587386634448}
   rewards_R: {fileID: 5320464363357229305}
-  adIcon: {fileID: 7137835559909239019}
-  spinContentRect: {fileID: 7364842337347542409}
   titleText: {fileID: 3428233172013990519}
   spinText: {fileID: 2110836884917082028}
 --- !u!1 &1857859565845102084
@@ -1121,7 +1119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4185734038661388628
 RectTransform:
   m_ObjectHideFlags: 0

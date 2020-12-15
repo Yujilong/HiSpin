@@ -111,7 +111,7 @@ namespace UI
             }
             Reward rewardType = rewardTypes[endIndex];
             int rewardNum = rewardNums[endIndex];
-            GameManager.ShowConfirmRewardPanel(rewardType, rewardType == Reward.Cash ? rewardNum * 25 : rewardNum);
+            GameManager.ShowConfirmRewardPanel(rewardType, rewardNum, true, true);
             if (hasFree)
                 GameManager.UseFreeWheel();
             CheckHasFree();

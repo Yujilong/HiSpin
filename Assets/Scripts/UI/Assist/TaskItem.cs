@@ -41,7 +41,7 @@ namespace HiSpin
 
             switch (taskTargetId)
             {
-                case PlayerTaskTarget.GetCashFromSlotsOnce:
+                case PlayerTaskTarget.SpinWheelOnce:
                     titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_EnterSlotsOnce), task_tar);
                     break;
                 case PlayerTaskTarget.PlayBettingOnce:
@@ -95,7 +95,7 @@ namespace HiSpin
                     else
                     {
                         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "cash");
-                        reward_numText.text = rewardNum.GetTokenShowString();
+                        reward_numText.text = (rewardNum / Cashout.CashToDollerRadio).GetCashShowString();
                     }
                     break;
                 case Reward.Ticket:

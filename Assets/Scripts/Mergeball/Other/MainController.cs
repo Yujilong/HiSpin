@@ -489,6 +489,8 @@ public class MainController : MonoBehaviour
                 Destroy(go_currentGoldBall);
             newBall = Instantiate(prefab_ball, rect_ballPool);
             go_currentGoldBall = newBall;
+            GameManager.Instance.PlayerDataManager.playerData.logGoldBallAppearTime++;
+            GameManager.Instance.SendAdjustSpawnGoldBallEvent();
         }
         else
         {
@@ -496,6 +498,8 @@ public class MainController : MonoBehaviour
                 Destroy(go_currentTicketBall);
             newBall = Instantiate(prefab_ball, rect_ballPool);
             go_currentTicketBall = newBall;
+            GameManager.Instance.PlayerDataManager.playerData.logTicketBallAppearTime++;
+            GameManager.Instance.SendAdjustSpawnTicketBallEvent();
         }
         newBall.GetComponent<Ball>().InitBall(index);
         float offset = GetBallCircleHalf(index);

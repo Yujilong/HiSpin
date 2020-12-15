@@ -16,10 +16,10 @@ namespace HiSpin
 		private const string Fyber_APP_ID = "123542";
 		private const string Fyber_Security_Token = "a88137defdbf3b99ddd4014ffe4ede10";
 #elif UNITY_IOS
-	private const string IS_APP_KEY = "";
-	private const int AdGem_APP_ID = ;
-	private const string Fyber_APP_ID = "";
-	private const string Fyber_Security_Token = "";
+	private const string IS_APP_KEY = "e3446309";
+	private const int AdGem_APP_ID = 3504;
+	private const string Fyber_APP_ID = "123543";
+	private const string Fyber_Security_Token = "9d8d5b97161b00587b10f546cd662ff4";
 #endif
 		public static Ads _instance;
 		[NonSerialized]
@@ -43,7 +43,7 @@ namespace HiSpin
 			// SDK init
 		}
 		OfferWallRequester offerWallRequester;
-		public void InitFyber(string userid)
+		public void IniAd(string userid)
 		{
 			Fyber.With(Fyber_APP_ID)
 			  .WithUserId(userid)
@@ -58,8 +58,8 @@ namespace HiSpin
 			IronSource.Agent.loadInterstitial();
 
 			AdGem.loadOfferWallBeforeShowing = true;
-			AdGem.player_id = userid;
 			AdGem.startSession(AdGem_APP_ID, false, false, true);
+			AdGem.player_id = userid;
 		}
 		ShowOfferwallAds ofwScripts = null;
 		public bool ShowOfferwallAd(Offerwall_Co _Co)

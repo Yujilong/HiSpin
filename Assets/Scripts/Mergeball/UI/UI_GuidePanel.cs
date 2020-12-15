@@ -20,6 +20,7 @@ namespace UI
         private void OnNextGuide()
         {
             guideIndex++;
+            GameManager.SendAdjustGuideEvent(guideIndex);
             guideAC.SetInteger("GuideIndex", guideIndex);
         }
         public void OnGuideEnd()

@@ -39,7 +39,7 @@ namespace HiSpin
                     break;
                 case GetCashArea.Mergeball:
                     clickAdTime++;
-                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum , isMergeballSlots); }, clickAdTime, "现金翻倍", OnNothanksClick);
+                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum , isMergeballWheel); }, clickAdTime, "现金翻倍", OnNothanksClick);
                     break;
             }
         }
@@ -62,14 +62,14 @@ namespace HiSpin
         }
         GetCashArea getCashArea;
         int getcashNum;
-        bool isMergeballSlots;
+        bool isMergeballWheel;
         protected override void BeforeShowAnimation(params int[] args)
         {
             clickAdTime = 0;
             getCashArea = (GetCashArea)args[0];
             getcashNum = args[1];
             if (getCashArea == GetCashArea.Mergeball)
-                isMergeballSlots = args[2] == 1;
+                isMergeballWheel = args[2] == 1;
             bool isPackB = Save.data.isPackB;
 
             switch (getCashArea)

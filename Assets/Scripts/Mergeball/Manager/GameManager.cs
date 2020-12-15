@@ -270,8 +270,6 @@ public class GameManager : MonoBehaviour
         if (PlayerDataManager.playerData.logPerTenBall > 0 && PlayerDataManager.playerData.logPerTenBall % 10 == 0)
         {
             SendAdjustPerTenBallEvent();
-            PlayerDataManager.playerData.logGoldBallAppearTime++;
-            SendAdjustSpawnGoldBallEvent();
             MainController.Instance.SpawnNewGoldBall();
         }
 
@@ -349,16 +347,16 @@ public class GameManager : MonoBehaviour
     public Reward ConfirmReward_Type = Reward.Null;
     public int ConfirmRewrad_Num = 0;
     public bool ConfirmReward_Needad = true;
-    public bool ConfirmReward_IsSlots = false;
-    public void ShowConfirmRewardPanel(Reward type, int num, bool needAd = true, bool isSlots = false)
+    public bool ConfirmReward_IsWheel = false;
+    public void ShowConfirmRewardPanel(Reward type, int num, bool needAd = true, bool isWheel = false)
     {
         ConfirmReward_Type = type;
         ConfirmRewrad_Num = num;
         ConfirmReward_Needad = needAd;
-        ConfirmReward_IsSlots = isSlots;
+        ConfirmReward_IsWheel = isWheel;
         if (type == Reward.Cash)
         {
-            HiSpin.UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.Mergeball, num, isSlots ? 1 : 0);
+            HiSpin.UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.Mergeball, num * 25, isWheel ? 1 : 0);
         }
         else
             UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.RewardNoCashPanel);
@@ -450,7 +448,7 @@ public class GameManager : MonoBehaviour
             int result = Random.Range(0, total);
             if (result < giftDataB.cashWeight)
             {
-                rewardNum = Random.Range(giftDataB.rewardCashNumRange.x, giftDataB.rewardCashNumRange.y) * 25;
+                rewardNum = Random.Range(giftDataB.rewardCashNumRange.x, giftDataB.rewardCashNumRange.y);
                 return Reward.Cash;
             }
             else
@@ -606,6 +604,7 @@ public class GameManager : MonoBehaviour
     public void AddBuyEnergyTime(int value = 1)
     {
         PlayerDataManager.playerData.todayBuyEnergyTime += value;
+        PlayerDataManager.playerData.lastBuyEnergyTime = System.DateTime.Now.ToString();
     }
     public bool CheckHasBuyEnergyTime()
     {
@@ -727,161 +726,46 @@ public class GameManager : MonoBehaviour
         Ads._instance.ShowInterstialAd(callback, des);
     }
 
-    public void SendAdjustGameStartEvent()
-    {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_open,
-            ("install_version", "1")
-            );
-    }
-    public void SendAdjustPlayAdEvent(bool hasAd, bool isRewardAd, string adByWay)
-    {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(hasAd ? AdjustEventLogger.TOKEN_ad : AdjustEventLogger.TOKEN_noads,
-            //广告位置
-            ("id", adByWay),
-            //广告类型，0插屏1奖励视频
-            ("type", isRewardAd ? "1" : "0"),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
-    }
     public void SendAdjustPerTenBallEvent()
     {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_stage_end,
-            ("id", (PlayerDataManager.playerData.logPerTenBall / 10).ToString()),
-            ("reason", MainController.Instance.BallMaxNum.ToString()),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
+        Master.Instance.SendAdjustPerTenBallEvent(PlayerDataManager.playerData.logPerTenBall / 10, MainController.Instance.BallMaxNum);
     }
     public void SendAdjustGameOverEvent(bool passive)
     {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_stage_over,
-            ("id", PlayerDataManager.playerData.logRestartTime.ToString()),
-            ("next_stage_id", PlayerDataManager.GetLevel().ToString()),
-            ("result", passive ? "0" : "1"),
-            ("reason", PlayerDataManager.GetLevelTargetBallNum().ToString()),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
+        Master.Instance.SendAdjustGameOverEvent(PlayerDataManager.playerData.logRestartTime, PlayerDataManager.GetLevel(), passive, PlayerDataManager.GetLevelTargetBallNum());
     }
     public void SendAdjustPropChangeEvent(int propID, int propChangeType)
     {
-#if UNITY_EDITOR
-        return;
-#endif
         string value;
         if (propChangeType == 0)
             value = "-1";
         else
             value = "+1";
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_item_change,
-            ("id", propID.ToString()),
-            ("type", propChangeType.ToString()),
-            ("stage_id", PlayerDataManager.GetLevelTargetBallNum().ToString()),
-            ("value", value),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
-    }
-    public void SendFBAttributeEvent(string uri)
-    {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_deeplink,
-            ("link", uri),
-            ("order_id", uri),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
-    }
-    public void SendAdjustChangePackBEvent()
-    {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_packb,
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
+        Master.Instance.SendAdjustPropChangeEvent(propID, propChangeType, PlayerDataManager.GetLevelTargetBallNum(), value);
     }
     public void SendAdjustSpawnGiftballEvent()
     {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_box,
-            ("id", PlayerDataManager.playerData.logGiftBallAppearTime.ToString()),
-            ("time", PlayerDataManager.playerData.logOpenGiftBallTime.ToString()),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
+        Master.Instance.SendAdjustSpawnGiftballEvent(PlayerDataManager.playerData.logGiftBallAppearTime, PlayerDataManager.playerData.logOpenGiftBallTime);
     }
     public void SendAdjustSpinWheelEvent()
     {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_wheel,
-            ("id", PlayerDataManager.playerData.logSpinWheelTime.ToString()),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
+        Master.Instance.SendAdjustSpinWheelEvent(PlayerDataManager.playerData.logSpinWheelTime);
     }
     public void SendAdjustSpinSlotsEvent()
     {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_slots,
-            ("id", PlayerDataManager.playerData.logSpinSlotsTime.ToString()),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
+        Master.Instance.SendAdjustSpinSlotsEvent(PlayerDataManager.playerData.logSpinSlotsTime);
     }
     public void SendAdjustSpawnGoldBallEvent()
     {
-#if UNITY_EDITOR
-        return;
-#endif
-        AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_Gold_ball,
-            ("id", PlayerDataManager.playerData.logGoldBallAppearTime.ToString()),
-            ("time", PlayerDataManager.playerData.logGoldBallGetx10Time.ToString()),
-            //累计美元
-            ("other_int1", GetCash().ToString()),
-            //当前金币
-            ("other_int2", GetCoin().ToString())
-            );
+        Master.Instance.SendAdjustSpawnGoldBallEvent(PlayerDataManager.playerData.logGoldBallAppearTime, PlayerDataManager.playerData.logGoldBallGetx10Time);
+    }
+    public void SendAdjustGuideEvent(int step)
+    {
+        Master.Instance.SendAdjustGuideEvent(step, true);
+    }
+    public void SendAdjustSpawnTicketBallEvent()
+    {
+        Master.Instance.SendAdjustSpawnTicketBallEvent(PlayerDataManager.playerData.logTicketBallAppearTime);
     }
 }
 public enum Reward

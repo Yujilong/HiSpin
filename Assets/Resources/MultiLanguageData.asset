@@ -125,7 +125,7 @@ MonoBehaviour:
     - area: 51
       value: ACHIEVEMENTS
     - area: 52
-      value: Earn cash {0} times by slots
+      value: Spin {0} times lucky wheel
     - area: 53
       value: Spin {0} times
     - area: 54
@@ -512,8 +512,8 @@ MonoBehaviour:
     - area: 51
       value: "\u0414\u041E\u0421\u0422\u0418\u0416\u0415\u041D\u0418\u042F"
     - area: 52
-      value: "\u0418\u0433\u0440\u043E\u0432\u043E\u0439 \u0430\u0432\u0442\u043E\u043C\u0430\u0442
-        {0} \u0440\u0430\u0437"
+      value: "\u0432\u0440\u0430\u0449\u0430\u0442\u044C {0} \u0440\u0430\u0437 \u043A\u043E\u043B\u0435\u0441\u043E
+        \u0443\u0434\u0430\u0447\u0438"
     - area: 53
       value: "\u0412\u0440\u0430\u0449\u0430\u0442\u044C {0} \u0440\u0430\u0437"
     - area: 54
@@ -961,7 +961,7 @@ MonoBehaviour:
     - area: 51
       value: "\u30A2\u30C1\u30FC\u30D6\u30E1\u30F3\u30C8"
     - area: 52
-      value: "\u30B9\u30ED\u30C3\u30C8\u30DE\u30B7\u30F3{0}\u56DE"
+      value: "\u30B9\u30D4\u30F3{0}\u56DE\u5E78\u904B\u30DB\u30A4\u30FC\u30EB"
     - area: 53
       value: "\u30B9\u30D4\u30F3{0}\u56DE"
     - area: 54
@@ -1283,7 +1283,7 @@ MonoBehaviour:
     - area: 51
       value: "\uC5C5\uC801"
     - area: 52
-      value: "\uC2AC\uB86F {0} \uC2DC\uAC04\uC744 \uC785\uB825"
+      value: "\uC2A4\uD540 {0} \uD68C \uC6B4 \uD720"
     - area: 53
       value: "\uC2A4\uD540 {0} \uBC88"
     - area: 54
@@ -1651,7 +1651,7 @@ MonoBehaviour:
     - area: 51
       value: ERREICHUNG
     - area: 52
-      value: Geben Sie Slots {0} mal
+      value: "{0} mal Gl\xFCcksrad drehen"
     - area: 53
       value: Spin {0} mal
     - area: 54

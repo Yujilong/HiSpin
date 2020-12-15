@@ -70,23 +70,36 @@ public class PlayerDataManager
             playerData.lastGetNaturalEnergyTime = now.ToString();
 
             DateTime lastBuyEnergyTime = DateTime.Parse(playerData.lastBuyEnergyTime);
-            bool tomorrow = false;
-            if (now.Year == lastBuyEnergyTime.Year)
+            if (CheckTomorrow(lastBuyEnergyTime))
+                playerData.todayBuyEnergyTime = 0;
+            if (string.IsNullOrEmpty(playerData.lastSpinWheelTime))
+                playerData.lastSpinWheelTime = DateTime.Now.ToString();
+            else
             {
-                if (now.Month == lastBuyEnergyTime.Month)
-                {
-                    if (now.Day > lastBuyEnergyTime.Day)
-                        tomorrow = true;
-                }
-                else if (now.Month > lastBuyEnergyTime.Month)
+                DateTime lastSpinWheelTime = DateTime.Parse(playerData.lastSpinWheelTime);
+                if (CheckTomorrow(lastSpinWheelTime))
+                    playerData.wheelTicket = GameManager.startWheelTicket;
+            }
+            SaveLocalData();
+        }
+    }
+    public static bool CheckTomorrow(DateTime last)
+    {
+        DateTime now = DateTime.Now;
+        bool tomorrow = false;
+        if (now.Year == last.Year)
+        {
+            if (now.Month == last.Month)
+            {
+                if (now.Day > last.Day)
                     tomorrow = true;
             }
-            else if (now.Year > lastBuyEnergyTime.Year)
+            else if (now.Month > last.Month)
                 tomorrow = true;
-            if (tomorrow)
-                playerData.todayBuyEnergyTime = 0;
-
         }
+        else if (now.Year > last.Year)
+            tomorrow = true;
+        return tomorrow;
     }
     public bool SetScore(int value)
     {
@@ -246,6 +259,7 @@ public class PlayerDataManager
     public int AddSpinWheelTimeTotal(int value = 1)
     {
         playerData.spinWheelTimeTotal += value;
+        playerData.lastSpinWheelTime = DateTime.Now.ToString();
         return playerData.spinWheelTimeTotal;
     }
     public int AddWheelTicket(int value)
@@ -326,6 +340,7 @@ public class PlayerData
     public string lastGetNaturalEnergyTime;
     public string lastBuyEnergyTime;
     public int spinWheelTimeTotal;
+    public string lastSpinWheelTime;
     public int fallBallNum;
     public int score;
     public int currentLevelScore;
@@ -353,5 +368,6 @@ public class PlayerData
     public int logSpinWheelTime;
     public int logSpinSlotsTime;
     public int logGoldBallAppearTime;
+    public int logTicketBallAppearTime;
     public int logGoldBallGetx10Time;
 }

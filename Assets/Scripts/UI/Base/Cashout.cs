@@ -161,8 +161,8 @@ namespace HiSpin
             paypal_cashout_left_buttonText.text = dollar + " 10";
             paypal_cashout_mid_buttonText.text = dollar + " 50";
             paypal_cashout_right_buttonText.text = dollar + " 100";
-            cash_numText.text = Save.data.allData.user_panel.user_doller_live.GetTokenShowString();
-            cash_to_dollerText.text = "≈" + dollar + (Save.data.allData.user_panel.user_doller_live / CashToDollerRadio).GetCashShowString();
+            //cash_numText.text = Save.data.allData.user_panel.user_doller_live.GetTokenShowString();
+            cash_numText.text = dollar + (Save.data.allData.user_panel.user_doller_live / CashToDollerRadio).GetCashShowString();
             cash_cashout_left_buttonText.text = dollar + " 200";
             cash_cashout_mid_buttonText.text = dollar + " 300";
             cash_cashout_right_buttonText.text = dollar + " 500";

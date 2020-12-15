@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: cbb863edee6e50648ae434482ab09119, type: 3}
-    totalSpriteSurfaceArea: 461616
+    totalSpriteSurfaceArea: 456172
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -42,6 +42,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: da86144360b79bb44a921cfae448a685, type: 3}
   - {fileID: 21300000, guid: 2e25f0c4e959c1341af1a3b2e54ef183, type: 3}
   - {fileID: 21300000, guid: 53deb625c47230c4d8b796b6cc4f5982, type: 3}
+  - {fileID: 21300000, guid: ce6985553eed9c148a113f2e88946be5, type: 3}
   - {fileID: 21300000, guid: dcf18c5526fd08a4caaa627704b2dc97, type: 3}
   - {fileID: 21300000, guid: 7b5a97659199faf418a3787d0f7f433b, type: 3}
   - {fileID: 21300000, guid: abc9cb955ef0a2446947cccad27a4acc, type: 3}
@@ -52,6 +53,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4f5b42688c83ceb4c85960381b75b65a, type: 3}
   - {fileID: 21300000, guid: d4ffbd798b6f29b4796e9e3c892a51e8, type: 3}
   - {fileID: 21300000, guid: 5961f5a96f02d7c45a6d265d34d21928, type: 3}
+  - {fileID: 21300000, guid: ba2a98d9a68e5f047a6e9079ee906ae2, type: 3}
   - {fileID: 21300000, guid: 33f4a82baceaa1f40847ef24ece1f784, type: 3}
   - {fileID: 21300000, guid: e0ebff7bf6c083f4b90b9f134c1028d7, type: 3}
   - {fileID: 21300000, guid: 1184811c48c02f745abffc31ac3eecc2, type: 3}
@@ -60,8 +62,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c4b72fcdb924d8942a23d5d61833b000, type: 3}
   - {fileID: 21300000, guid: 6b2fe08e36c71f340bf20684e77accf6, type: 3}
   - {fileID: 21300000, guid: 74e3c9fedf0ca6740afa6670d477ab39, type: 3}
-  - {fileID: 21300000, guid: af534efeebb38294e9656199a58cf64f, type: 3}
-  - {fileID: 21300000, guid: 0248f12f1f996ff4e9ed83f47b9ac509, type: 3}
   m_PackedSpriteNamesToIndex:
   - Friend_On
   - Back
@@ -70,6 +70,7 @@ SpriteAtlas:
   - Offerwall_Off
   - head_out_bg
   - head_out_fill
+  - Mergeball_Off
   - num bg
   - slots_bg
   - yellow_point
@@ -80,6 +81,7 @@ SpriteAtlas:
   - TopBG
   - Ticket
   - BottomBG
+  - Mergeball_On
   - add
   - Cash
   - red_point
@@ -88,7 +90,5 @@ SpriteAtlas:
   - Lottery_On
   - Task_On
   - Rank_On
-  - Slots_On
-  - Slots_Off
   m_Tag: Menu
   m_IsVariant: 0

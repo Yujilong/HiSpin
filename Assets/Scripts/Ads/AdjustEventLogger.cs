@@ -15,33 +15,28 @@ namespace HiSpin
     private static extern string Getidfa();
 #endif
 #if UNITY_IOS
-    public const string APP_TOKEN = "sdc4rfoe46ww";
-    public const string TOKEN_task = "7ys6oz";
-    public const string TOKEN_eamil = "nnmlyb";
-    public const string TOKEN_packB = "t9pcu1";
-    public const string TOKEN_invite_button = "11h7xk";
-    public const string TOKEN_invite_page = "yplpw8";
-    public const string TOKEN_ticket_over1000 = "seoxpb";
-
-    public const string TOKEN_open = "62yhul";
-    public const string TOKEN_ad = "b0h2gy";
-    public const string TOKEN_noads = "md89bu";
-    public const string TOKEN_stage_end = "srnjyr";
-    public const string TOKEN_stage_over = "1kk2dw";
-    public const string TOKEN_item_change = "o1x2mh";
-    public const string TOKEN_deeplink = "vtvj8n";
-    public const string TOKEN_packb = "oauyh2";
-    public const string TOKEN_box = "dt8ged";
-    public const string TOKEN_wheel = "firn9u";
-    public const string TOKEN_slots = "7vfj5z";
+    public const string APP_TOKEN = "y46lpddz01ds";
+        public const string TOKEN_open = "xx9vnk";
+        public const string TOKEN_ad = "yfq728";
+        public const string TOKEN_noads = "ykgj22";
+        public const string TOKEN_stage_end = "fvbuqt";//每10次落球
+        public const string TOKEN_stage_over = "ane5u1";
+        public const string TOKEN_item_change = "enuxwa";//道具变化
+        public const string TOKEN_deeplink = "grudu0";
+        public const string TOKEN_packb = "dmcz9j";
+        public const string TOKEN_box = "e2o9d7";//礼盒球
+        public const string TOKEN_wheel = "fozhm4";
+        public const string TOKEN_slots = "11aq9g";
+        public const string TOKEN_Gold_ball = "fyaf96";//金币球
+        public const string TOKEN_novice = "dwtimr";
+        public const string TOKEN_Ticket_ball = "y6efqx";
+        public const string TOKEN_task = "q8e6l6";
+        public const string TOKEN_eamil = "8akscv";
+        public const string TOKEN_invite_button = "n4urfr";
+        public const string TOKEN_invite_page = "6xkjq0";
+        public const string TOKEN_ticket_over1000 = "veazoe";
 #elif UNITY_ANDROID
         public const string APP_TOKEN = "sdc4rfoe46ww";
-        public const string TOKEN_task = "h4f80y";
-        public const string TOKEN_eamil = "9o2t98";
-        public const string TOKEN_packB = "qskxn0";
-        public const string TOKEN_invite_button = "idxf85";
-        public const string TOKEN_invite_page = "7ixqy9";
-        public const string TOKEN_ticket_over1000 = "6ogglc";
 
         public const string TOKEN_open = "62yhul";
         public const string TOKEN_ad = "b0h2gy";
@@ -55,6 +50,13 @@ namespace HiSpin
         public const string TOKEN_wheel = "firn9u";
         public const string TOKEN_slots = "7vfj5z";
         public const string TOKEN_Gold_ball = "1khcoc";//金币球
+        public const string TOKEN_novice = "k11j54";
+        public const string TOKEN_Ticket_ball = "3f3wwd";
+        public const string TOKEN_task = "h4f80y";
+        public const string TOKEN_eamil = "9o2t98";
+        public const string TOKEN_invite_button = "idxf85";
+        public const string TOKEN_invite_page = "7ixqy9";
+        public const string TOKEN_ticket_over1000 = "6ogglc";
 #endif
         public static AdjustEventLogger Instance;
         private void Awake()
@@ -99,9 +101,7 @@ namespace HiSpin
             }
             else
             {
-                if (!Save.data.isPackB)
-                    Master.Instance.SendAdjustPackBEvent();
-                Save.data.isPackB = true;
+                Master.isPackB_Advance = true;
             }
         }
         private string AppName = Ads.AppName;
@@ -118,9 +118,7 @@ namespace HiSpin
             {
                 if (web.downloadHandler.text.Equals("1"))
                 {
-                    if (!Save.data.isPackB)
-                        Master.Instance.SendAdjustPackBEvent();
-                    Save.data.isPackB = true;
+                    Master.isPackB_Advance = true;
                 }
             }
         }
