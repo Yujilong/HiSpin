@@ -69,14 +69,10 @@ namespace UI
             {
                 case Reward.Prop1:
                     GameManager.AddProp1Num(num);
-                    UIManager.FlyReward(Reward.Prop1, num, transform.position);
-                    UIManager.ClosePopPanel(this);
                     HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
                 case Reward.Prop2:
                     GameManager.AddProp2Num(num);
-                    UIManager.FlyReward(Reward.Prop2, num, transform.position);
-                    UIManager.ClosePopPanel(this);
                     HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
                 case Reward.Cash:
@@ -87,21 +83,17 @@ namespace UI
                     break;
                 case Reward.Amazon:
                     GameManager.AddAmazon(num);
-                    UIManager.FlyReward(Reward.Amazon, num, transform.position);
-                    UIManager.ClosePopPanel(this);
                     HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
                 case Reward.WheelTicket:
                     GameManager.AddWheelTicket(num);
-                    UIManager.FlyReward(Reward.WheelTicket, num, transform.position);
-                    UIManager.ClosePopPanel(this);
                     HiSpin.Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetRewardCallback, null, null, true, HiSpin.Reward.Null, 0, GameManager.ConfirmReward_IsWheel);
                     break;
             }
         }
         private void OnGetRewardCallback()
         {
-            UIManager.FlyReward(Reward.Coin, num, transform.position);
+            UIManager.FlyReward(type, num, transform.position);
             UI_MenuPanel _MenuPanel = UIManager.GetUIPanel(UI_Panel.MenuPanel) as UI_MenuPanel;
             if (_MenuPanel != null)
             {

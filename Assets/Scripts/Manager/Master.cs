@@ -68,6 +68,8 @@ namespace HiSpin
                 Save.data.isPackB = Save.data.allData.fission_info.up_user;
                 if (!Save.data.isPackB)
                     Save.data.isPackB = isPackB_Advance;
+                if (!Save.data.isPackB)
+                    Save.data.isPackB = GameManager.Instance.PlayerDataManager.playerData.isPackB;
                 if (Save.data.isPackB)
                     SendAdjustPackBEvent();
             }

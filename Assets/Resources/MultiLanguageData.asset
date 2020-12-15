@@ -310,11 +310,11 @@ MonoBehaviour:
     - area: 129
       value: '1st $200
 
-        2nd - 3th $100
+        2nd - 3rd $100
 
-        4nd - 16th $20
+        4th - 16th $20
 
-        17nd
+        17th
         - 50th $10'
     - area: 130
       value: "1.You can earn points by friends watch ad and complete tasks, and you
@@ -553,7 +553,7 @@ MonoBehaviour:
     - area: 68
       value: "\u0421\u0414\u0415\u041B\u0410\u041D\u041D\u042B\u0419"
     - area: 69
-      value: Offerwall
+      value: "\u041F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u0435\u0442"
     - area: 70
       value: "\u0420\u0430\u043D\u0433"
     - area: 71
@@ -705,15 +705,15 @@ MonoBehaviour:
         \u0437\u0430\u043F\u0438\u0441\u0438, \u0434\u0430\u043D\u043D\u044B\u0435
         \u043E\u0431\u043D\u043E\u0432\u043B\u044F\u044E\u0442\u0441\u044F."
     - area: 125
-      value: "1.Spin \u0438 \u043C\u0430\u0442\u0447 3 X \u0441\u0438\u043C\u0432\u043E\u043B\u043E\u0432,
+      value: "1.C\u043F\u0438\u043D \u0438 \u043C\u0430\u0442\u0447 3 X \u0441\u0438\u043C\u0432\u043E\u043B\u043E\u0432,
         \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u0438\u0433\u0440\u0430\u0442\u044C
         \u043C\u043E\u043D\u0435\u0442\u044B \u0438\u043B\u0438 \u0438\u043D\u043E\u0435
         \u0432\u043E\u0437\u043D\u0430\u0433\u0440\u0430\u0436\u0434\u0435\u043D\u0438\u0435.\n2.Google
         \u043D\u0435 \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u0441\u043F\u043E\u043D\u0441\u043E\u0440\u043E\u043C,
         \u0435\u0441\u043B\u0438 \u043E\u043D\u0438 \u0443\u0447\u0430\u0441\u0442\u0432\u0443\u044E\u0442
         \u0432 \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448\u0430\u0445 \u0438\u043B\u0438
-        \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448\u0430\u0445 \u043F\u0440\u0438\u0437\u043E\u0432
-        Hi Spin.\n3.Hi \u0421\u043F\u0438\u043D \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
+        \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448\u0430\u0445 \u043F\u0440\u0438\u0437\u043E\u0432.\n3.\u041F\u0440\u0438\u0432\u0435\u0442
+        \u0421\u043F\u0438\u043D \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
         \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435\u043C \u0442\u043E\u0442\u0430\u043B\u0438\u0437\u0430\u0442\u043E\u0440\u043E\u0432.\n4.\u041E\u0444\u0438\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0435
         \u043F\u0440\u0430\u0432\u0438\u043B\u0430 \u0441\u043C."
     - area: 126
@@ -759,7 +759,7 @@ MonoBehaviour:
         \u0434\u0435\u043D\u044C \u043F\u043E UTC 10:00:00 \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
         \u043F\u0440\u043E\u0441\u043C\u0430\u0442\u0440\u0438\u0432\u0430\u0442\u044C
         \u0432\u0447\u0435\u0440\u0430\u0448\u043D\u0438\u0439 \u0434\u043E\u0445\u043E\u0434
-        \u043E\u0442 \u0434\u0440\u0443\u0437\u0435\u0439.\n3.Points \u043C\u043E\u0436\u043D\u043E
+        \u043E\u0442 \u0434\u0440\u0443\u0437\u0435\u0439.\n3.Pts \u043C\u043E\u0436\u043D\u043E
         \u043E\u0431\u043C\u0435\u043D\u044F\u0442\u044C \u043D\u0430 \u0434\u0435\u043D\u044C\u0433\u0438,
         100000 \u0442\u043E\u0447\u0435\u043A \u0441\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442
         1 USD.\n4.<color=#FFE200>You \u043C\u043E\u0436\u0435\u0442 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C
@@ -776,7 +776,7 @@ MonoBehaviour:
         \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0431\u0438\u043B\u0435\u0442\u044B,
         \u0430 \u0442\u0430\u043A\u0436\u0435 \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C
         \u043C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F
-        \u0431\u0438\u043B\u0435\u0442\u043E\u0432.\n3.\u041C\u0443\u043B\u044C\u0442\u0438\u043F\u043B\u0438\u043A\u0430\u0442\u043E\u0440
+        \u0431\u0438\u043B\u0435\u0442\u043E\u0432.\n3.\u041C\u043E\u0439\u043B\u044C\u0442\u0438\u043F\u043B\u0438\u043A\u0430\u0442\u043E\u0440
         \u0431\u0438\u043B\u0435\u0442 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F
         \u0434\u043B\u044F \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u044F
         \u0431\u0438\u043B\u0435\u0442\u043E\u0432, \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u043D\u044B\u0445
@@ -784,9 +784,9 @@ MonoBehaviour:
     - area: 132
       value: "1.\u0412\u044B\u0438\u0433\u0440\u0430\u0439\u0442\u0435 \u0434\u0436\u0435\u043A\u043F\u043E\u0442
         \u0438 \u0434\u0440\u0443\u0433\u0438\u0435 \u0434\u0435\u043D\u0435\u0436\u043D\u044B\u0435
-        \u043F\u0440\u0438\u0437\u044B \u0432 Lucky Draw.\n\n2.Compete \u043A\u0430\u0436\u0434\u044B\u0439
-        \u0434\u0435\u043D\u044C \u0432 \u0437\u0430\u0434\u0430\u0447\u0435 \u0438
-        \u0432\u044B\u0438\u0433\u0440\u0430\u0442\u044C \u043D\u0430\u043B\u0438\u0447\u043D\u044B\u0435
+        \u043F\u0440\u0438\u0437\u044B \u0432 Lucky Draw.\n\n2.\u0421\u043E\u0440\u0435\u0432\u043D\u043E\u0432\u0430\u0442\u044C\u0441\u044F
+        \u043A\u0430\u0436\u0434\u044B\u0439 \u0434\u0435\u043D\u044C \u0432 \u0437\u0430\u0434\u0430\u0447\u0435
+        \u0438 \u0432\u044B\u0438\u0433\u0440\u0430\u0442\u044C \u043D\u0430\u043B\u0438\u0447\u043D\u044B\u0435
         \u0434\u0435\u043D\u044C\u0433\u0438 \u043D\u0430\u043F\u0440\u044F\u043C\u0443\u044E!\n\n3.\u041F\u0440\u0438\u0433\u043B\u0430\u0448\u0430\u0439\u0442\u0435
         \u0434\u0440\u0443\u0437\u0435\u0439 \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0439\u0442\u0435
         \u043D\u0430\u043B\u0438\u0447\u043D\u044B\u0435 \u0438 \u043C\u043D\u043E\u0433\u043E
@@ -797,7 +797,8 @@ MonoBehaviour:
     - area: 133
       value: "\u041A\u0410\u041A\_\u0417\u0410\u0420\u0410\u0411\u041E\u0422\u0410\u0422\u042C"
     - area: 134
-      value: "1.Complete \u0437\u0430\u0434\u0430\u0447\u0430 \u0441\u043F\u043E\u043D\u0441\u043E\u0440\u0430
+      value: "1.\u0421\u043E\u0440\u0435\u0432\u043D\u043E\u0432\u0430\u0442\u044C\u0441\u044F
+        \u0437\u0430\u0434\u0430\u0447\u0430 \u0441\u043F\u043E\u043D\u0441\u043E\u0440\u0430
         \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043C\u043D\u043E\u0433\u043E
         \u043E\u0447\u043A\u043E\u0432.\n2.\u041F\u043E\u0441\u043B\u0435 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u044F
         \u0437\u0430\u0434\u0430\u043D\u0438\u044F, \u0441\u043F\u043E\u043D\u0441\u043E\u0440
@@ -979,7 +980,7 @@ MonoBehaviour:
     - area: 60
       value: "{0} \u30B3\u30A4\u30F3\u3092\u904E\u3054\u3057\u307E\u3059"
     - area: 61
-      value: "\u7121\u6599Ticketshuo"
+      value: "\u7121\u6599\u30C1\u30B1\u30C3\u30C8"
     - area: 62
       value: "50\u56DE\u30DE\u30FC\u30B8"
     - area: 63
@@ -1007,7 +1008,7 @@ MonoBehaviour:
     - area: 74
       value: "\u6628\u65E5\u306E\u30E9\u30F3\u30AD\u30F3\u30B0"
     - area: 75
-      value: ME
+      value: "\u79C1"
     - area: 76
       value: "PAYPAL\u30A2\u30AB\u30A6\u30F3\u30C8"
     - area: 77
@@ -1113,13 +1114,14 @@ MonoBehaviour:
     - area: 124
       value: "\u6B74\u53F2\u7684\u306A\u8A18\u9332\u3092\u767A\u898B\u3057\u3001\u30C7\u30FC\u30BF\u304C\u66F4\u65B0\u3055\u308C\u3066\u3044\u307E\u3059\u3002"
     - area: 125
-      value: "1.3\u3064\u306EX\u30B7\u30F3\u30DC\u30EB\u3092\u30B9\u30D4\u30F3\u3057\u3066\u4E00\u81F4\u3055\u305B\u3001\u30B3\u30A4\u30F3\u307E\u305F\u306F\u305D\u306E\u4ED6\u306E\u5831\u916C\u3092\u7372\u5F97\u3057\u307E\u3059\u3002\n2.Google\u306F\u30B9\u30DD\u30F3\u30B5\u30FC\u3067\u306F\u306A\u304F\u3001HiSpin\u306E\u61F8\u8CDE\u3084\u8CDE\u54C1\u306E\u62BD\u9078\u306B\u53C2\u52A0\u3057\u3066\u3044\u307E\u3059\u3002\n3.Hi\u30B9\u30D4\u30F3\u306F\u61F8\u8CDE\u30A2\u30D7\u30EA\u3067\u3059\u3002\n4.\u516C\u5F0F\u898F\u5247\u306B\u3064\u3044\u3066\u306F\u3001\u4EE5\u4E0B\u3092\u53C2\u7167\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+      value: "1.3\u3064\u306EX\u30B7\u30F3\u30DC\u30EB\u3092\u30B9\u30D4\u30F3\u3057\u3066\u4E00\u81F4\u3055\u305B\u3001\u30B3\u30A4\u30F3\u307E\u305F\u306F\u305D\u306E\u4ED6\u306E\u5831\u916C\u3092\u7372\u5F97\u3057\u307E\u3059\u3002\n2.Google\u306F\u30B9\u30DD\u30F3\u30B5\u30FC\u3067\u306F\u306A\u304F\u3001\u306E\u61F8\u8CDE\u3084\u8CDE\u54C1\u306E\u62BD\u9078\u306B\u53C2\u52A0\u3057\u3066\u3044\u307E\u3059\u3002\n3.\u3053\u3093\u306B\u3061\u306F
+        \u30B9\u30D4\u30F3\u306F\u61F8\u8CDE\u30A2\u30D7\u30EA\u3067\u3059\u3002\n4.\u516C\u5F0F\u898F\u5247\u306B\u3064\u3044\u3066\u306F\u3001\u4EE5\u4E0B\u3092\u53C2\u7167\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
     - area: 126
       value: "\u52DD\u3064\u65B9\u6CD5"
     - area: 127
       value: "\u5229\u7528\u898F\u7D04"
     - area: 128
-      value: "1.LuckyDraw\u306B\u306F\u6BCE\u65E51,000\u7C73\u30C9\u30EB\u306E\u8CDE\u91D1\u304C\u3042\u308A\u307E\u3059\u3002\n2.\u30E9\u30C3\u30AD\u30FC\u30C9\u30ED\u30FC\u306B\u53C2\u52A0\u3059\u308B\u306B\u306F\u3001{0}\u679A\u306E\u30C1\u30B1\u30C3\u30C8\u304C\u5FC5\u8981\u3067\u3059\u3002
+      value: "1.\u30E9\u30C3\u30AD\u30FC\u30C9\u30ED\u30FC\u306B\u306F\u6BCE\u65E51,000\u7C73\u30C9\u30EB\u306E\u8CDE\u91D1\u304C\u3042\u308A\u307E\u3059\u3002\n2.\u30E9\u30C3\u30AD\u30FC\u30C9\u30ED\u30FC\u306B\u53C2\u52A0\u3059\u308B\u306B\u306F\u3001{0}\u679A\u306E\u30C1\u30B1\u30C3\u30C8\u304C\u5FC5\u8981\u3067\u3059\u3002
         \u3042\u306A\u305F\u304C\u6301\u3063\u3066\u3044\u308B\u3088\u308A\u591A\u304F\u306E\u30C1\u30B1\u30C3\u30C8\u3001\u3088\u308A\u591A\u304F\u306E\u30C1\u30E3\u30F3\u30B9\u3002\n3.\u6BCE\u65E508\uFF1A00\uFF1A00UTC\u306B\u3001\u3059\u3079\u3066\u306E\u62BD\u9078\u30C1\u30B1\u30C3\u30C8\u304C\u81EA\u52D5\u7684\u306B\u8CDE\u91D1\u30D7\u30FC\u30EB\u306B\u5165\u308C\u3089\u308C\u307E\u3059\u3068\u30C9\u30ED\u30FC\u304C\u5B8C\u4E86\u3057\u307E\u3059\u3002\n4.\u5225\u306E\u30DC\u30FC\u30CA\u30B9\u3092\u6301\u3064\u591A\u304F\u306E\u52DD\u8005\u304C\u3042\u308B\u3067\u3057\u3087\u3046\u3002"
     - area: 129
       value: "\u6700\u521D\u306E$ 200\n2\u4F4D-3\u4F4D $ 100\n4\u4F4D-16\u4F4D  $
@@ -1218,7 +1220,7 @@ MonoBehaviour:
     - area: 19
       value: "\uC2E4\uD328\uD55C"
     - area: 20
-      value: 'BANLANCE :'
+      value: "\uBC38\uB7F0\uC2A4"
     - area: 21
       value: "\uD604\uAE08 \uC778\uCD9C"
     - area: 22
@@ -1317,7 +1319,7 @@ MonoBehaviour:
     - area: 68
       value: "\uB05D\uB09C"
     - area: 69
-      value: Offerwall
+      value: "\uC81C\uACF5"
     - area: 70
       value: "\uC21C\uC704"
     - area: 71
@@ -1361,7 +1363,7 @@ MonoBehaviour:
     - area: 88
       value: "\uCD95\uD558\uD569\uB2C8\uB2E4"
     - area: 89
-      value: "NO \uAC10\uC0AC"
+      value: "\uC544\uB2C8, \uACE0\uB9C8\uC6CC"
     - area: 90
       value: "\uC9C0\uAC11\uC5D0 \uC800\uC7A5"
     - area: 91
@@ -1369,8 +1371,7 @@ MonoBehaviour:
     - area: 92
       value: "\uB300\uB2E8\uD558\uB124\uC694!\n\uD2F0\uCF13\uC744 \uD68D\uB4DD\uD588\uC2B5\uB2C8\uB2E4!"
     - area: 93
-      value: "\uB2F9\uC2E0 REACH LV. {0}!\n\uC774\uB7EC\uD55C \uBCF4\uC0C1\uC744
-        \uBC1B\uC544!"
+      value: "\uC5D0 \uB3C4\uB2EC LV{0}!\n\uC774\uB7EC\uD55C \uBCF4\uC0C1\uC744 \uBC1B\uC544!"
     - area: 94
       value: "\uB2EC\uB7EC\uB97C \uD604\uAE08\uD654 \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
     - area: 95
@@ -1463,9 +1464,10 @@ MonoBehaviour:
         Lucky Draw\uAC00 \uC9C4\uD589\uB429\uB2C8\uB2E4.\n4. \uBCF4\uB108\uC2A4\uAC00
         \uB2E4\uB978 \uB9CE\uC740 \uB2F9\uCCA8\uC790\uAC00\uC788\uC744 \uAC83\uC785\uB2C8\uB2E4."
     - area: 129
-      value: "1 $200 \n2 - 3 $ 100\n4 - 16 $ 20\n17- 50 $ 10"
+      value: "\uCCAB \uBC88\uC9F8 $ 200\n2 ~ 3 \uC704 $ 100\n4-16 \uC704 $ 20\n17-50
+        \uC704 $ 10"
     - area: 130
-      value: "1.You\uB294 \uCE5C\uAD6C\uB4E4\uC774 \uC810\uC744 \uAD11\uACE0\uD558\uACE0
+      value: "1.\uB2F9\uC2E0\uB294 \uCE5C\uAD6C\uB4E4\uC774 \uC810\uC744 \uAD11\uACE0\uD558\uACE0
         \uC644\uBCBD\uD55C \uC791\uC5C5\uC744\uBCF4\uACE0\uBC1B\uC744 \uC218 \uC788\uC73C\uBA70,
         \uB610\uD55C \uCE5C\uAD6C\uC758 \uCE5C\uAD6C \uD3EC\uC778\uD2B8\uB97C \uC5BB\uC744
         \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n<color=#FFE200> \uAD11\uACE0 \uC218\uC775\uC758
@@ -1543,22 +1545,22 @@ MonoBehaviour:
   - country: 4
     value_allAreas:
     - area: 0
-      value: Tickets kaufen, Geld gewinnen!
+      value: Fahrkarte kaufen, Geld gewinnen!
     - area: 1
       value: Wie es funktioniert?
     - area: 2
       value: PREIS POOL
     - area: 3
-      value: Sie haben <color=#FF8A01>{0}</color> Tickets
+      value: Sie haben <color=#FF8A01>{0}</color> Fahrkarte
     - area: 4
-      value: nicht genug Tickets
+      value: nicht genug Fahrkarte
     - area: 5
-      value: Mehr Tickets, mehr Gewinnchancen!
+      value: Mehr Fahrkarte, mehr Gewinnchancen!
     - area: 6
-      value: "Sie m\xFCssen \xFCber <color=#F4D10F>{0}</color> Tickets verf\xFCgen,
+      value: "Sie m\xFCssen \xFCber <color=#F4D10F>{0}</color> Fahrkarte verf\xFCgen,
         um an der Verlosung teilnehmen zu k\xF6nnen."
     - area: 7
-      value: TICKETS ERHALTEN
+      value: FAHRKARTE ERHALTEN
     - area: 8
       value: LETZTER TAG GEWINNER
     - area: 9
@@ -1586,7 +1588,7 @@ MonoBehaviour:
     - area: 19
       value: Gescheitert
     - area: 20
-      value: 'BANLANCE:'
+      value: 'RESTGELD:'
     - area: 21
       value: Geld abheben
     - area: 22
@@ -1619,7 +1621,7 @@ MonoBehaviour:
     - area: 35
       value: Niveau
     - area: 36
-      value: Extra
+      value: "zus\xE4tzlich"
     - area: 37
       value: Benutzerbild
     - area: 38
@@ -1627,7 +1629,7 @@ MonoBehaviour:
     - area: 39
       value: erhalten
     - area: 40
-      value: Gold
+      value: "M\xFCnze"
     - area: 41
       value: Kasse
     - area: 42
@@ -1641,7 +1643,7 @@ MonoBehaviour:
     - area: 46
       value: "M\xDCNZEN"
     - area: 47
-      value: TICKETS
+      value: Fahrkarte
     - area: 48
       value: FREI SLOTS
     - area: 49
@@ -1653,7 +1655,7 @@ MonoBehaviour:
     - area: 52
       value: "{0} mal Gl\xFCcksrad drehen"
     - area: 53
-      value: Spin {0} mal
+      value: '{0} mal drehen'
     - area: 54
       value: Sehen Sie {0} Kurzvideos
     - area: 55
@@ -1685,7 +1687,7 @@ MonoBehaviour:
     - area: 68
       value: GETAN
     - area: 69
-      value: Offerwall
+      value: Angebot
     - area: 70
       value: Rang
     - area: 71
@@ -1735,7 +1737,7 @@ MonoBehaviour:
     - area: 91
       value: 'OH JA!
 
-        TOKEN HAUL!'
+        ZEICHEN HAUL!'
     - area: 92
       value: 'DAS IST EPISCH!
 
@@ -1794,7 +1796,7 @@ MonoBehaviour:
     - area: 117
       value: "nicht verf\xFCgbar."
     - area: 118
-      value: Unlock auf Ebene 2.
+      value: "\xF6ffnen auf Ebene 2."
     - area: 119
       value: "Geben\_Sie\_alle\_Informationen."
     - area: 120
@@ -1808,9 +1810,9 @@ MonoBehaviour:
     - area: 124
       value: "Historische Datens\xE4tze gefunden, Daten werden aktualisiert."
     - area: 125
-      value: "1.Spin und Match 3 X Symbole, um eine M\xFCnze oder eine andere Belohnung
-        zu gewinnen.\n2.Google ist kein Sponsor, da es an Hi-Spin-Gewinnspielen oder
-        Gewinnspielen beteiligt ist.\n3. Hi Spin ist eine Gewinnspielanwendung.\n4.F\xFCr
+      value: "1.Drehe und kombiniere 3 X-Symbole, um eine M\xFCnze oder eine andere
+        Belohnung zu gewinnen.\n2.Google ist kein Sponsor, da es an Hi-Spin-Gewinnspielen
+        oder Gewinnspielen beteiligt ist.\n3. Hi Spin ist eine Gewinnspielanwendung.\n4.F\xFCr
         offizielle Regeln siehe: "
     - area: 126
       value: Wie gewinnt man
@@ -1824,7 +1826,7 @@ MonoBehaviour:
         Verlosung wird durchgef\xFChrt.\n4. Es wird viele Gewinner mit unterschiedlichen
         Boni geben."
     - area: 129
-      value: "1 $200 \n2 - 3 $ 100\n4 - 16 $ 20\n17- 50 $ 10"
+      value: "1st $200 \n2nd- 3rd $ 100\n4th - 16th $ 20\n17th- 50th $ 10"
     - area: 130
       value: "1.Sie k\xF6nnen Punkte sammeln, indem Freunde Anzeigen ansehen und
         Aufgaben erledigen, und Sie k\xF6nnen auch Punkte von Freunden von Freunden
@@ -1844,8 +1846,8 @@ MonoBehaviour:
     - area: 132
       value: "1. Gewinnen Sie den Jackpot und andere Geldpreise bei der Verlosung.\n\n2.
         Nehmen Sie jeden Tag an der Aufgabe teil und gewinnen Sie direkt Geld!\n\n3.
-        Beziehen Sie Freunde und erhalten Sie direktes Geld und viele Tickets! \n\n4.Spin
-        Slots k\xF6nnen t\xE4glich Geld gewinnen!"
+        Beziehen Sie Freunde und erhalten Sie direktes Geld und viele Tickets! \n\n4.Rotieren
+        schl\xFCssel kann t\xE4glich Bargeld gewinnen!"
     - area: 133
       value: WIE MAN GELD MACHT
     - area: 134

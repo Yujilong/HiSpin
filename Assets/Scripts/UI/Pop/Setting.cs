@@ -91,12 +91,14 @@ namespace HiSpin
         {
             Save.data.sound_on = !Save.data.sound_on;
             Audio.SetSoundState(Save.data.sound_on);
+            GameManager.Instance.SetSaveSoundState(Save.data.sound_on);
             soundButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "sound_" + (Save.data.sound_on ? "on" : "off"));
         }
         private void OnMusicClick()
         {
             Save.data.music_on = !Save.data.music_on;
             Audio.SetMusicState(Save.data.music_on);
+            GameManager.Instance.SetSaveMusicState(Save.data.sound_on);
             musicButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "music_" + (Save.data.music_on ? "on" : "off"));
         }
         private void OnEmailClick()

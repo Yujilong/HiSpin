@@ -91,10 +91,10 @@ namespace HiSpin
 #endif
             Master.Instance.SendAdjustClickInviteButtonEvent();
 #if UNITY_ANDROID
-            _AJ.CallStatic("ShareString", Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Invite_word) + " http://aff.luckyclub.vip:8000/2048merge ball/" + Save.data.allData.user_panel.user_id);
+            _AJ.CallStatic("ShareString", Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Invite_word) + "http://aff.luckyclub.vip:8000/2048merge ball/" + Save.data.allData.user_panel.user_id);
             return;
 #endif
-            GJCNativeShare.Instance.NativeShare(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Invite_word) + " http://aff.luckyclub.vip:8000/2048merge ball/" + Save.data.allData.user_panel.user_id);
+            GJCNativeShare.Instance.NativeShare(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Invite_word) + "http://aff.luckyclub.vip:8000/2048merge ball/" + Save.data.allData.user_panel.user_id);
 
         }
         private void OnMyfriendsButtonClick()

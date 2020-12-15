@@ -327,6 +327,9 @@ public class PlayerDataManager
 [System.Serializable]
 public class PlayerData
 {
+    public bool isPackB;
+    public int cash;
+    public int coin;
     public int amazon;
     public int energy;
     public int prop1Num;

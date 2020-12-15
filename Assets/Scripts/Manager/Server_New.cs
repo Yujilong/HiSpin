@@ -190,6 +190,9 @@ namespace HiSpin
                     iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
                     iparams.Add(new MultipartFormDataSection("country", localCountry));
                     iparams.Add(new MultipartFormDataSection("ad_ios", Platform));
+
+                    iparams.Add(new MultipartFormDataSection("cash", (GameManager.Instance.PlayerDataManager.playerData.cash * 25).ToString()));
+                    iparams.Add(new MultipartFormDataSection("gold", GameManager.Instance.PlayerDataManager.playerData.coin.ToString()));
                     break;
                 case Server_RequestType.TaskData:
                     iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
