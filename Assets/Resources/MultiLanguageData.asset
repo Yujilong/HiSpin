@@ -196,7 +196,7 @@ MonoBehaviour:
 
         4.Is that your paypal available'
     - area: 84
-      value: "For any question,Contact us: \n<color=#1A91D0>hispin.support@luckyclub.vip</color>"
+      value: "For any question,Contact us: \n<color=#1A91D0>mergeballs.support@luckyclub.vip</color>"
     - area: 85
       value: RATE US
     - area: 86
@@ -222,9 +222,9 @@ MonoBehaviour:
     - area: 94
       value: You can cash out dollar
     - area: 95
-      value: Play slots and get tickets
+      value: Play game and get tickets
     - area: 96
-      value: Play Lucy Draw with tickets to earn money. Good Lucy!
+      value: Play Lucky Draw with tickets to earn money. Good Lucy!
     - area: 97
       value: Invite friend successfully
     - area: 98
@@ -282,13 +282,13 @@ MonoBehaviour:
     - area: 124
       value: Found historical records, data is being updated.
     - area: 125
-      value: '1.Spin and match 3 X symbols to win coin or other reward.
+      value: '1.Merge ball to win coins or other rewards.
 
-        2.Google
-        are not sponsor are they involved in any Hi Spin sweepstakes or prize draws.
+        2.Google are not
+        sponsor are they involved in any games sweepstakes or prize draws.
 
-        3.Hi
-        Spin is a sweepstakes application.
+        3.Play
+        is a sweepstakes application.
 
         4.For offical rules, please see:'
     - area: 126
@@ -325,14 +325,14 @@ MonoBehaviour:
         can be exchanged for money, 100,000 points equals 1 USD.\n4.<color=#FFE200>You
         can earn HUGE Pts by completing the tasks in the offer.</color>"
     - area: 131
-      value: "1.Play slots to get experience for upgrade level.\n2.Upgrade the level
+      value: "1.Play games to get experience for upgrade level.\n2.Upgrade the level
         will unlock new avatars and get tickets, also increase the multiplier of
         getting tickets.\n3.The ticket multiplier is used to increase tickets obtained\_by
         slots."
     - area: 132
       value: "1.Win the jackpot and other cash prizes in the Lucky Draw.\n\n2.Compete
         every day in the task and win cash directly!\n\n3.Refer friends and get direct
-        cash and lots of tickets!\n\n4.Spin slots can win cash daily! \n"
+        cash and lots of tickets!\n\n4.Play games can win cash daily! \n"
     - area: 133
       value: HOW TO MAKE MONEY
     - area: 134
@@ -593,7 +593,7 @@ MonoBehaviour:
     - area: 84
       value: "\u041F\u043E \u043B\u044E\u0431\u044B\u043C \u0432\u043E\u043F\u0440\u043E\u0441\u0430\u043C,
         \u0441\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438:\n<color=#1A91D0>
-        hispin.support@luckyclub.vip</color>"
+        mergeballs.support@luckyclub.vip</color>"
     - area: 85
       value: "\u041E\u0426\u0415\u041D\u0418\u0422\u0415 \u041D\u0410\u0421"
     - area: 86
@@ -705,12 +705,12 @@ MonoBehaviour:
         \u0437\u0430\u043F\u0438\u0441\u0438, \u0434\u0430\u043D\u043D\u044B\u0435
         \u043E\u0431\u043D\u043E\u0432\u043B\u044F\u044E\u0442\u0441\u044F."
     - area: 125
-      value: "1.C\u043F\u0438\u043D \u0438 \u043C\u0430\u0442\u0447 3 X \u0441\u0438\u043C\u0432\u043E\u043B\u043E\u0432,
-        \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u0438\u0433\u0440\u0430\u0442\u044C
-        \u043C\u043E\u043D\u0435\u0442\u044B \u0438\u043B\u0438 \u0438\u043D\u043E\u0435
-        \u0432\u043E\u0437\u043D\u0430\u0433\u0440\u0430\u0436\u0434\u0435\u043D\u0438\u0435.\n2.Google
-        \u043D\u0435 \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u0441\u043F\u043E\u043D\u0441\u043E\u0440\u043E\u043C,
-        \u0435\u0441\u043B\u0438 \u043E\u043D\u0438 \u0443\u0447\u0430\u0441\u0442\u0432\u0443\u044E\u0442
+      value: "1.\u041E\u0431\u044A\u0435\u0434\u0438\u043D\u044F\u0439\u0442\u0435
+        \u043C\u044F\u0447, \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u0438\u0433\u0440\u0430\u0442\u044C
+        \u043C\u043E\u043D\u0435\u0442\u044B \u0438\u043B\u0438 \u0434\u0440\u0443\u0433\u0438\u0435
+        \u043D\u0430\u0433\u0440\u0430\u0434\u044B.\n2.Google \u043D\u0435 \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
+        \u0441\u043F\u043E\u043D\u0441\u043E\u0440\u043E\u043C, \u0435\u0441\u043B\u0438
+        \u043E\u043D\u0438 \u0443\u0447\u0430\u0441\u0442\u0432\u0443\u044E\u0442
         \u0432 \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448\u0430\u0445 \u0438\u043B\u0438
         \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448\u0430\u0445 \u043F\u0440\u0438\u0437\u043E\u0432.\n3.\u041F\u0440\u0438\u0432\u0435\u0442
         \u0421\u043F\u0438\u043D \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
@@ -1028,8 +1028,7 @@ MonoBehaviour:
         \u30DA\u30A4\u30D1\u30EB\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u78BA\u8A8D\u3057\u307E\u3059\n3.
         \u30CD\u30C3\u30C8\u63A5\u7D9A\u3092\u78BA\u8A8D\u3057\u307E\u3059\n4. \u30DA\u30A4\u30D1\u30EB\u304C\u5229\u7528\u53EF\u80FD\u3067\u3059\u304B"
     - area: 84
-      value: "\u8CEA\u554F\u3068\u306E\u79C1\u9054\u306B\u9023\u7D61\n<color=\uFF031A91D0>
-        hispin.support@luckyclub.vip</color>"
+      value: "\u8CEA\u554F\u3068\u306E\u79C1\u9054\u306B\u9023\u7D61\n<color=\uFF031A91D0>mergeballs.support@luckyclub.vip</color>"
     - area: 85
       value: "\u79C1\u305F\u3061\u3092\u8A55\u4FA1\u3057\u3066\u304F\u3060\u3055\u3044"
     - area: 86
@@ -1114,7 +1113,7 @@ MonoBehaviour:
     - area: 124
       value: "\u6B74\u53F2\u7684\u306A\u8A18\u9332\u3092\u767A\u898B\u3057\u3001\u30C7\u30FC\u30BF\u304C\u66F4\u65B0\u3055\u308C\u3066\u3044\u307E\u3059\u3002"
     - area: 125
-      value: "1.3\u3064\u306EX\u30B7\u30F3\u30DC\u30EB\u3092\u30B9\u30D4\u30F3\u3057\u3066\u4E00\u81F4\u3055\u305B\u3001\u30B3\u30A4\u30F3\u307E\u305F\u306F\u305D\u306E\u4ED6\u306E\u5831\u916C\u3092\u7372\u5F97\u3057\u307E\u3059\u3002\n2.Google\u306F\u30B9\u30DD\u30F3\u30B5\u30FC\u3067\u306F\u306A\u304F\u3001\u306E\u61F8\u8CDE\u3084\u8CDE\u54C1\u306E\u62BD\u9078\u306B\u53C2\u52A0\u3057\u3066\u3044\u307E\u3059\u3002\n3.\u3053\u3093\u306B\u3061\u306F
+      value: "1.\u30DC\u30FC\u30EB\u3092\u5408\u6210\u3057\u3066\u30B3\u30A4\u30F3\u3084\u305D\u306E\u4ED6\u306E\u5831\u916C\u3092\u7372\u5F97\u3059\u308B\u3002\n2.Google\u306F\u30B9\u30DD\u30F3\u30B5\u30FC\u3067\u306F\u306A\u304F\u3001\u306E\u61F8\u8CDE\u3084\u8CDE\u54C1\u306E\u62BD\u9078\u306B\u53C2\u52A0\u3057\u3066\u3044\u307E\u3059\u3002\n3.\u3053\u3093\u306B\u3061\u306F
         \u30B9\u30D4\u30F3\u306F\u61F8\u8CDE\u30A2\u30D7\u30EA\u3067\u3059\u3002\n4.\u516C\u5F0F\u898F\u5247\u306B\u3064\u3044\u3066\u306F\u3001\u4EE5\u4E0B\u3092\u53C2\u7167\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
     - area: 126
       value: "\u52DD\u3064\u65B9\u6CD5"
@@ -1352,7 +1351,7 @@ MonoBehaviour:
         \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uAE4C"
     - area: 84
       value: "\uC5B4\uB5A4 \uC9C8\uBB38\uC744 \uC704\uD574, \uC800\uD76C\uC5D0\uAC8C
-        \uC5F0\uB77D\uD558\uC2ED\uC2DC\uC624 :\n<color=#1A91D0> hispin.support@luckyclub.vip
+        \uC5F0\uB77D\uD558\uC2ED\uC2DC\uC624 :\n<color=#1A91D0> mergeballs.support@luckyclub.vip
         </color>"
     - area: 85
       value: "\uBBF8\uAD6D \uD3C9\uAC00"
@@ -1443,13 +1442,12 @@ MonoBehaviour:
       value: "\uC2E4\uCE21\uCE58 \uACFC\uAC70 \uAE30\uB85D\uC740 \uB370\uC774\uD130\uAC00
         \uC5C5\uB370\uC774\uD2B8\uB41C\uB2E4."
     - area: 125
-      value: "1 \uD68C\uC804\uACFC \uC77C\uCE58\uD558\uB294 3 X \uAE30\uD638\uB294
-        \uB3D9\uC804\uC774\uB098 \uB2E4\uB978 \uBCF4\uC0C1\uC744 \uC2B9\uB9AC.\n2.Google\uAC00
-        \uD6C4\uC6D0\uD558\uC9C0 \uC54A\uB294 \uADF8\uB4E4\uC774 \uC5B4\uB5A4 \uD558\uC774
-        \uC2A4\uD540 \uACBD\uD488\uC5D0 \uCC38\uC5EC\uD558\uAC70\uB098 \uACBD\uD488
-        \uCD94\uCCA8 \uC788\uC2B5\uB2C8\uB2E4.\n3.Hi \uC2A4\uD540\uC740 \uACBD\uD488
-        \uC751\uC6A9 \uD504\uB85C\uADF8\uB7A8\uC785\uB2C8\uB2E4.\n4. \uACF5\uC2DD
-        \uADDC\uC815\uC740 \uB2E4\uC74C\uC744 \uCC38\uC870\uD558\uC2ED\uC2DC\uC624."
+      value: "1 \uACF5\uC744 \uD569\uCCD0 \uCF54\uC778\uC774\uB098 \uB2E4\uB978 \uBCF4\uC0C1\uC744
+        \uBC1B\uC73C\uC138\uC694.\n2.Google\uAC00 \uD6C4\uC6D0\uD558\uC9C0 \uC54A\uB294
+        \uADF8\uB4E4\uC774 \uC5B4\uB5A4 \uD558\uC774 \uC2A4\uD540 \uACBD\uD488\uC5D0
+        \uCC38\uC5EC\uD558\uAC70\uB098 \uACBD\uD488 \uCD94\uCCA8 \uC788\uC2B5\uB2C8\uB2E4.\n3.\uC2A4\uD540\uC740
+        \uACBD\uD488 \uC751\uC6A9 \uD504\uB85C\uADF8\uB7A8\uC785\uB2C8\uB2E4.\n4.
+        \uACF5\uC2DD \uADDC\uC815\uC740 \uB2E4\uC74C\uC744 \uCC38\uC870\uD558\uC2ED\uC2DC\uC624."
     - area: 126
       value: "\uC774\uAE30\uB294 \uBC29\uBC95"
     - area: 127
@@ -1720,7 +1718,7 @@ MonoBehaviour:
     - area: 84
       value: 'Bei Fragen kontaktieren Sie uns:
 
-        <color=#1A91D0> hispin.support@luckyclub.vip
+        <color=#1A91D0> mergeballs.support@luckyclub.vip
         </color>'
     - area: 85
       value: BEWERTEN SIE UNS
@@ -1810,10 +1808,10 @@ MonoBehaviour:
     - area: 124
       value: "Historische Datens\xE4tze gefunden, Daten werden aktualisiert."
     - area: 125
-      value: "1.Drehe und kombiniere 3 X-Symbole, um eine M\xFCnze oder eine andere
-        Belohnung zu gewinnen.\n2.Google ist kein Sponsor, da es an Hi-Spin-Gewinnspielen
-        oder Gewinnspielen beteiligt ist.\n3. Hi Spin ist eine Gewinnspielanwendung.\n4.F\xFCr
-        offizielle Regeln siehe: "
+      value: "1.F\xFCge den Ball zusammen, um M\xFCnzen oder andere Belohnungen zu
+        gewinnen.\n2.Google ist kein Sponsor, da es an games-Gewinnspielen oder Gewinnspielen
+        beteiligt ist.\n3. Game ist eine Gewinnspielanwendung.\n4.F\xFCr offizielle
+        Regeln siehe: "
     - area: 126
       value: Wie gewinnt man
     - area: 127
@@ -1838,7 +1836,7 @@ MonoBehaviour:
         Sie k\xF6nnen riesige Pts verdienen, indem sie die Aufgaben im Angebot abgeschlossen
         wird.</color>"
     - area: 131
-      value: "1.Spielen Sie Slots, um Erfahrung f\xFCr das Upgrade-Level zu sammeln.\n2.Um
+      value: "1.Spielen Sie , um Erfahrung f\xFCr das Upgrade-Level zu sammeln.\n2.Um
         das Level zu verbessern, werden neue Avatare freigeschaltet und Tickets erhalten.
         Au\xDFerdem wird der Multiplikator f\xFCr das Erhalten von Tickets erh\xF6ht.\n3.
         Der Ticketmultiplikator wird verwendet, um die durch Slots erhaltenen Tickets

@@ -12,6 +12,9 @@ namespace HiSpin
         public Text oneRule;
         public ContentSizeFitter all_rules_content;
         private List<Text> all_rules = new List<Text>();
+        public GameObject itemofuse1;
+        public GameObject itemofuse2;
+        public ScrollRect scroll;
         [Space(15)]
         public Button closeButton;
         public Button sureButton;
@@ -52,6 +55,8 @@ namespace HiSpin
                     allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_BettingFront));
                     allStr[1] = string.Format(allStr[1], Save.data.allData.award_ranking.ticktes_flag);
                     List<string> behind = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_BettingBehind));
+                    itemofuse1.SetActive(false);
+                    itemofuse2.SetActive(false);
                     centerAlignStr = Tools.GetTextMiddleCenterContent(oneRule, behind);
                     cashoutButton.gameObject.SetActive(false);
                     sureButton.gameObject.SetActive(true);
@@ -61,6 +66,8 @@ namespace HiSpin
                     titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlotsTitle);
                     allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlots));
                     termsButton.GetComponent<Text>().text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_PlaySlotsBottom);
+                    itemofuse1.SetActive(false);
+                    itemofuse2.SetActive(false);
                     termsButton.gameObject.SetActive(true);
                     cashoutButton.gameObject.SetActive(false);
                     sureButton.gameObject.SetActive(true);
@@ -68,6 +75,8 @@ namespace HiSpin
                 case RuleArea.InviteFriend:
                     titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
                     allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_InviteFrineds));
+                    itemofuse1.SetActive(false);
+                    itemofuse2.SetActive(false);
                     cashoutButton.gameObject.SetActive(false);
                     sureButton.gameObject.SetActive(true);
                     termsButton.gameObject.SetActive(false);
@@ -75,6 +84,8 @@ namespace HiSpin
                 case RuleArea.MyInfo:
                     titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
                     allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Me));
+                    itemofuse1.SetActive(false);
+                    itemofuse2.SetActive(false);
                     cashoutButton.gameObject.SetActive(false);
                     sureButton.gameObject.SetActive(true);
                     termsButton.gameObject.SetActive(false);
@@ -82,6 +93,8 @@ namespace HiSpin
                 case RuleArea.Cashout:
                     titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_CashoutTitle);
                     allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Cashout));
+                    itemofuse1.SetActive(false);
+                    itemofuse2.SetActive(false);
                     cashoutButton.gameObject.SetActive(true);
                     sureButton.gameObject.SetActive(false);
                     termsButton.gameObject.SetActive(false);
@@ -89,6 +102,17 @@ namespace HiSpin
                 case RuleArea.Offerwall:
                     titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
                     allStr = Tools.GetTextFlexiableContent(oneRule, Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Rules_Offerwall));
+                    itemofuse1.SetActive(false);
+                    itemofuse2.SetActive(false);
+                    cashoutButton.gameObject.SetActive(false);
+                    sureButton.gameObject.SetActive(true);
+                    termsButton.gameObject.SetActive(false);
+                    break;
+                case RuleArea.ItemOfUse:
+                    titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ItemOfUse);
+                    allStr = new List<string>();
+                    itemofuse1.SetActive(true);
+                    itemofuse2.SetActive(true);
                     cashoutButton.gameObject.SetActive(false);
                     sureButton.gameObject.SetActive(true);
                     termsButton.gameObject.SetActive(false);
@@ -143,6 +167,7 @@ namespace HiSpin
             all_rules_content.enabled = false;
             yield return new WaitForEndOfFrame();
             all_rules_content.enabled = true;
+            scroll.normalizedPosition = Vector2.one;
         }
         public override void SetContent()
         {
@@ -158,5 +183,6 @@ namespace HiSpin
         MyInfo,
         Cashout,
         Offerwall,
+        ItemOfUse,
     }
 }

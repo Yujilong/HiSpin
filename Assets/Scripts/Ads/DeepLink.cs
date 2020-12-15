@@ -29,7 +29,16 @@ namespace HiSpin
             if (!string.IsNullOrEmpty(uri))
             {
                 Master.Instance.SendAdjustDeeplinkEvent(uri);
-                Master.isPackB_Advance = true;
+                if (!Master.isLoadingEnd)
+                    Master.isPackB_Advance = true;
+                else
+                {
+                    if (!Save.data.isPackB)
+                    {
+                        Save.data.isPackB = true;
+                        Master.Instance.SendAdjustPackBEvent();
+                    }
+                }
             }
         }
     }

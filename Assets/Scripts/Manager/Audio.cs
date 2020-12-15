@@ -7,7 +7,6 @@ namespace HiSpin
     {
         private static GameObject Root;
         private const string LoadAudioFrontPath = "AudioClips/";
-        private static AudioSource bgmAs;
         public Audio(GameObject audioRoot)
         {
             Root = audioRoot;
@@ -97,30 +96,9 @@ namespace HiSpin
         {
             return PlayOneShot(playArea, true);
         }
-        private void PlayBgm()
-        {
-            if (audioClipPathDic.TryGetValue(AudioPlayArea.BGM, out string bgmFileName))
-            {
-                AudioClip tempClip = Resources.Load<AudioClip>(LoadAudioFrontPath + bgmFileName);
-                if (tempClip == null)
-                {
-                    Debug.LogError("背景音乐文件路径配置错误");
-                    return;
-                }
-                bgmAs = Root.AddComponent<AudioSource>();
-                bgmAs.clip = tempClip;
-                bgmAs.loop = true;
-                bgmAs.mute = !Save.data.music_on;
-                bgmAs.Play();
-            }
-            else
-            {
-                Debug.LogError("背景音乐没有配置文件路径");
-            }
-        }
         public static void SetMusicState(bool isOn)
         {
-            bgmAs.mute = !isOn;
+            //bgmAs.mute = !isOn;
         }
         public static void SetSoundState(bool isOn)
         {
@@ -132,10 +110,7 @@ namespace HiSpin
         }
         public static void PauseBgm(bool pause)
         {
-            if (pause)
-                bgmAs.Pause();
-            else
-                bgmAs.UnPause();
+
         }
     }
     public enum AudioPlayArea

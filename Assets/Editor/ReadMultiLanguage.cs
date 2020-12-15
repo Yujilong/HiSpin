@@ -74,6 +74,7 @@ namespace HiSpin
             if (!EditorApplication.isCompiling)
             {
                 OnCompileComplete();
+                Debug.Log("complete!");
             }
         }
         public static bool isCompileLanguageEnum = false;

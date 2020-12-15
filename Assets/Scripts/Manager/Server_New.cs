@@ -48,7 +48,7 @@ namespace HiSpin
             tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Server_Connecting);
             state_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Server, "loading");
             retryButton.gameObject.SetActive(false);
-            while (isConnecting)
+            while (true)
             {
                 yield return null;
                 state_iconImage.transform.Rotate(new Vector3(0, 0, -Time.deltaTime * 300));
@@ -433,7 +433,6 @@ namespace HiSpin
                             {
                                 Save.data.allData.user_panel.user_tickets = getMergeballRewardReceiveData.user_tickets;
                             }
-                            Debug.Log(_Args[2]);
                             if (_Args[2].Equals("1"))
                                 TaskAgent.TriggerTaskEvent(PlayerTaskTarget.SpinWheelOnce, 1);
                             break;

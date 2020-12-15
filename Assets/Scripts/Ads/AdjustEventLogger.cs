@@ -52,11 +52,11 @@ namespace HiSpin
         public const string TOKEN_Gold_ball = "1khcoc";//金币球
         public const string TOKEN_novice = "k11j54";
         public const string TOKEN_Ticket_ball = "3f3wwd";
-        public const string TOKEN_task = "h4f80y";
-        public const string TOKEN_eamil = "9o2t98";
-        public const string TOKEN_invite_button = "idxf85";
-        public const string TOKEN_invite_page = "7ixqy9";
-        public const string TOKEN_ticket_over1000 = "6ogglc";
+        public const string TOKEN_task = "d48cmx";
+        public const string TOKEN_eamil = "ub34ik";
+        public const string TOKEN_invite_button = "w85zzy";
+        public const string TOKEN_invite_page = "yfvs7x";
+        public const string TOKEN_ticket_over1000 = "3v7q8e";
 #endif
         public static AdjustEventLogger Instance;
         private void Awake()
@@ -101,7 +101,16 @@ namespace HiSpin
             }
             else
             {
-                Master.isPackB_Advance = true;
+                if (!Master.isLoadingEnd)
+                    Master.isPackB_Advance = true;
+                else
+                {
+                    if (!Save.data.isPackB)
+                    {
+                        Save.data.isPackB = true;
+                        Master.Instance.SendAdjustPackBEvent();
+                    }
+                }
             }
         }
         private string AppName = Ads.AppName;
@@ -118,7 +127,16 @@ namespace HiSpin
             {
                 if (web.downloadHandler.text.Equals("1"))
                 {
-                    Master.isPackB_Advance = true;
+                    if (!Master.isLoadingEnd)
+                        Master.isPackB_Advance = true;
+                    else
+                    {
+                        if (!Save.data.isPackB)
+                        {
+                            Save.data.isPackB = true;
+                            Master.Instance.SendAdjustPackBEvent();
+                        }
+                    }
                 }
             }
         }

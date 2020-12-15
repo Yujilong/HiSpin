@@ -85,7 +85,9 @@ namespace HiSpin
         }
         private void OnRulesClick()
         {
-            Application.OpenURL("http://luckyclub.vip/hispin-termofuse/");
+            //Application.OpenURL("http://luckyclub.vip/hispin-termofuse/");
+            UI.ClosePopPanel(this);
+            UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.ItemOfUse);
         }
         private void OnSoundClick()
         {
@@ -98,7 +100,7 @@ namespace HiSpin
         {
             Save.data.music_on = !Save.data.music_on;
             Audio.SetMusicState(Save.data.music_on);
-            GameManager.Instance.SetSaveMusicState(Save.data.sound_on);
+            GameManager.Instance.SetSaveMusicState(Save.data.music_on);
             musicButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "music_" + (Save.data.music_on ? "on" : "off"));
         }
         private void OnEmailClick()
@@ -124,7 +126,7 @@ namespace HiSpin
                 adid = Save.data.adid;
             AndroidJavaClass javaClass = new AndroidJavaClass("com.Gradle.AndroidUtil");
             int androidVersion = javaClass.CallStatic<int>("GetAndroidVersion");
-            string email = "hispin.support@luckyclub.vip";
+            string email = "mergeballs.support@luckyclub.vip";
             string subject = MyEscapeURL("Question from ID " + userid);
             string body = MyEscapeURL(string.Format("\n\n----------------------------------\nID:{0}\nUUID:{4}\nAdID:{5}\nVersion:{3}\nModel:{1}({2})\n----------------------------------\n", userid, SystemInfo.deviceModel, androidVersion.ToString(), Master.Version, uuid, adid));
             Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);

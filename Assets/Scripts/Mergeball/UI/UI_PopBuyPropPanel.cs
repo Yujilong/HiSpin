@@ -79,7 +79,6 @@ namespace UI
         }
         bool isProp1 = false;
         int needCoinNum = 0;
-        Coroutine closeDelay = null;
         protected override void OnStartShow()
         {
             clickAdTime = 0;
@@ -87,25 +86,10 @@ namespace UI
             needCoinNum = isProp1 ? GameManager.GetProp1NeedCoinNum() : GameManager.GetProp2NeedCoinNum();
             needCoinNumText.text = GameManager.GetIsPackB() ? "1.00" : HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "1.00";
             icon.sprite = isProp1 ? prop1icon : prop2icon;
-            coinBuyButton.gameObject.SetActive(false);
-            adBuyButton.gameObject.SetActive(true);
-            closeDelay = StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(closeButton.gameObject));
         }
         protected override void OnEndClose()
         {
-            StopCoroutine(closeDelay);
             GameManager.ShowNextPanel();
-        }
-        protected override void OnEndShow()
-        {
-            StopCoroutine("DelayShowBuyByCoin");
-            StartCoroutine("DelayShowBuyByCoin");
-        }
-        IEnumerator DelayShowBuyByCoin()
-        {
-            yield return new WaitForSeconds(1);
-            coinBuyButton.gameObject.SetActive(true);
-            adBuyButton.gameObject.SetActive(false);
         }
         [Space(15)]
         public Text buyText;

@@ -111,23 +111,9 @@ namespace UI
             }
             else
             {
-                int needCoin = GameManager.GetProp1NeedCoinNum();
-                if (GameManager.GetCoin() >= needCoin)
-                {
-                    GameManager.WillBuyProp = Reward.Prop1;
-                    UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.BuyPropPanel);
-                }
-                else
-                {
-                    GameManager.PlayRV(OnAdBuyProp1Callback, 2, "获得道具1");
-                }
+                GameManager.WillBuyProp = Reward.Prop1;
+                UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.BuyPropPanel);
             }
-        }
-        private void OnAdBuyProp1Callback()
-        {
-            GameManager.AddProp1Num(1);
-            GameManager.SendAdjustPropChangeEvent(1, 2);
-            UIManager.FlyReward(Reward.Prop1, 1, transform.position);
         }
         private void OnProp2ButtonClick()
         {
@@ -140,23 +126,9 @@ namespace UI
             }
             else
             {
-                int needCoin = GameManager.GetProp2NeedCoinNum();
-                if (GameManager.GetCoin() >= needCoin)
-                {
-                    GameManager.WillBuyProp = Reward.Prop2;
-                    UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.BuyPropPanel);
-                }
-                else
-                {
-                    GameManager.PlayRV(OnAdBuyProp2Callback, 2, "获得道具2");
-                }
+                GameManager.WillBuyProp = Reward.Prop2;
+                UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.BuyPropPanel);
             }
-        }
-        private void OnAdBuyProp2Callback()
-        {
-            GameManager.AddProp2Num(1);
-            GameManager.SendAdjustPropChangeEvent(2, 2);
-            UIManager.FlyReward(Reward.Prop2, 1, transform.position);
         }
         public void RefreshCashText()
         {

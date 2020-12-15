@@ -109,6 +109,10 @@ namespace HiSpin
             if (getCashArea == GetCashArea.Mergeball)
                 GameManager.Instance.ReduceTodayCanGetCashTime();
         }
+        protected override void AfterCloseAnimation()
+        {
+            GameManager.Instance.ShowNextPanel();
+        }
         private IEnumerator DelayShowNothanks()
         {
             yield return new WaitForSeconds(1);

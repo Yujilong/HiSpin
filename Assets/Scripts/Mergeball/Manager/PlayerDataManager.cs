@@ -17,8 +17,8 @@ public class PlayerDataManager
                 {
                     amazon = 0,
                     energy = GameManager.originEnergy,
-                    prop1Num = 0,
-                    prop2Num = 0,
+                    prop1Num = 1,
+                    prop2Num = 1,
                     prop1NeedCoinNum = GameManager.originPropNeedCoinNum,
                     prop2NeedCoinNum = GameManager.originPropNeedCoinNum,
                     wheelTicket = GameManager.startWheelTicket,
