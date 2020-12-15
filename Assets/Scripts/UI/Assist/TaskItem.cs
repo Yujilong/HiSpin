@@ -216,6 +216,7 @@ namespace HiSpin
             {
                 switch (TaskTarget)
                 {
+                    case PlayerTaskTarget.SpinWheelOnce:
                     case PlayerTaskTarget.MergeballOnce:
                     case PlayerTaskTarget.PlayBettingOnce:
                     case PlayerTaskTarget.WatchRvOnce:

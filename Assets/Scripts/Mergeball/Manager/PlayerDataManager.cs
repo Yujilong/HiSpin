@@ -78,7 +78,9 @@ public class PlayerDataManager
             {
                 DateTime lastSpinWheelTime = DateTime.Parse(playerData.lastSpinWheelTime);
                 if (CheckTomorrow(lastSpinWheelTime))
-                    playerData.wheelTicket = GameManager.startWheelTicket;
+                    if (playerData.wheelTicket < GameManager.startWheelTicket)
+                        playerData.wheelTicket = GameManager.startWheelTicket;
+                playerData.lastSpinWheelTime = DateTime.Now.ToString();
             }
             SaveLocalData();
         }
