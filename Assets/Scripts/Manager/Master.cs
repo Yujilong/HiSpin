@@ -13,7 +13,7 @@ namespace HiSpin
         public static float ExpandCoe = 1;
         public const float TopMoveDownOffset = 100;
         public const string PackageName = "com.MergeBall.LuckyGame.HugePrizes.Rewards";
-        public const int Version = 2;
+        public const int Version = 3;
         public const string AppleId = "";
         public static bool isLoadingEnd = false;
         public static bool isPackB_Advance = false;

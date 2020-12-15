@@ -84,7 +84,7 @@ namespace UI
             clickAdTime = 0;
             isProp1 = GameManager.WillBuyProp == Reward.Prop1;
             needCoinNum = isProp1 ? GameManager.GetProp1NeedCoinNum() : GameManager.GetProp2NeedCoinNum();
-            needCoinNumText.text = GameManager.GetIsPackB() ? "1.00" : HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "1.00";
+            needCoinNumText.text = !GameManager.GetIsPackB() ? "1.00" : HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "1.00";
             icon.sprite = isProp1 ? prop1icon : prop2icon;
         }
         protected override void OnEndClose()
@@ -94,12 +94,10 @@ namespace UI
         [Space(15)]
         public Text buyText;
         public Text freeText;
-        public Text cashText;
         public override void SetContent()
         {
             buyText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BUY);
             freeText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FREE);
-            cashText.text = GameManager.GetIsPackB() ? HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "100" : "100";
         }
     }
 }
