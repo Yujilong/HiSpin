@@ -61,14 +61,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8a9dbd89112297f41acf09feba5529b2, type: 3}
   - {fileID: 21300000, guid: e75b5aeb10814b94b8a94623448ec6e3, type: 3}
   - {fileID: 21300000, guid: d5d1707eee407cb4a999ffb240cadde2, type: 3}
-  - {fileID: 21300000, guid: b798278ed23f02146ab7bc91cd35d3ce, type: 3}
   m_PackedSpriteNamesToIndex:
   - base
   - cash pt bg
   - guide_arrow2
   - guide_base2
   - ad
-  - guide_arrow-3
+  - guide_arrow-1
   - guide_arrow1
   - mask
   - cash icon
@@ -77,6 +76,5 @@ SpriteAtlas:
   - guide_base-1
   - guide_base1
   - button
-  - guide_arrow-1
   m_Tag: GetCash
   m_IsVariant: 0

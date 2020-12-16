@@ -182,6 +182,8 @@ namespace HiSpin
         protected override void BeforeShowAnimation(params int[] args)
         {
             step = args[0];
+            hasAgreeRule = false;
+            emailInputfield.SetTextWithoutNotify("");
             switch (step)
             {
                 case 0:

@@ -42,9 +42,17 @@ namespace HiSpin
             //Master.Instance.SetGuideMask(guideStep);
             guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_base" + guideStep);
             guide_arrowImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_arrow" + guideStep);
-            guide_arrowImage.transform.localPosition = localPos - new Vector2(0, 100);
-            guide_base_Rect.localPosition = new Vector3(0, localPos.y - guide_arrow_Rect.rect.height - guide_base_Rect.rect.height / 2f - 100, 0);
-            tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide1);
+            guide_arrow_Rect.localPosition = localPos - new Vector2(0, 100);
+            float arrowX = guide_arrow_Rect.localPosition.x;
+            float maxX = guide_base_Rect.rect.width / 2 - guide_arrow_Rect.rect.width;
+            float minX = -guide_base_Rect.rect.width / 2 + guide_arrow_Rect.rect.width;
+            float finalX = 0;
+            if (arrowX > maxX)
+                finalX = arrowX - maxX;
+            else if (arrowX < minX)
+                finalX = arrowX - minX;
+            guide_base_Rect.localPosition = new Vector3(finalX, localPos.y - guide_arrow_Rect.rect.height - guide_base_Rect.rect.height / 2f - 100, 0);
+            tipText.text = Language_M.GetMultiLanguageByArea(guideStep>0? LanguageAreaEnum.Guide1:LanguageAreaEnum.Guide4);
             StartCoroutine("WaitForClick");
         }
         bool canGotoNextGuide = false;
@@ -73,7 +81,7 @@ namespace HiSpin
 
             guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_base" + guideStep);
             guide_arrowImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_arrow" + guideStep);
-            guide_arrowImage.transform.localPosition = localPos2 + new Vector2(0, guide_arrow_Rect.rect.height + 100);
+            guide_arrow_Rect.localPosition = localPos2 + new Vector2(0, guide_arrow_Rect.rect.height + 100);
             guide_base_Rect.localPosition = new Vector3(0, localPos2.y + guide_arrow_Rect.rect.height + guide_base_Rect.rect.height / 2f + 100, 0);
             tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide2);
             yield return new WaitForSeconds(1);
@@ -88,7 +96,7 @@ namespace HiSpin
 
             guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_base" + guideStep);
             guide_arrowImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_arrow" + guideStep);
-            guide_arrowImage.transform.localPosition = localPos3 + new Vector2(0, guide_arrow_Rect.rect.height + 100);
+            guide_arrow_Rect.localPosition = localPos3 + new Vector2(0, guide_arrow_Rect.rect.height + 100);
             guide_base_Rect.localPosition = new Vector3(0, localPos3.y + guide_arrow_Rect.rect.height + guide_base_Rect.rect.height / 2f + 100, 0);
             tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide3);
             yield return new WaitForSeconds(1);

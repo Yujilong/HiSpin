@@ -24,7 +24,8 @@ namespace HiSpin
                     head_icon_hasCheck = new List<bool>(),
                     lastClickFriendTime = System.DateTime.Now.AddDays(-1),
                     uuid = string.Empty,
-                    hasSendToThoundsEvent = false
+                    hasSendToThoundsEvent = false,
+                    hasWatchThreeCardGuide = false
                 };
                 PlayerPrefs.SetString("local_Data", JsonMapper.ToJson(data));
                 PlayerPrefs.Save();
@@ -56,5 +57,6 @@ namespace HiSpin
         public string uuid;
         public string adid;
         public bool hasSendToThoundsEvent;
+        public bool hasWatchThreeCardGuide;
     }
 }

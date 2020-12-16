@@ -95,6 +95,7 @@ public enum LanguageAreaEnum
     Guide1,
     Guide2,
     Guide3,
+    Guide4,
     InviteOk_Tip,
     loading,
     ContactUs,
