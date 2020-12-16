@@ -59,8 +59,8 @@ namespace HiSpin
 			IronSource.Agent.loadInterstitial();
 
 			AdGem.loadOfferWallBeforeShowing = true;
-			AdGem.player_id = userid;
 			AdGem.startSession(AdGem_APP_ID, false, false, true);
+			AdGem.player_id = userid;
 		}
 		ShowOfferwallAds ofwScripts = null;
 		public bool ShowOfferwallAd(Offerwall_Co _Co)

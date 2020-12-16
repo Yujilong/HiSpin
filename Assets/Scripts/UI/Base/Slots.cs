@@ -28,7 +28,14 @@ namespace HiSpin
         }
         private void OnCashoutButtonClick()
         {
-            UI.ShowBasePanel(BasePanel.Cashout);
+#if UNITY_EDITOR
+            UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 1);
+            return;
+#endif
+            if (string.IsNullOrEmpty(Save.data.allData.user_panel.user_paypal))
+                UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 1);
+            else
+                UI.ShowBasePanel(BasePanel.Cashout);
         }
         public void RefreshSlotsCardState()
         {
@@ -70,6 +77,12 @@ namespace HiSpin
         public override void SetContent()
         {
             nextslotsin = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Slots_NextSlotsIn);
+        }
+        [Header("引导位置")]
+        public RectTransform guide_signRect;
+        public RectTransform GetGuide_SignRect()
+        {
+            return guide_signRect;
         }
     }
 }

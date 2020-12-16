@@ -85,9 +85,14 @@ namespace HiSpin
             else
             {
                 if (!Master.isLoadingEnd)
+                    Master.WillSetPackB = true;
+                else
                 {
-                    Save.data.isPackB = true;
-                    Master.Instance.SendAdjustPackBEvent();
+                    if (!Save.data.isPackB)
+                    {
+                        Save.data.isPackB = true;
+                        Master.Instance.SendAdjustPackBEvent();
+                    }
                 }
             }
         }
@@ -106,9 +111,14 @@ namespace HiSpin
                 if (web.downloadHandler.text.Equals("1"))
                 {
                     if (!Master.isLoadingEnd)
+                        Master.WillSetPackB = true;
+                    else
                     {
-                        Save.data.isPackB = true;
-                        Master.Instance.SendAdjustPackBEvent();
+                        if (!Save.data.isPackB)
+                        {
+                            Save.data.isPackB = true;
+                            Master.Instance.SendAdjustPackBEvent();
+                        }
                     }
                 }
             }

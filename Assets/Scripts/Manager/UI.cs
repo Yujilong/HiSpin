@@ -405,24 +405,25 @@ namespace HiSpin
         Friend = 3,
         Betting = 4,
 
-    Cashout = 5,
-    CashoutRecord = 6,
-    Task = 7,
-    PlaySlots = 8,
-    Me = 9,
-    FriendList = 10,
-}
-public enum PopPanel
-{
-    Loading = 11,
-    Setting = 12,
-    GetReward = 13,
-    Rules = 14,
-    CashoutPop = 15,
-    InviteOk = 16,
-    StartBetting = 17,
-    GetCash = 18,
-    Guide = 19,
-    InputPaypalEmail = 20,
-    GetNewPlayerReward = 21,
+        Cashout = 5,
+        CashoutRecord = 6,
+        Task = 7,
+        PlaySlots = 8,
+        Me = 9,
+        FriendList = 10,
+    }
+    public enum PopPanel
+    {
+        Loading = 11,
+        Setting = 12,
+        GetReward = 13,
+        Rules = 14,
+        CashoutPop = 15,
+        InviteOk = 16,
+        StartBetting = 17,
+        GetCash = 18,
+        Guide = 19,
+        InputPaypalEmail = 20,
+        GetNewPlayerReward = 21,
+    }
 }

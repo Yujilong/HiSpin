@@ -43,28 +43,40 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: ba37bfc78694d1e44a8b3376c02c9c41, type: 3}
-    totalSpriteSurfaceArea: 2433193
+    totalSpriteSurfaceArea: 2612018
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 6b2293204b5974845909206ff5f757a0, type: 3}
   - {fileID: 21300000, guid: bafff7e0c8758a146bb1d2f442611717, type: 3}
+  - {fileID: 21300000, guid: 32ea92229760bbd4a8694bd8b761a42d, type: 3}
+  - {fileID: 21300000, guid: 76f194c2dc152d840921e1ab36ef69d9, type: 3}
   - {fileID: 21300000, guid: 13f6294313ddfc44e9eaad99e5be9ccd, type: 3}
+  - {fileID: 21300000, guid: fc20fe15924d4974f8829953038120e4, type: 3}
+  - {fileID: 21300000, guid: f5af1936eedb7c84fbf1faed66ebf183, type: 3}
   - {fileID: 21300000, guid: 637a38274ae339541abd4878dbe6c244, type: 3}
   - {fileID: 21300000, guid: 78b5dd777ea3efd41af91be2a252b236, type: 3}
-  - {fileID: 21300000, guid: ce99edd89fbf1784bb4e0aa9a9a8f088, type: 3}
-  - {fileID: 21300000, guid: b509e9294fc29d84087333e7af6db081, type: 3}
-  - {fileID: 21300000, guid: 5a01990d05801c546bc658135bce80a4, type: 3}
+  - {fileID: 21300000, guid: 5c7b39b701d723e47bf73e6aee1e541f, type: 3}
+  - {fileID: 21300000, guid: 0aee0a88aff8b6149a4126424f7509c2, type: 3}
+  - {fileID: 21300000, guid: 8a9dbd89112297f41acf09feba5529b2, type: 3}
+  - {fileID: 21300000, guid: e75b5aeb10814b94b8a94623448ec6e3, type: 3}
   - {fileID: 21300000, guid: d5d1707eee407cb4a999ffb240cadde2, type: 3}
+  - {fileID: 21300000, guid: b798278ed23f02146ab7bc91cd35d3ce, type: 3}
   m_PackedSpriteNamesToIndex:
   - base
   - cash pt bg
+  - guide_arrow2
+  - guide_base2
   - ad
+  - guide_arrow-3
+  - guide_arrow1
   - mask
   - cash icon
-  - guide_1
-  - guide_2
-  - guide_3
+  - guide_base3
+  - guide_arrow3
+  - guide_base-1
+  - guide_base1
   - button
+  - guide_arrow-1
   m_Tag: GetCash
   m_IsVariant: 0

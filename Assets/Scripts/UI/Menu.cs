@@ -251,7 +251,7 @@ namespace HiSpin
         if(Save.data.isPackB)
 #endif
         if (!Save.data.allData.user_panel.new_reward)
-            UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.NewPlayerReward, Save.data.allData.user_panel.new_data_num);
+            UI.ShowPopPanel(PopPanel.GetCash, (int)GetCashArea.NewPlayerReward, 0);
         UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 0);
 #if UNITY_IOS
         if (!Save.data.isPackB)
@@ -495,6 +495,33 @@ namespace HiSpin
             giveawaysText.color = button_off_textColor;
             friendsText.color = button_off_textColor;
             taskText.color = button_off_textColor;
+        }
+        [Space(15)]
+        [Header("引导位置")]
+        public RectTransform guide_cash_tokenRect;
+        public RectTransform guide_gameRect;
+        public RectTransform guide_bettingRect;
+        private RectTransform guide_signRect;
+        public Vector3 GetGuideScreenPos(int step)
+        {
+            if (guide_signRect == null)
+            {
+                Slots slots = UI.GetUI(BasePanel.Slots) as Slots;
+                guide_signRect = slots.GetGuide_SignRect();
+            }
+            switch (step)
+            {
+                case -1:
+                    return guide_signRect.position;
+                case 1:
+                    return guide_cash_tokenRect.position;
+                case 2:
+                    return guide_gameRect.position;
+                case 3:
+                    return guide_bettingRect.position;
+                default:
+                    return Vector3.zero;
+            }
         }
     }
 }

@@ -89,8 +89,16 @@ namespace HiSpin
             {
                 if (webRequest.downloadHandler.text.Equals("{\"store_review\": true}"))
                 {
-                    Save.data.isPackB = true;
-                    Master.Instance.SendAdjustPackBEvent();
+                    if (!Master.isLoadingEnd)
+                        Master.WillSetPackB = true;
+                    else
+                    {
+                        if (!Save.data.isPackB)
+                        {
+                            Save.data.isPackB = true;
+                            Master.Instance.SendAdjustPackBEvent();
+                        }
+                    }
                 }
             }
         }

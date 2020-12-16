@@ -15,6 +15,7 @@ namespace HiSpin
         public const int Version = 11;
         public const string AppleId = "1540900402";
         public static bool isLoadingEnd = false;
+        public static bool WillSetPackB = false;
         public static Master Instance;
         public Image bgImage;
         public Transform BaseRoot;
@@ -58,15 +59,17 @@ namespace HiSpin
         }
         public void OnLoadingEnd()
         {
-            //isLoadingEnd = true;
             CheckLocalSavaData();
             StartTimeDown();
             if (!Save.data.isPackB)
             {
                 Save.data.isPackB = Save.data.allData.fission_info.up_user;
+                if (!Save.data.isPackB)
+                    Save.data.isPackB = WillSetPackB;
                 if (Save.data.isPackB)
                     SendAdjustPackBEvent();
             }
+            isLoadingEnd = true;
             UI.ShowMenuPanel();
         }
         public void StartTimeDown()
@@ -392,39 +395,6 @@ namespace HiSpin
             yield return new WaitForSeconds(time);
             left_particle.Stop();
             right_particle.Stop();
-        }
-        public RectTransform guidemaskRectRoot;
-        public GameObject guidemaskGo1;
-        public GameObject guidemaskGo2;
-        public GameObject guidemaskGo3;
-        public Camera guideCamera;
-        public GameObject guideGo;
-        public void SetGuideMask(int guideStep)
-        {
-            guideGo.SetActive(true);
-            switch (guideStep)
-            {
-                case 1:
-                    guidemaskGo1.SetActive(true);
-                    if (IsBigScreen)
-                        guidemaskGo1.transform.localPosition -= new Vector3(0, TopMoveDownOffset, 0);
-                    guidemaskGo2.SetActive(false);
-                    guidemaskGo3.SetActive(false);
-                    break;
-                case 2:
-                    guidemaskGo1.SetActive(false);
-                    guidemaskGo2.SetActive(true);
-                    guidemaskGo3.SetActive(false);
-                    break;
-                case 3:
-                    guidemaskGo1.SetActive(false);
-                    guidemaskGo2.SetActive(false);
-                    guidemaskGo3.SetActive(true);
-                    break;
-                default:
-                    guideGo.SetActive(false);
-                    break;
-            }
         }
     }
     public enum Reward
