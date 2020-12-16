@@ -67,7 +67,7 @@ namespace HiSpin
             adGo.SetActive(false);
             if (invite_ok_reward_type == Reward.Cash)
             {
-                reward_numText.text = "x " + invite_ok_reward_num.ToString();
+                reward_numText.text = "x " + invite_ok_reward_num.GetCashShowString();
             }
             else
             {
