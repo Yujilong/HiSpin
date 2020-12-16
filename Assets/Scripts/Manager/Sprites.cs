@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public static class Sprites
+namespace HiSpin
 {
-    static readonly Dictionary<SpriteAtlas_Name, string> spriteAtlasPathDic = new Dictionary<SpriteAtlas_Name, string>()
+    public static class Sprites
+    {
+        static readonly Dictionary<SpriteAtlas_Name, string> spriteAtlasPathDic = new Dictionary<SpriteAtlas_Name, string>()
     {
         { SpriteAtlas_Name.Menu,"SpriteAtlas/Menu"},
         { SpriteAtlas_Name.Slots,"SpriteAtlas/Slots"},

@@ -3,129 +3,132 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-[RequireComponent(typeof(CanvasGroup))]
-public class Loading : MonoBehaviour,IUIBase
+namespace HiSpin
 {
-    public Button contact_usButton;
-    public Text uuidText;
-    public Slider progressSlider;
-    public Text progressText;
-    CanvasGroup canvasGroup;
-    private void Awake()
+    [RequireComponent(typeof(CanvasGroup))]
+    public class Loading : MonoBehaviour, IUIBase
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-        loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
-        StartCoroutine(LoadingSlider());
-        contact_usButton.AddClickEvent(Setting.SendEmail);
-        if (Master.IsBigScreen)
+        public Button contact_usButton;
+        public Text uuidText;
+        public Slider progressSlider;
+        public Text progressText;
+        CanvasGroup canvasGroup;
+        private void Awake()
         {
-            contact_usButton.transform.localPosition -= new Vector3(0, Master.TopMoveDownOffset, 0);
-        }
-    }
-    IEnumerator LoadingSlider()
-    {
-        progressSlider.value = 0;
-        progressText.text = "0%";
-        float progress = 0;
-        float speed = 1f;
-        float loadingPointInterval = 1f;
-        float intervalTimer = 0;
-        bool hasRequestData = false;
-        if(!Save.data.isPackB)
-            StartCoroutine("WaitFor");
-        while (progress < 1)
-        {
-            yield return null;
-            float deltatime = Mathf.Clamp(Time.unscaledDeltaTime, 0, 0.04f);
-            intervalTimer += deltatime;
-            if (intervalTimer >= loadingPointInterval)
+            canvasGroup = GetComponent<CanvasGroup>();
+            loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
+            StartCoroutine(LoadingSlider());
+            contact_usButton.AddClickEvent(Setting.SendEmail);
+            if (Master.IsBigScreen)
             {
-                intervalTimer = 0;
-                loadingText.text += ".";
-                if (loadingText.text.Length > 10)
-                    loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
+                contact_usButton.transform.localPosition -= new Vector3(0, Master.TopMoveDownOffset, 0);
             }
-            progress += deltatime * speed;
-            progress = Mathf.Clamp(progress, 0, 1);
-            if (!hasRequestData)
+        }
+        IEnumerator LoadingSlider()
+        {
+            progressSlider.value = 0;
+            progressText.text = "0%";
+            float progress = 0;
+            float speed = 1f;
+            float loadingPointInterval = 1f;
+            float intervalTimer = 0;
+            bool hasRequestData = false;
+            if (!Save.data.isPackB)
+                StartCoroutine("WaitFor");
+            while (progress < 1)
             {
-                if (progress > 0.3f)
+                yield return null;
+                float deltatime = Mathf.Clamp(Time.unscaledDeltaTime, 0, 0.04f);
+                intervalTimer += deltatime;
+                if (intervalTimer >= loadingPointInterval)
                 {
-                    speed = 0;
-                    //Server.Instance.RequestData(Server.Server_RequestType.AllData, () => { speed = 1; }, () => { speed = 0; }, false);
-                    Server_New.Instance.ConnectToServer_GetAllData(() => 
-                    { 
-                        speed = 1;
-                        if (string.IsNullOrEmpty(Save.data.uuid))
-                            uuidText.text = "";
-                        else
-                            uuidText.text = "UUID: " + Save.data.uuid;
-                    }, null, null, false);
-                    hasRequestData = true;
+                    intervalTimer = 0;
+                    loadingText.text += ".";
+                    if (loadingText.text.Length > 10)
+                        loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
                 }
+                progress += deltatime * speed;
+                progress = Mathf.Clamp(progress, 0, 1);
+                if (!hasRequestData)
+                {
+                    if (progress > 0.3f)
+                    {
+                        speed = 0;
+                        //Server.Instance.RequestData(Server.Server_RequestType.AllData, () => { speed = 1; }, () => { speed = 0; }, false);
+                        Server_New.Instance.ConnectToServer_GetAllData(() =>
+                        {
+                            speed = 1;
+                            if (string.IsNullOrEmpty(Save.data.uuid))
+                                uuidText.text = "";
+                            else
+                                uuidText.text = "UUID: " + Save.data.uuid;
+                        }, null, null, false);
+                        hasRequestData = true;
+                    }
+                }
+                progressSlider.value = progress;
+                progressText.text = (int)(progress * 100) + "%";
             }
-            progressSlider.value = progress;
-            progressText.text = (int)(progress * 100) + "%";
+            StopCoroutine("WaitFor");
+            UI.ClosePopPanel(this);
+            Master.Instance.OnLoadingEnd();
         }
-        StopCoroutine("WaitFor");
-        UI.ClosePopPanel(this);
-        Master.Instance.OnLoadingEnd();
-    }
-    IEnumerator WaitFor()
-    {
+        IEnumerator WaitFor()
+        {
 #if UNITY_EDITOR
-        yield break;
+            yield break;
 #endif
 #if UNITY_ANDROID
-        UnityWebRequest webRequest = new UnityWebRequest(string.Format("http://ec2-18-217-224-143.us-east-2.compute.amazonaws.com:3636/event/switch?package={0}&version={1}&os=android", Master.PackageName, Master.Version));
+            UnityWebRequest webRequest = new UnityWebRequest(string.Format("http://ec2-18-217-224-143.us-east-2.compute.amazonaws.com:3636/event/switch?package={0}&version={1}&os=android", Master.PackageName, Master.Version));
 #elif UNITY_IOS
             UnityWebRequest webRequest = new UnityWebRequest(string.Format("http://ec2-18-217-224-143.us-east-2.compute.amazonaws.com:3636/event/switch?package={0}&version={1}&os=ios", Master.PackageName, Master.Version));
 #endif
-        webRequest.downloadHandler = new DownloadHandlerBuffer();
-        yield return webRequest.SendWebRequest();
-        if (webRequest.responseCode == 200)
-        {
-            if (webRequest.downloadHandler.text.Equals("{\"store_review\": true}"))
+            webRequest.downloadHandler = new DownloadHandlerBuffer();
+            yield return webRequest.SendWebRequest();
+            if (webRequest.responseCode == 200)
             {
-                Save.data.isPackB = true;
-                Master.Instance.SendAdjustPackBEvent();
+                if (webRequest.downloadHandler.text.Equals("{\"store_review\": true}"))
+                {
+                    Save.data.isPackB = true;
+                    Master.Instance.SendAdjustPackBEvent();
+                }
             }
         }
-    }
-    public IEnumerator Show(params int[] args)
-    {
-        canvasGroup.alpha = 1;
-        canvasGroup.blocksRaycasts = true;
-        canvasGroup.interactable = true;
-        if (string.IsNullOrEmpty(Save.data.uuid))
-            uuidText.text = "";
-        else
-            uuidText.text = "UUID: " + Save.data.uuid;
-        yield return null;
-    }
+        public IEnumerator Show(params int[] args)
+        {
+            canvasGroup.alpha = 1;
+            canvasGroup.blocksRaycasts = true;
+            canvasGroup.interactable = true;
+            if (string.IsNullOrEmpty(Save.data.uuid))
+                uuidText.text = "";
+            else
+                uuidText.text = "UUID: " + Save.data.uuid;
+            yield return null;
+        }
 
-    public void Pause()
-    {
-        throw new System.NotImplementedException();
-    }
+        public void Pause()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    public void Resume()
-    {
-        throw new System.NotImplementedException();
-    }
+        public void Resume()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    public IEnumerator Close()
-    {
-        canvasGroup.alpha = 0;
-        canvasGroup.blocksRaycasts = false;
-        Destroy(gameObject);
-        yield return null;
-    }
-    public Text loadingText;
-    public Text contactusText;
-    public void SetContent()
-    {
-        contactusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ContactUs);
+        public IEnumerator Close()
+        {
+            canvasGroup.alpha = 0;
+            canvasGroup.blocksRaycasts = false;
+            Destroy(gameObject);
+            yield return null;
+        }
+        public Text loadingText;
+        public Text contactusText;
+        public void SetContent()
+        {
+            contactusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ContactUs);
+        }
     }
 }
 
