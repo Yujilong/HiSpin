@@ -94,6 +94,8 @@ public class Ball : MonoBehaviour
             }
             hasSpawNew = true;
         }
+        if (Num >= GameManager.Instance.GetTargetLevelBallNum())
+            return;
         if (!isExplosion && collision.collider.CompareTag("Ball"))
         {
             Ball otherBall = collision.gameObject.GetComponent<Ball>();
