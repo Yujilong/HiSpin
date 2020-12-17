@@ -65,7 +65,7 @@ namespace HiSpin
                 reward_iconImage.gameObject.SetActive(true);
             single_rewardButton.gameObject.SetActive(false);
             adGo.SetActive(false);
-            if (invite_ok_reward_type == Reward.Cash)
+            if (invite_ok_reward_type == Reward.Cash || invite_ok_reward_type == Reward.Paypal)
             {
                 reward_numText.text = "x " + invite_ok_reward_num.GetCashShowString();
             }

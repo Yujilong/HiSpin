@@ -557,13 +557,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 5154216479889841259}
-  coinBuyButton: {fileID: 2867277327836407119}
+  cashBuyButton: {fileID: 2867277327836407119}
   adBuyButton: {fileID: 4569705820631225349}
   icon: {fileID: 4692493042744001573}
   needCoinNumText: {fileID: 309846661942052923}
   buyText: {fileID: 1990444048733679179}
   freeText: {fileID: 4093647601892723469}
-  cashText: {fileID: 309846661942052923}
 --- !u!1 &3116029295093953874
 GameObject:
   m_ObjectHideFlags: 0

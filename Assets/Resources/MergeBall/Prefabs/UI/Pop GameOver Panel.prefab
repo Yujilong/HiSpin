@@ -49,7 +49,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389653854891484535}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1141,6 +1141,7 @@ MonoBehaviour:
   timeDown: {fileID: 5666505045966804368}
   time: {fileID: 8431743005593344979}
   continueButton: {fileID: 5414854517065607146}
+  ad_iconGo: {fileID: 7205670972287527125}
   nothanksButton: {fileID: 3894043841447718338}
   gameoverAll: {fileID: 1125137565796516515}
   scoreText: {fileID: 7727416475593287129}
@@ -1757,7 +1758,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8705690947973724407}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0

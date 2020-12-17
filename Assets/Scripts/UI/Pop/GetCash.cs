@@ -76,6 +76,7 @@ namespace HiSpin
             {
                 case GetCashArea.NewPlayerReward:
                     ad_iconGo.SetActive(false);
+                    trible_button_contentText.transform.localPosition = new Vector3(0, trible_button_contentText.transform.localPosition.y, 0);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
                     cash_numText.text = (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + getcashNum.GetCashShowString();
@@ -84,6 +85,7 @@ namespace HiSpin
                     break;
                 case GetCashArea.Mergeball:
                     ad_iconGo.SetActive(true);
+                    trible_button_contentText.transform.localPosition = new Vector3(61.46283f, trible_button_contentText.transform.localPosition.y, 0);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
                     cash_numText.text = (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
@@ -92,12 +94,22 @@ namespace HiSpin
                     nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
                     break;
             }
-
+#if UNITY_IOS
+            if (!Save.data.isPackB)
+            {
+                ad_iconGo.SetActive(false);
+                trible_button_contentText.transform.localPosition = new Vector3(0, trible_button_contentText.transform.localPosition.y, 0);
+            }
+#endif
             nothanksButton.gameObject.SetActive(false);
         }
         protected override void AfterShowAnimation(params int[] args)
         {
             Master.Instance.ShowEffect(Reward.Cash);
+#if UNITY_IOS
+            if (!Save.data.isPackB)
+                return;
+#endif
             if (getCashArea == GetCashArea.Mergeball)
             {
                 StartCoroutine("DelayShowNothanks");

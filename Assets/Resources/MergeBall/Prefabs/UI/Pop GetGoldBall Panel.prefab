@@ -812,6 +812,7 @@ MonoBehaviour:
   rewardNum: {fileID: 1264144816500537328}
   iconImage: {fileID: 2900623721362844470}
   adButton: {fileID: 1656105773998479030}
+  ad_iconGo: {fileID: 6495620823395415826}
   nothanksButton: {fileID: 974634546549215219}
   titleText: {fileID: 4189103206178176519}
   ad_button_contentText: {fileID: 2264618675687661195}

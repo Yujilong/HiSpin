@@ -13,6 +13,15 @@ namespace HiSpin
             for (int i = 0; i < taskCount; i++)
             {
                 AllData_Task task = allTask[i];
+#if UNITY_IOS
+                if (!Save.data.isPackB)
+                {
+                    if (task.task_type == 3)
+                        continue;
+                }
+#endif
+                if (!Tasks.CheckIOSTaskIsShow(task.taskTargetId))
+                    continue;
                 if (task.taskTargetId == taskTarget)
                 {
                     if (task.taskTargetId == PlayerTaskTarget.InviteAFriend)

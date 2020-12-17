@@ -33,9 +33,6 @@ namespace HiSpin
                 data = JsonMapper.ToObject<PlayerLocalData>(dataString);
             if (data.lastClickFriendTime == null)
                 data.lastClickFriendTime = System.DateTime.Now.AddDays(-1);
-#if UNITY_EDITOR
-            data.isPackB = false;
-#endif
         }
         public static void SaveLocalData()
         {

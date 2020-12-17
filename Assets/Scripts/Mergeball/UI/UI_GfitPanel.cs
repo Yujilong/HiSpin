@@ -62,10 +62,15 @@ namespace UI
         {
             clickAdTime = 0;
             needAd = GameManager.GetHasGetFreeGift();
+#if UNITY_IOS
+            if (!GameManager.GetIsPackB())
+                needAd = false;
+#endif
             nothanksButton.gameObject.SetActive(needAd);
             adIcon.SetActive(needAd);
             closeButton.gameObject.SetActive(needAd);
             redeemTip.SetActive(GameManager.GetIsPackB());
+            openText.transform.localPosition = needAd ? new Vector3(39.6f, openText.transform.localPosition.y, 0) : new Vector3(0, openText.transform.localPosition.y, 0);
             if (needAd)
             {
                 nothanksDelay= StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(nothanksButton.gameObject));

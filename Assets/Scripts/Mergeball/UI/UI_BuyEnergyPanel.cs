@@ -9,6 +9,7 @@ namespace UI
     {
         public Button closeButton;
         public Button adbuyButton;
+        public GameObject ad_iconGo;
         protected override void Awake()
         {
             base.Awake();
@@ -44,6 +45,18 @@ namespace UI
         protected override void OnStartShow()
         {
             closeDelay = StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(closeButton.gameObject));
+#if UNITY_IOS
+            if (!GameManager.GetIsPackB())
+            {
+                ad_iconGo.SetActive(false);
+                freeText.transform.localPosition = new Vector3(0, freeText.transform.localPosition.y, 0);
+            }
+            else
+            {
+                ad_iconGo.SetActive(true);
+                freeText.transform.localPosition = new Vector3(53.971f, freeText.transform.localPosition.y, 0);
+            }
+#endif
         }
         protected override void OnEndClose()
         {

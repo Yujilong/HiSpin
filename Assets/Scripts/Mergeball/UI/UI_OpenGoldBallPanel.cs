@@ -11,6 +11,7 @@ namespace UI
         public Text rewardNum;
         public Image iconImage;
         public Button adButton;
+        public GameObject ad_iconGo;
         public Button nothanksButton;
         protected override void Awake()
         {
@@ -52,6 +53,20 @@ namespace UI
             ticket_multipleGo.SetActive(num < 0);
             int ticket_multiple = HiSpin.Save.data.allData.user_panel.user_double;
             ticket_multipleText.text = "x " + ticket_multiple.GetTicketMultipleString();
+#if UNITY_IOS
+            if (!GameManager.GetIsPackB())
+            {
+                ad_iconGo.SetActive(false);
+                ad_button_contentText.transform.localPosition = new Vector3(0, ad_button_contentText.transform.localPosition.y, 0);
+                StopCoroutine(nothanksDelay);
+                nothanksButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                ad_iconGo.SetActive(true);
+                ad_button_contentText.transform.localPosition = new Vector3(51.031f, ad_button_contentText.transform.localPosition.y, 0);
+            }
+#endif
         }
         Coroutine raiseAniamtion = null;
         protected override void OnEndShow()

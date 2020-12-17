@@ -88,8 +88,16 @@ public class GameManager : MonoBehaviour
         SetCurrentLevelScore(GetCurrentLevelScore() + value);
         if (!GetWhetherRateus() && GetScore() >= 1000)
         {
-            SetHasRateus();
-            UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.RateusPanel);
+            bool canShowRateus = true;
+#if UNITY_IOS
+            if (!GetIsPackB())
+                canShowRateus = false;
+#endif
+            if (canShowRateus)
+            {
+                SetHasRateus();
+                UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.RateusPanel);
+            }
         }
         if (GetCurrentLevelScore() >= UpgradeNeedScore)
         {

@@ -73,6 +73,9 @@ namespace HiSpin
                 if (Save.data.isPackB)
                     SendAdjustPackBEvent();
             }
+#if UNITY_EDITOR
+            Save.data.isPackB = true;
+#endif
             GameManager.Instance.WhenLoadingGameEnd();
             UI.ShowMenuPanel();
         }

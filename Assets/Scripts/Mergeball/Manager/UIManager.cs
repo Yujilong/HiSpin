@@ -299,7 +299,7 @@ namespace UI
                 int count = panels.Count;
                 for (int i = 0; i < count; i++)
                 {
-                    if (panels[i].State != UI_State.Close)
+                    //if (panels[i].State != UI_State.Close)
                         return panels[i];
                 }
                 Debug.LogWarning("没有显示该面板!");

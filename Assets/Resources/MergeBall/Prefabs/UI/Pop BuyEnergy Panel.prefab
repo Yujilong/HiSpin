@@ -943,6 +943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1095920438423206826}
   adbuyButton: {fileID: 8635883707443459012}
+  ad_iconGo: {fileID: 2545024737012331366}
   energyText: {fileID: 7908248582513180239}
   freeText: {fileID: 1037121941635065838}
 --- !u!1 &7912758860317440912

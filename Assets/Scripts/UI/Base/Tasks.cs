@@ -62,6 +62,11 @@ namespace HiSpin
             for (int i = 0; i < allTaskCount; i++)
             {
                 AllData_Task taskData = taskList[i];
+#if UNITY_IOS
+                if(!Save.data.isPackB)
+                    if (taskData.task_type == 3)
+                        continue;
+#endif
                 if (!CheckIOSTaskIsShow(taskData.taskTargetId))
                     continue;
                 switch (taskData.task_type)
@@ -112,7 +117,7 @@ namespace HiSpin
             achievement_task_title.SetActive(hasAchievementTask);
             StartCoroutine("DelayRefreshLayout");
         }
-        private bool CheckIOSTaskIsShow(PlayerTaskTarget taskTarget)
+        public static bool CheckIOSTaskIsShow(PlayerTaskTarget taskTarget)
         {
 #if UNITY_IOS
         if (Save.data.isPackB)
@@ -127,10 +132,6 @@ namespace HiSpin
             case PlayerTaskTarget.WatchRvOnce:
             case PlayerTaskTarget.PlayBettingOnce:
                 return false;
-            case PlayerTaskTarget.EnterSlotsOnce:
-            case PlayerTaskTarget.OwnSomeGold:
-            case PlayerTaskTarget.GetTicketFromSlotsOnce:
-            case PlayerTaskTarget.BuyTicketByGoldOnce:
             default:
                 return true;
         }

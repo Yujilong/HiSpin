@@ -259,6 +259,11 @@ namespace HiSpin
                 bool hasFinish = false;
                 foreach (var task in Save.data.allData.lucky_schedule.user_task)
                 {
+#if UNITY_IOS
+                    if (!Save.data.isPackB)
+                        if (task.task_type == 3)
+                            continue;
+#endif
                     if (task.taskTargetId == PlayerTaskTarget.InviteAFriend)
                         continue;
                     if (task.task_cur >= task.task_tar && !task.task_receive)

@@ -139,6 +139,14 @@ namespace UI
             }
             else
             {
+#if UNITY_IOS
+                if (!GameManager.GetIsPackB())
+                {
+                    adicon.SetActive(false);
+                    spinRect.localPosition = noadSpinPos;
+                    return;
+                }
+#endif
                 adicon.SetActive(true);
                 spinRect.localPosition = adSpinPos;
             }

@@ -56,9 +56,14 @@ namespace UI
             type = GameManager.ConfirmReward_Type;
             num = GameManager.ConfirmRewrad_Num;
             needAd = GameManager.ConfirmReward_Needad;
+#if UNITY_IOS
+            if (!GameManager.GetIsPackB())
+                needAd = false;
+#endif
             rewardIcon.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.RewardNoCash, type.ToString());
             rewardNum.text = "x" + num;
             adicon.SetActive(needAd);
+            getText.transform.localPosition = needAd ? new Vector3(60.948f, getText.transform.localPosition.y, 0) : new Vector3(0, getText.transform.localPosition.y, 0);
             nothanksButton.gameObject.SetActive(needAd);
             if(needAd)
                 nothanksDelay= StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(nothanksButton.gameObject));

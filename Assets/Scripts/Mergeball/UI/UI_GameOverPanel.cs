@@ -11,6 +11,7 @@ namespace UI
         public Image timeDown;
         public Text time;
         public Button continueButton;
+        public GameObject ad_iconGo;
         public Button nothanksButton;
         [Space(15)]
         public CanvasGroup gameoverAll;
@@ -65,6 +66,20 @@ namespace UI
             gameoverAll.blocksRaycasts = false;
             clickAdTime = 0;
             nothanksDelay = StartCoroutine(ToolManager.DelaySecondShowNothanksOrClose(nothanksButton.gameObject));
+#if UNITY_IOS
+            if (!GameManager.GetIsPackB())
+            {
+                ad_iconGo.SetActive(false);
+                continueText.transform.localPosition = new Vector3(0, continueText.transform.localPosition.y, 0);
+                StopCoroutine(nothanksDelay);
+                nothanksButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                ad_iconGo.SetActive(true);
+                continueText.transform.localPosition = new Vector3(75.61f, continueText.transform.localPosition.y, 0);
+            }
+#endif
         }
         protected override void OnEndClose()
         {
