@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sign
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: f6368a2bf62f15a49b63a6945f9685b1, type: 3}
+    totalSpriteSurfaceArea: 2418765
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: fe4f9be0b0c536a4c92c92535ae201c5, type: 3}
+  - {fileID: 21300000, guid: f20c0a61bd867394292495038c22731d, type: 3}
+  - {fileID: 21300000, guid: ade958a1f86a3144db63eb3bdd9c218f, type: 3}
+  - {fileID: 21300000, guid: 0a40e0b3c891c514980c540cbb251035, type: 3}
+  - {fileID: 21300000, guid: e0b5efd3de46864459b384c47282a99d, type: 3}
+  - {fileID: 21300000, guid: d4f4a965a52e79f48ae1121a73b3268e, type: 3}
+  - {fileID: 21300000, guid: 5ae8b2d77a3deea4db756e7a8ee74153, type: 3}
+  - {fileID: 21300000, guid: 4cc199182fd20c643bc5223990d81119, type: 3}
+  - {fileID: 21300000, guid: cbfbb178467b0e34db8426db6b9aa754, type: 3}
+  - {fileID: 21300000, guid: a850f698b41f0324481235bd42e9dd39, type: 3}
+  - {fileID: 21300000, guid: 127fff49c35405340bbf7641542e0ef6, type: 3}
+  - {fileID: 21300000, guid: ce444d59411db8247953d488a63bc01c, type: 3}
+  - {fileID: 21300000, guid: 623bc62a6789e4449a24f2a5aab3a16a, type: 3}
+  - {fileID: 21300000, guid: 71d8bbaee271fc148be51a46e8ddd401, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - yes
+  - sign_base
+  - signin_on
+  - day_normal
+  - icon
+  - base
+  - day_today
+  - signin_off
+  - help
+  - close
+  - no
+  - reward_Cash
+  - day15
+  - bonus_base
+  m_Tag: Sign
+  m_IsVariant: 0
