@@ -62,7 +62,7 @@ namespace HiSpin
         private void GetAdID()
         {
 #if UNITY_EDITOR
-            adID = SystemInfo.deviceUniqueIdentifier+"a";
+            adID = SystemInfo.deviceUniqueIdentifier;
 #elif UNITY_ANDROID
         Application.RequestAdvertisingIdentifierAsync(
            (string advertisingId, bool trackingEnabled, string error) =>

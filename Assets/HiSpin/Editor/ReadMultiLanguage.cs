@@ -14,7 +14,7 @@ namespace HiSpin
         [MenuItem("Excel/ReadMultiLanguage")]
         public static void ReadExcel()
         {
-            xlsxPath = Application.dataPath + "HiSpin/Language.xlsx";
+            xlsxPath = Application.dataPath + "/HiSpin/Language.xlsx";
             if (!File.Exists(xlsxPath))
             {
                 Debug.LogError("文件不存在");
@@ -29,8 +29,8 @@ namespace HiSpin
                 Debug.LogError("文件为空!");
                 return;
             }
-            string areaEnumFilePath = Application.dataPath + "/Scripts/LanguageAreaEnum.cs";
-            string countryEnumFilePath = Application.dataPath + "/Scripts/LanguageCountryEnum.cs";
+            string areaEnumFilePath = Application.dataPath + "/HiSpin/Scripts/LanguageAreaEnum.cs";
+            string countryEnumFilePath = Application.dataPath + "/HiSpin/Scripts/LanguageCountryEnum.cs";
             StringBuilder areaString = new StringBuilder("public enum LanguageAreaEnum\n{");
             StringBuilder countryString = new StringBuilder("public enum LanguageCountryEnum\n{");
             string endContent = "\n}";
@@ -83,7 +83,7 @@ namespace HiSpin
             MultiLanguageData data = Resources.Load<MultiLanguageData>("MultiLanguageData");
             data.languageUnits.Clear();
 
-            xlsxPath = Application.dataPath + "HiSpin/Language.xlsx";
+            xlsxPath = Application.dataPath + "/HiSpin/Language.xlsx";
             if (!File.Exists(xlsxPath))
             {
                 Debug.LogError("文件不存在");
