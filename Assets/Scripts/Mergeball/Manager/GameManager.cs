@@ -606,7 +606,8 @@ public class GameManager : MonoBehaviour
         if (value == 1)
             PlayerDataManager.playerData.lastGetNaturalEnergyTime = System.DateTime.Now.ToString();
         MainController.Instance.RefreshEnergyText();
-        HiSpin.UI.MenuPanel.UpdateEnergyNumText();
+        if (HiSpin.UI.MenuPanel != null)
+            HiSpin.UI.MenuPanel.UpdateEnergyNumText();
         return PlayerDataManager.playerData.energy;
     }
     public void AddBuyEnergyTime(int value = 1)

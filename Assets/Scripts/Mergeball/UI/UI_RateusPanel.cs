@@ -29,7 +29,7 @@ namespace UI
 #elif UNITY_IOS
         var url = string.Format(
            "itms-apps://itunes.apple.com/cn/app/id{0}?mt=8&action=write-review",
-           "");
+            HiSpin.Master.AppleId);
         Application.OpenURL(url);
 #endif
             UIManager.ClosePopPanel(this);

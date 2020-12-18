@@ -51,6 +51,12 @@ namespace UI
             closeButton.onClick.AddListener(OnCloseClick);
             var menu = UIManager.GetUIPanel(UI_Panel.MenuPanel) as UI_MenuPanel;
             menu.rewardTargetTransform.Add(Reward.WheelTicket, ticketNumText.transform.parent);
+#if UNITY_IOS
+            if (HiSpin.Master.IsBigScreen)
+            {
+                titleText.transform.parent.localPosition -= new Vector3(0, HiSpin.Master.TopMoveDownOffset);
+            }
+#endif
         }
         int endIndex = -1;
         bool isSpining = false;
