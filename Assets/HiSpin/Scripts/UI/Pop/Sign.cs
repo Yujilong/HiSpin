@@ -116,7 +116,15 @@ namespace HiSpin
             List<int> dayStates = Save.data.allData.check_task.task_list;
             int dayCount = dayStates.Count;
             today = Save.data.allData.check_task.cur_day;
-            taskComplete = Save.data.allData.check_task.flag_task;
+            taskComplete = true;
+            List<AllData_SignTaskData> _SignTaskDatas = Save.data.allData.check_task.tar_task;
+            foreach(var task in _SignTaskDatas)
+                if (task.cur_num < task.tar_num)
+                {
+                    taskComplete = false;
+                    break;
+                }
+
             for (int i = 0; i < dayCount; i++)
             {
                 if (i > all_signdayItems.Count - 1)

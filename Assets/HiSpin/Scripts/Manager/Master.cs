@@ -71,7 +71,7 @@ namespace HiSpin
             }
             isLoadingEnd = true;
 #if UNITY_EDITOR
-            Save.data.isPackB = false;
+            Save.data.isPackB = true;
 #endif
             UI.ShowMenuPanel();
         }

@@ -262,8 +262,5 @@ namespace HiSpin
             accountText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Account);
             nextText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Next);
         }
-        protected override void AfterShowAnimation(params int[] args)
-        {
-        }
     }
 }

@@ -15,8 +15,8 @@ namespace HiSpin
         {
             headImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_id);
             nameText.text = name;
-            currentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + current;
-            expectText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + expect;
+            currentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + current.GetCashShowString();
+            expectText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + expect.GetCashShowString();
         }
     }
 }

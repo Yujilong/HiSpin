@@ -7,6 +7,7 @@ namespace HiSpin
 {
     public class PlaySlots : BaseUI
     {
+        public Button backButton;
         public Button helpButton;
         public Image titleImage;
         public Button spinButton;
@@ -71,7 +72,12 @@ namespace HiSpin
         {
             base.Awake();
             spinButton.AddClickEvent(OnSpinButtonClick);
+            backButton.AddClickEvent(OnBackButtonClick);
             helpButton.AddClickEvent(() => { UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.PlaySlots); });
+            if (Master.IsBigScreen)
+            {
+                backButton.transform.localPosition -= new Vector3(0, Master.TopMoveDownOffset);
+            }
         }
         bool isSpining = false;
         private void OnSpinButtonClick()
@@ -87,6 +93,10 @@ namespace HiSpin
             }
             else
                 OnIVCallback();
+        }
+        private void OnBackButtonClick()
+        {
+            UI.CloseCurrentBasePanel(true);
         }
         private void OnIVCallback()
         {
@@ -236,7 +246,7 @@ namespace HiSpin
                 case Reward.Null:
                 default:
                     if (spinTime >= MaxSpinTime)
-                        UI.CloseCurrentBasePanel();
+                        UI.CloseCurrentBasePanel(false, true);
                     break;
             }
             isSpining = false;
@@ -248,7 +258,7 @@ namespace HiSpin
             if (!isPause) return;
             isPause = false;
             if (spinTime >= MaxSpinTime)
-                UI.CloseCurrentBasePanel();
+                UI.CloseCurrentBasePanel(false, true);
         }
         public override void Pause()
         {
