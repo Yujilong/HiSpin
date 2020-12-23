@@ -32,7 +32,7 @@ public class ClipboardHelper
         GUIUtility.systemCopyBuffer = text;
 
 #endif
-        HiSpin.Master.Instance.ShowTip("copy success");
+        HiSpin.Master.Instance.ShowTip(HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_CopySuccess));
     }
 
 #if UNITY_IOS

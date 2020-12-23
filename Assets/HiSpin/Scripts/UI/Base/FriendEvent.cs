@@ -89,7 +89,7 @@ namespace HiSpin
         }
         private void OnWithDrawClick()
         {
-            //if (canCashout)
+            if (canCashout)
                 UI.ShowBasePanel(BasePanel.Cashout, 1);
         }
         bool canCashout = false;
