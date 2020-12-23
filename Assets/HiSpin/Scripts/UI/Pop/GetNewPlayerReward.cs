@@ -164,6 +164,7 @@ namespace HiSpin
             input_paypal_emailCg.blocksRaycasts = false;
             cashout_recordCg.alpha = 1;
             cashout_recordCg.blocksRaycasts = true;
+            Master.Instance.SendAdjustCheckinEvent(0);
         }
         private void OnAgreeButtonClick()
         {

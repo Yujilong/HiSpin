@@ -15,7 +15,7 @@ namespace HiSpin
         {
             bgImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Sign, day == today ? "day_today" : "day_normal");
             reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Sign, "reward_" + rewardType);
-            day_numText.text = "Day " + day;
+            day_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Sign_Day), day);
             if (day < today || (day == today && hasSign))
             {
                 has_signImage.gameObject.SetActive(true);

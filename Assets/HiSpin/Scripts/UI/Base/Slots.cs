@@ -58,6 +58,23 @@ namespace HiSpin
                 Save.data.hasRateus = true;
                 UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Rateus);
             }
+            UpdateSignState();
+        }
+        public void UpdateSignState()
+        {
+            if (!Save.data.isPackB)
+                signButton.gameObject.SetActive(false);
+            var signData = Save.data.allData.check_task;
+            if (signData.cur_day < 14)
+                signButton.gameObject.SetActive(true);
+            else if (signData.cur_day == 14)
+                signButton.gameObject.SetActive(signData.flag_task);
+            else
+                signButton.gameObject.SetActive(false);
+            if (signData.cur_day < 14)
+                sign_rpGo.SetActive(signData.flag_task && signData.task_list[signData.cur_day] == 0);
+            else
+                sign_rpGo.SetActive(true);
         }
         public void UpdateTimedownText(string time)
         {
@@ -89,7 +106,7 @@ namespace HiSpin
         {
             if (!isPause) return;
             isPause = false;
-            sign_rpGo.SetActive(Save.data.allData.check_task.flag_task);
+            UpdateSignState();
         }
     }
 }

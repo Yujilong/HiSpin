@@ -11,22 +11,25 @@ namespace HiSpin
     public class AdjustEventLogger : MonoBehaviour
     {
 #if UNITY_IOS && !UNITY_EDITOR
-    [DllImport("__Internal")]
-    private static extern string Getidfa();
+         [DllImport("__Internal")]
+         private static extern string Getidfa();
 #endif
 #if UNITY_IOS
-    public const string APP_TOKEN = "mhp8r1lea3gg";
-    public const string TOKEN_open = "81vaze";
-    public const string TOKEN_ad = "266qxl";
-    public const string TOKEN_noads = "vtjdf6";
-    public const string TOKEN_stage_end = "xwh0ze";
-    public const string TOKEN_task = "7ys6oz";
-    public const string TOKEN_eamil = "nnmlyb";
-    public const string TOKEN_deeplink = "jb68sg";
-    public const string TOKEN_packB = "t9pcu1";
-    public const string TOKEN_invite_button = "11h7xk";
-    public const string TOKEN_invite_page = "yplpw8";
-    public const string TOKEN_ticket_over1000 = "seoxpb";
+        public const string APP_TOKEN = "mhp8r1lea3gg";
+        public const string TOKEN_open = "81vaze";
+        public const string TOKEN_ad = "266qxl";
+        public const string TOKEN_noads = "vtjdf6";
+        public const string TOKEN_stage_end = "xwh0ze";
+        public const string TOKEN_task = "7ys6oz";
+        public const string TOKEN_eamil = "nnmlyb";
+        public const string TOKEN_deeplink = "jb68sg";
+        public const string TOKEN_packB = "t9pcu1";
+        public const string TOKEN_invite_button = "11h7xk";
+        public const string TOKEN_invite_page = "yplpw8";
+        public const string TOKEN_ticket_over1000 = "seoxpb";
+        public const string TOKEN_check_in = "7s21x7";
+        public const string TOKEN_invite_way = "1jycxt";
+        public const string TOKEN_stage_over = "x3kpj3";
 #elif UNITY_ANDROID
         public const string APP_TOKEN = "nwle7bsx7itc";
         public const string TOKEN_open = "3grjd1";
@@ -40,6 +43,9 @@ namespace HiSpin
         public const string TOKEN_invite_button = "idxf85";
         public const string TOKEN_invite_page = "7ixqy9";
         public const string TOKEN_ticket_over1000 = "6ogglc";
+        public const string TOKEN_check_in = "4re41h";
+        public const string TOKEN_invite_way = "z5hlo5";
+        public const string TOKEN_stage_over = "ft8db0";
 #endif
         public static AdjustEventLogger Instance;
         private void Awake()

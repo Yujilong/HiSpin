@@ -39,7 +39,10 @@ namespace HiSpin
                     break;
                 case GetCashArea.PlaySlots:
                     clickAdTime++;
-                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "现金翻倍", OnNothanksClick);
+                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "老虎机现金翻倍", OnNothanksClick);
+                    break;
+                case GetCashArea.Signin:
+                    OnGetSignCash();
                     break;
             }
         }
@@ -61,6 +64,11 @@ namespace HiSpin
             UI.ClosePopPanel(this);
             if (Save.data.isPackB)
                 UI.ShowPopPanel(PopPanel.Guide, 1);
+        }
+        private void OnGetSignCash()
+        {
+            UI.FlyReward(Reward.Cash, getcashNum, tribleButton.transform.position);
+            UI.ClosePopPanel(this);
         }
         GetCashArea getCashArea;
         int getcashNum;
@@ -87,6 +95,14 @@ namespace HiSpin
                     add_cashpt_numText.transform.parent.gameObject.SetActive(true);
                     add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
                     break;
+                case GetCashArea.Signin:
+                    ad_iconGo.SetActive(false);
+                    trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
+                    trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
+                    cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + ((Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout.CashToDollerRadio).GetCashShowString();
+                    add_cashpt_numText.transform.parent.gameObject.SetActive(true);
+                    add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
+                    break;
             }
 
             nothanksButton.gameObject.SetActive(false);
@@ -102,6 +118,9 @@ namespace HiSpin
         protected override void BeforeCloseAnimation()
         {
             StopCoroutine("DelayShowNothanks");
+        }
+        protected override void AfterCloseAnimation()
+        {
         }
         private IEnumerator DelayShowNothanks()
         {
@@ -124,6 +143,7 @@ namespace HiSpin
     public enum GetCashArea
     {
         NewPlayerReward,
-        PlaySlots
+        PlaySlots,
+        Signin,
     }
 }

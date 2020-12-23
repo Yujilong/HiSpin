@@ -67,6 +67,7 @@ namespace HiSpin
                     yield return null;
                 }
                 UI.ClosePopPanel(this);
+                UI.ShowPopPanel(PopPanel.Sign);
                 yield break;
             }
             yield return new WaitForSeconds(1);
@@ -106,6 +107,7 @@ namespace HiSpin
                 yield return null;
             }
             UI.ClosePopPanel(this);
+            Save.data.hasWatchThreeCardGuide = true;
         }
         private Vector2 SetMaskShape()
         {

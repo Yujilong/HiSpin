@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FriendEvent
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 9c3a5b4c928b8ad41bed3fe2a42440f3, type: 3}
+    totalSpriteSurfaceArea: 1409979
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b2133f602696a5a49b767b0b8deb0f9e, type: 3}
+  - {fileID: 21300000, guid: 77ac63700329c49418635d4c0507c9fd, type: 3}
+  - {fileID: 21300000, guid: fa39a2c04d7605b49af157e28d6e8807, type: 3}
+  - {fileID: 21300000, guid: 38b7d6d05928b064cb4cc33dd2a18a2f, type: 3}
+  - {fileID: 21300000, guid: 1a666e417d3c287478bf3e01febee6ee, type: 3}
+  - {fileID: 21300000, guid: 227c907147cdeeb41b4a7a289db9e2c6, type: 3}
+  - {fileID: 21300000, guid: c59172134a183374194a7ceaa1902ef6, type: 3}
+  - {fileID: 21300000, guid: 27e1be23119f9084788654ac1c4b54e6, type: 3}
+  - {fileID: 21300000, guid: 267c8763d92f93b4c949d170676b82a2, type: 3}
+  - {fileID: 21300000, guid: e5f35815c5638de49ad3bc1653587bc3, type: 3}
+  - {fileID: 21300000, guid: 9eb32f982e1f0c541824872c0d8ebd28, type: 3}
+  - {fileID: 21300000, guid: 2e53f7f83bd34324f9e595602b73dace, type: 3}
+  - {fileID: 21300000, guid: 16d3ceecc2d069a4da102bd67c69e495, type: 3}
+  - {fileID: 21300000, guid: 970bf84d5fbf4f142bb81e7bbeea4ec8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - invitepanel
+  - buttonBg_off
+  - greybg
+  - help
+  - coin
+  - base
+  - banner
+  - red bubble
+  - help_black
+  - inviteButtonBG
+  - back
+  - buttonBg_on
+  - copybg
+  - topbase
+  m_Tag: FriendEvent
+  m_IsVariant: 0

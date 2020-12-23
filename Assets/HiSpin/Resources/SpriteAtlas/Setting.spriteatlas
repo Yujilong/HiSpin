@@ -31,12 +31,13 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f2cc93d1958febd4aa6b234cdabb5ac3, type: 3}
-    totalSpriteSurfaceArea: 2018631
+    totalSpriteSurfaceArea: 2029549
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 957d85f13c972d24dbe2348d0d5cd5ae, type: 3}
   - {fileID: 21300000, guid: 3675bf52895e40a4ba1148f1f1f8e3d0, type: 3}
+  - {fileID: 21300000, guid: fd346d7231008c042871689490494909, type: 3}
   - {fileID: 21300000, guid: 2aa5ef649b3a4d34fa5bc6ba763c3588, type: 3}
   - {fileID: 21300000, guid: 801af065d87c6c4469be457dd65c11c0, type: 3}
   - {fileID: 21300000, guid: 4ef2d417276421742ac270b8ae15b28f, type: 3}
@@ -53,6 +54,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - goto
   - sound_on
+  - invite_code
   - topbase
   - rules
   - base

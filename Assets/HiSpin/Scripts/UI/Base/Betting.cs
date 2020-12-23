@@ -11,6 +11,7 @@ namespace HiSpin
         public ContentSizeFitter all_root;
         public Button helpButton;
         public Button get_ticketsButton;
+        public Button friend_bannerButton;
         public Text time_downText;
         //public Text ticket_numText;
         //public Text tipText;
@@ -21,6 +22,7 @@ namespace HiSpin
             base.Awake();
             helpButton.AddClickEvent(OnHelpClick);
             get_ticketsButton.AddClickEvent(OnGetTicketsClick);
+            friend_bannerButton.AddClickEvent(OnBannerClick);
             all_winner_items.Add(single_winner_item);
             if (Master.IsBigScreen)
             {
@@ -40,6 +42,10 @@ namespace HiSpin
         private void OnGetTicketsClick()
         {
             UI.ShowBasePanel(BasePanel.Task);
+        }
+        private void OnBannerClick()
+        {
+            UI.ShowBasePanel(BasePanel.FriendEvent);
         }
         protected override void BeforeShowAnimation(params int[] args)
         {
@@ -78,6 +84,7 @@ namespace HiSpin
             all_root.enabled = false;
             yield return new WaitForEndOfFrame();
             all_root.enabled = true;
+            all_root.GetComponent<ScrollRect>().normalizedPosition = Vector2.one;
         }
         [Space(15)]
         public Text titleText;
@@ -86,6 +93,7 @@ namespace HiSpin
         public Text ticket_numText;
         public Text tipText;
         public Text get_ticketsText;
+        public Text invite_bannerText;
         public Text last_day_winnerText;
         public override void SetContent()
         {
@@ -102,6 +110,7 @@ namespace HiSpin
                 tipText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_Tip2), Save.data.allData.award_ranking.ticktes_flag);
 
             get_ticketsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetTickets);
+            invite_bannerText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteBanner), 80, 1500);
             last_day_winnerText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_WinnerTitle);
         }
     }

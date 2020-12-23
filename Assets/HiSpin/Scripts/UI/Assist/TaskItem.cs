@@ -27,54 +27,21 @@ namespace HiSpin
         {
             getButton.AddClickEvent(OnGetButtonClick);
         }
-        public void Init(int task_id, string title, string des, PlayerTaskTarget taskTargetId, Reward rewardType, int rewardNum, bool hasdone, bool hasFinish, int taskType, int task_tar)
+        public void Init(int task_id, PlayerTaskTarget taskTargetId, Reward rewardType, int rewardNum, bool hasdone, bool hasFinish, int taskType,int task_cur, int task_tar)
         {
             doneText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.DONE);
             Task_ID = task_id;
-            titleText.text = title;
-            desText.text = des;
+            if (!hasdone)
+                desText.text = task_cur + "/" + task_tar;
+            else
+                desText.text = "";
             RewardType = rewardType;
             RewardNum = rewardNum;
             TaskTarget = taskTargetId;
             HasFinish = hasFinish;
             TaskType = taskType;
 
-            switch (taskTargetId)
-            {
-                case PlayerTaskTarget.EnterSlotsOnce:
-                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_EnterSlotsOnce), task_tar);
-                    break;
-                case PlayerTaskTarget.PlayBettingOnce:
-                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_PlayBettingOnce), task_tar);
-                    break;
-                case PlayerTaskTarget.WatchRvOnce:
-                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_WatchRvOnce), task_tar);
-                    break;
-                case PlayerTaskTarget.CashoutOnce:
-                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_CashoutOnce), task_tar);
-                    break;
-                case PlayerTaskTarget.WritePaypalEmail:
-                    titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_WritePaypalEmail);
-                    break;
-                case PlayerTaskTarget.OwnSomeGold:
-                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_OwnSomeGold), task_tar);
-                    break;
-                case PlayerTaskTarget.WinnerOnce:
-                    titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_WinnerOnce);
-                    break;
-                case PlayerTaskTarget.InviteAFriend:
-                    titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InviteFriends);
-                    break;
-                case PlayerTaskTarget.GetTicketFromSlotsOnce:
-                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_GetTicketFromSlotsOnce), task_tar);
-                    break;
-                case PlayerTaskTarget.BuyTicketByGoldOnce:
-                    titleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_BuyTicketByGoldOnce), Save.data.allData.lucky_schedule.coin_ticket);
-                    break;
-                case PlayerTaskTarget.BuyTicketByRvOnce:
-                    titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Task_Des_BuyTicketByRvOnce);
-                    break;
-            }
+            titleText.text = Tools.GetTaskDesMultiLanguage(taskTargetId, task_tar);
             reward_iconImage.gameObject.SetActive(true);
             switch (RewardType)
             {

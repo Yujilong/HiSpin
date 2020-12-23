@@ -29,8 +29,19 @@ namespace HiSpin
         public Button gold_redeemButton;
         [Space(15)]
         public Button about_feeButton;
-        //L,M,R
-        static readonly int[] Cashout_Nums = new int[3] { 10, 50, 100 };
+        [Space(15)]
+        public Button friendevent_cashoutButton1;
+        public Button friendevent_cashoutButton2;
+        public Button friendevent_cashoutButton3;
+        public Button friendevent_cashoutButton4;
+        public Button friendevent_cashoutButton5;
+        [Space(15)]
+        public GameObject own_ptGo;
+        public GameObject own_paypal_cashGo;
+        public GameObject own_cashGo;
+        public GameObject own_goldGo;
+        public GameObject handing_feeGo;
+        public GameObject own_friendevent_cashGo;
         protected override void Awake()
         {
             base.Awake();
@@ -54,6 +65,11 @@ namespace HiSpin
             paypalCashout_leftButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(10); });
             paypalCashout_midButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(50); });
             paypalCashout_rightButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(100); });
+            friendevent_cashoutButton1.AddClickEvent(() => { OnFriendEventCashoutButtonClick(2); });
+            friendevent_cashoutButton2.AddClickEvent(() => { OnFriendEventCashoutButtonClick(10); });
+            friendevent_cashoutButton3.AddClickEvent(() => { OnFriendEventCashoutButtonClick(100); });
+            friendevent_cashoutButton4.AddClickEvent(() => { OnFriendEventCashoutButtonClick(200); });
+            friendevent_cashoutButton5.AddClickEvent(() => { OnFriendEventCashoutButtonClick(500); });
 
             gold_redeemButton.AddClickEvent(OnGoldCashoutButtonClick);
         }
@@ -71,6 +87,23 @@ namespace HiSpin
                 UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.PT, cashoutNum * PtCashoutRate * 100);
             else
                 Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_CashOutNotEnough));
+        }
+        private bool CheckFriendEventCash(int cashoutNum)
+        {
+            List<AllData_CashoutRecordData_Record> recordData_Records = Save.data.allData.lucky_record.record;
+            int recordCount = recordData_Records.Count;
+            for(int i = 0; i < recordCount; i++)
+            {
+                AllData_CashoutRecordData_Record record = recordData_Records[i];
+                if (record.apply_type == CashoutType.FriendEvent_Cash)
+                {
+                    if (record.apply_status == 0)
+                        return false;
+                    if (record.apply_doller == cashoutNum)
+                        return false;
+                }
+            }
+            return true;
         }
         private void OnCashoutButtonClick(int cashoutNum)
         {
@@ -90,6 +123,18 @@ namespace HiSpin
         {
             Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_CashOutNotEnough));
         }
+        private void OnFriendEventCashoutButtonClick(int cashoutNum)
+        {
+            if (CheckFriendEventCash(cashoutNum))
+            {
+                if (Save.data.allData.user_panel.seven_doller >= cashoutNum * 100)
+                    UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Cashout, cashoutNum, (int)CashoutType.FriendEvent_Cash, cashoutNum * 100);
+                else
+                    Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_CashOutNotEnough));
+            }
+            else
+                Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_FriendEventWaitCashout));
+        }
         private void OnAboutFeeClick()
         {
             //Server.Instance.RequestData_GetLocalcountry(OnRequestLocalcountyCallback, null);
@@ -101,10 +146,23 @@ namespace HiSpin
         }
         const int CashoutNeedGold = 5000000;
         public const int GoldMaxNum = 4600000;
+        public const int FriendEventCashoutMinCash = 2;
         const int PtCashoutRate = 1000;
         public const int CashToDollerRadio = 25;
+        bool isFriendEventCashout = false;
         protected override void BeforeShowAnimation(params int[] args)
         {
+            if (args.Length > 0)
+                isFriendEventCashout = args[0] == 1;
+            else
+                isFriendEventCashout = false;
+            own_ptGo.SetActive(!isFriendEventCashout);
+            own_paypal_cashGo.SetActive(!isFriendEventCashout);
+            own_cashGo.SetActive(!isFriendEventCashout);
+            own_goldGo.SetActive(!isFriendEventCashout);
+            handing_feeGo.SetActive(!isFriendEventCashout);
+            own_friendevent_cashGo.SetActive(isFriendEventCashout);
+
             gold_numText.text = Save.data.allData.user_panel.user_gold_live.GetTokenShowString();
         }
         bool isPause = false;
@@ -117,7 +175,7 @@ namespace HiSpin
             if (!isPause) return;
             isPause = false;
             SetContent();
-            BeforeShowAnimation();
+            BeforeShowAnimation(isFriendEventCashout ? 1 : 0);
         }
         [Space(15)]
         public Text paypal_account_frontText;
@@ -140,6 +198,13 @@ namespace HiSpin
         public Text gold_redeem_buttonText;
         public Text paypal_fee_ruleText;
         public Text about_paypal_feeText;
+
+        public Text friendevent_cash_numText;
+        public Text friendevent_cashout_buttonText1;
+        public Text friendevent_cashout_buttonText2;
+        public Text friendevent_cashout_buttonText3;
+        public Text friendevent_cashout_buttonText4;
+        public Text friendevent_cashout_buttonText5;
         public override void SetContent()
         {
             paypal_account_frontText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_EmailFront);
@@ -151,8 +216,8 @@ namespace HiSpin
                 paypal_account_placeholderText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_NoEmailTip);
 
             recordText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.RECORD);
-            pt_numText.text = (int)Save.data.allData.fission_info.live_balance + "<size=40>  " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
             string dollar = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar);
+            pt_numText.text = (int)Save.data.allData.fission_info.live_balance + "<size=40>  " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
             pt_cashout_numText.text = "≈" + dollar + ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString();
             pt_cashout_left_buttonText.text = dollar + " 5";
             pt_cashout_mid_buttonText.text = dollar + " 10";
@@ -169,6 +234,15 @@ namespace HiSpin
             gold_redeem_buttonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_GoldRedeemTip);
             paypal_fee_ruleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_PaypalFeeTip);
             about_paypal_feeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_AboutFee);
+
+
+            friendevent_cash_numText.text = dollar + Save.data.allData.user_panel.seven_doller.GetCashShowString();
+            friendevent_cashout_buttonText1.text = dollar + " " + FriendEventCashoutMinCash;
+            friendevent_cashout_buttonText2.text = dollar + " 10";
+            friendevent_cashout_buttonText3.text = dollar + " 100";
+            friendevent_cashout_buttonText4.text = dollar + " 200";
+            friendevent_cashout_buttonText5.text = dollar + " 500";
+
             StartCoroutine("DelayRefreshLayout");
         }
         private IEnumerator DelayRefreshLayout()
@@ -184,5 +258,6 @@ namespace HiSpin
         Cash,
         Gold,
         Blue_Cash,
+        FriendEvent_Cash,
     }
 }

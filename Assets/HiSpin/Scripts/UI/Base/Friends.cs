@@ -13,6 +13,7 @@ namespace HiSpin
         public Button helpButton;
         public Button cashoutButton;
         [Space(15)]
+        public Button bannerButton;
         public Button myfriendsButton;
         public Image friend_headImage1;
         public Image friend_headImage2;
@@ -35,6 +36,7 @@ namespace HiSpin
             cashoutButton.AddClickEvent(OnCashoutButtonClick);
             inviteButton.AddClickEvent(OnInviteButtonClick);
             myfriendsButton.AddClickEvent(OnMyfriendsButtonClick);
+            bannerButton.AddClickEvent(OnBannerClick);
             all_invite_friend_items.Add(single_invite_record_item);
             if (Master.IsBigScreen)
             {
@@ -89,13 +91,17 @@ namespace HiSpin
 #if UNITY_EDITOR
             return;
 #endif
-            Master.Instance.SendAdjustClickInviteButtonEvent();
+            Master.Instance.SendAdjustClickInviteButtonEvent(false);
 #if UNITY_ANDROID
             _AJ.CallStatic("ShareString", Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Invite_word) + " http://aff.luckyclub.vip:8000/Hispin/" + Save.data.allData.user_panel.user_id);
             return;
 #endif
             GJCNativeShare.Instance.NativeShare(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Invite_word) + " http://aff.luckyclub.vip:8000/Hispin/" + Save.data.allData.user_panel.user_id);
 
+        }
+        private void OnBannerClick()
+        {
+            UI.ShowBasePanel(BasePanel.FriendEvent);
         }
         private void OnMyfriendsButtonClick()
         {
@@ -206,10 +212,10 @@ namespace HiSpin
         public Text balanceText;
         public Text pt_numText;
         public Text cashoutText;
+        public Text invite_bannerText;
         public Text myfriends_numText;
         public Text invitefriendText;
         public Text invite_reward_numText;
-        public Text myincomeText;
         public Text yesterday_pt_numText;
         public Text yesterdatyincomeText;
         public Text total_pt_numText;
@@ -222,10 +228,9 @@ namespace HiSpin
             balanceText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Balance);
 
             cashoutText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
+            invite_bannerText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteBanner), 80,1500);
 
             invitefriendText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InviteFriends);
-
-            myincomeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_MyIncome);
 
             yesterdatyincomeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_YesterdayIncome);
 

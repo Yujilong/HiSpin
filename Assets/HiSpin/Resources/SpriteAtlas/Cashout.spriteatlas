@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 684c48d5dc624b54ebf828021ff110a4, type: 3}
-    totalSpriteSurfaceArea: 2094107
+    totalSpriteSurfaceArea: 2681372
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -41,6 +41,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c10e72f160505744882b81d1b9f45d76, type: 3}
   - {fileID: 21300000, guid: 5ea931321ed8e93448d62f808f280a5c, type: 3}
   - {fileID: 21300000, guid: 68b34282fd3154b4a8000f2e396c69de, type: 3}
+  - {fileID: 21300000, guid: 554be89221379dd4eb09ac867eaea750, type: 3}
   - {fileID: 21300000, guid: 25e0f5a3a76014f4bb65be3e60b48627, type: 3}
   - {fileID: 21300000, guid: 4a7938a394474ae41a9fc0c55463e754, type: 3}
   - {fileID: 21300000, guid: 4b061e648dc7759468b28979f491eeff, type: 3}
@@ -60,9 +61,10 @@ SpriteAtlas:
   - base3
   - gold redeem button
   - base2
+  - friendevent_base
   - Gold
   - base1
-  - paypal
+  - Paypal
   - recordbg
   - PT
   - base3buton

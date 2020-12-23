@@ -29,6 +29,10 @@ namespace HiSpin
                         task.task_describe = "";
                 }
             }
+            List<AllData_SignTaskData> _SignTaskDatas = Save.data.allData.check_task.tar_task;
+            foreach (var task in _SignTaskDatas)
+                if (task.tar_id == taskTarget)
+                    task.cur_num += change_num;
             UI.OnHasTaskFinished(hasFinished > 0);
         }
     }

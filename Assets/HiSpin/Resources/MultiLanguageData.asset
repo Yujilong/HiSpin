@@ -62,17 +62,17 @@ MonoBehaviour:
     - area: 21
       value: CASH OUT
     - area: 22
-      value: 'My friends:'
+      value: Invite friends & earn up to    <size={0}><color=#FF5952>${1}</color></size>
     - area: 23
-      value: Invite Friends
+      value: 'My friends:'
     - area: 24
-      value: Invite friends to get
+      value: Invite Friends
     - area: 25
-      value: My income
+      value: Invite friends to get
     - area: 26
-      value: yesterday income
+      value: Yesterday
     - area: 27
-      value: total income
+      value: Total
     - area: 28
       value: Last day details
     - area: 29
@@ -89,100 +89,124 @@ MonoBehaviour:
     - area: 33
       value: Friends invited by your friends
     - area: 34
-      value: Multiplier
+      value: INVITATION
     - area: 35
-      value: Level
+      value: Get $0.5 per invite
     - area: 36
-      value: Extra
+      value: Invite & Earn
     - area: 37
-      value: Avatar
+      value: 'My invite code: '
     - area: 38
-      value: NEW
+      value: Copy
     - area: 39
-      value: unlock
+      value: Name
     - area: 40
-      value: Gold
+      value: Current
     - area: 41
-      value: Cash
+      value: Expect
     - area: 42
-      value: Ticket
+      value: No Records
     - area: 43
-      value: Loading...
+      value: 'referring bonus  :'
     - area: 44
-      value: Earn Pts
+      value: Multiplier
     - area: 45
-      value: SPONSORSHIP
+      value: Level
     - area: 46
-      value: COINS
+      value: Extra
     - area: 47
-      value: TICKETS
+      value: Avatar
     - area: 48
-      value: FREE SLOTS
+      value: NEW
     - area: 49
-      value: WIN
+      value: unlock
     - area: 50
-      value: TASKS
+      value: Gold
     - area: 51
-      value: ACHIEVEMENTS
+      value: Cash
     - area: 52
-      value: Enter slots {0} times
+      value: Ticket
     - area: 53
-      value: Spin {0} times
+      value: Loading...
     - area: 54
-      value: Watch {0} short videos
+      value: Earn Pts
     - area: 55
-      value: Withdraw {0} times
+      value: SPONSORSHIP
     - area: 56
-      value: Enter paypal address
+      value: COINS
     - area: 57
-      value: Own {0} coins
+      value: TICKETS
     - area: 58
-      value: Win the Lucky Draw
+      value: FREE SLOTS
     - area: 59
-      value: Earn tickets {0} times
+      value: WIN
     - area: 60
-      value: Cost {0} coins
+      value: TASKS
     - area: 61
-      value: Free Tickets
+      value: ACHIEVEMENTS
     - area: 62
-      value: BUY
+      value: Enter slots {0} times
     - area: 63
-      value: GET
+      value: Spin {0} times
     - area: 64
-      value: GO TO
+      value: Watch {0} short videos
     - area: 65
-      value: CLAIM
+      value: Withdraw {0} times
     - area: 66
-      value: DONE
+      value: Enter paypal address
     - area: 67
-      value: Offerwall
+      value: Own {0} coins
     - area: 68
-      value: Ranking
+      value: Win the Lucky Draw
     - area: 69
-      value: Giveaways
+      value: Earn tickets {0} times
     - area: 70
-      value: Friends
+      value: Cost {0} coins
     - area: 71
-      value: Tasks
+      value: Free Tickets
     - area: 72
-      value: LAST DAY RANKING
+      value: Own {0} close friends
     - area: 73
-      value: ME
+      value: Have {0} close friends reach lv{0}
     - area: 74
-      value: PAYPAL ACCOUNT
+      value: BUY
     - area: 75
-      value: First name of paypal
+      value: GET
     - area: 76
-      value: Last name of paypal
+      value: GO TO
     - area: 77
-      value: Paypal email
+      value: CLAIM
     - area: 78
-      value: Please check paypal account carefully.
+      value: DONE
     - area: 79
-      value: CONFIRM
+      value: Offerwall
     - area: 80
-      value: "\xB7POSSIBLE REASON\xB7"
+      value: Ranking
     - area: 81
+      value: Giveaways
+    - area: 82
+      value: Friends
+    - area: 83
+      value: Tasks
+    - area: 84
+      value: LAST DAY RANKING
+    - area: 85
+      value: ME
+    - area: 86
+      value: PAYPAL ACCOUNT
+    - area: 87
+      value: First name of paypal
+    - area: 88
+      value: Last name of paypal
+    - area: 89
+      value: Paypal email
+    - area: 90
+      value: Please check paypal account carefully.
+    - area: 91
+      value: CONFIRM
+    - area: 92
+      value: "\xB7POSSIBLE REASON\xB7"
+    - area: 93
       value: '1.Check game account balance
 
         2.Check paypal account
@@ -191,95 +215,101 @@ MonoBehaviour:
         net connect
 
         4.Is that your paypal available'
-    - area: 82
+    - area: 94
       value: "For any question,Contact us: \n<color=#1A91D0>hispin.support@luckyclub.vip</color>"
-    - area: 83
+    - area: 95
       value: RATE US
-    - area: 84
+    - area: 96
       value: Support us by rating 5 STARS
-    - area: 85
+    - area: 97
       value: STARS
-    - area: 86
+    - area: 98
       value: Congratulation
-    - area: 87
+    - area: 99
       value: NO THANKS
-    - area: 88
+    - area: 100
       value: Save in wallet
-    - area: 89
+    - area: 101
       value: 'OH YEEAAAAH!
 
         TOKEN HAUL!'
-    - area: 90
+    - area: 102
       value: 'THAT''S EPIC!
 
         YOU WON TICKET!'
-    - area: 91
-      value: "YOU REACH LV.{0}! \nTake these rewards!"
-    - area: 92
-      value: You can cash out dollar
-    - area: 93
-      value: Play slots and get tickets
-    - area: 94
-      value: Play Lucy Draw with tickets to earn money. Good Lucy!
-    - area: 95
-      value: Check in 15 days, you can receive the money!
-    - area: 96
-      value: Invite friend successfully
-    - area: 97
-      value: loading
-    - area: 98
-      value: Contact Us
-    - area: 99
-      value: Withdraw
-    - area: 100
-      value: Task Rewards
-    - area: 101
-      value: Item Of Use
-    - area: 102
-      value: BIG  WINNER!
     - area: 103
-      value: More tickets you have, more chance to win!
+      value: "YOU REACH LV.{0}! \nTake these rewards!"
     - area: 104
-      value: Congratulations on winning the prize!!
+      value: You can cash out dollar
     - area: 105
-      value: TRY YOUR LUCK
+      value: Play slots and get tickets
     - area: 106
-      value: TAKE YOUR MONEY!
+      value: Play Lucy Draw with tickets to earn money. Good Lucy!
     - area: 107
-      value: Connecting...
+      value: Check in 15 days, you can receive the money!
     - area: 108
-      value: ERROR
+      value: Invite friend successfully
     - area: 109
-      value: Network connection is unavailable, please check network settings.
+      value: loading
     - area: 110
-      value: RETRY
+      value: Contact Us
     - area: 111
-      value: No Video is ready , please try again later.
+      value: Withdraw
     - area: 112
-      value: Sorry, the name was used.
+      value: Task Rewards
     - area: 113
-      value: Level up to unlock
+      value: Item Of Use
     - area: 114
-      value: Sorry, you have not enough coins
+      value: Invite Code
     - area: 115
-      value: Sorry, your balance is not enough.
+      value: BIG  WINNER!
     - area: 116
-      value: is not available.
+      value: More tickets you have, more chance to win!
     - area: 117
-      value: Unlock at level 2.
+      value: Congratulations on winning the prize!!
     - area: 118
-      value: "Enter\_complete\_information."
+      value: TRY YOUR LUCK
     - area: 119
-      value: Succeed! We will finish it in 7 working days.
+      value: TAKE YOUR MONEY!
     - area: 120
-      value: Coin reaches the limit. Come back tomorrow.
+      value: Connecting...
     - area: 121
-      value: The reward has been claimed.
+      value: ERROR
     - area: 122
-      value: Abnormal behavior, try again later.
+      value: Network connection is unavailable, please check network settings.
     - area: 123
-      value: Found historical records, data is being updated.
+      value: RETRY
     - area: 124
+      value: No Video is ready , please try again later.
+    - area: 125
+      value: Sorry, the name was used.
+    - area: 126
+      value: Level up to unlock
+    - area: 127
+      value: Sorry, you have not enough coins
+    - area: 128
+      value: Sorry, your balance is not enough.
+    - area: 129
+      value: is not available.
+    - area: 130
+      value: Unlock at level 2.
+    - area: 131
+      value: "Enter\_complete\_information."
+    - area: 132
+      value: Succeed! We will finish it in 7 working days.
+    - area: 133
+      value: Coin reaches the limit. Come back tomorrow.
+    - area: 134
+      value: The reward has been claimed.
+    - area: 135
+      value: Abnormal behavior, try again later.
+    - area: 136
+      value: Found historical records, data is being updated.
+    - area: 137
+      value: Copy complete
+    - area: 138
+      value: "You\_must\_wait\_for\_the\_review\_to\_end"
+    - area: 139
       value: '1.Spin and match 3 X symbols to win coin or other reward.
 
         2.Google
@@ -289,11 +319,11 @@ MonoBehaviour:
         Spin is a sweepstakes application.
 
         4.For offical rules, please see:'
-    - area: 125
+    - area: 140
       value: How to win
-    - area: 126
+    - area: 141
       value: TERMS & CONDITIONS
-    - area: 127
+    - area: 142
       value: '1.There is a prize of 1,000 USD in the LuckyDraw every day.
 
         2.You
@@ -305,7 +335,7 @@ MonoBehaviour:
         will be done.
 
         4.There will be many winners with different bonus.'
-    - area: 128
+    - area: 143
       value: '1st $200
 
         2nd - 3th $100
@@ -314,7 +344,7 @@ MonoBehaviour:
 
         17nd
         - 50th $10'
-    - area: 129
+    - area: 144
       value: "1.You can earn points by friends watch ad and complete tasks, and you
         can also get points from a friends of friends.\n<color=#FFE200>We will give
         75% of AD revenue to players. So, You will earn 50% of your close friends\u2019
@@ -322,18 +352,18 @@ MonoBehaviour:
         day UTC 10:00:00, you can review yesterday\u2019s income from friends.\n3.Points
         can be exchanged for money, 100,000 points equals 1 USD.\n4.<color=#FFE200>You
         can earn HUGE Pts by completing the tasks in the offer.</color>"
-    - area: 130
+    - area: 145
       value: "1.Play slots to get experience for upgrade level.\n2.Upgrade the level
         will unlock new avatars and get tickets, also increase the multiplier of
         getting tickets.\n3.The ticket multiplier is used to increase tickets obtained\_by
         slots."
-    - area: 131
+    - area: 146
       value: "1.Win the jackpot and other cash prizes in the Lucky Draw.\n\n2.Compete
         every day in the task and win cash directly!\n\n3.Refer friends and get direct
         cash and lots of tickets!\n\n4.Spin slots can win cash daily! \n"
-    - area: 132
+    - area: 147
       value: HOW TO MAKE MONEY
-    - area: 133
+    - area: 148
       value: '1.Complete the sponsor''s task and get a lot of points.
 
         2.After
@@ -343,10 +373,77 @@ MonoBehaviour:
         3.If your close
         friends complete the task, you will earn extra 50% points, and extra 25% 
         from unfamiliar friends.'
-    - area: 134
+    - area: 149
       value: LET'S  PLAY!
-    - area: 135
+    - area: 150
+      value: '1.You can withdraw 50$ after sign-in 15 days continuously.
+
+        2.Daily
+        sign-in can get extra bonus, withdraw by it!
+
+        3.We never pity cheaters,
+        we will erase all data of cheaters.
+
+        4.Since wrong information cause
+        failed pay,We won''t be responsible.'
+    - area: 151
+      value: '1.Share the invite page to your friends. Only if your friends download
+        through your link, install the game, your invitation is counted as a success.
+
+        2.You
+        can only invite users who have not played the game before.Once your friends
+        finish the tasks, you can get the full benefits of referring bonus.
+
+        3.Declaration:
+        In order to protect users'' benefits, users who use improper way to invite
+        people will be disqualified to take part in this event and correspondent
+        rewards will be deducted.'
+    - area: 152
+      value: "To get cash, the invited friends need to reach the corresponding level
+        every day.\n1.$0.01\u2014\u20141st day\uFF1ALv3\n2.$0.01\u2014\u20142nd day\uFF1ALv8\n3.$0.01\u2014\u20143rd
+        day\uFF1ALv10\n4.$0.01\u2014\u20144th day\uFF1ALv15\n5.$0.01\u2014\u20145th
+        day\uFF1ALv20\n6.$0.01\u2014\u20146th day\uFF1ALv25\n7.$0.44\u2014\u20147th
+        day\uFF1ALv30"
+    - area: 153
+      value: RULES
+    - area: 154
+      value: REWARDS DESCRIPTION
+    - area: 155
       value: I earned $5 in the game, you can try it.
+    - area: 156
+      value: 'Extra bonus for last day:'
+    - area: 157
+      value: Daily sign in
+    - area: 158
+      value: Check in
+    - area: 159
+      value: "You\_can't\_get\_$50\_cause\_failed\_of\_14-Day\_task,\_withdraw\_bonus\_left."
+    - area: 160
+      value: Day {0}
+    - area: 161
+      value: CHECK IN TASK
+    - area: 162
+      value: You need to complete task before check in
+    - area: 163
+      value: End in {0}
+    - area: 164
+      value: Enter invite code
+    - area: 165
+      value: Ok
+    - area: 166
+      value: Close in {0}
+    - area: 167
+      value: code is not exist.
+    - area: 168
+      value: bind succeed.
+    - area: 169
+      value: RETURN
+    - area: 170
+      value: Do you want to give up rest time of game?
+    - area: 171
+      value: NO
+    - area: 172
+      value: YES
   - country: 1
     value_allAreas:
     - area: 0
@@ -410,18 +507,20 @@ MonoBehaviour:
     - area: 21
       value: "\u041E\u0411\u041D\u0410\u041B\u0418\u0427\u0418\u0422\u042C"
     - area: 22
-      value: "\u041C\u043E\u0438 \u0434\u0440\u0443\u0437\u044C\u044F:"
+      value: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439
+        \u0438 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0434\u043E
+        <size={0}><color=#FF5952>${1}</color></size>"
     - area: 23
-      value: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439"
+      value: "\u041C\u043E\u0438 \u0434\u0440\u0443\u0437\u044C\u044F:"
     - area: 24
+      value: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439"
+    - area: 25
       value: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u0435 \u0434\u0440\u0443\u0437\u0435\u0439
         \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C"
-    - area: 25
-      value: "\u041C\u043E\u0439 \u0434\u043E\u0445\u043E\u0434"
     - area: 26
-      value: "\u0432\u0447\u0435\u0440\u0430\u0448\u043D\u0438\u0439 \u0434\u043E\u0445\u043E\u0434"
+      value: "\u0412\u0447\u0435\u0440\u0430"
     - area: 27
-      value: "\u0441\u0443\u043C\u043C\u0430\u0440\u043D\u044B\u0439 \u0434\u043E\u0445\u043E\u0434"
+      value: "\u0412\u0441\u0435\u0433\u043E"
     - area: 28
       value: "\u0414\u0435\u0442\u0430\u043B\u0438 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0433\u043E
         \u0434\u043D\u044F"
@@ -442,235 +541,272 @@ MonoBehaviour:
       value: "\u0414\u0440\u0443\u0437\u044C\u044F,\u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u043D\u044B\u0435
         \u0432\u0430\u0448\u0438\u043C\u0438 \u0434\u0440\u0443\u0437\u044C\u044F\u043C\u0438"
     - area: 34
-      value: "\u041C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C"
+      value: "\u041F\u0420\u0418\u0413\u041B\u0410\u0428\u0415\u041D\u0418\u0415"
     - area: 35
-      value: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
+      value: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 $ 0,5 \u0437\u0430
+        \u043F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u0435"
     - area: 36
-      value: "\u044D\u043A\u0441\u0442\u0440\u0430"
+      value: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C \u0438
+        \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0439"
     - area: 37
-      value: "\u0410\u0432\u0430\u0442\u0430\u0440"
+      value: "\u041C\u043E\u0439 \u0438\u043D\u0432\u0430\u0439\u0442-\u043A\u043E\u0434:"
     - area: 38
-      value: "\u043D\u043E\u0432\u044B\u0439"
+      value: "\u043A\u043E\u043F\u0438\u044F"
     - area: 39
-      value: "\u0438\u043C\u0435\u0442\u044C"
+      value: "\u0438\u043C\u044F"
     - area: 40
-      value: "\u0417\u043E\u043B\u043E\u0442\u043E"
+      value: "\u0442\u043E\u043A"
     - area: 41
-      value: "\u041D\u0430\u043B\u0438\u0447\u043D\u044B\u0435"
+      value: "\u041E\u0436\u0438\u0434\u0430\u0442\u044C"
     - area: 42
-      value: "\u0411\u0438\u043B\u0435\u0442"
+      value: "\u041D\u0435\u0442 \u0437\u0430\u043F\u0438\u0441\u0435\u0439"
     - area: 43
+      value: "\u0441\u0441\u044B\u043B\u0430\u044F\u0441\u044C \u0431\u043E\u043D\u0443\u0441:"
+    - area: 44
+      value: "\u041C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C"
+    - area: 45
+      value: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
+    - area: 46
+      value: "\u044D\u043A\u0441\u0442\u0440\u0430"
+    - area: 47
+      value: "\u0410\u0432\u0430\u0442\u0430\u0440"
+    - area: 48
+      value: "\u043D\u043E\u0432\u044B\u0439"
+    - area: 49
+      value: "\u0438\u043C\u0435\u0442\u044C"
+    - area: 50
+      value: "\u0417\u043E\u043B\u043E\u0442\u043E"
+    - area: 51
+      value: "\u041D\u0430\u043B\u0438\u0447\u043D\u044B\u0435"
+    - area: 52
+      value: "\u0411\u0438\u043B\u0435\u0442"
+    - area: 53
       value: "\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u0442\u0441\u044F
         ..."
-    - area: 44
+    - area: 54
       value: "\u0417\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0439\u0442\u0435
         \u0431\u0430\u043B\u043B\u044B"
-    - area: 45
+    - area: 55
       value: "\u0421\u041F\u041E\u041D\u0421\u041E\u0420\u0421\u0422\u0412\u041E"
-    - area: 46
+    - area: 56
       value: "\u041C\u041E\u041D\u0415\u0422\u042B"
-    - area: 47
+    - area: 57
       value: "\u0411\u0418\u041B\u0415\u0422\u042B"
-    - area: 48
+    - area: 58
       value: "\u0411\u0415\u0421\u041F\u041B\u0410\u0422\u041D\u042B\u0415 \u0421\u041B\u041E\u0422\u042B"
-    - area: 49
+    - area: 59
       value: "\u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C"
-    - area: 50
+    - area: 60
       value: "\u0417\u0410\u0414\u0410\u0427\u0418"
-    - area: 51
+    - area: 61
       value: "\u0414\u041E\u0421\u0422\u0418\u0416\u0415\u041D\u0418\u042F"
-    - area: 52
+    - area: 62
       value: "\u0418\u0433\u0440\u043E\u0432\u043E\u0439 \u0430\u0432\u0442\u043E\u043C\u0430\u0442
         {0} \u0440\u0430\u0437"
-    - area: 53
+    - area: 63
       value: "\u0412\u0440\u0430\u0449\u0430\u0442\u044C {0} \u0440\u0430\u0437"
-    - area: 54
+    - area: 64
       value: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C {0} \u043A\u043E\u0440\u043E\u0442\u043A\u0438\u0445
         \u0432\u0438\u0434\u0435\u043E"
-    - area: 55
+    - area: 65
       value: "\u0421\u043D\u044F\u0442\u044C \u0434\u0435\u043D\u044C\u0433\u0438
         {0} \u0440\u0430\u0437"
-    - area: 56
+    - area: 66
       value: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441
         PayPal"
-    - area: 57
+    - area: 67
       value: "\u0421\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0435
         \u043C\u043E\u043D\u0435\u0442\u044B {0}"
-    - area: 58
+    - area: 68
       value: "\u0412\u044B\u0438\u0433\u0440\u0430\u0439\u0442\u0435 \u0443\u0434\u0430\u0447\u043D\u044B\u0439
         \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448"
-    - area: 59
+    - area: 69
       value: "\u0417\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0439\u0442\u0435
         \u0431\u0438\u043B\u0435\u0442\u044B {0} \u0440\u0430\u0437"
-    - area: 60
-      value: "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C {0} \u043C\u043E\u043D\u0435\u0442"
-    - area: 61
-      value: "\u0411\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u044B\u0435 \u0431\u0438\u043B\u0435\u0442\u044B"
-    - area: 62
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
-    - area: 63
-      value: "\u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C"
-    - area: 64
-      value: "\u041F\u0415\u0420\u0415\u0419\u0422\u0418 \u041A"
-    - area: 65
-      value: "\u041F\u0440\u0435\u0442\u0435\u043D\u0437\u0438\u044F"
-    - area: 66
-      value: "\u0421\u0414\u0415\u041B\u0410\u041D\u041D\u042B\u0419"
-    - area: 67
-      value: Offerwall
-    - area: 68
-      value: "\u0420\u0430\u043D\u0433"
-    - area: 69
-      value: "\u043D\u0430\u0433\u0440\u0430\u0434\u0430"
     - area: 70
-      value: "\u0414\u0440\u0443\u0437\u044C\u044F"
+      value: "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C {0} \u043C\u043E\u043D\u0435\u0442"
     - area: 71
-      value: "\u0417\u0430\u0434\u0430\u0447\u0438"
+      value: "\u0411\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u044B\u0435 \u0431\u0438\u043B\u0435\u0442\u044B"
     - area: 72
+      value: "\u041F\u0443\u0441\u0442\u044C {0} \u0431\u043B\u0438\u0437\u043A\u0438\u0435
+        \u0434\u0440\u0443\u0437\u044C\u044F"
+    - area: 73
+      value: "\u041F\u0443\u0441\u0442\u044C {0} \u0431\u043B\u0438\u0437\u043A\u0438\u0435
+        \u0434\u0440\u0443\u0437\u044C\u044F \u0434\u043E\u0441\u0442\u0438\u0433\u0430\u044E\u0442
+        \u043B\u0432 {0}"
+    - area: 74
+      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+    - area: 75
+      value: "\u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C"
+    - area: 76
+      value: "\u041F\u0415\u0420\u0415\u0419\u0422\u0418 \u041A"
+    - area: 77
+      value: "\u041F\u0440\u0435\u0442\u0435\u043D\u0437\u0438\u044F"
+    - area: 78
+      value: "\u0421\u0414\u0415\u041B\u0410\u041D\u041D\u042B\u0419"
+    - area: 79
+      value: Offerwall
+    - area: 80
+      value: "\u0420\u0430\u043D\u0433"
+    - area: 81
+      value: "\u043D\u0430\u0433\u0440\u0430\u0434\u0430"
+    - area: 82
+      value: "\u0414\u0440\u0443\u0437\u044C\u044F"
+    - area: 83
+      value: "\u0417\u0430\u0434\u0430\u0447\u0438"
+    - area: 84
       value: "\u0420\u0415\u0419\u0422\u0418\u041D\u0413 \u041F\u041E\u0421\u041B\u0415\u0414\u041D\u0415\u0413\u041E
         \u0414\u041D\u042F"
-    - area: 73
+    - area: 85
       value: "\u041C\u041D\u0415"
-    - area: 74
+    - area: 86
       value: "\u0421\u0427\u0415\u0422 PAYPAL"
-    - area: 75
+    - area: 87
       value: "\u0418\u043C\u044F PayPal"
-    - area: 76
+    - area: 88
       value: "\u0424\u0430\u043C\u0438\u043B\u0438\u044F PayPal"
-    - area: 77
+    - area: 89
       value: "Paypal \u042D\u043B. \u0430\u0434\u0440\u0435\u0441"
-    - area: 78
+    - area: 90
       value: "\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u0432\u043D\u0438\u043C\u0430\u0442\u0435\u043B\u044C\u043D\u043E
         \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0441\u0447\u0435\u0442
         PayPal."
-    - area: 79
+    - area: 91
       value: "\u041F\u041E\u0414\u0422\u0412\u0415\u0420\u0414\u0418\u0422\u042C"
-    - area: 80
+    - area: 92
       value: "\xB7 \u0412\u041E\u0417\u041C\u041E\u0416\u041D\u0410\u042F \u041F\u0420\u0418\u0427\u0418\u041D\u0410
         \xB7"
-    - area: 81
+    - area: 93
       value: "1.\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0431\u0430\u043B\u0430\u043D\u0441
         \u0438\u0433\u0440\u043E\u0432\u043E\u0433\u043E \u0441\u0447\u0435\u0442\u0430\n2.\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435
         \u0441\u0447\u0435\u0442 PayPal\n3.\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435
         \u0447\u0438\u0441\u0442\u0443\u044E \u0421\u043E\u0435\u0434\u0438\u043D\u0438\u0442\u044C\n4.Is,\u0447\u0442\u043E
         \u0432\u0430\u0448 PayPal \u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D"
-    - area: 82
+    - area: 94
       value: "\u041F\u043E \u043B\u044E\u0431\u044B\u043C \u0432\u043E\u043F\u0440\u043E\u0441\u0430\u043C,
         \u0441\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438:\n<color=#1A91D0>
         hispin.support@luckyclub.vip</color>"
-    - area: 83
+    - area: 95
       value: "\u041E\u0426\u0415\u041D\u0418\u0422\u0415 \u041D\u0410\u0421"
-    - area: 84
+    - area: 96
       value: "\u041F\u043E\u0434\u0434\u0435\u0440\u0436\u0438\u0442\u0435 \u043D\u0430\u0441
         \u043E\u0446\u0435\u043D\u043A\u043E\u0439 5 \u0417\u0412\u0415\u0417\u0414"
-    - area: 85
+    - area: 97
       value: "\u0417\u0412\u0415\u0417\u0414\u042B"
-    - area: 86
+    - area: 98
       value: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
-    - area: 87
+    - area: 99
       value: "\u041D\u0415\u0422, \u0421\u041F\u0410\u0421\u0418\u0411\u041E"
-    - area: 88
+    - area: 100
       value: "\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C\_\u0432\_\u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0435"
-    - area: 89
+    - area: 101
       value: "\u041E \u0414\u0410!\n\u0422\u041E\u041A\u0415\u041D \u0425\u041E\u041B!"
-    - area: 90
+    - area: 102
       value: "\u042D\u0422\u041E \u042D\u041F\u0418\u0427\u0415\u0421\u041A\u041E\u0415!\n\u0412\u042B
         \u0412\u042B\u0418\u0413\u0420\u0410\u041B\u0418 \u0411\u0418\u041B\u0415\u0422!"
-    - area: 91
+    - area: 103
       value: "\u0412\u042B \u0414\u041E\u0421\u0422\u0418\u0413\u0410\u0415\u0422\u0415
         LV.{0}!\n\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 \u044D\u0442\u0438
         \u043D\u0430\u0433\u0440\u0430\u0434\u044B!"
-    - area: 92
+    - area: 104
       value: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043E\u0431\u043D\u0430\u043B\u0438\u0447\u0438\u0442\u044C
         \u0434\u043E\u043B\u043B\u0430\u0440"
-    - area: 93
+    - area: 105
       value: "\u0418\u0433\u0440\u0430\u0439\u0442\u0435 \u0432 \u0441\u043B\u043E\u0442\u044B
         \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0439\u0442\u0435 \u0431\u0438\u043B\u0435\u0442\u044B"
-    - area: 94
+    - area: 106
       value: "\u0418\u0433\u0440\u0430\u0439\u0442\u0435 \u0432 Lucy Draw \u0441
         \u0431\u0438\u043B\u0435\u0442\u0430\u043C\u0438, \u0447\u0442\u043E\u0431\u044B
         \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C
         \u0434\u0435\u043D\u044C\u0433\u0438. \u0425\u043E\u0440\u043E\u0448\u0430\u044F
         \u041B\u044E\u0441\u0438!"
-    - area: 95
-      value: 
-    - area: 96
+    - area: 107
+      value: "\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435
+        15 \u0434\u043D\u0435\u0439, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+        \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0434\u0435\u043D\u044C\u0433\u0438!"
+    - area: 108
       value: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u0430
         \u0443\u0441\u043F\u0435\u0448\u043D\u043E"
-    - area: 97
+    - area: 109
       value: "\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0430"
-    - area: 98
+    - area: 110
       value: "\u0421\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438"
-    - area: 99
+    - area: 111
       value: "\u0421\u043D\u044F\u0442\u044C \u0441\u043E \u0441\u0447\u0435\u0442\u0430"
-    - area: 100
+    - area: 112
       value: "\u043D\u0430\u0433\u0440\u0430\u0434\u044B \u0437\u0430 \u043C\u0438\u0441\u0441\u0438\u044E"
-    - area: 101
+    - area: 113
       value: "\u041F\u0440\u0430\u0432\u0438\u043B\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F"
-    - area: 102
+    - area: 114
+      value: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C \u043A\u043E\u0434"
+    - area: 115
       value: "\u0411\u041E\u041B\u042C\u0428\u041E\u0419 \u041F\u041E\u0411\u0415\u0414\u0418\u0422\u0415\u041B\u042C!"
-    - area: 103
+    - area: 116
       value: "\u0411\u043E\u043B\u044C\u0448\u0435 \u0431\u0438\u043B\u0435\u0442\u043E\u0432
         - \u0431\u043E\u043B\u044C\u0448\u0435 \u0448\u0430\u043D\u0441\u043E\u0432
         \u0432\u044B\u0438\u0433\u0440\u0430\u0442\u044C!"
-    - area: 104
+    - area: 117
       value: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u0435\u043C
         \u0441 \u0432\u044B\u0438\u0433\u0440\u044B\u0448\u0435\u043C!"
-    - area: 105
+    - area: 118
       value: "\u0418\u0421\u041F\u042B\u0422\u0410\u0419 \u0423\u0414\u0410\u0427\u0423"
-    - area: 106
+    - area: 119
       value: "\u041F\u0420\u0418\u041D\u0418\u041C\u0410\u0419\u0422\u0415 \u0414\u0415\u041D\u042C\u0413\u0418!"
-    - area: 107
+    - area: 120
       value: "\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435\_..."
-    - area: 108
+    - area: 121
       value: "\u043E\u0448\u0438\u0431\u043A\u0430"
-    - area: 109
+    - area: 122
       value: "\u0421\u0435\u0442\u0435\u0432\u043E\u0435\_\u0441\u043E\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u0435\_\u043D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E,\_\u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435\_\u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\_\u0441\u0435\u0442\u0438."
-    - area: 110
+    - area: 123
       value: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
-    - area: 111
+    - area: 124
       value: "\u0412\u0438\u0434\u0435\u043E \u043D\u0435 \u0433\u043E\u0442\u043E\u0432\u043E,
         \u043F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435 \u043F\u043E\u043F\u044B\u0442\u043A\u0443
         \u043F\u043E\u0437\u0436\u0435."
-    - area: 112
+    - area: 125
       value: "\u0418\u0437\u0432\u0438\u043D\u0438\u0442\u0435, \u044D\u0442\u043E
         \u0438\u043C\u044F \u0431\u044B\u043B\u043E \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u043E."
-    - area: 113
+    - area: 126
       value: "\u043E\u0431\u043D\u043E\u0432\u0438\u0442\u044C, \u0447\u0442\u043E\u0431\u044B
         \u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
-    - area: 114
+    - area: 127
       value: "\u0418\u0437\u0432\u0438\u043D\u0438\u0442\u0435, \u0443 \u0432\u0430\u0441
         \u043D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E
         \u043C\u043E\u043D\u0435\u0442"
-    - area: 115
+    - area: 128
       value: "\u041A \u0441\u043E\u0436\u0430\u043B\u0435\u043D\u0438\u044E, \u0432\u0430\u0448
         \u0431\u0430\u043B\u0430\u043D\u0441 \u043D\u0435 \u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E."
-    - area: 116
+    - area: 129
       value: "\u043D\u0435 \u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D."
-    - area: 117
+    - area: 130
       value: "\u0420\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u0443\u0435\u0442\u0441\u044F
         \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435 2."
-    - area: 118
+    - area: 131
       value: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435\_\u043F\u043E\u043B\u043D\u0443\u044E\_\u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E."
-    - area: 119
+    - area: 132
       value: "\u041F\u0440\u0435\u0443\u0441\u043F\u0435\u0442\u044C! \u0417\u0430\u043A\u043E\u043D\u0447\u0438\u043C
         \u0437\u0430 7 \u0440\u0430\u0431\u043E\u0447\u0438\u0445 \u0434\u043D\u0435\u0439."
-    - area: 120
+    - area: 133
       value: "\u041C\u043E\u043D\u0435\u0442\u0430 \u0434\u043E\u0441\u0442\u0438\u0433\u0430\u0435\u0442
         \u043F\u0440\u0435\u0434\u0435\u043B\u0430. \u041F\u0440\u0438\u0445\u043E\u0434\u0438
         \u0437\u0430\u0432\u0442\u0440\u0430."
-    - area: 121
+    - area: 134
       value: "\u041D\u0430\u0433\u0440\u0430\u0434\u0430 \u0431\u044B\u043B\u0430
         \u0432\u043E\u0441\u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0430."
-    - area: 122
+    - area: 135
       value: "\u041D\u0435\u043D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E\u0435
         \u043F\u043E\u0432\u0435\u0434\u0435\u043D\u0438\u0435, \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435
         \u043F\u043E\u0437\u0436\u0435."
-    - area: 123
+    - area: 136
       value: "\u041D\u0430\u0439\u0434\u0435\u043D\u044B \u0438\u0441\u0442\u043E\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u0435
         \u0437\u0430\u043F\u0438\u0441\u0438, \u0434\u0430\u043D\u043D\u044B\u0435
         \u043E\u0431\u043D\u043E\u0432\u043B\u044F\u044E\u0442\u0441\u044F."
-    - area: 124
+    - area: 137
+      value: "\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
+    - area: 138
+      value: 
+    - area: 139
       value: "1.Spin \u0438 \u043C\u0430\u0442\u0447 3 X \u0441\u0438\u043C\u0432\u043E\u043B\u043E\u0432,
         \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u0438\u0433\u0440\u0430\u0442\u044C
         \u043C\u043E\u043D\u0435\u0442\u044B \u0438\u043B\u0438 \u0438\u043D\u043E\u0435
@@ -682,11 +818,11 @@ MonoBehaviour:
         Hi Spin.\n3.Hi \u0421\u043F\u0438\u043D \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
         \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435\u043C \u0442\u043E\u0442\u0430\u043B\u0438\u0437\u0430\u0442\u043E\u0440\u043E\u0432.\n4.\u041E\u0444\u0438\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0435
         \u043F\u0440\u0430\u0432\u0438\u043B\u0430 \u0441\u043C."
-    - area: 125
+    - area: 140
       value: "\u041A\u0430\u043A \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u044C"
-    - area: 126
+    - area: 141
       value: "\u0421\u0420\u041E\u041A\u0418 \u0418 \u0423\u0421\u041B\u041E\u0412\u0418\u042F"
-    - area: 127
+    - area: 142
       value: "1.\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442 \u043F\u0440\u0438\u0437
         1000 \u0434\u043E\u043B\u043B\u0430\u0440\u043E\u0432 \u0432 LuckyDraw \u043A\u0430\u0436\u0434\u044B\u0439
         \u0434\u0435\u043D\u044C.\n2.\u0412\u044B \u0434\u043E\u043B\u0436\u043D\u044B
@@ -702,10 +838,10 @@ MonoBehaviour:
         \u0441\u0434\u0435\u043B\u0430\u043D\u043E.\n4.\u0411\u0443\u0434\u0435\u0442
         \u043C\u043D\u043E\u0433\u043E \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u0435\u043B\u0435\u0439
         \u0441 \u0440\u0430\u0437\u043D\u044B\u043C\u0438 \u0431\u043E\u043D\u0443\u0441\u0430\u043C\u0438."
-    - area: 128
+    - area: 143
       value: "1-\u0439 $ 200\n2-3 \u043F\u0440\u0438\u0437 $ 100\n4-16 \u043F\u0440\u0438\u0437
         $ 20\n17-50 \u043F\u0440\u0438\u0437 $ 10"
-    - area: 129
+    - area: 144
       value: "1.\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C
         \u043E\u0447\u043A\u0438, \u043A\u043E\u0433\u0434\u0430 \u0434\u0440\u0443\u0437\u044C\u044F
         \u0441\u043C\u043E\u0442\u0440\u044F\u0442 \u0440\u0435\u043A\u043B\u0430\u043C\u0443
@@ -732,7 +868,7 @@ MonoBehaviour:
         \u041E\u0413\u0420\u041E\u041C\u041D\u042B\u0419 \u043E\u0447, \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0432
         \u0437\u0430\u0434\u0430\u0447\u0438 \u0432 \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0435\u043D\u0438\u0438.
         </color>"
-    - area: 130
+    - area: 145
       value: "1.\u0418\u0433\u0440\u0430\u0439\u0442\u0435 \u0432 \u0441\u043B\u043E\u0442\u044B,
         \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
         \u043E\u043F\u044B\u0442 \u0434\u043B\u044F \u043F\u043E\u0432\u044B\u0448\u0435\u043D\u0438\u044F
@@ -747,7 +883,7 @@ MonoBehaviour:
         \u0434\u043B\u044F \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u044F
         \u0431\u0438\u043B\u0435\u0442\u043E\u0432, \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u043D\u044B\u0445
         \u043F\u043E \u0441\u043B\u043E\u0442\u0430\u043C \xAB."
-    - area: 131
+    - area: 146
       value: "1.\u0412\u044B\u0438\u0433\u0440\u0430\u0439\u0442\u0435 \u0434\u0436\u0435\u043A\u043F\u043E\u0442
         \u0438 \u0434\u0440\u0443\u0433\u0438\u0435 \u0434\u0435\u043D\u0435\u0436\u043D\u044B\u0435
         \u043F\u0440\u0438\u0437\u044B \u0432 Lucky Draw.\n\n2.Compete \u043A\u0430\u0436\u0434\u044B\u0439
@@ -760,9 +896,9 @@ MonoBehaviour:
         \u0441\u043E \u0432\u0440\u0430\u0449\u0435\u043D\u0438\u0435\u043C \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u044E\u0442
         \u0432\u044B\u0438\u0433\u0440\u044B\u0432\u0430\u0442\u044C \u0434\u0435\u043D\u044C\u0433\u0438
         \u0435\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E!"
-    - area: 132
+    - area: 147
       value: "\u041A\u0410\u041A\_\u0417\u0410\u0420\u0410\u0411\u041E\u0422\u0410\u0422\u042C"
-    - area: 133
+    - area: 148
       value: "1.Complete \u0437\u0430\u0434\u0430\u0447\u0430 \u0441\u043F\u043E\u043D\u0441\u043E\u0440\u0430
         \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043C\u043D\u043E\u0433\u043E
         \u043E\u0447\u043A\u043E\u0432.\n2.\u041F\u043E\u0441\u043B\u0435 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u044F
@@ -778,10 +914,117 @@ MonoBehaviour:
         50% \u043E\u0447\u043A\u043E\u0432 \u0438 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
         25% \u043E\u0442 \u043D\u0435\u0437\u043D\u0430\u043A\u043E\u043C\u044B\u0445
         \u0434\u0440\u0443\u0437\u0435\u0439."
-    - area: 134
+    - area: 149
       value: "\u041F\u041E\u0418\u0413\u0420\u0410\u0415\u041C!"
-    - area: 135
+    - area: 150
+      value: "1.\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043D\u044F\u0442\u044C
+        50 $ \u043F\u043E\u0441\u043B\u0435 \u0432\u0445\u043E\u0434\u0430 \u0432
+        \u043D\u0435\u043F\u0440\u0435\u0440\u044B\u0432\u043D\u043E 15 \u0434\u043D\u0435\u0439.\n2.\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E
+        \u0432\u0445\u043E\u0434 \u043C\u043E\u0436\u0435\u0442 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
+        \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439
+        \u0431\u043E\u043D\u0443\u0441, \u0441\u043D\u044F\u0442\u044C \u0435\u0433\u043E!\n3.\u041C\u044B
+        \u043D\u0438\u043A\u043E\u0433\u0434\u0430 \u043D\u0435 \u0436\u0430\u043B\u0443\u0435\u043C
+        \u0447\u0438\u0442\u0435\u0440\u043E\u0432, \u043C\u044B \u0441\u043E\u0442\u0440\u0435\u043C
+        \u0432\u0441\u0435 \u0434\u0430\u043D\u043D\u044B\u0435 \u0447\u0438\u0442\u0435\u0440\u043E\u0432.\n4.\u041F\u043E\u0441\u043A\u043E\u043B\u044C\u043A\u0443
+        \u043D\u0435\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u0430\u044F
+        \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
+        \u043F\u0440\u0438\u0447\u0438\u043D\u043E\u0439 \u043D\u0435\u0443\u0434\u0430\u0447\u043D\u043E\u0439
+        \u043E\u043F\u043B\u0430\u0442\u044B, \u043C\u044B \u043D\u0435 \u043D\u0435\u0441\u0435\u043C
+        \u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u0438."
+    - area: 151
+      value: "1.\u041F\u043E\u0434\u0435\u043B\u0438\u0442\u0435\u0441\u044C \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435\u0439
+        \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u044F \u0441
+        \u0434\u0440\u0443\u0437\u044C\u044F\u043C\u0438. \u0422\u043E\u043B\u044C\u043A\u043E
+        \u0435\u0441\u043B\u0438 \u0432\u0430\u0448\u0438 \u0434\u0440\u0443\u0437\u044C\u044F
+        \u0441\u043A\u0430\u0447\u0438\u0432\u0430\u044E\u0442 \u043F\u043E \u0432\u0430\u0448\u0435\u0439
+        \u0441\u0441\u044B\u043B\u043A\u0435, \u0443\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u044E\u0442
+        \u0438\u0433\u0440\u0443, \u0432\u0430\u0448\u0435 \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435
+        \u0437\u0430\u0441\u0447\u0438\u0442\u044B\u0432\u0430\u0435\u0442\u0441\u044F
+        \u043A\u0430\u043A \u0443\u0441\u043F\u0435\u0448\u043D\u043E\u0435.\n2.\u0412\u044B
+        \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C
+        \u0442\u043E\u043B\u044C\u043A\u043E \u0434\u043B\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439,
+        \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u043D\u0435 \u0438\u0433\u0440\u0430\u043B\u0438
+        \u0432 \u0438\u0433\u0440\u0443 before.Once \u0432\u0430\u0448\u0438\u0445
+        \u0434\u0440\u0443\u0437\u044C\u044F \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C
+        \u0437\u0430\u0434\u0430\u0447\u0438, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+        \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0432\u0441\u0435 \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430
+        \u0432 \u0432\u0438\u0434\u0435 \u0431\u043E\u043D\u0443\u0441\u0430.\n3.\u0417\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0435:
+        \u0432 \u0446\u0435\u043B\u044F\u0445 \u0437\u0430\u0449\u0438\u0442\u044B
+        \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439,
+        \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0438,
+        \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044E\u0442
+        \u043D\u0435\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0439
+        \u0441\u043F\u043E\u0441\u043E\u0431 \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u044F
+        \u043B\u044E\u0434\u0435\u0439, \u0431\u0443\u0434\u0443\u0442 \u0434\u0438\u0441\u043A\u0432\u0430\u043B\u0438\u0444\u0438\u0446\u0438\u0440\u043E\u0432\u0430\u043D\u044B
+        \u0434\u043B\u044F \u0443\u0447\u0430\u0441\u0442\u0438\u044F \u0432 \u044D\u0442\u043E\u043C
+        \u043C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u0438, \u0438
+        \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0435
+        \u043D\u0430\u0433\u0440\u0430\u0434\u044B \u0431\u0443\u0434\u0443\u0442
+        \u0432\u044B\u0447\u0442\u0435\u043D\u044B."
+    - area: 152
+      value: "\u0427\u0442\u043E\u0431\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
+        \u043D\u0430\u043B\u0438\u0447\u043D\u044B\u0435, \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u043D\u044B\u0435
+        \u0434\u0440\u0443\u0437\u044C\u044F \u0434\u043E\u043B\u0436\u043D\u044B
+        \u0435\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0434\u043E\u0441\u0442\u0438\u0433\u0430\u0442\u044C
+        \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0433\u043E
+        \u0443\u0440\u043E\u0432\u043D\u044F.\u0427\u0442\u043E\u0431\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
+        \u043D\u0430\u043B\u0438\u0447\u043D\u044B\u0435, \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u043D\u044B\u0435
+        \u0434\u0440\u0443\u0437\u044C\u044F \u0434\u043E\u043B\u0436\u043D\u044B
+        \u0435\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0434\u043E\u0441\u0442\u0438\u0433\u0430\u0442\u044C
+        \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0433\u043E
+        \u0443\u0440\u043E\u0432\u043D\u044F.\n1.$0.01\u2014\u20141 \u0434\u0435\u043D\u044C
+        \uFF1A3 \u0443\u0440.\n2.$0.01\u2014\u20142 \u0434\u0435\u043D\u044C \uFF1A8
+        \u0443\u0440.\n3.$0.01\u2014\u20143 \u0434\u0435\u043D\u044C \uFF1A10 \u0443\u0440.\n4.$0.01\u2014\u20144
+        \u0434\u0435\u043D\u044C \uFF1A15 \u0443\u0440.\n5.$0.01\u2014\u20145 \u0434\u0435\u043D\u044C
+        \uFF1A20 \u0443\u0440.\n6.$0.01\u2014\u20146 \u0434\u0435\u043D\u044C \uFF1A25
+        \u0443\u0440.\n7.$0.44\u2014\u20147 \u0434\u0435\u043D\u044C \uFF1A30 \u0443\u0440."
+    - area: 153
+      value: "\u041F\u0420\u0410\u0412\u0418\u041B\u0410"
+    - area: 154
+      value: "\u041E\u041F\u0418\u0421\u0410\u041D\u0418\u0415 \u041D\u0410\u0413\u0420\u0410\u0414"
+    - area: 155
       value: "\u042F\_\u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043B\_$\_5\_\u0432\_\u0438\u0433\u0440\u0435,\_\u0432\u044B\_\u043C\u043E\u0436\u0435\u0442\u0435\_\u043F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C."
+    - area: 156
+      value: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439
+        \u0431\u043E\u043D\u0443\u0441 \u0437\u0430 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439
+        \u0434\u0435\u043D\u044C:"
+    - area: 157
+      value: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u044B\u0439 \u0432\u0445\u043E\u0434"
+    - area: 158
+      value: "\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C\u0441\u044F"
+    - area: 159
+      value: "\u0412\u044B \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
+        $ 50 \u043F\u0440\u0438\u0447\u0438\u043D \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C
+        \u0438\u0437 \u0437\u0430\u0434\u0430\u0447\u0438 14-\u0434\u0435\u043D\u044C,
+        \u0432\u044B\u0432\u0435\u0441\u0442\u0438 \u0431\u043E\u043D\u0443\u0441
+        \u0432\u043B\u0435\u0432\u043E."
+    - area: 160
+      value: "\u0414\u0435\u043D\u044C {0}"
+    - area: 161
+      value: "\u041F\u0420\u041E\u0412\u0415\u0420\u0418\u0422\u042C \u0417\u0410\u0414\u0410\u0427\u0423"
+    - area: 162
+      value: "\u0412\u0430\u043C \u043D\u0443\u0436\u043D\u043E \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0442\u044C
+        \u0437\u0430\u0434\u0430\u0447\u0443 \u0434\u043E \u043F\u0440\u0438\u0431\u044B\u0442\u0438\u044F."
+    - area: 163
+      value: "\u041A\u043E\u043D\u0435\u0446 \u0447\u0435\u0440\u0435\u0437 {0}"
+    - area: 164
+      value: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043D\u0432\u0430\u0439\u0442-\u043A\u043E\u0434"
+    - area: 165
+      value: "\u0425\u043E\u0440\u043E\u0448\u043E"
+    - area: 166
+      value: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0432 {0}"
+    - area: 167
+      value: "\u043A\u043E\u0434 \u043D\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442."
+    - area: 168
+      value: "\u043F\u0440\u0438\u0432\u044F\u0437\u0430\u0442\u044C \u0443\u0441\u043F\u0435\u0448\u043D\u043E."
+    - area: 169
+      value: 
+    - area: 170
+      value: 
+    - area: 171
+      value: 
+    - area: 172
+      value: 
   - country: 2
     value_allAreas:
     - area: 0
@@ -831,17 +1074,17 @@ MonoBehaviour:
     - area: 21
       value: "\u30AD\u30E3\u30C3\u30B7\u30E5\u30A2\u30A6\u30C8"
     - area: 22
-      value: "\u79C1\u306E\u53CB\u4EBA\uFF1A"
+      value: "\u53CB\u9054\u3092\u62DB\u5F85\u3057\u3066\u6700\u5927 \u3092\u7A3C\u3054\u3046<size={0}><color=#FF5952>${1}</color></size>"
     - area: 23
-      value: "\u53CB\u9054\u3092\u62DB\u5F85"
+      value: "\u79C1\u306E\u53CB\u4EBA\uFF1A"
     - area: 24
-      value: "\u53D6\u5F97\u3059\u308B\u305F\u3081\u306B\u53CB\u4EBA\u3092\u62DB\u5F85"
+      value: "\u53CB\u9054\u3092\u62DB\u5F85"
     - area: 25
-      value: "\u79C1\u306E\u53CE\u5165"
+      value: "\u53D6\u5F97\u3059\u308B\u305F\u3081\u306B\u53CB\u4EBA\u3092\u62DB\u5F85"
     - area: 26
-      value: "\u6628\u65E5\u306E\u53CE\u5165"
+      value: "\u6628\u65E5"
     - area: 27
-      value: "\u7DCF\u53CE\u5165"
+      value: "\u5408\u8A08"
     - area: 28
       value: "\u6700\u7D42\u65E5\u306E\u8A73\u7D30"
     - area: 29
@@ -855,219 +1098,300 @@ MonoBehaviour:
     - area: 33
       value: "\u53CB\u9054\u304B\u3089\u62DB\u5F85\u3055\u308C\u305F\u53CB\u9054"
     - area: 34
-      value: "\u4E57\u6570"
+      value: "\u62DB\u5F85\u3059\u308B"
     - area: 35
-      value: "\u30EC\u30D9\u30EB"
+      value: "$ 0.5\u3092\u53D6\u5F97\u3059\u308B\u305F\u3081\u306E\u62DB\u5F85"
     - area: 36
-      value: "\u30A8\u30AF\u30B9\u30C8\u30E9"
+      value: "\u62DB\u5F85\uFF06\u7372\u5F97"
     - area: 37
-      value: "\u30A2\u30D0\u30BF\u30FC"
+      value: "\u79C1\u306E\u62DB\u5F85\u30B3\u30FC\u30C9\uFF1A"
     - area: 38
-      value: "\u65B0\u3057\u3044"
+      value: "\u30B3\u30D4\u30FC"
     - area: 39
-      value: "\u5F97\u308B"
+      value: "\u540D"
     - area: 40
-      value: "\u30B4\u30FC\u30EB\u30C9"
+      value: "\u73FE\u5728"
     - area: 41
-      value: "\u73FE\u91D1"
+      value: "\u671F\u5F85\u3059\u308B"
     - area: 42
-      value: "\u30C1\u30B1\u30C3\u30C8"
+      value: "\u8A18\u9332\u306A\u3057"
     - area: 43
-      value: "\u8AAD\u307F\u8FBC\u3093\u3067\u3044\u307E\u3059..."
+      value: "\u53C2\u7167\u30DC\u30FC\u30CA\u30B9\uFF1A"
     - area: 44
-      value: "Pts\u3092\u53D6\u5F97"
+      value: "\u4E57\u6570"
     - area: 45
-      value: "\u30B9\u30DD\u30F3\u30B5\u30FC\u30B7\u30C3\u30D7"
+      value: "\u30EC\u30D9\u30EB"
     - area: 46
-      value: "\u30B3\u30A4\u30F3"
+      value: "\u30A8\u30AF\u30B9\u30C8\u30E9"
     - area: 47
-      value: "\u30C1\u30B1\u30C3\u30C8"
+      value: "\u30A2\u30D0\u30BF\u30FC"
     - area: 48
-      value: "\u7121\u6599\u30B9\u30ED\u30C3\u30C8"
+      value: "\u65B0\u3057\u3044"
     - area: 49
       value: "\u5F97\u308B"
     - area: 50
-      value: "\u30BF\u30B9\u30AF"
+      value: "\u30B4\u30FC\u30EB\u30C9"
     - area: 51
-      value: "\u30A2\u30C1\u30FC\u30D6\u30E1\u30F3\u30C8"
+      value: "\u73FE\u91D1"
     - area: 52
-      value: "\u30B9\u30ED\u30C3\u30C8\u30DE\u30B7\u30F3{0}\u56DE"
+      value: "\u30C1\u30B1\u30C3\u30C8"
     - area: 53
-      value: "\u30B9\u30D4\u30F3{0}\u56DE"
+      value: "\u8AAD\u307F\u8FBC\u3093\u3067\u3044\u307E\u3059..."
     - area: 54
-      value: "{0}\u306E\u77ED\u3044\u30D3\u30C7\u30AA\u3092\u898B\u308B"
+      value: "Pts\u3092\u53D6\u5F97"
     - area: 55
-      value: "{0}\u56DE\u3092\u64A4\u56DE"
+      value: "\u30B9\u30DD\u30F3\u30B5\u30FC\u30B7\u30C3\u30D7"
     - area: 56
-      value: "PayPal\u306E\u4F4F\u6240\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
+      value: "\u30B3\u30A4\u30F3"
     - area: 57
-      value: "\u81EA\u8EAB{0}\u30B3\u30A4\u30F3"
+      value: "\u30C1\u30B1\u30C3\u30C8"
     - area: 58
-      value: "\u30E9\u30C3\u30AD\u30FC\u30C9\u30ED\u30FC\u306B\u52DD\u3064"
+      value: "\u7121\u6599\u30B9\u30ED\u30C3\u30C8"
     - area: 59
-      value: "\u30C1\u30B1\u30C3\u30C8\u3092{0}\u56DE\u7372\u5F97\u3059\u308B"
+      value: "\u5F97\u308B"
     - area: 60
-      value: "{0} \u30B3\u30A4\u30F3\u3092\u904E\u3054\u3057\u307E\u3059"
-    - area: 61
-      value: "\u7121\u6599Ticketshuo"
-    - area: 62
-      value: "\u8CFC\u5165"
-    - area: 63
-      value: "\u53D6\u5F97\u3059\u308B"
-    - area: 64
-      value: "\u306B\u884C\u304F"
-    - area: 65
-      value: "\u8ACB\u6C42"
-    - area: 66
-      value: "\u5B8C\u4E86"
-    - area: 67
-      value: "\u30AA\u30D5\u30A1\u30FC\u30A6\u30A9\u30FC\u30EB"
-    - area: 68
-      value: "\u30E9\u30F3\u30AD\u30F3\u30B0"
-    - area: 69
-      value: "\u666F\u54C1"
-    - area: 70
-      value: "\u53CB\u9054"
-    - area: 71
       value: "\u30BF\u30B9\u30AF"
+    - area: 61
+      value: "\u30A2\u30C1\u30FC\u30D6\u30E1\u30F3\u30C8"
+    - area: 62
+      value: "\u30B9\u30ED\u30C3\u30C8\u30DE\u30B7\u30F3{0}\u56DE"
+    - area: 63
+      value: "\u30B9\u30D4\u30F3{0}\u56DE"
+    - area: 64
+      value: "{0}\u306E\u77ED\u3044\u30D3\u30C7\u30AA\u3092\u898B\u308B"
+    - area: 65
+      value: "{0}\u56DE\u3092\u64A4\u56DE"
+    - area: 66
+      value: "PayPal\u306E\u4F4F\u6240\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
+    - area: 67
+      value: "\u81EA\u8EAB{0}\u30B3\u30A4\u30F3"
+    - area: 68
+      value: "\u30E9\u30C3\u30AD\u30FC\u30C9\u30ED\u30FC\u306B\u52DD\u3064"
+    - area: 69
+      value: "\u30C1\u30B1\u30C3\u30C8\u3092{0}\u56DE\u7372\u5F97\u3059\u308B"
+    - area: 70
+      value: "{0} \u30B3\u30A4\u30F3\u3092\u904E\u3054\u3057\u307E\u3059"
+    - area: 71
+      value: "\u7121\u6599Ticketshuo"
     - area: 72
-      value: "\u6628\u65E5\u306E\u30E9\u30F3\u30AD\u30F3\u30B0"
+      value: "{0}\u4EBA\u306E\u89AA\u3057\u3044\u53CB\u4EBA\u3092\u6240\u6709\u3059\u308B"
     - area: 73
-      value: ME
+      value: "\u6301\u3063\u3066\u3044\u308B{0}\u306E\u89AA\u3057\u3044\u53CB\u4EBA\u304C\u5230\u9054LV
+        {0}"
     - area: 74
-      value: "PAYPAL\u30A2\u30AB\u30A6\u30F3\u30C8"
+      value: "\u8CFC\u5165"
     - area: 75
-      value: "\u30DA\u30A4\u30D1\u30EB\u306E\u540D"
+      value: "\u53D6\u5F97\u3059\u308B"
     - area: 76
-      value: "\u30DA\u30A4\u30D1\u30EB\u306E\u59D3"
+      value: "\u306B\u884C\u304F"
     - area: 77
-      value: "Paypal\u30E1\u30FC\u30EB"
+      value: "\u8ACB\u6C42"
     - area: 78
-      value: "PayPal\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u6CE8\u610F\u6DF1\u304F\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+      value: "\u5B8C\u4E86"
     - area: 79
-      value: "\u78BA\u8A8D"
+      value: "\u30AA\u30D5\u30A1\u30FC\u30A6\u30A9\u30FC\u30EB"
     - area: 80
-      value: "\u30FB\u8003\u3048\u3089\u308C\u308B\u7406\u7531\u30FB"
+      value: "\u30E9\u30F3\u30AD\u30F3\u30B0"
     - area: 81
+      value: "\u666F\u54C1"
+    - area: 82
+      value: "\u53CB\u9054"
+    - area: 83
+      value: "\u30BF\u30B9\u30AF"
+    - area: 84
+      value: "\u6628\u65E5\u306E\u30E9\u30F3\u30AD\u30F3\u30B0"
+    - area: 85
+      value: ME
+    - area: 86
+      value: "PAYPAL\u30A2\u30AB\u30A6\u30F3\u30C8"
+    - area: 87
+      value: "\u30DA\u30A4\u30D1\u30EB\u306E\u540D"
+    - area: 88
+      value: "\u30DA\u30A4\u30D1\u30EB\u306E\u59D3"
+    - area: 89
+      value: "Paypal\u30E1\u30FC\u30EB"
+    - area: 90
+      value: "PayPal\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u6CE8\u610F\u6DF1\u304F\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+    - area: 91
+      value: "\u78BA\u8A8D"
+    - area: 92
+      value: "\u30FB\u8003\u3048\u3089\u308C\u308B\u7406\u7531\u30FB"
+    - area: 93
       value: "1. \u30B2\u30FC\u30E0\u30A2\u30AB\u30A6\u30F3\u30C8\u306E\u6B8B\u9AD8\u3092\u78BA\u8A8D\u3057\u307E\u3059\n2.
         \u30DA\u30A4\u30D1\u30EB\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u78BA\u8A8D\u3057\u307E\u3059\n3.
         \u30CD\u30C3\u30C8\u63A5\u7D9A\u3092\u78BA\u8A8D\u3057\u307E\u3059\n4. \u30DA\u30A4\u30D1\u30EB\u304C\u5229\u7528\u53EF\u80FD\u3067\u3059\u304B"
-    - area: 82
+    - area: 94
       value: "\u8CEA\u554F\u3068\u306E\u79C1\u9054\u306B\u9023\u7D61\n<color=\uFF031A91D0>
         hispin.support@luckyclub.vip</color>"
-    - area: 83
+    - area: 95
       value: "\u79C1\u305F\u3061\u3092\u8A55\u4FA1\u3057\u3066\u304F\u3060\u3055\u3044"
-    - area: 84
+    - area: 96
       value: "5\u3064\u661F\u3092\u8A55\u4FA1\u3057\u3066\u79C1\u305F\u3061\u3092\u30B5\u30DD\u30FC\u30C8\u3057\u3066\u304F\u3060\u3055\u3044"
-    - area: 85
+    - area: 97
       value: "\u30B9\u30BF\u30FC"
-    - area: 86
+    - area: 98
       value: "\u304A\u3081\u3067\u3068\u3046\u3054\u3056\u3044\u307E\u3059"
-    - area: 87
+    - area: 99
       value: "\u7D50\u69CB\u3067\u3059"
-    - area: 88
+    - area: 100
       value: "\u8CA1\u5E03\u306B\u9810\u3051\u308B"
-    - area: 89
+    - area: 101
       value: "\u3042\u3042\u3001\u305D\u3046\u3060\n\u30C8\u30FC\u30AF\u30F3\u30DB\u30FC\u30EB\uFF01"
-    - area: 90
+    - area: 102
       value: "\u305D\u308C\u306F\u58EE\u5927\u3067\u3059\uFF01\n\u3042\u306A\u305F\u306F\u30C1\u30B1\u30C3\u30C8\u3092\u7372\u5F97\u3057\u307E\u3057\u305F\uFF01"
-    - area: 91
+    - area: 103
       value: "\u3042\u306A\u305F\u306FLV.{0}\u306B\u5230\u9054\u3057\u307E\u3059\uFF01\n
         \u3053\u308C\u3089\u306E\u5831\u916C\u3092\u53D7\u3051\u53D6\u308A\u307E\u3059\uFF01"
-    - area: 92
+    - area: 104
       value: "\u3042\u306A\u305F\u306F\u30C9\u30EB\u3092\u73FE\u91D1\u5316\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059"
-    - area: 93
+    - area: 105
       value: "\u30B9\u30ED\u30C3\u30C8\u3092\u30D7\u30EC\u30A4\u3057\u3066\u30C1\u30B1\u30C3\u30C8\u3092\u5165\u624B\u3059\u308B"
-    - area: 94
+    - area: 106
       value: "\u518D\u751F\u30EB\u30FC\u30B7\u30FC\u306F\u3001\u304A\u91D1\u3092\u7A3C\u3050\u305F\u3081\u306B\u30C1\u30B1\u30C3\u30C8\u3092\u63CF\u753B\u3057\u307E\u3059\u3002
         \u30B0\u30C3\u30C9\u30EB\u30FC\u30B7\u30FC\uFF01"
-    - area: 95
-      value: 
-    - area: 96
-      value: "\u53CB\u9054\u3092\u6B63\u5E38\u306B\u62DB\u5F85\u3059\u308B"
-    - area: 97
-      value: "\u8AAD\u307F\u8FBC\u307F\u4E2D"
-    - area: 98
-      value: "\u304A\u554F\u3044\u5408\u308F\u305B"
-    - area: 99
-      value: "\u304A\u91D1\u3092\u5F15\u304D\u51FA\u3059\u306B\u306F"
-    - area: 100
-      value: "\u30BF\u30B9\u30AF\u5831\u916C"
-    - area: 101
-      value: "\u5229\u7528\u898F\u7D04"
-    - area: 102
-      value: "\u30D3\u30C3\u30B0\u30A6\u30A3\u30CA\u30FC\uFF01"
-    - area: 103
-      value: "\u3042\u306A\u305F\u304C\u6301\u3063\u3066\u3044\u308B\u3088\u308A\u591A\u304F\u306E\u30C1\u30B1\u30C3\u30C8\u3001\u3088\u308A\u591A\u304F\u306E\u30C1\u30E3\u30F3\u30B9\uFF01"
-    - area: 104
-      value: "\u5165\u8CDE\u304A\u3081\u3067\u3068\u3046\u3054\u3056\u3044\u307E\u3059!!"
-    - area: 105
-      value: "\u3042\u306A\u305F\u306E\u904B\u3092\u8A66\u3057\u3066\u307F\u3066\u304F\u3060\u3055\u3044"
-    - area: 106
-      value: "\u3042\u306A\u305F\u306E\u304A\u91D1\u3092\u53D6\u308A\u306A\u3055\u3044\uFF01"
     - area: 107
-      value: "\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059..."
+      value: "15\u65E5\u3067\u30C1\u30A7\u30C3\u30AF\u30A4\u30F3\u3059\u308B\u3068\u3001\u304A\u91D1\u3092\u53D7\u3051\u53D6\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059\uFF01"
     - area: 108
-      value: "\u30A8\u30E9\u30FC"
+      value: "\u53CB\u9054\u3092\u6B63\u5E38\u306B\u62DB\u5F85\u3059\u308B"
     - area: 109
-      value: "\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u63A5\u7D9A\u304C\u5229\u7528\u3067\u304D\u307E\u305B\u3093\u3002\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u8A2D\u5B9A\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+      value: "\u8AAD\u307F\u8FBC\u307F\u4E2D"
     - area: 110
-      value: "\u30EA\u30C8\u30E9\u30A4"
+      value: "\u304A\u554F\u3044\u5408\u308F\u305B"
     - area: 111
-      value: "\u30CE\u30FC\u52D5\u753B\u306E\u6E96\u5099\u304C\u3067\u304D\u3066\u3001\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u8A66\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+      value: "\u304A\u91D1\u3092\u5F15\u304D\u51FA\u3059\u306B\u306F"
     - area: 112
-      value: "\u7533\u3057\u8A33\u3042\u308A\u307E\u305B\u3093\u304C\u3001\u540D\u524D\u304C\u4F7F\u7528\u3055\u308C\u307E\u3057\u305F\u3002"
+      value: "\u30BF\u30B9\u30AF\u5831\u916C"
     - area: 113
-      value: "\u30ED\u30C3\u30AF\u3092\u89E3\u9664\u3059\u308B\u305F\u3081\u306B\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
+      value: "\u5229\u7528\u898F\u7D04"
     - area: 114
-      value: "\u3059\u307F\u307E\u305B\u3093\u3001\u30B3\u30A4\u30F3\u304C\u8DB3\u308A\u307E\u305B\u3093"
+      value: "\u62DB\u5F85\u30B3\u30FC\u30C9"
     - area: 115
-      value: "\u7533\u3057\u8A33\u3042\u308A\u307E\u305B\u3093\u304C\u3001\u3042\u306A\u305F\u306E\u30D0\u30E9\u30F3\u30B9\u306F\u5341\u5206\u3067\u306F\u3042\u308A\u307E\u305B\u3093\u3002"
+      value: "\u30D3\u30C3\u30B0\u30A6\u30A3\u30CA\u30FC\uFF01"
     - area: 116
-      value: "\u5229\u7528\u4E0D\u53EF\u3002"
+      value: "\u3042\u306A\u305F\u304C\u6301\u3063\u3066\u3044\u308B\u3088\u308A\u591A\u304F\u306E\u30C1\u30B1\u30C3\u30C8\u3001\u3088\u308A\u591A\u304F\u306E\u30C1\u30E3\u30F3\u30B9\uFF01"
     - area: 117
-      value: "\u30EC\u30D9\u30EB2\u3067\u30ED\u30C3\u30AF\u89E3\u9664\u3002"
+      value: "\u5165\u8CDE\u304A\u3081\u3067\u3068\u3046\u3054\u3056\u3044\u307E\u3059!!"
     - area: 118
-      value: "\u5B8C\u5168\u306A\u60C5\u5831\u3092\u5165\u529B\u3057\u307E\u3059\u3002"
+      value: "\u3042\u306A\u305F\u306E\u904B\u3092\u8A66\u3057\u3066\u307F\u3066\u304F\u3060\u3055\u3044"
     - area: 119
-      value: "\u6210\u529F\uFF01 7\u55B6\u696D\u65E5\u3067\u7D42\u4E86\u3057\u307E\u3059\u3002"
+      value: "\u3042\u306A\u305F\u306E\u304A\u91D1\u3092\u53D6\u308A\u306A\u3055\u3044\uFF01"
     - area: 120
+      value: "\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059..."
+    - area: 121
+      value: "\u30A8\u30E9\u30FC"
+    - area: 122
+      value: "\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u63A5\u7D9A\u304C\u5229\u7528\u3067\u304D\u307E\u305B\u3093\u3002\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u8A2D\u5B9A\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+    - area: 123
+      value: "\u30EA\u30C8\u30E9\u30A4"
+    - area: 124
+      value: "\u30CE\u30FC\u52D5\u753B\u306E\u6E96\u5099\u304C\u3067\u304D\u3066\u3001\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u8A66\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+    - area: 125
+      value: "\u7533\u3057\u8A33\u3042\u308A\u307E\u305B\u3093\u304C\u3001\u540D\u524D\u304C\u4F7F\u7528\u3055\u308C\u307E\u3057\u305F\u3002"
+    - area: 126
+      value: "\u30ED\u30C3\u30AF\u3092\u89E3\u9664\u3059\u308B\u305F\u3081\u306B\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
+    - area: 127
+      value: "\u3059\u307F\u307E\u305B\u3093\u3001\u30B3\u30A4\u30F3\u304C\u8DB3\u308A\u307E\u305B\u3093"
+    - area: 128
+      value: "\u7533\u3057\u8A33\u3042\u308A\u307E\u305B\u3093\u304C\u3001\u3042\u306A\u305F\u306E\u30D0\u30E9\u30F3\u30B9\u306F\u5341\u5206\u3067\u306F\u3042\u308A\u307E\u305B\u3093\u3002"
+    - area: 129
+      value: "\u5229\u7528\u4E0D\u53EF\u3002"
+    - area: 130
+      value: "\u30EC\u30D9\u30EB2\u3067\u30ED\u30C3\u30AF\u89E3\u9664\u3002"
+    - area: 131
+      value: "\u5B8C\u5168\u306A\u60C5\u5831\u3092\u5165\u529B\u3057\u307E\u3059\u3002"
+    - area: 132
+      value: "\u6210\u529F\uFF01 7\u55B6\u696D\u65E5\u3067\u7D42\u4E86\u3057\u307E\u3059\u3002"
+    - area: 133
       value: "\u30B3\u30A4\u30F3\u304C\u9650\u754C\u306B\u9054\u3057\u307E\u3057\u305F\u3002
         \u660E\u65E5\u307E\u305F\u6765\u306A\u3055\u3044\u3002"
-    - area: 121
+    - area: 134
       value: "\u5831\u916C\u306F\u4E3B\u5F35\u3055\u308C\u3066\u3044\u307E\u3059\u3002"
-    - area: 122
+    - area: 135
       value: "\u7570\u5E38\u884C\u52D5\u3001\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u8A66\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
-    - area: 123
+    - area: 136
       value: "\u6B74\u53F2\u7684\u306A\u8A18\u9332\u3092\u767A\u898B\u3057\u3001\u30C7\u30FC\u30BF\u304C\u66F4\u65B0\u3055\u308C\u3066\u3044\u307E\u3059\u3002"
-    - area: 124
+    - area: 137
+      value: "\u30B3\u30D4\u30FC\u30B3\u30F3\u30D7\u30EA\u30FC\u30C8"
+    - area: 138
+      value: 
+    - area: 139
       value: "1.3\u3064\u306EX\u30B7\u30F3\u30DC\u30EB\u3092\u30B9\u30D4\u30F3\u3057\u3066\u4E00\u81F4\u3055\u305B\u3001\u30B3\u30A4\u30F3\u307E\u305F\u306F\u305D\u306E\u4ED6\u306E\u5831\u916C\u3092\u7372\u5F97\u3057\u307E\u3059\u3002\n2.Google\u306F\u30B9\u30DD\u30F3\u30B5\u30FC\u3067\u306F\u306A\u304F\u3001HiSpin\u306E\u61F8\u8CDE\u3084\u8CDE\u54C1\u306E\u62BD\u9078\u306B\u53C2\u52A0\u3057\u3066\u3044\u307E\u3059\u3002\n3.Hi\u30B9\u30D4\u30F3\u306F\u61F8\u8CDE\u30A2\u30D7\u30EA\u3067\u3059\u3002\n4.\u516C\u5F0F\u898F\u5247\u306B\u3064\u3044\u3066\u306F\u3001\u4EE5\u4E0B\u3092\u53C2\u7167\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
-    - area: 125
+    - area: 140
       value: "\u52DD\u3064\u65B9\u6CD5"
-    - area: 126
+    - area: 141
       value: "\u5229\u7528\u898F\u7D04"
-    - area: 127
+    - area: 142
       value: "1.LuckyDraw\u306B\u306F\u6BCE\u65E51,000\u7C73\u30C9\u30EB\u306E\u8CDE\u91D1\u304C\u3042\u308A\u307E\u3059\u3002\n2.\u30E9\u30C3\u30AD\u30FC\u30C9\u30ED\u30FC\u306B\u53C2\u52A0\u3059\u308B\u306B\u306F\u3001{0}\u679A\u306E\u30C1\u30B1\u30C3\u30C8\u304C\u5FC5\u8981\u3067\u3059\u3002
         \u3042\u306A\u305F\u304C\u6301\u3063\u3066\u3044\u308B\u3088\u308A\u591A\u304F\u306E\u30C1\u30B1\u30C3\u30C8\u3001\u3088\u308A\u591A\u304F\u306E\u30C1\u30E3\u30F3\u30B9\u3002\n3.\u6BCE\u65E508\uFF1A00\uFF1A00UTC\u306B\u3001\u3059\u3079\u3066\u306E\u62BD\u9078\u30C1\u30B1\u30C3\u30C8\u304C\u81EA\u52D5\u7684\u306B\u8CDE\u91D1\u30D7\u30FC\u30EB\u306B\u5165\u308C\u3089\u308C\u307E\u3059\u3068\u30C9\u30ED\u30FC\u304C\u5B8C\u4E86\u3057\u307E\u3059\u3002\n4.\u5225\u306E\u30DC\u30FC\u30CA\u30B9\u3092\u6301\u3064\u591A\u304F\u306E\u52DD\u8005\u304C\u3042\u308B\u3067\u3057\u3087\u3046\u3002"
-    - area: 128
+    - area: 143
       value: "\u6700\u521D\u306E$ 200\n2\u4F4D-3\u4F4D $ 100\n4\u4F4D-16\u4F4D  $
         20\n17\u4F4D-50\u4F4D $ 10"
-    - area: 129
+    - area: 144
       value: "1.\u53CB\u9054\u304C\u5E83\u544A\u3092\u898B\u3066\u30BF\u30B9\u30AF\u3092\u5B8C\u4E86\u3059\u308B\u3053\u3068\u3067\u30DD\u30A4\u30F3\u30C8\u3092\u7372\u5F97\u3067\u304D\u307E\u3059\u3002\u307E\u305F\u3001\u53CB\u9054\u306E\u53CB\u9054\u304B\u3089\u30DD\u30A4\u30F3\u30C8\u3092\u7372\u5F97\u3059\u308B\u3053\u3068\u3082\u3067\u304D\u307E\u3059\u3002\n<color=\uFF03FFE200>2.\u79C1\u305F\u3061\u306F\u3001\u30D7\u30EC\u30A4\u30E4\u30FC\u306B\u5E83\u544A\u53CE\u5165\u306E75\uFF05\u3092\u4E0E\u3048\u307E\u3059\u3002
         \u3064\u307E\u308A\u3001\u89AA\u3057\u3044\u53CB\u4EBA\u306EAD\u53CE\u76CA\u306E50\uFF05\u3068\u3001\u306A\u3058\u307F\u306E\u306A\u3044\u53CB\u4EBA\u306EAD\u53CE\u76CA\u306E25\uFF05\u3092\u7372\u5F97\u3067\u304D\u307E\u3059\u3002</color>\n3.\u6BCE\u65E5UTC10\uFF1A00\uFF1A00\u3001\u53CB\u9054\u304B\u3089\u306E\u6628\u65E5\u306E\u53CE\u5165\u3092\u78BA\u8A8D\u3067\u304D\u307E\u3059\u3002\n\u30DD\u30A4\u30F3\u30C8\u306F\u304A\u91D1\u3068\u4EA4\u63DB\u3067\u304D\u307E\u3059\u3002100,000\u30DD\u30A4\u30F3\u30C8\u306F1\u7C73\u30C9\u30EB\u306B\u76F8\u5F53\u3057\u307E\u3059\u3002\n4.<color=\uFF03FFE200>\u30AA\u30D5\u30A1\u30FC\u306E\u30BF\u30B9\u30AF\u3092\u5B8C\u4E86\u3059\u308B\u3068\u3001\u5DE8\u5927\u306A\u30DD\u30A4\u30F3\u30C8\u3092\u7372\u5F97\u3067\u304D\u307E\u3059\u3002</color>"
-    - area: 130
+    - area: 145
       value: "1.\u300C\u30B9\u30ED\u30C3\u30C8\u3092\u30D7\u30EC\u30A4\u3057\u3066\u3001\u30A2\u30C3\u30D7\u30B0\u30EC\u30FC\u30C9\u30EC\u30D9\u30EB\u306E\u7D4C\u9A13\u3092\u7A4D\u3093\u3067\u304F\u3060\u3055\u3044\u3002\n2.\u30A2\u30C3\u30D7\u30B0\u30EC\u30FC\u30C9\u30EC\u30D9\u30EB\u306F\u3001\u65B0\u3057\u3044\u30A2\u30D0\u30BF\u30FC\u306E\u30ED\u30C3\u30AF\u3092\u89E3\u9664\u3057\u3001\u30C1\u30B1\u30C3\u30C8\u3092\u53D6\u5F97\u3001\u307E\u305F\u30C1\u30B1\u30C3\u30C8\u3092\u5F97\u308B\u305F\u3081\u306E\u4E57\u6570\u3092\u5897\u52A0\u3057\u307E\u3059\u3002\n3.\u30C1\u30B1\u30C3\u30C8\u4E57\u6570\u306F\u3001\u30B9\u30ED\u30C3\u30C8\u306B\u3088\u3063\u3066\u53D6\u5F97\u3055\u308C\u308B\u30C1\u30B1\u30C3\u30C8\u3092\u5897\u3084\u3059\u305F\u3081\u306B\u4F7F\u7528\u3055\u308C\u307E\u3059\u3002\u300D"
-    - area: 131
+    - area: 146
       value: "1.\u30E9\u30C3\u30AD\u30FC\u30C9\u30ED\u30FC\u3067\u30B8\u30E3\u30C3\u30AF\u30DD\u30C3\u30C8\u3068\u305D\u306E\u4ED6\u306E\u8CDE\u91D1\u3092\u7372\u5F97\u3057\u307E\u3059\u3002\n\n2.\u30BF\u30B9\u30AF\u3067\u6BCE\u65E5\u7AF6\u4E89\u3057\u3001\u76F4\u63A5\u73FE\u91D1\u3092\u7372\u5F97\u3057\u3066\u304F\u3060\u3055\u3044\uFF01\n\n3.\u53CB\u9054\u3092\u7D39\u4ECB\u3057\u3066\u3001\u5165\u73FE\u91D1\u3068\u305D\u306E\u8208\u3092\u624B\u306B\u4ED8\u3051\u307E\u3057\u3087\u3046\uFF01\n\n4.\u30B9\u30D4\u30F3\u30B9\u30ED\u30C3\u30C8\u306F\u6BCE\u65E5\u73FE\u91D1\u3092\u7372\u5F97\u3067\u304D\u307E\u3059\uFF01"
-    - area: 132
+    - area: 147
       value: "\u304A\u91D1\u3092\u7A3C\u3050\u65B9\u6CD5"
-    - area: 133
+    - area: 148
       value: "1.\u30B9\u30DD\u30F3\u30B5\u30FC\u306E\u30BF\u30B9\u30AF\u3092\u5B8C\u4E86\u3057\u3001\u591A\u304F\u306E\u30DD\u30A4\u30F3\u30C8\u3092\u7372\u5F97\u3057\u307E\u3059\u3002\n2.\u30BF\u30B9\u30AF\u306E\u5B8C\u4E86\u5F8C\u3001\u30B9\u30DD\u30F3\u30B5\u30FC\u306F\u7D50\u679C\u3092\u78BA\u8A8D\u3057\u3001\u3067\u304D\u308B\u3060\u3051\u65E9\u304F\u30DD\u30A4\u30F3\u30C8\u3092\u5897\u3084\u3057\u307E\u3059\u3002
         1\u301C3\u65E5\u304B\u304B\u308B\u5834\u5408\u304C\u3042\u308A\u307E\u3059\u3002\n3.\u89AA\u3057\u3044\u53CB\u4EBA\u304C\u30BF\u30B9\u30AF\u3092\u5B8C\u4E86\u3059\u308B\u3068\u300150\uFF05\u306E\u30DD\u30A4\u30F3\u30C8\u304C\u8FFD\u52A0\u3055\u308C\u3001\u898B\u77E5\u3089\u306C\u53CB\u4EBA\u304B\u3089\u306F25\uFF05\u306E\u8FFD\u52A0\u30DD\u30A4\u30F3\u30C8\u304C\u7372\u5F97\u3055\u308C\u307E\u3059\u3002"
-    - area: 134
+    - area: 149
       value: "\u904A\u307C\u3046\uFF01"
-    - area: 135
+    - area: 150
+      value: "1.\u3042\u306A\u305F\u306F\u3001\u30B5\u30A4\u30F3\u30A4\u30F3\u9023\u7D9A15\u65E5\u5F8C\u306B50
+        $\u3092\u64A4\u56DE\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u3002\n2.\u6BCE\u65E5\u306E\u30B5\u30A4\u30F3\u30A4\u30F3\u306F\u8FFD\u52A0\u306E\u30DC\u30FC\u30CA\u30B9\u3092\u5F97\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u3001\u305D\u308C\u306B\u3088\u3063\u3066\u64A4\u56DE\u3057\u3066\u304F\u3060\u3055\u3044\u3044\n3.\u79C1\u305F\u3061\u306F\u6C7A\u3057\u3066\u8A50\u6B3A\u5E2B\u3092\u6190\u308C\u307F\u307E\u305B\u3093\u3001\u79C1\u305F\u3061\u306F\u8A50\u6B3A\u5E2B\u306E\u3059\u3079\u3066\u306E\u30C7\u30FC\u30BF\u3092\u6D88\u53BB\u3057\u307E\u3059\u3002\n4.\u9593\u9055\u3063\u305F\u60C5\u5831\u306F\u652F\u6255\u3044\u306E\u5931\u6557\u3092\u5F15\u304D\u8D77\u3053\u3059\u306E\u3067\u3001\u79C1\u305F\u3061\u306F\u8CAC\u4EFB\u3092\u8CA0\u3044\u307E\u305B\u3093\u3002"
+    - area: 151
+      value: "1.\u62DB\u5F85\u30DA\u30FC\u30B8\u3092\u53CB\u9054\u3068\u5171\u6709\u3057\u307E\u3059\u3002
+        \u53CB\u9054\u304C\u3042\u306A\u305F\u306E\u30EA\u30F3\u30AF\u304B\u3089\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9\u3057\u3066\u30B2\u30FC\u30E0\u3092\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u3057\u305F\u5834\u5408\u306B\u306E\u307F\u3001\u3042\u306A\u305F\u306E\u62DB\u5F85\u306F\u6210\u529F\u3068\u3057\u3066\u30AB\u30A6\u30F3\u30C8\u3055\u308C\u307E\u3059\u3002\n2.\u62DB\u5F85\u3067\u304D\u308B\u306E\u306F\u3001\u3053\u308C\u307E\u3067\u30B2\u30FC\u30E0\u3092\u30D7\u30EC\u30A4\u3057\u305F\u3053\u3068\u304C\u306A\u3044\u30E6\u30FC\u30B6\u30FC\u306E\u307F\u3067\u3059\u3002\u53CB\u9054\u304C\u30BF\u30B9\u30AF\u3092\u5B8C\u4E86\u3059\u308B\u3068\u3001\u30DC\u30FC\u30CA\u30B9\u3092\u7D39\u4ECB\u3059\u308B\u30E1\u30EA\u30C3\u30C8\u3092\u6700\u5927\u9650\u306B\u6D3B\u7528\u3067\u304D\u307E\u3059\u3002\n3.\u5BA3\u8A00\uFF1A\u30E6\u30FC\u30B6\u30FC\u306E\u5229\u76CA\u3092\u4FDD\u8B77\u3059\u308B\u305F\u3081\u306B\u3001\u4E0D\u9069\u5207\u306A\u65B9\u6CD5\u3067\u30E6\u30FC\u30B6\u30FC\u3092\u62DB\u5F85\u3057\u305F\u30E6\u30FC\u30B6\u30FC\u306F\u3001\u3053\u306E\u30A4\u30D9\u30F3\u30C8\u3078\u306E\u53C2\u52A0\u8CC7\u683C\u3092\u5931\u3044\u3001\u7279\u6D3E\u54E1\u306E\u5831\u916C\u304C\u5DEE\u3057\u5F15\u304B\u308C\u307E\u3059\u3002"
+    - area: 152
+      value: "\u73FE\u91D1\u3092\u624B\u306B\u5165\u308C\u308B\u306B\u306F\u3001\u62DB\u5F85\u3055\u308C\u305F\u53CB\u9054\u306F\u6BCE\u65E5\u5BFE\u5FDC\u3059\u308B\u30EC\u30D9\u30EB\u306B\u5230\u9054\u3059\u308B\u5FC5\u8981\u304C\u3042\u308A\u307E\u3059\u3002\n1.$
+        0.01\u2014\u2014\u521D\u65E5\uFF1ALv3\n2.$ 0.01\u2014\u20142\u65E5\u76EE\uFF1ALv8\n3.$
+        0.01\u2014\u20143\u65E5\u76EE\uFF1ALv10\n4.$ 0.01\u2014\u20144\u65E5\u76EE\uFF1ALv15\n5.$
+        0.01\u2014\u20145\u65E5\u76EE\uFF1ALv20\n6.$ 0.01\u2014\u20146\u65E5\u76EE\uFF1ALv25\n7.$
+        0.44\u2014\u20147\u65E5\u76EE\uFF1ALv30"
+    - area: 153
+      value: "\u30EB\u30FC\u30EB"
+    - area: 154
+      value: "\u5831\u916C\u306E\u8AAC\u660E"
+    - area: 155
       value: "\u79C1\u306F\u3042\u306A\u305F\u304C\u305D\u308C\u3092\u8A66\u3059\u3053\u3068\u304C\u3067\u304D\u3001\u30B2\u30FC\u30E0\u3067$\_5\u7372\u5F97\u3057\u307E\u3057\u305F\u3002"
+    - area: 156
+      value: "\u6700\u7D42\u65E5\u306E\u8FFD\u52A0\u30DC\u30FC\u30CA\u30B9\uFF1A"
+    - area: 157
+      value: "\u6BCE\u65E5\u306E\u30B5\u30A4\u30F3\u30A4\u30F3"
+    - area: 158
+      value: "\u30C1\u30A7\u30C3\u30AF\u30A4\u30F3"
+    - area: 159
+      value: "14\u65E5\u9593\u306E\u30BF\u30B9\u30AF\u304C\u5931\u6557\u3057\u305F\u305F\u3081\u300150\u30C9\u30EB\u3092\u7372\u5F97\u3059\u308B\u3053\u3068\u306F\u3067\u304D\u307E\u305B\u3093\u3002\u30DC\u30FC\u30CA\u30B9\u3092\u6B8B\u3057\u3066\u3001\u5F15\u304D\u51FA\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+    - area: 160
+      value: "\u65E5{0}"
+    - area: 161
+      value: CHECK IN TASK
+    - area: 162
+      value: "\u30C1\u30A7\u30C3\u30AF\u30A4\u30F3\u3059\u308B\u524D\u306B\u30BF\u30B9\u30AF\u3092\u5B8C\u4E86\u3059\u308B\u5FC5\u8981\u304C\u3042\u308A\u307E\u3059\u3002"
+    - area: 163
+      value: "{0}\u3067\u7D42\u4E86"
+    - area: 164
+      value: "\u62DB\u5F85\u72B6\u3092\u5165\u529B\u3057\u307E\u3059\u3002"
+    - area: 165
+      value: "\u306F\u3044"
+    - area: 166
+      value: "{0}\u3067\u9589\u3058\u308B"
+    - area: 167
+      value: "\u30B3\u30FC\u30C9\u304C\u5B58\u5728\u3057\u307E\u305B\u3093\u3002"
+    - area: 168
+      value: "\u30D0\u30A4\u30F3\u30C9\u6210\u529F\u3057\u307E\u3059"
+    - area: 169
+      value: 
+    - area: 170
+      value: 
+    - area: 171
+      value: 
+    - area: 172
+      value: 
   - country: 3
     value_allAreas:
     - area: 0
@@ -1120,17 +1444,17 @@ MonoBehaviour:
     - area: 21
       value: "\uD604\uAE08 \uC778\uCD9C"
     - area: 22
-      value: "\uB0B4 \uCE5C\uAD6C :"
+      value: "\uCE5C\uAD6C \uCD08\uB300 \uBC0F \uCD5C\uB300 \uC801\uB9BD <size={0}><color=#FF5952>${1}</color></size>"
     - area: 23
-      value: "\uCE5C\uAD6C\uB97C \uCD08\uB300"
+      value: "\uB0B4 \uCE5C\uAD6C :"
     - area: 24
-      value: "\uC5BB\uC744 \uCE5C\uAD6C \uCD08\uB300"
+      value: "\uCE5C\uAD6C\uB97C \uCD08\uB300"
     - area: 25
-      value: "\uB0B4 \uC218\uC785"
+      value: "\uC5BB\uC744 \uCE5C\uAD6C \uCD08\uB300"
     - area: 26
-      value: "\uC5B4\uC81C \uC218\uC785"
+      value: "\uC5B4\uC81C"
     - area: 27
-      value: "\uCD1D \uC218\uC785"
+      value: "\uD569\uACC4"
     - area: 28
       value: "\uB9C8\uC9C0\uB9C9 \uB0A0 \uC138\uBD80 \uC815\uBCF4"
     - area: 29
@@ -1145,199 +1469,230 @@ MonoBehaviour:
     - area: 33
       value: "\uCE5C\uAD6C\uAC00 \uCD08\uB300 \uD55C \uCE5C\uAD6C"
     - area: 34
-      value: "\uC2B9\uC218"
+      value: "\uCD08\uB300"
     - area: 35
-      value: "\uC218\uD3C9"
+      value: "\uCD08\uB300 \uB2F9 $ 0.5 \uBC1B\uAE30"
     - area: 36
-      value: "\uC5EC\uBD84\uC758"
+      value: "\uCD08\uB300 \uBC0F \uC801\uB9BD"
     - area: 37
-      value: "\uD654\uC2E0"
+      value: "\uB0B4 \uCD08\uB300 \uCF54\uB4DC :"
     - area: 38
-      value: "\uC0C8\uB85C\uC6B4"
+      value: "\uBD80"
     - area: 39
-      value: "\uC5BB\uB2E4"
+      value: "\uC774\uB984"
     - area: 40
-      value: "\uAE08"
+      value: "\uD750\uB984"
     - area: 41
-      value: "\uD604\uAE08"
+      value: "\uBC30\uACE0 \uC788\uB2E4"
     - area: 42
-      value: "\uD2F0\uCF13"
+      value: "\uAE30\uB85D \uC5C6\uC74C"
     - area: 43
-      value: "\uB85C\uB4DC \uC911 ..."
+      value: "\uCD94\uCC9C \uBCF4\uB108\uC2A4"
     - area: 44
-      value: "Pts \uC801\uB9BD"
+      value: "\uC2B9\uC218"
     - area: 45
-      value: "\uD6C4\uC6D0"
+      value: "\uC218\uD3C9"
     - area: 46
-      value: "\uCF54\uC778"
+      value: "\uC5EC\uBD84\uC758"
     - area: 47
-      value: "\uD2F0\uCF13"
+      value: "\uD654\uC2E0"
     - area: 48
-      value: "\uBB34\uB8CC \uC2AC\uB86F "
+      value: "\uC0C8\uB85C\uC6B4"
     - area: 49
-      value: "\uC2B9\uB9AC"
+      value: "\uC5BB\uB2E4"
     - area: 50
-      value: "\uC791\uC5C5"
+      value: "\uAE08"
     - area: 51
-      value: "\uC5C5\uC801"
+      value: "\uD604\uAE08"
     - area: 52
-      value: "\uC2AC\uB86F {0} \uC2DC\uAC04\uC744 \uC785\uB825"
+      value: "\uD2F0\uCF13"
     - area: 53
-      value: "\uC2A4\uD540 {0} \uBC88"
+      value: "\uB85C\uB4DC \uC911 ..."
     - area: 54
-      value: "\uC2DC\uACC4 {0} \uC9E7\uC740 \uB3D9\uC601\uC0C1"
+      value: "Pts \uC801\uB9BD"
     - area: 55
-      value: "\uC778\uCD9C {0} \uD68C"
+      value: "\uD6C4\uC6D0"
     - area: 56
-      value: "\uD398\uC774\uD314 \uC8FC\uC18C \uC785\uB825"
+      value: "\uCF54\uC778"
     - area: 57
-      value: "\uC790\uC2E0\uC758 {0} \uB3D9\uC804"
+      value: "\uD2F0\uCF13"
     - area: 58
-      value: "\uB7ED\uD0A4 \uB4DC\uB85C\uC6B0 \uC6B0\uC2B9"
+      value: "\uBB34\uB8CC \uC2AC\uB86F "
     - area: 59
-      value: "\uD2F0\uCF13 {0} \uD68C \uC801\uB9BD"
+      value: "\uC2B9\uB9AC"
     - area: 60
-      value: "\uBE44\uC6A9 {0} \uB3D9\uC804"
+      value: "\uC791\uC5C5"
     - area: 61
-      value: "\uBB34\uB8CC \uD2F0\uCF13"
+      value: "\uC5C5\uC801"
     - area: 62
-      value: "\uAD6C\uC785"
+      value: "\uC2AC\uB86F {0} \uC2DC\uAC04\uC744 \uC785\uB825"
     - area: 63
-      value: "\uAC00\uC838 \uC624\uAE30"
+      value: "\uC2A4\uD540 {0} \uBC88"
     - area: 64
-      value: "\uC774\uB3D9"
+      value: "\uC2DC\uACC4 {0} \uC9E7\uC740 \uB3D9\uC601\uC0C1"
     - area: 65
-      value: "\uCCAD\uAD6C"
+      value: "\uC778\uCD9C {0} \uD68C"
     - area: 66
-      value: "\uB05D\uB09C"
+      value: "\uD398\uC774\uD314 \uC8FC\uC18C \uC785\uB825"
     - area: 67
-      value: Offerwall
+      value: "\uC790\uC2E0\uC758 {0} \uB3D9\uC804"
     - area: 68
-      value: "\uC21C\uC704"
+      value: "\uB7ED\uD0A4 \uB4DC\uB85C\uC6B0 \uC6B0\uC2B9"
     - area: 69
-      value: "\uACBD\uD488"
+      value: "\uD2F0\uCF13 {0} \uD68C \uC801\uB9BD"
     - area: 70
-      value: "\uCE5C\uAD6C"
+      value: "\uBE44\uC6A9 {0} \uB3D9\uC804"
     - area: 71
-      value: "\uACFC\uC81C"
+      value: "\uBB34\uB8CC \uD2F0\uCF13"
     - area: 72
-      value: "\uB9C8\uC9C0\uB9C9 \uB0A0 \uC21C\uC704"
+      value: "\uCE5C\uD55C \uCE5C\uAD6C {0} \uBA85 \uC18C\uC720"
     - area: 73
-      value: "\uB098\uB97C"
+      value: "\uCE5C\uD55C \uCE5C\uAD6C {0} \uBA85\uC774 lv {0}\uC5D0 \uB3C4\uB2EC\uD558\uB3C4\uB85D\uD569\uB2C8\uB2E4."
     - area: 74
-      value: "\uD398\uC774\uD314 \uACC4\uC815"
+      value: "\uAD6C\uC785"
     - area: 75
-      value: "\uD398\uC774\uD314\uC758 \uC774\uB984"
+      value: "\uAC00\uC838 \uC624\uAE30"
     - area: 76
-      value: "\uD398\uC774\uD314\uC758 \uC131"
+      value: "\uC774\uB3D9"
     - area: 77
-      value: "Paypal \uC774\uBA54\uC77C"
+      value: "\uCCAD\uAD6C"
     - area: 78
-      value: "\uD398\uC774\uD314 \uACC4\uC815\uC744\uC8FC\uC758 \uAE4A\uAC8C \uD655\uC778\uD558\uC2ED\uC2DC\uC624."
+      value: "\uB05D\uB09C"
     - area: 79
-      value: "\uD655\uC778"
+      value: Offerwall
     - area: 80
-      value: "\xB7 \uAC00\uB2A5\uD55C \uC774\uC720 \xB7"
+      value: "\uC21C\uC704"
     - area: 81
+      value: "\uACBD\uD488"
+    - area: 82
+      value: "\uCE5C\uAD6C"
+    - area: 83
+      value: "\uACFC\uC81C"
+    - area: 84
+      value: "\uB9C8\uC9C0\uB9C9 \uB0A0 \uC21C\uC704"
+    - area: 85
+      value: "\uB098\uB97C"
+    - area: 86
+      value: "\uD398\uC774\uD314 \uACC4\uC815"
+    - area: 87
+      value: "\uD398\uC774\uD314\uC758 \uC774\uB984"
+    - area: 88
+      value: "\uD398\uC774\uD314\uC758 \uC131"
+    - area: 89
+      value: "Paypal \uC774\uBA54\uC77C"
+    - area: 90
+      value: "\uD398\uC774\uD314 \uACC4\uC815\uC744\uC8FC\uC758 \uAE4A\uAC8C \uD655\uC778\uD558\uC2ED\uC2DC\uC624."
+    - area: 91
+      value: "\uD655\uC778"
+    - area: 92
+      value: "\xB7 \uAC00\uB2A5\uD55C \uC774\uC720 \xB7"
+    - area: 93
       value: "1. \uAC8C\uC784 \uACC4\uC815 \uC794\uC561 \uD655\uC778\n2. \uD398\uC774\uD314
         \uACC4\uC815 \uD655\uC778\n3. \uB137 \uC5F0\uACB0 \uD655\uC778\n4. \uD398\uC774\uD314\uC744
         \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uAE4C"
-    - area: 82
+    - area: 94
       value: "\uC5B4\uB5A4 \uC9C8\uBB38\uC744 \uC704\uD574, \uC800\uD76C\uC5D0\uAC8C
         \uC5F0\uB77D\uD558\uC2ED\uC2DC\uC624 :\n<color=#1A91D0> hispin.support@luckyclub.vip
         </color>"
-    - area: 83
+    - area: 95
       value: "\uBBF8\uAD6D \uD3C9\uAC00"
-    - area: 84
+    - area: 96
       value: "\uBCC4 5 \uAC1C\uB97C \uD3C9\uAC00\uD558\uC5EC \uC9C0\uC6D0"
-    - area: 85
+    - area: 97
       value: "\uBCC4"
-    - area: 86
+    - area: 98
       value: "\uCD95\uD558\uD569\uB2C8\uB2E4"
-    - area: 87
+    - area: 99
       value: "NO \uAC10\uC0AC"
-    - area: 88
+    - area: 100
       value: "\uC9C0\uAC11\uC5D0 \uC800\uC7A5"
-    - area: 89
+    - area: 101
       value: "\uC624 \uC608\uC544!\n\uD1A0\uD070 \uD640!"
-    - area: 90
+    - area: 102
       value: "\uB300\uB2E8\uD558\uB124\uC694!\n\uD2F0\uCF13\uC744 \uD68D\uB4DD\uD588\uC2B5\uB2C8\uB2E4!"
-    - area: 91
+    - area: 103
       value: "\uB2F9\uC2E0 REACH LV. {0}!\n\uC774\uB7EC\uD55C \uBCF4\uC0C1\uC744
         \uBC1B\uC544!"
-    - area: 92
+    - area: 104
       value: "\uB2EC\uB7EC\uB97C \uD604\uAE08\uD654 \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-    - area: 93
+    - area: 105
       value: "\uC2AC\uB86F \uD50C\uB808\uC774 \uD2F0\uCF13\uC744 \uC5BB\uC744"
-    - area: 94
+    - area: 106
       value: "\uD50C\uB808\uC774 \uB8E8\uC2DC \uB3C8\uC744 \uBC8C \uD2F0\uCF13\uB9BD\uB2C8\uB2E4.
         \uC88B\uC740 \uB8E8\uC2DC!"
-    - area: 95
-      value: 
-    - area: 96
+    - area: 107
+      value: "15 \uC77C \uCCB4\uD06C\uC778\uD558\uBA74 \uB3C8\uC744\uBC1B\uC744 \uC218
+        \uC788\uC2B5\uB2C8\uB2E4!"
+    - area: 108
       value: "\uCE5C\uAD6C\uB97C \uC131\uACF5\uC801\uC73C\uB85C \uCD08\uB300"
-    - area: 97
+    - area: 109
       value: "\uB85C\uB529"
-    - area: 98
+    - area: 110
       value: "\uBB38\uC758\uD558\uAE30"
-    - area: 99
+    - area: 111
       value: "\uC778\uCD9C"
-    - area: 100
+    - area: 112
       value: "\uC791\uC5C5 \uBCF4\uC0C1"
-    - area: 101
+    - area: 113
       value: "\uC0AC\uC6A9 \uD56D\uBAA9"
-    - area: 102
+    - area: 114
+      value: "\uCF54\uB4DC\uB97C \uCD08\uB300"
+    - area: 115
       value: "\uD070 \uC6B0\uC2B9\uC790!"
-    - area: 103
+    - area: 116
       value: "\uB354 \uB9CE\uC740 \uD2F0\uCF13\uC774 \uC788\uACE0, \uB354 \uB9CE\uC740
         \uC6B0\uC2B9 \uAE30\uD68C\uAC00 \uC788\uC2B5\uB2C8\uB2E4!"
-    - area: 104
+    - area: 117
       value: "\uC218\uC0C1\uC744 \uCD95\uD558\uD569\uB2C8\uB2E4 !!"
-    - area: 105
+    - area: 118
       value: "\uD589\uC6B4\uC744 \uC2DC\uD5D8\uD574\uBCF4\uC2ED\uC2DC\uC624"
-    - area: 106
+    - area: 119
       value: "\uB3C8\uC744 \uBC8C\uC5B4!"
-    - area: 107
+    - area: 120
       value: "\uC5F0\uACB0 \uC911 ..."
-    - area: 108
+    - area: 121
       value: "\uC624\uB958"
-    - area: 109
+    - area: 122
       value: "\uB124\uD2B8\uC6CC\uD06C \uC5F0\uACB0\uC744 \uC0AC\uC6A9\uD560 \uC218
         \uC5C6\uC2B5\uB2C8\uB2E4. \uB124\uD2B8\uC6CC\uD06C \uC124\uC815\uC744 \uD655\uC778\uD558\uC138\uC694."
-    - area: 110
+    - area: 123
       value: "\uC7AC\uC2DC\uB3C4"
-    - area: 111
+    - area: 124
       value: "\uC5C6\uC74C \uBE44\uB514\uC624\uAC00 \uC900\uBE44 \uB098\uC911\uC5D0
         \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC2ED\uC2DC\uC624."
-    - area: 112
+    - area: 125
       value: "\uC8C4\uC1A1\uD569\uB2C8\uB2E4, \uC774\uB984\uC744 \uC0AC\uC6A9 \uD558\uC600\uB2E4."
-    - area: 113
+    - area: 126
       value: "\uC7A0\uAE08 \uD574\uC81C\uD558\uB824\uBA74 \uB808\uBCA8 \uC5C5"
-    - area: 114
+    - area: 127
       value: "\uC8C4\uC1A1\uD569\uB2C8\uB2E4. \uB3D9\uC804\uC774 \uCDA9\uBD84\uD558\uC9C0
         \uC54A\uC2B5\uB2C8\uB2E4."
-    - area: 115
+    - area: 128
       value: "\uC8C4\uC1A1\uD569\uB2C8\uB2E4. \uC794\uC561\uC774 \uCDA9\uBD84\uD558\uC9C0
         \uC54A\uC2B5\uB2C8\uB2E4."
-    - area: 116
+    - area: 129
       value: "\uC720\uD6A8\uD558\uC9C0 \uC54A\uB2E4."
-    - area: 117
+    - area: 130
       value: "\uB808\uBCA8 2\uC5D0\uC11C \uC7A0\uAE08 \uD574\uC81C\uD558\uC2ED\uC2DC\uC624."
-    - area: 118
+    - area: 131
       value: "\uC644\uC804\uD55C\_\uC815\uBCF4\uB97C\_\uC785\uB825\uD558\uC2ED\uC2DC\uC624."
-    - area: 119
+    - area: 132
       value: "\uC131\uACF5! \uC6B0\uB9AC\uB294 7 \uC77C\uC5D0 \uC644\uB8CC\uB429\uB2C8\uB2E4."
-    - area: 120
+    - area: 133
       value: "\uCF54\uC778\uC774 \uD55C\uACC4\uC5D0 \uB3C4\uB2EC\uD588\uC2B5\uB2C8\uB2E4.
         \uB0B4\uC77C \uB2E4\uC2DC \uC624\uC138\uC694."
-    - area: 121
+    - area: 134
       value: "\uBCF4\uC0C1\uC774 \uCCAD\uAD6C\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
-    - area: 122
+    - area: 135
       value: "\uC774\uC0C1 \uD589\uB3D9\uC740 \uB098\uC911\uC5D0 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC2ED\uC2DC\uC624."
-    - area: 123
+    - area: 136
       value: "\uC2E4\uCE21\uCE58 \uACFC\uAC70 \uAE30\uB85D\uC740 \uB370\uC774\uD130\uAC00
         \uC5C5\uB370\uC774\uD2B8\uB41C\uB2E4."
-    - area: 124
+    - area: 137
+      value: "\uBCF5\uC0AC \uC644\uB8CC"
+    - area: 138
+      value: 
+    - area: 139
       value: "1 \uD68C\uC804\uACFC \uC77C\uCE58\uD558\uB294 3 X \uAE30\uD638\uB294
         \uB3D9\uC804\uC774\uB098 \uB2E4\uB978 \uBCF4\uC0C1\uC744 \uC2B9\uB9AC.\n2.Google\uAC00
         \uD6C4\uC6D0\uD558\uC9C0 \uC54A\uB294 \uADF8\uB4E4\uC774 \uC5B4\uB5A4 \uD558\uC774
@@ -1345,11 +1700,11 @@ MonoBehaviour:
         \uCD94\uCCA8 \uC788\uC2B5\uB2C8\uB2E4.\n3.Hi \uC2A4\uD540\uC740 \uACBD\uD488
         \uC751\uC6A9 \uD504\uB85C\uADF8\uB7A8\uC785\uB2C8\uB2E4.\n4. \uACF5\uC2DD
         \uADDC\uC815\uC740 \uB2E4\uC74C\uC744 \uCC38\uC870\uD558\uC2ED\uC2DC\uC624."
-    - area: 125
+    - area: 140
       value: "\uC774\uAE30\uB294 \uBC29\uBC95"
-    - area: 126
+    - area: 141
       value: "\uC57D\uAD00 \uBC0F \uC870\uAC74"
-    - area: 127
+    - area: 142
       value: "1. LuckyDraw\uC5D0\uB294 \uB9E4\uC77C \uBBF8\uD654 1,000 \uB2EC\uB7EC\uC758
         \uC0C1\uAE08\uC774 \uC788\uC2B5\uB2C8\uB2E4.\n2. Lucky Draw\uC5D0 \uCC38\uC5EC\uD558\uB824\uBA74
         {0} \uD2F0\uCF13\uC774 \uC788\uC5B4\uC57C\uD569\uB2C8\uB2E4. \uB354 \uB9CE\uC740
@@ -1358,9 +1713,9 @@ MonoBehaviour:
         \uD2F0\uCF13\uC774 \uC790\uB3D9\uC73C\uB85C \uC0C1\uAE08 \uD480\uC5D0 \uB4E4\uC5B4\uAC00\uACE0
         Lucky Draw\uAC00 \uC9C4\uD589\uB429\uB2C8\uB2E4.\n4. \uBCF4\uB108\uC2A4\uAC00
         \uB2E4\uB978 \uB9CE\uC740 \uB2F9\uCCA8\uC790\uAC00\uC788\uC744 \uAC83\uC785\uB2C8\uB2E4."
-    - area: 128
+    - area: 143
       value: "1 $200 \n2 - 3 $ 100\n4 - 16 $ 20\n17- 50 $ 10"
-    - area: 129
+    - area: 144
       value: "1.You\uB294 \uCE5C\uAD6C\uB4E4\uC774 \uC810\uC744 \uAD11\uACE0\uD558\uACE0
         \uC644\uBCBD\uD55C \uC791\uC5C5\uC744\uBCF4\uACE0\uBC1B\uC744 \uC218 \uC788\uC73C\uBA70,
         \uB610\uD55C \uCE5C\uAD6C\uC758 \uCE5C\uAD6C \uD3EC\uC778\uD2B8\uB97C \uC5BB\uC744
@@ -1375,7 +1730,7 @@ MonoBehaviour:
         1 USD\uC640 \uAC19\uC2B5\uB2C8\uB2E4.\n4.<color=#FFE200> \uC81C\uC548\uC758
         \uC791\uC5C5\uC744 \uC644\uB8CC\uD558\uBA74 \uC5C4\uCCAD\uB09C \uC810\uC218\uB97C
         \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4.</color>"
-    - area: 130
+    - area: 145
       value: "1. \uC2AC\uB86F\uC744 \uD50C\uB808\uC774\uD558\uC5EC \uC5C5\uADF8\uB808\uC774\uB4DC
         \uB808\uBCA8\uC744 \uACBD\uD5D8\uD558\uC138\uC694.\n2. \uB808\uBCA8\uC744
         \uC5C5\uADF8\uB808\uC774\uB4DC\uD558\uBA74 \uC0C8\uB85C\uC6B4 \uC544\uBC14\uD0C0\uAC00
@@ -1383,16 +1738,16 @@ MonoBehaviour:
         \uC788\uC73C\uBA70 \uD2F0\uCF13 \uD68D\uB4DD \uBC30\uC728\uB3C4 \uC99D\uAC00\uD569\uB2C8\uB2E4.\n3.
         \uD2F0\uCF13 \uBC30\uC728\uC740 \uC2AC\uB86F\uBCC4\uB85C \uD68D\uB4DD \uD55C
         \uD2F0\uCF13\uC744 \uB298\uB9AC\uB294 \uB370 \uC0AC\uC6A9\uB429\uB2C8\uB2E4. "
-    - area: 131
+    - area: 146
       value: "1. Lucky Draw\uC5D0\uC11C \uC7AD\uD31F \uBC0F \uAE30\uD0C0 \uC0C1\uAE08\uC744
         \uBC1B\uC73C\uC2ED\uC2DC\uC624.\n\n2. \uB9E4\uC77C \uACFC\uC81C\uC5D0\uC11C
         \uACBD\uC7C1\uD558\uACE0 \uD604\uAE08\uC744 \uC9C1\uC811 \uC5BB\uC73C\uC2ED\uC2DC\uC624!\n\n3.
         \uCE5C\uAD6C\uB97C \uCD94\uCC9C\uD558\uACE0 \uC9C1\uC811 \uD604\uAE08\uACFC
         \uB9CE\uC740 \uD2F0\uCF13\uC744 \uBC1B\uC73C\uC138\uC694! \n\n4. \uC2A4\uD540
         \uC2AC\uB86F\uC740 \uB9E4\uC77C \uD604\uAE08\uC744 \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4!"
-    - area: 132
+    - area: 147
       value: "\uB3C8\uC744 \uBC84\uB294 \uBC29\uBC95"
-    - area: 133
+    - area: 148
       value: "1. \uC2A4\uD3F0\uC11C\uC758 \uC784\uBB34\uB97C \uC644\uC218\uD558\uACE0
         \uB9CE\uC740 \uD3EC\uC778\uD2B8\uB97C \uBC1B\uC73C\uC138\uC694.\n2. \uC791\uC5C5
         \uC644\uB8CC \uD6C4 \uC2A4\uD3F0\uC11C\uB294 \uACB0\uACFC\uB97C \uAC80\uD1A0\uD558\uACE0
@@ -1401,10 +1756,81 @@ MonoBehaviour:
         \uCE5C\uAD6C\uAC00 \uC791\uC5C5\uC744 \uC644\uB8CC\uD558\uBA74 \uCD94\uAC00\uB85C
         50 % \uD3EC\uC778\uD2B8\uB97C, \uB0AF\uC120 \uCE5C\uAD6C\uB85C\uBD80\uD130
         \uCD94\uAC00\uB85C 25 %\uB97C \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-    - area: 134
+    - area: 149
       value: "\uB180\uC790!"
-    - area: 135
+    - area: 150
+      value: "1.\uB85C\uADF8\uC778 \uD6C4 15 \uC77C \uC5F0\uC18D\uC73C\uB85C 50 $\uB97C
+        \uC778\uCD9C \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n2.\uB9E4\uC77C \uB85C\uADF8\uC778\uC740
+        \uCD94\uAC00 \uBCF4\uB108\uC2A4\uB97C \uC5BB\uC744 \uADF8\uAC83\uC5D0 \uC758\uD574
+        \uCCA0\uD68C \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4!\n3.\uC6B0\uB9AC\uB294
+        \uC0AC\uAE30\uAFBC\uC744 \uACB0\uCF54 \uB3D9\uC815\uD558\uC9C0 \uC54A\uC73C\uBA70
+        \uC0AC\uAE30\uAFBC\uC758 \uBAA8\uB4E0 \uB370\uC774\uD130\uB97C \uC9C0\uC6B8
+        \uAC83\uC785\uB2C8\uB2E4.\n4.\uC798\uBABB\uB41C \uC815\uBCF4\uB85C \uC778\uD574
+        \uC9C0\uBD88 \uC2E4\uD328\uAC00 \uBC1C\uC0DD\uD558\uBBC0\uB85C \uCC45\uC784\uC744\uC9C0\uC9C0
+        \uC54A\uC2B5\uB2C8\uB2E4."
+    - area: 151
+      value: "1.\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uD398\uC774\uC9C0\uB97C \uACF5\uC720\uD558\uC138\uC694.
+        \uCE5C\uAD6C\uAC00 \uB9C1\uD06C\uB97C \uD1B5\uD574 \uB2E4\uC6B4\uB85C\uB4DC\uD558\uACE0
+        \uAC8C\uC784\uC744 \uC124\uCE58 \uD55C \uACBD\uC6B0\uC5D0\uB9CC \uCD08\uB300\uAC00
+        \uC131\uACF5\uC73C\uB85C \uAC04\uC8FC\uB429\uB2C8\uB2E4.\n2.\uAC8C\uC784\uC744
+        \uD574\uBCF8 \uC801\uC774\uC5C6\uB294 \uC720\uC800 \uB9CC \uCD08\uB300 \uD560
+        \uC218 \uC788\uC73C\uBA70, \uCE5C\uAD6C\uAC00 \uC791\uC5C5\uC744 \uC644\uB8CC\uD558\uBA74
+        \uCD94\uCC9C \uBCF4\uB108\uC2A4\uC758 \uBAA8\uB4E0 \uD61C\uD0DD\uC744\uBC1B\uC744
+        \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n3.\uC120\uC5B8 : \uC774\uC6A9\uC790\uC758
+        \uD61C\uD0DD\uC744 \uBCF4\uD638\uD558\uAE30 \uC704\uD574 \uBD80\uB2F9\uD55C
+        \uBC29\uBC95\uC73C\uB85C \uC0AC\uB78C\uC744 \uCD08\uB300\uD558\uB294 \uC774\uC6A9\uC790\uB294
+        \uBCF8 \uD589\uC0AC\uC5D0 \uCC38\uC5EC\uD560 \uC218 \uC5C6\uC73C\uBA70 \uD574\uB2F9
+        \uBCF4\uC0C1\uC774 \uCC28\uAC10\uB429\uB2C8\uB2E4."
+    - area: 152
+      value: "\uD604\uAE08\uC744 \uC5BB\uC73C\uB824\uBA74 \uCD08\uB300 \uB41C \uCE5C\uAD6C\uAC00
+        \uB9E4\uC77C \uD574\uB2F9 \uB808\uBCA8\uC5D0 \uB3C4\uB2EC\uD574\uC57C\uD569\uB2C8\uB2E4.\n1.$
+        0.01\u2014\u2014\uCCAB\uB0A0 : Lv3\n2.$ 0.01\u2014\u20142 \uC77C : Lv8\n3.$
+        0.01\u2014\u20143 \uC77C : Lv10\n4.$ 0.01\u2014\u20144 \uC77C : Lv15\n5.$
+        0.01\u2014\u20145 \uC77C : Lv20\n6.$ 0.01\u2014\u20146 \uC77C : Lv25\n7.$
+        0.44\u2014\u20147 \uC77C : Lv30"
+    - area: 153
+      value: "\uADDC\uCE59"
+    - area: 154
+      value: "\uBCF4\uC0C1 \uC124\uBA85"
+    - area: 155
       value: "\uB098\uB294\_\uB2F9\uC2E0\uC774\_\uADF8\uAC83\uC744\_\uC2DC\uB3C4\_\uD560\_\uC218\_\uC788\uC2B5\uB2C8\uB2E4,\_\uAC8C\uC784\uC5D0\_$\_5\_\uBC1B\uC558\uB2E4."
+    - area: 156
+      value: "\uB9C8\uC9C0\uB9C9 \uB0A0\uC5D0 \uB300\uD55C \uCD94\uAC00 \uBCF4\uB108\uC2A4
+        :"
+    - area: 157
+      value: "\uB9E4\uC77C \uB85C\uADF8\uC778"
+    - area: 158
+      value: "\uCCB4\uD06C\uC778"
+    - area: 159
+      value: "14 \uC77C \uC791\uC5C5\uC5D0 \uC2E4\uD328\uD558\uC5EC $ 50\uB97C\uBC1B\uC744
+        \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uBCF4\uB108\uC2A4\uB97C \uC67C\uCABD\uC73C\uB85C
+        \uC778\uCD9C\uD558\uC138\uC694."
+    - area: 160
+      value: "\uC77C {0}"
+    - area: 161
+      value: "\uC791\uC5C5 \uD655\uC778"
+    - area: 162
+      value: "\uCCB4\uD06C\uC778 \uC804\uC5D0 \uC791\uC5C5\uC744 \uC644\uB8CC\uD574\uC57C\uD569\uB2C8\uB2E4."
+    - area: 163
+      value: "{0}\uB85C \uB05D\uB0A8"
+    - area: 164
+      value: "\uCD08\uB300 \uCF54\uB4DC \uC785\uB825"
+    - area: 165
+      value: "\uD655\uC778"
+    - area: 166
+      value: "\uB2EB\uAE30 {0}"
+    - area: 167
+      value: "\uCF54\uB4DC\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4."
+    - area: 168
+      value: "\uBC14\uC778\uB4DC \uC131\uACF5."
+    - area: 169
+      value: 
+    - area: 170
+      value: 
+    - area: 171
+      value: 
+    - area: 172
+      value: 
   - country: 4
     value_allAreas:
     - area: 0
@@ -1455,17 +1881,17 @@ MonoBehaviour:
     - area: 21
       value: Geld abheben
     - area: 22
-      value: 'Meine Freunde:'
+      value: Laden Sie Freunde und verdienen bis zu <size={0}><color=#FF5952>${1}</color></size>
     - area: 23
-      value: Freunde einladen
+      value: 'Meine Freunde:'
     - area: 24
-      value: Lade Freunde ein, um zu bekommen
+      value: Freunde einladen
     - area: 25
-      value: Mein Einkommen
+      value: Lade Freunde ein, um zu bekommen
     - area: 26
-      value: gestern Einkommen
+      value: Gestern
     - area: 27
-      value: Gesamteinkommen
+      value: Gesamt
     - area: 28
       value: Details zum letzten Tag
     - area: 29
@@ -1480,215 +1906,245 @@ MonoBehaviour:
     - area: 33
       value: Freunde von deinen Freunden eingeladen
     - area: 34
-      value: Multiplikator
+      value: EINLADUNG
     - area: 35
-      value: Niveau
+      value: Holen Sie sich $ 0,5 pro Einladung
     - area: 36
-      value: Extra
+      value: Einladen & verdienen
     - area: 37
-      value: Benutzerbild
+      value: 'Mein Einladungscode:'
     - area: 38
-      value: NEU
+      value: Kopie
     - area: 39
-      value: erhalten
+      value: Vorname
     - area: 40
-      value: Gold
+      value: Current
     - area: 41
-      value: Kasse
+      value: Expect
     - area: 42
-      value: Fahrkarte
+      value: No Records
     - area: 43
-      value: Wird geladen...
+      value: 'referring bonus  :'
     - area: 44
-      value: Verdiene Punkte
+      value: Multiplikator
     - area: 45
-      value: Patenschaft
+      value: Niveau
     - area: 46
-      value: "M\xDCNZEN"
+      value: Extra
     - area: 47
-      value: TICKETS
+      value: Benutzerbild
     - area: 48
-      value: FREI SLOTS
+      value: NEU
     - area: 49
-      value: SIEG
+      value: erhalten
     - area: 50
-      value: AUFGABEN
+      value: Gold
     - area: 51
-      value: ERREICHUNG
+      value: Kasse
     - area: 52
-      value: Geben Sie Slots {0} mal
+      value: Fahrkarte
     - area: 53
-      value: Spin {0} mal
+      value: Wird geladen...
     - area: 54
-      value: Sehen Sie {0} Kurzvideos
+      value: Verdiene Punkte
     - area: 55
-      value: "Zur\xFCckziehen {0} mal"
+      value: Patenschaft
     - area: 56
-      value: Geben Sie paypal-Adresse
+      value: "M\xDCNZEN"
     - area: 57
-      value: "Eigene {0} M\xFCnzen"
+      value: TICKETS
     - area: 58
-      value: Gewinnen Sie die Verlosung
+      value: FREI SLOTS
     - area: 59
-      value: Verdiene {0} mal Tickets
+      value: SIEG
     - area: 60
-      value: "Kostet {0} M\xFCnzen"
+      value: AUFGABEN
     - area: 61
-      value: Freikarten
+      value: ERREICHUNG
     - area: 62
-      value: KAUFEN
+      value: Geben Sie Slots {0} mal
     - area: 63
-      value: ERHALTEN
+      value: Spin {0} mal
     - area: 64
-      value: GEHE ZU
+      value: Sehen Sie {0} Kurzvideos
     - area: 65
-      value: ANSPRUCH
+      value: "Zur\xFCckziehen {0} mal"
     - area: 66
-      value: GETAN
+      value: Geben Sie paypal-Adresse
     - area: 67
-      value: Offerwall
+      value: "Eigene {0} M\xFCnzen"
     - area: 68
-      value: Rang
+      value: Gewinnen Sie die Verlosung
     - area: 69
-      value: Werbegeschenke
+      value: Verdiene {0} mal Tickets
     - area: 70
-      value: Freunde
+      value: "Kostet {0} M\xFCnzen"
     - area: 71
-      value: Aufgaben
+      value: Freikarten
     - area: 72
-      value: LETZTER TAG RANKING
+      value: Besitze {0} enge Freunde
     - area: 73
-      value: MICH
+      value: Besitze {0} enge Freunde lv {0} erreichen
     - area: 74
-      value: PAYPAL-KONTO
+      value: KAUFEN
     - area: 75
-      value: Vorname von Paypal
+      value: ERHALTEN
     - area: 76
-      value: Nachname von Paypal
+      value: GEHE ZU
     - area: 77
-      value: Paypal Email
+      value: ANSPRUCH
     - area: 78
-      value: "Bitte \xFCberpr\xFCfen Sie das Paypal-Konto sorgf\xE4ltig."
+      value: GETAN
     - area: 79
-      value: "BEST\xC4TIGEN"
+      value: Offerwall
     - area: 80
-      value: "\xB7M\xD6GLICHER GRUND\xB7"
+      value: Rang
     - area: 81
+      value: Werbegeschenke
+    - area: 82
+      value: Freunde
+    - area: 83
+      value: Aufgaben
+    - area: 84
+      value: LETZTER TAG RANKING
+    - area: 85
+      value: MICH
+    - area: 86
+      value: PAYPAL-KONTO
+    - area: 87
+      value: Vorname von Paypal
+    - area: 88
+      value: Nachname von Paypal
+    - area: 89
+      value: Paypal Email
+    - area: 90
+      value: "Bitte \xFCberpr\xFCfen Sie das Paypal-Konto sorgf\xE4ltig."
+    - area: 91
+      value: "BEST\xC4TIGEN"
+    - area: 92
+      value: "\xB7M\xD6GLICHER GRUND\xB7"
+    - area: 93
       value: "1.\xDCberpr\xFCfen Spiel Kontostand\n2.Check PayPal-Konto\n3.\xDCberpr\xFCfen
         Sie die Netzverbindung\n4.Ist Ihr Paypal verf\xFCgbar?"
-    - area: 82
+    - area: 94
       value: 'Bei Fragen kontaktieren Sie uns:
 
         <color=#1A91D0> hispin.support@luckyclub.vip
         </color>'
-    - area: 83
+    - area: 95
       value: BEWERTEN SIE UNS
-    - area: 84
+    - area: 96
       value: "Unterst\xFCtzen Sie uns mit 5 STERNEN"
-    - area: 85
+    - area: 97
       value: STERNE
-    - area: 86
+    - area: 98
       value: "Gl\xFCckwunsch"
-    - area: 87
+    - area: 99
       value: NEIN DANKE
-    - area: 88
+    - area: 100
       value: In Brieftasche speichern
-    - area: 89
+    - area: 101
       value: 'OH JA!
 
         TOKEN HAUL!'
-    - area: 90
+    - area: 102
       value: 'DAS IST EPISCH!
 
         SIE HABEN TICKET GEWONNEN!'
-    - area: 91
+    - area: 103
       value: 'SIE ERREICHEN LV.{0}!
 
         Nimm diese Belohnungen!'
-    - area: 92
-      value: "Sie k\xF6nnen Dollar auszahlen"
-    - area: 93
-      value: Spielen Sie Slots und erhalten Tickets
-    - area: 94
-      value: Spiele Lucy mit Tickets Draw Geld zu verdienen. Gute Lucy!
-    - area: 95
-      value: 
-    - area: 96
-      value: Freund erfolgreich einladen
-    - area: 97
-      value: Wird geladen
-    - area: 98
-      value: Kontaktiere uns
-    - area: 99
-      value: Abheben
-    - area: 100
-      value: Aufgabenbelohnungen
-    - area: 101
-      value: Gebrauchsgegenstand
-    - area: 102
-      value: "Gro\xDFe Gewinner!"
-    - area: 103
-      value: Mehr Tickets, mehr Gewinnchancen!
     - area: 104
-      value: "Herzlichen Gl\xFCckwunsch zum Gewinn des Preises!"
+      value: "Sie k\xF6nnen Dollar auszahlen"
     - area: 105
-      value: "VERSUCH DEIN GL\xDCCK"
+      value: Spielen Sie Slots und erhalten Tickets
     - area: 106
-      value: NIMM DEIN GELD!
+      value: Spiele Lucy mit Tickets Draw Geld zu verdienen. Gute Lucy!
     - area: 107
-      value: "Anschlie\xDFen ..."
+      value: "Checken Sie in 15 Tagen, k\xF6nnen Sie das Geld erhalten!"
     - area: 108
-      value: IRRTUM
+      value: Freund erfolgreich einladen
     - area: 109
+      value: Wird geladen
+    - area: 110
+      value: Kontaktiere uns
+    - area: 111
+      value: Abheben
+    - area: 112
+      value: Aufgabenbelohnungen
+    - area: 113
+      value: Gebrauchsgegenstand
+    - area: 114
+      value: Einladungscode
+    - area: 115
+      value: "Gro\xDFe Gewinner!"
+    - area: 116
+      value: Mehr Tickets, mehr Gewinnchancen!
+    - area: 117
+      value: "Herzlichen Gl\xFCckwunsch zum Gewinn des Preises!"
+    - area: 118
+      value: "VERSUCH DEIN GL\xDCCK"
+    - area: 119
+      value: NIMM DEIN GELD!
+    - area: 120
+      value: "Anschlie\xDFen ..."
+    - area: 121
+      value: IRRTUM
+    - area: 122
       value: "Die Netzwerkverbindung ist nicht verf\xFCgbar. \xDCberpr\xFCfen Sie
         die Netzwerkeinstellungen."
-    - area: 110
-      value: WIEDERHOLEN
-    - area: 111
-      value: "Es ist kein Video fertig. Bitte versuchen Sie es sp\xE4ter erneut."
-    - area: 112
-      value: Leider wurde der Name verwendet.
-    - area: 113
-      value: Level bis zu entriegeln
-    - area: 114
-      value: "Sie haben leider nicht genug M\xFCnzen"
-    - area: 115
-      value: Sorry, Ihr Guthaben ist nicht genug.
-    - area: 116
-      value: "nicht verf\xFCgbar."
-    - area: 117
-      value: Unlock auf Ebene 2.
-    - area: 118
-      value: "Geben\_Sie\_alle\_Informationen."
-    - area: 119
-      value: Gelingen! Wir werden es in 7 Werktagen beenden.
-    - area: 120
-      value: "M\xFCnze erreicht das Limit. Komm morgen zur\xFCck."
-    - area: 121
-      value: Die Belohnung wurde beansprucht.
-    - area: 122
-      value: "Anormales Verhalten, versuchen Sie es sp\xE4ter erneut."
     - area: 123
-      value: "Historische Datens\xE4tze gefunden, Daten werden aktualisiert."
+      value: WIEDERHOLEN
     - area: 124
+      value: "Es ist kein Video fertig. Bitte versuchen Sie es sp\xE4ter erneut."
+    - area: 125
+      value: Leider wurde der Name verwendet.
+    - area: 126
+      value: Level bis zu entriegeln
+    - area: 127
+      value: "Sie haben leider nicht genug M\xFCnzen"
+    - area: 128
+      value: Sorry, Ihr Guthaben ist nicht genug.
+    - area: 129
+      value: "nicht verf\xFCgbar."
+    - area: 130
+      value: Unlock auf Ebene 2.
+    - area: 131
+      value: "Geben\_Sie\_alle\_Informationen."
+    - area: 132
+      value: Gelingen! Wir werden es in 7 Werktagen beenden.
+    - area: 133
+      value: "M\xFCnze erreicht das Limit. Komm morgen zur\xFCck."
+    - area: 134
+      value: Die Belohnung wurde beansprucht.
+    - area: 135
+      value: "Anormales Verhalten, versuchen Sie es sp\xE4ter erneut."
+    - area: 136
+      value: "Historische Datens\xE4tze gefunden, Daten werden aktualisiert."
+    - area: 137
+      value: Kopieren
+    - area: 138
+      value: 
+    - area: 139
       value: "1.Spin und Match 3 X Symbole, um eine M\xFCnze oder eine andere Belohnung
         zu gewinnen.\n2.Google ist kein Sponsor, da es an Hi-Spin-Gewinnspielen oder
         Gewinnspielen beteiligt ist.\n3. Hi Spin ist eine Gewinnspielanwendung.\n4.F\xFCr
         offizielle Regeln siehe: "
-    - area: 125
+    - area: 140
       value: Wie gewinnt man
-    - area: 126
+    - area: 141
       value: Bedingungen und Konditionen
-    - area: 127
+    - area: 142
       value: "1. Im LuckyDraw gibt es jeden Tag einen Preis von 1.000 USD.\n2. Sie
         m\xFCssen \xFCber {0} Tickets verf\xFCgen, um an der Verlosung teilnehmen
         zu k\xF6nnen. Mehr Tickets, mehr Gewinnchancen.\n3. Jeden Tag um UTC 08:00:00
         werden alle Ihre Tickets automatisch in den Preispool aufgenommen und die
         Verlosung wird durchgef\xFChrt.\n4. Es wird viele Gewinner mit unterschiedlichen
         Boni geben."
-    - area: 128
+    - area: 143
       value: "1 $200 \n2 - 3 $ 100\n4 - 16 $ 20\n17- 50 $ 10"
-    - area: 129
+    - area: 144
       value: "1.Sie k\xF6nnen Punkte sammeln, indem Freunde Anzeigen ansehen und
         Aufgaben erledigen, und Sie k\xF6nnen auch Punkte von Freunden von Freunden
         erhalten.\n<color=#FFE200> Wir geben 75% der AD-Einnahmen an Spieler. Sie
@@ -1698,26 +2154,86 @@ MonoBehaviour:
         gegen Geld eingetauscht werden, 100.000 Punkte entsprechen 1 USD.\n4. <color=#FFE200>
         Sie k\xF6nnen riesige Pts verdienen, indem sie die Aufgaben im Angebot abgeschlossen
         wird.</color>"
-    - area: 130
+    - area: 145
       value: "1.Spielen Sie Slots, um Erfahrung f\xFCr das Upgrade-Level zu sammeln.\n2.Um
         das Level zu verbessern, werden neue Avatare freigeschaltet und Tickets erhalten.
         Au\xDFerdem wird der Multiplikator f\xFCr das Erhalten von Tickets erh\xF6ht.\n3.
         Der Ticketmultiplikator wird verwendet, um die durch Slots erhaltenen Tickets
         zu erh\xF6hen. "
-    - area: 131
+    - area: 146
       value: "1. Gewinnen Sie den Jackpot und andere Geldpreise bei der Verlosung.\n\n2.
         Nehmen Sie jeden Tag an der Aufgabe teil und gewinnen Sie direkt Geld!\n\n3.
         Beziehen Sie Freunde und erhalten Sie direktes Geld und viele Tickets! \n\n4.Spin
         Slots k\xF6nnen t\xE4glich Geld gewinnen!"
-    - area: 132
+    - area: 147
       value: WIE MAN GELD MACHT
-    - area: 133
+    - area: 148
       value: "1. Erledige die Aufgabe des Sponsors und erhalte viele Punkte.\n2.Nach
         Abschluss der Aufgabe \xFCberpr\xFCft der Sponsor die Ergebnisse und erh\xF6ht
         Ihre Punkte so schnell wie m\xF6glich. Es kann 1-3 Tage dauern.\n3.Wenn Ihre
         engen Freunde die Aufgabe erledigen, erhalten Sie zus\xE4tzliche 50% Punkte
         und zus\xE4tzliche 25% von unbekannten Freunden."
-    - area: 134
+    - area: 149
       value: "LASS\_UNS\_SPIELEN!"
-    - area: 135
+    - area: 150
+      value: "1.Sie k\xF6nnen 50 $ nach 15 Tagen ununterbrochener Anmeldung abheben.\n2.Die
+        t\xE4gliche Anmeldung kann extra Bonus bekommen, zur\xFCckgezogen!\n3.Wir
+        haben nie Mitleid mit Betr\xFCgern, wir werden alle Daten von Betr\xFCgern
+        l\xF6schen.\n4.Da falsche Informationen zu einer fehlgeschlagenen Bezahlung
+        f\xFChren, sind wir nicht verantwortlich."
+    - area: 151
+      value: "1.Teilen Sie die Einladungsseite mit Ihren Freunden. Nur wenn Ihre
+        Freunde \xFCber Ihren Link herunterladen, das Spiel installieren, wird Ihre
+        Einladung als Erfolg gez\xE4hlt.\n2.Sie k\xF6nnen nur Nutzer einladen, die
+        das Spiel noch nicht gespielt haben. Sobald Ihre Freunde die Aufgaben erledigt
+        haben, k\xF6nnen Sie die vollen Vorteile der Bezugnahme auf Bonus bekommen.\n3.Erkl\xE4rung:
+        Um die Vorteile der Nutzer zu sch\xFCtzen, werden Benutzer, die auf unangemessene
+        Weise einladen, Menschen einladen, zur Teilnahme an dieser Veranstaltung
+        disqualifiziert und entsprechende Belohnungen werden abgezogen."
+    - area: 152
+      value: "Um Geld zu bekommen, m\xFCssen die eingeladenen Freunde jeden Tag das
+        entsprechende Level erreichen.\n1.$ 0.01\u2014\u20141. Tag: Lv3\n2.$ 0.01\u2014\u20142.
+        Tag: Lv8\n3.$ 0.01\u2014\u20143. Tag: Lv10\n4.$ 0.01\u2014\u20144. Tag: Lv15\n5.$
+        0.01\u2014\u20145. Tag: Lv20\n6.$ 0.01\u2014\u20146. Tag: Lv25\n7.$ 0.44\u2014\u20147.
+        Tag: Lv30"
+    - area: 153
+      value: Regel
+    - area: 154
+      value: BELOHNEN BESCHREIBUNG
+    - area: 155
       value: "Ich\_habe\_$\_5\_im\_Spiel\_verdient,\_du\_kannst\_es\_versuchen."
+    - area: 156
+      value: "Zus\xE4tzlicher Bonus f\xFCr den letzten Tag:"
+    - area: 157
+      value: "T\xE4gliche Anmeldung"
+    - area: 158
+      value: Check-In
+    - area: 159
+      value: "Sie k\xF6nnen keine 50 $ erhalten, weil die 14-Tage-Aufgabe fehlgeschlagen
+        ist, ziehen Sie den verbleibenden Bonus ab."
+    - area: 160
+      value: Tag {0}
+    - area: 161
+      value: AUFGABE IN TASK
+    - area: 162
+      value: "Sie m\xFCssen die Aufgabe vor dem Einchecken absolvieren."
+    - area: 163
+      value: End in {0}
+    - area: 164
+      value: Geben Sie den Einladungscode
+    - area: 165
+      value: "best\xE4tigen"
+    - area: 166
+      value: "Schlie\xDFen in {0}"
+    - area: 167
+      value: Code ist nicht vorhanden.
+    - area: 168
+      value: binden erfolgreich
+    - area: 169
+      value: 
+    - area: 170
+      value: 
+    - area: 171
+      value: 
+    - area: 172
+      value: 

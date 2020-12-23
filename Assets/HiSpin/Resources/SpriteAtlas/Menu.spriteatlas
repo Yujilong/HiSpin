@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: cbb863edee6e50648ae434482ab09119, type: 3}
-    totalSpriteSurfaceArea: 465494
+    totalSpriteSurfaceArea: 479414
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -56,6 +56,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 33f4a82baceaa1f40847ef24ece1f784, type: 3}
   - {fileID: 21300000, guid: e0ebff7bf6c083f4b90b9f134c1028d7, type: 3}
   - {fileID: 21300000, guid: 1184811c48c02f745abffc31ac3eecc2, type: 3}
+  - {fileID: 21300000, guid: 6c4a623c460cced4a9d8c49ccd0f7c2a, type: 3}
   - {fileID: 21300000, guid: 492915fc021e3bb4180358826f833f98, type: 3}
   - {fileID: 21300000, guid: 7af4f8fc521052a419632fe1b0f621d4, type: 3}
   - {fileID: 21300000, guid: c4b72fcdb924d8942a23d5d61833b000, type: 3}
@@ -84,6 +85,7 @@ SpriteAtlas:
   - add
   - Cash
   - red_point
+  - SignCash
   - PT
   - Task_Off
   - Lottery_On

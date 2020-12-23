@@ -15,7 +15,7 @@ namespace HiSpin
 #if UNITY_ANDROID
         public const string Platform = "android";
 #elif UNITY_IOS
-    public const string Platform = "ios";
+        public const string Platform = "ios";
 #endif
         public const string Bi_name = Ads.AppName;
         public static Server_New Instance;
@@ -93,6 +93,9 @@ namespace HiSpin
             GetNewPlayerReward,
             GetUUID,
             GetCashoutRecordList,
+            SignIn,
+            GetSignData,
+            BindInviteCode,
         }
         static readonly Dictionary<Server_RequestType, string> getdata_uri_dic = new Dictionary<Server_RequestType, string>()
     {
@@ -113,6 +116,9 @@ namespace HiSpin
         {Server_RequestType.GetNewPlayerReward,"http://admin.crsdk.com:8000/new_data/" },
         {Server_RequestType.GetUUID,"http://aff.luckyclub.vip:8000/get_random_id/" },
         {Server_RequestType.GetCashoutRecordList,"http://admin.crsdk.com:8000/lucky_record/" },
+        {Server_RequestType.SignIn,"http://admin.crsdk.com:8000/lucky_sign/" },
+        {Server_RequestType.GetSignData,"http://admin.crsdk.com:8000/lucky_sign_status/" },
+        {Server_RequestType.BindInviteCode,"http://admin.crsdk.com:8000/invita_bing_code/" },
     };
         Server_RequestType RequestType;
         Action ServerResponseOkCallback;
@@ -158,6 +164,8 @@ namespace HiSpin
                 Save.data.adid = adID;
                 iparams.Add(new MultipartFormDataSection("device_id", adID));
             }
+            iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
+            iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
             switch (_RequestType)
             {
                 case Server_RequestType.AllData:
@@ -181,14 +189,10 @@ namespace HiSpin
                         requestCountry.Dispose();
                     }
                     #endregion
-                    iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
                     iparams.Add(new MultipartFormDataSection("country", localCountry));
                     iparams.Add(new MultipartFormDataSection("ad_ios", Platform));
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.TaskData:
-                    iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.ClickSlotsCard:
                     iparams.Add(new MultipartFormDataSection("lucky_id", _Args[0]));
@@ -196,12 +200,10 @@ namespace HiSpin
                 case Server_RequestType.GetSlotsReward:
                     iparams.Add(new MultipartFormDataSection("reward_type", _Args[0]));//获得奖励类型
                     iparams.Add(new MultipartFormDataSection("reward_num", _Args[1]));//获得奖励数量
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.FinishTask:
                     iparams.Add(new MultipartFormDataSection("task_id", _Args[0]));
                     iparams.Add(new MultipartFormDataSection("double", _Args[1]));//是否双倍
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.BuyTickets:
                     iparams.Add(new MultipartFormDataSection("reward_type", _Args[0]));//是否是看广告购买
@@ -212,14 +214,11 @@ namespace HiSpin
                     iparams.Add(new MultipartFormDataSection("paypal", _Args[0]));
                     iparams.Add(new MultipartFormDataSection("first_name", _Args[1]));
                     iparams.Add(new MultipartFormDataSection("last_name", _Args[2]));
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.Cashout:
-                    iparams.Add(new MultipartFormDataSection("app_name", Bi_name));
                     iparams.Add(new MultipartFormDataSection("withdrawal_type", _Args[0]));//提现消耗类型
                     iparams.Add(new MultipartFormDataSection("withdrawal", _Args[1]));//提现消耗数量
                     iparams.Add(new MultipartFormDataSection("doller", _Args[2]));//提现现金数量
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.GetLocalCountry:
                     Master.Instance.ShowTip("Error code : can not use this connecting.");
@@ -239,7 +238,6 @@ namespace HiSpin
                     break;
                 case Server_RequestType.GetNewPlayerReward:
                     iparams.Add(new MultipartFormDataSection("double", _Args[0]));//奖励倍数，默认1
-                    iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
                     break;
                 case Server_RequestType.GetUUID:
                     Master.Instance.ShowTip("Error code : can not use this connecting.");
@@ -247,6 +245,13 @@ namespace HiSpin
                     OnConnectServerSuccess();
                     yield break;
                 case Server_RequestType.GetCashoutRecordList:
+                    break;
+                case Server_RequestType.SignIn:
+                    break;
+                case Server_RequestType.GetSignData:
+                    break;
+                case Server_RequestType.BindInviteCode:
+                    iparams.Add(new MultipartFormDataSection("invita_code", _Args[0]));
                     break;
                 default:
                     break;
@@ -289,6 +294,7 @@ namespace HiSpin
                         case Server_RequestType.ClickSlotsCard:
                             AllData_SlotsState slotsStateData = JsonMapper.ToObject<AllData_SlotsState>(downText);
                             Save.data.allData.lucky_status = slotsStateData;
+                            Save.data.allData.user_panel.lucky_count++;
                             break;
                         case Server_RequestType.GetSlotsReward:
                             PlayerGetSlotsRewardReceiveData receiveSlotsRewardData = JsonMapper.ToObject<PlayerGetSlotsRewardReceiveData>(downText);
@@ -432,6 +438,19 @@ namespace HiSpin
                             AllData_CashoutRecordData casoutRecordData = JsonMapper.ToObject<AllData_CashoutRecordData>(downText);
                             Save.data.allData.lucky_record = casoutRecordData;
                             break;
+                        case Server_RequestType.SignIn:
+                        case Server_RequestType.GetSignData:
+                            SigninReceiveData signData = JsonMapper.ToObject<SigninReceiveData>(downText);
+                            Save.data.allData.check_task = signData.check_task;
+                            Save.data.allData.user_panel.user_doller_live = signData.user_doller_live;
+                            break;
+                        case Server_RequestType.BindInviteCode:
+                            if (!downText.Equals("ok"))
+                            {
+                                Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputInviteCode_BindFail));
+                                yield break;
+                            }
+                            break;
                         default:
                             break;
                     }
@@ -515,6 +534,18 @@ namespace HiSpin
         {
             ConnectToServer(Server_RequestType.GetCashoutRecordList, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow);
         }
+        public void ConnectToServer_SignIn(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow)
+        {
+            ConnectToServer(Server_RequestType.SignIn, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow);
+        }
+        public void ConnectToServer_GetSignData(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow)
+        {
+            ConnectToServer(Server_RequestType.GetSignData, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow);
+        }
+        public void ConnectToServer_BindInviteCode(Action _ServerResponseOkCallback, Action _ServerResponseErrorCallback, Action _NetworkErrorCallback, bool _ShowConnectingWindow,string _InviteCode)
+        {
+            ConnectToServer(Server_RequestType.BindInviteCode, _ServerResponseOkCallback, _ServerResponseErrorCallback, _NetworkErrorCallback, _ShowConnectingWindow, _InviteCode);
+        }
         private void ShowConnectErrorTip(string errorCode)
         {
             string errorString;
@@ -531,6 +562,9 @@ namespace HiSpin
                     break;
                 case "-7":
                     errorString = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ServerError7);
+                    break;
+                case "-8":
+                    errorString = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputInviteCode_BindFail);
                     break;
                 default:
                     errorString = "Error code :" + errorCode;
@@ -566,17 +600,19 @@ namespace HiSpin
     }
     public enum PlayerTaskTarget
     {
-        EnterSlotsOnce,//
+        EnterSlotsOnce,
         PlayBettingOnce,
-        WatchRvOnce,//
+        WatchRvOnce,
         CashoutOnce,
-        WritePaypalEmail,//
-        OwnSomeGold,//
-        WinnerOnce,//
+        WritePaypalEmail,
+        OwnSomeGold,
+        WinnerOnce,
         InviteAFriend,
-        GetTicketFromSlotsOnce,//
+        GetTicketFromSlotsOnce,
         BuyTicketByGoldOnce,
         BuyTicketByRvOnce,
+        OwnSomeFriend,
+        OwnFriendAndAllReachLv,
     }
     public class PlayerGetSlotsRewardReceiveData
     {
@@ -632,9 +668,15 @@ namespace HiSpin
     {
         public int user_doller_live;
     }
+    public class SigninReceiveData
+    {
+        public AllData_SignData check_task;
+        public int user_doller_live;
+    }
     #region newAllData
     public class AllData
     {
+        public int invita_time;
         public AllData_MainData user_panel;
         public AllData_SlotsState lucky_status;
         public AllData_BettingWinnerData award_ranking;
@@ -646,6 +688,7 @@ namespace HiSpin
         public bool day_flag;//今天是否已经开奖
         public string user_uuid;//用户uuid
         public AllData_SignData check_task;//签到
+        public List<AllData_FriendEventData> seven_list;//邀请活动好友
     }
     public class AllData_MainData
     {
@@ -676,6 +719,8 @@ namespace HiSpin
         public int blue_cash;
         public string first_name;
         public string last_name;
+        public int seven_doller;//
+        public string invita_code;
     }
     public class AllData_SlotsState
     {
@@ -783,6 +828,21 @@ namespace HiSpin
         public int cur_day;
         public List<int> task_list;
         public bool flag_task;
+        public List<AllData_SignTaskData> tar_task;
+        public int check_coin;
+    }
+    public class AllData_SignTaskData
+    {
+        public PlayerTaskTarget tar_id;
+        public int cur_num;
+        public int tar_num;
+    }
+    public class AllData_FriendEventData
+    {
+        public int user_title_id;
+        public string username;
+        public int current;
+        public int expect;
     }
     #endregion
 }

@@ -22,6 +22,7 @@ namespace HiSpin
     {
         { (int)BasePanel.Offerwall,"Prefabs/UI/Base_Offerwall" },
         { (int)BasePanel.Rank,"Prefabs/UI/Base_Rank" },
+        { (int)BasePanel.Friend,"Prefabs/UI/Base_Friend" },
         { (int)BasePanel.Slots,"Prefabs/UI/Base_Slots" },
         { (int)BasePanel.Betting,"Prefabs/UI/Base_Betting" },
 
@@ -29,9 +30,9 @@ namespace HiSpin
         { (int)BasePanel.CashoutRecord,"Prefabs/UI/Base_CashoutRecord" },
         { (int)BasePanel.Task,"Prefabs/UI/Base_Task&Achievement" },
         { (int)BasePanel.PlaySlots,"Prefabs/UI/Base_PlaySlots" },
-        { (int)BasePanel.Friend,"Prefabs/UI/Base_Friend" },
         { (int)BasePanel.Me,"Prefabs/UI/Base_Me" },
         { (int)BasePanel.FriendList,"Prefabs/UI/Base_FriendList" },
+        { (int)BasePanel.FriendEvent,"Prefabs/UI/Base_FriendEvent" },
 
         { (int)PopPanel.Loading,"Prefabs/UI/Pop_Loading" },
         { (int)PopPanel.Setting,"Prefabs/UI/Pop_Setting" },
@@ -45,6 +46,9 @@ namespace HiSpin
         { (int)PopPanel.InputPaypalEmail,"Prefabs/UI/Pop_InputPaypalEmail" },
         { (int)PopPanel.GetNewPlayerReward,"Prefabs/UI/Pop_NewPlayerReward" },
         { (int)PopPanel.Sign,"Prefabs/UI/Pop_Sign" },
+        { (int)PopPanel.SignTasks,"Prefabs/UI/Pop_SignTask" },
+        { (int)PopPanel.InputInviteCode,"Prefabs/UI/Pop_InputInviteCode" },
+        { (int)PopPanel.QuitPlaySlots,"Prefabs/UI/Pop_QuitPlaySlots" },
     };
         //除菜单外所有面板已经加载的资源
         static readonly Dictionary<int, GameObject> loadedpanelPrefabDic = new Dictionary<int, GameObject>();
@@ -67,6 +71,9 @@ namespace HiSpin
         new PopTask() { panelType = PopPanel.InputPaypalEmail, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.GetNewPlayerReward, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.Sign, taskQueue = new Queue<int[]>() },
+        new PopTask() { panelType = PopPanel.SignTasks, taskQueue = new Queue<int[]>() },
+        new PopTask() { panelType = PopPanel.InputInviteCode, taskQueue = new Queue<int[]>() },
+        new PopTask() { panelType = PopPanel.QuitPlaySlots, taskQueue = new Queue<int[]>() },
     };
         class PopTask
         {
@@ -78,7 +85,9 @@ namespace HiSpin
         static readonly Queue<int[]> BasePanelTaskParams = new Queue<int[]>();
         //底层面板的历史记录
         static readonly Stack<int> BasePanelHistoryRecord = new Stack<int>();
+        static readonly Stack<int[]> BasePanelHistoryRecordArgs = new Stack<int[]>();
         public static IUIBase CurrentBasePanel = null;
+        public static IUIBase CurrentRulePanel = null;
         static IUIBase CurrentPopPanel = null;
         public static Menu MenuPanel = null;
         static GameObject MenuObj = null;
@@ -111,27 +120,37 @@ namespace HiSpin
             if (panelIndex <= (int)BasePanel.Betting)
             {
                 BasePanelHistoryRecord.Clear();
+                BasePanelHistoryRecordArgs.Clear();
             }
             BasePanelHistoryRecord.Push(panelIndex);
+            BasePanelHistoryRecordArgs.Push(args);
             if (_baseAnimationCor is null)
                 _baseAnimationCor = TaskEngine.StartCoroutine(ExcuteBasePanelShowTask());
         }
-        public static void CloseCurrentBasePanel(bool isPhoneBack = false)
+        public static void CloseCurrentBasePanel(bool isPhoneBack = false, bool isForce = false)
         {
-            if (CurrentPopPanel != null) return;
+            if (!isForce)
+                if (CurrentPopPanel != null) return;
             int panelIndex = BasePanelHistoryRecord.Peek();
             if (isPhoneBack)
-                if (panelIndex == (int)BasePanel.PlaySlots) return;
+                if (panelIndex == (int)BasePanel.PlaySlots)
+                {
+                    ShowPopPanel(PopPanel.QuitPlaySlots);
+                    return;
+                }
             if (panelIndex > (int)BasePanel.Betting)
             {
                 BasePanelHistoryRecord.Pop();
+                BasePanelHistoryRecordArgs.Pop();
                 int lastPanelIndex = BasePanelHistoryRecord.Pop();
-                ShowBasePanel(lastPanelIndex);
+                int[] lastPanelArgs = BasePanelHistoryRecordArgs.Pop();
+                ShowBasePanel(lastPanelIndex, lastPanelArgs);
             }
             else
                 Debug.LogError("关闭了错误的底层面板，面板ID：" + panelIndex);
         }
         static Coroutine _popAnimationCor = null;
+        static Coroutine _ruleAnimationCor = null;
         public static void ShowPopPanel(PopPanel popPanel, params int[] args)
         {
             bool hasAddTask = false;
@@ -139,6 +158,9 @@ namespace HiSpin
             {
                 if (task.panelType == popPanel)
                 {
+                    if (popPanel == PopPanel.QuitPlaySlots)
+                        if (CheckCurrentPopPanelIs(PopPanel.QuitPlaySlots))
+                            return;
                     task.taskQueue.Enqueue(args);
                     hasAddTask = true;
                     break;
@@ -149,14 +171,25 @@ namespace HiSpin
                 Debug.LogError("没有配置面板的优先级，面板类型：" + popPanel);
                 return;
             }
-            if (_popAnimationCor is null)
-                _popAnimationCor = TaskEngine.StartCoroutine(ExcutePopPanelShowTask());
+            if (popPanel == PopPanel.Rules)
+            {
+                if (_ruleAnimationCor is null)
+                    _ruleAnimationCor = TaskEngine.StartCoroutine(ExcutePopRulesPanelShowTask());
+            }
+            else
+            {
+                if (_popAnimationCor is null)
+                    _popAnimationCor = TaskEngine.StartCoroutine(ExcutePopPanelShowTaskExceptRules());
+            }
         }
         static Coroutine _popCloseCor = null;
+        static Coroutine _popRuleCloseCor = null;
         public static void ClosePopPanel(IUIBase panel)
         {
             if (panel == CurrentPopPanel && _popCloseCor == null)
-                _popCloseCor = TaskEngine.StartCoroutine(ExcutePopPanelCloseTask());
+                _popCloseCor = TaskEngine.StartCoroutine(ExcutePopPanelCloseTaskExceptRule());
+            else if(panel==CurrentRulePanel&&_popRuleCloseCor==null)
+                _popRuleCloseCor = TaskEngine.StartCoroutine(ExcutePopRulesPanelCloseTask());
         }
         private static IEnumerator ExcuteBasePanelShowTask()
         {
@@ -254,11 +287,11 @@ namespace HiSpin
             }
             _baseAnimationCor = null;
         }
-        private static IEnumerator ExcutePopPanelShowTask()
+        private static IEnumerator ExcutePopPanelShowTaskExceptRules()
         {
             while (true)
             {
-                if (CurrentPopPanel is object)
+                if (CurrentPopPanel is object || CurrentRulePanel is object)
                 {
                     yield return null;
                     continue;
@@ -267,6 +300,8 @@ namespace HiSpin
                 int popOrderCount = allPopTaskOrderList.Count;
                 for (int i = 0; i < popOrderCount; i++)
                 {
+                    if (allPopTaskOrderList[i].panelType == PopPanel.Rules)
+                        continue;
                     if (allPopTaskOrderList[i].taskQueue.Count > 0)
                     {
                         nextTask = allPopTaskOrderList[i];
@@ -352,11 +387,116 @@ namespace HiSpin
                 }
             }
         }
-        private static IEnumerator ExcutePopPanelCloseTask()
+        private static IEnumerator ExcutePopRulesPanelShowTask()
+        {
+            while (true)
+            {
+                if (CurrentRulePanel is object)
+                {
+                    yield return null;
+                    continue;
+                }
+                PopTask nextTask = null;
+                int popOrderCount = allPopTaskOrderList.Count;
+                for (int i = 0; i < popOrderCount; i++)
+                {
+                    if (allPopTaskOrderList[i].panelType == PopPanel.Rules)
+                    {
+                        if (allPopTaskOrderList[i].taskQueue.Count > 0)
+                            nextTask = allPopTaskOrderList[i];
+                        break;
+                    }
+                }
+                if (nextTask is null)
+                {
+                    if (CurrentBasePanel != null)
+                        CurrentBasePanel.Resume();
+                    if (MenuPanel != null)
+                        MenuPanel.Resume();
+                    yield return null;
+                    continue;
+                }
+
+                int panelIndex = (int)nextTask.panelType;
+                int[] args = nextTask.taskQueue.Dequeue();
+                if (allPanelDic.TryGetValue(panelIndex, out IUIBase tempUI))
+                {
+                    if (tempUI is null)
+                    {
+                        Debug.LogError("保存的接口为空，面板类型ID：" + panelIndex);
+                        allPanelDic.Remove(panelIndex);
+                        continue;
+                    }
+                    CurrentRulePanel = tempUI;
+                    CurrentBasePanel.Pause();
+                    MenuPanel.Pause();
+                    CurrentRulePanel.SetContent();
+                    yield return CurrentRulePanel.Show(args);
+                }
+                else
+                {
+                    if (loadedpanelPrefabDic.TryGetValue(panelIndex, out GameObject tempPrefab))
+                    {
+                        if (tempPrefab is null)
+                        {
+                            Debug.LogError("加载预制体的资源为空，面板类型ID：" + panelIndex);
+                            loadedpanelPrefabDic.Remove(panelIndex);
+                            continue;
+                        }
+                        GameObject tempUIGo = GameObject.Instantiate(tempPrefab, PopRoot);
+                        tempUI = tempUIGo.GetComponent<IUIBase>();
+                        allPanelDic.Add(panelIndex, tempUI);
+                        allPanelGoDic.Add(panelIndex, tempUIGo);
+                        CurrentRulePanel = tempUI;
+                        CurrentBasePanel.Pause();
+                        MenuPanel.Pause();
+                        CurrentRulePanel.SetContent();
+                        yield return CurrentRulePanel.Show(args);
+                    }
+                    else
+                    {
+                        if (panelPathDic.TryGetValue(panelIndex, out string tempUIPath))
+                        {
+                            tempPrefab = Resources.Load<GameObject>(tempUIPath);
+                            if (tempPrefab is null)
+                            {
+                                Debug.LogError("加载预制体的资源为空，面板类型ID：" + panelIndex);
+                                loadedpanelPrefabDic.Remove(panelIndex);
+                                continue;
+                            }
+                            loadedpanelPrefabDic.Add(panelIndex, tempPrefab);
+
+                            GameObject tempUIGo = GameObject.Instantiate(tempPrefab, PopRoot);
+                            tempUI = tempUIGo.GetComponent<IUIBase>();
+                            allPanelDic.Add(panelIndex, tempUI);
+                            allPanelGoDic.Add(panelIndex, tempUIGo);
+                            CurrentRulePanel = tempUI;
+                            if (CurrentBasePanel is object)
+                                CurrentBasePanel.Pause();
+                            if (MenuPanel is object)
+                                MenuPanel.Pause();
+                            CurrentRulePanel.SetContent();
+                            yield return CurrentRulePanel.Show(args);
+                        }
+                        else
+                        {
+                            Debug.LogError("没有配置面板预制体资源路径，面板类型ID：" + panelIndex);
+                        }
+                    }
+                }
+            }
+        }
+        private static IEnumerator ExcutePopPanelCloseTaskExceptRule()
         {
             yield return CurrentPopPanel.Close();
             CurrentPopPanel = null;
             _popCloseCor = null;
+        }
+        private static IEnumerator ExcutePopRulesPanelCloseTask()
+        {
+            yield return CurrentRulePanel.Close();
+            CurrentRulePanel = null;
+            _popRuleCloseCor = null;
         }
         public static void FlyReward(Reward type, int num, Vector3 startWorldPos)
         {
@@ -413,20 +553,24 @@ namespace HiSpin
         PlaySlots = 8,
         Me = 9,
         FriendList = 10,
+        FriendEvent = 11,
     }
     public enum PopPanel
     {
-        Loading = 11,
-        Setting = 12,
-        GetReward = 13,
-        Rules = 14,
-        CashoutPop = 15,
-        InviteOk = 16,
-        StartBetting = 17,
-        GetCash = 18,
-        Guide = 19,
-        InputPaypalEmail = 20,
-        GetNewPlayerReward = 21,
-        Sign = 22,
+        Loading = 12,
+        Setting = 13,
+        GetReward = 14,
+        Rules = 15,
+        CashoutPop = 16,
+        InviteOk = 17,
+        StartBetting = 18,
+        GetCash = 19,
+        Guide = 20,
+        InputPaypalEmail = 21,
+        GetNewPlayerReward = 22,
+        Sign = 23,
+        SignTasks = 24,
+        InputInviteCode = 25,
+        QuitPlaySlots = 26,
     }
 }

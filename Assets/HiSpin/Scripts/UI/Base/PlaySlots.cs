@@ -257,6 +257,8 @@ namespace HiSpin
         protected override void AfterCloseAnimation()
         {
             Master.Instance.SetBgDefault();
+            Master.Instance.AddLocalExp(exp_once * (MaxSpinTime - spinTime));
+            Master.Instance.SendAdjustQuitPlaySlots(MaxSpinTime - spinTime <= 0);
         }
         const string MaterialOffsetProperty = "_MainTex";
         public const int MaxSpinTime = 5;

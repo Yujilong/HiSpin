@@ -19,13 +19,30 @@ namespace HiSpin
         }
         public void Init(CashoutType comsumeType, int consumeNum, string consumeTime, int result, int cashNum)
         {
-            consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, comsumeType.ToString());
-            if (comsumeType == CashoutType.Cash)
-                consume_numText.text = consumeNum.GetBigTokenString();
-            else if (comsumeType == CashoutType.PT)
-                consume_numText.text = consumeNum.GetTokenShowString() + " <size=60>" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
-            else
-                consume_numText.text = consumeNum.GetTokenShowString();
+            switch (comsumeType)
+            {
+                case CashoutType.PT:
+                    consume_numText.text = consumeNum.GetTokenShowString() + " <size=60>" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "PT");
+                    break;
+                case CashoutType.Cash:
+                    consume_numText.text = consumeNum.GetBigTokenString();
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Cash");
+                    break;
+                case CashoutType.Blue_Cash:
+                    consume_numText.text = consumeNum.GetCashShowString();
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Paypal");
+                    break;
+                case CashoutType.FriendEvent_Cash:
+                    consume_numText.text = consumeNum.GetCashShowString();
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Cash");
+                    break;
+                case CashoutType.Gold:
+                default:
+                    consume_numText.text = consumeNum.GetTokenShowString();
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Gold");
+                    break;
+            }
             consume_timeText.text = consumeTime;
 
             cashout_numText.text = "+" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + cashNum.GetTokenShowString();

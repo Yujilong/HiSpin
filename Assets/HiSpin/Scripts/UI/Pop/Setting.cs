@@ -25,6 +25,7 @@ namespace HiSpin
         public Button soundButton;
         public Button musicButton;
         public Button emailButton;
+        public Button invitecodeButton;
         public Dropdown languageSelect;
         public new AnimationCurve animation;
         public GameObject task_rpGo;
@@ -50,6 +51,7 @@ namespace HiSpin
             soundButton.AddClickEvent(OnSoundClick);
             musicButton.AddClickEvent(OnMusicClick);
             emailButton.AddClickEvent(OnEmailClick);
+            invitecodeButton.AddClickEvent(OnInvitecodeClick);
             withdrawButton.gameObject.SetActive(Save.data.isPackB);
             int languageCount = (int)LanguageCountryEnum.LanguageTypeNum + 1;
             List<string> allLanguage = new List<string>();
@@ -98,6 +100,11 @@ namespace HiSpin
             Save.data.music_on = !Save.data.music_on;
             Audio.SetMusicState(Save.data.music_on);
             musicButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "music_" + (Save.data.music_on ? "on" : "off"));
+        }
+        private void OnInvitecodeClick()
+        {
+            UI.ClosePopPanel(this);
+            UI.ShowPopPanel(PopPanel.InputInviteCode);
         }
         private void OnEmailClick()
         {
@@ -170,6 +177,7 @@ namespace HiSpin
                     break;
                 }
             }
+            invitecodeButton.gameObject.SetActive(Save.data.allData.invita_time > 0);
 
             canvasGroup.alpha = 1;
             canvasGroup.blocksRaycasts = true;
@@ -185,6 +193,10 @@ namespace HiSpin
                 bgImage.color = Color.Lerp(bgStartColor, bgEndColor, value);
                 yield return null;
             }
+        }
+        public void UpdateInvitecodeState()
+        {
+            invitecodeButton.gameObject.SetActive(Save.data.allData.invita_time > 0 && !Save.data.allData.fission_info.up_user);
         }
         public IEnumerator Close()
         {
@@ -221,6 +233,7 @@ namespace HiSpin
         public Text taskrewardsText;
         public Text itemofuseText;
         public Text cantactusText;
+        public Text invitecodeText;
         public void SetContent()
         {
             ticket_multipleText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Reward_Ticket) + " <color=#fff000>x {0}</color>\n "
@@ -229,6 +242,7 @@ namespace HiSpin
             taskrewardsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.TaskRewards);
             itemofuseText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ItemOfUse);
             cantactusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.ContactUs);
+            invitecodeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InviteCode);
         }
 
         #endregion

@@ -75,6 +75,8 @@ namespace HiSpin
             {
                 OnCompileComplete();
             }
+            else
+                Debug.Log("已经完成添加多语言的枚举");
         }
         public static bool isCompileLanguageEnum = false;
         public static void OnCompileComplete()
@@ -128,6 +130,7 @@ namespace HiSpin
             EditorUtility.SetDirty(data);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+            Debug.Log("多语言表读取完成");
         }
     }
     [InitializeOnLoad]

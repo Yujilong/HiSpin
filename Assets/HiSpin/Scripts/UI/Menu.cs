@@ -250,9 +250,8 @@ namespace HiSpin
 #if UNITY_IOS
         if(Save.data.isPackB)
 #endif
-        if (!Save.data.allData.user_panel.new_reward)
+            if (Save.data.isPackB && !Save.data.allData.user_panel.new_reward)
                 UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 0);
-            UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 0);
 #if UNITY_IOS
         if (!Save.data.isPackB)
         {
@@ -395,6 +394,10 @@ namespace HiSpin
                     all_topGo.SetActive(false);
                     all_bottomGo.SetActive(true);
                     break;
+                case BasePanel.FriendEvent:
+                    all_bottomGo.SetActive(false);
+                    all_topGo.SetActive(false);
+                    break;
                 default:
                     break;
             }
@@ -443,6 +446,10 @@ namespace HiSpin
                                 break;
                             case Reward.Ticket:
                                 UpdateTicketText();
+                                break;
+                            case Reward.SignCash:
+                                Sign sign = UI.GetUI(PopPanel.Sign) as Sign;
+                                sign.UpdateBonusNumText();
                                 break;
                             default:
                                 break;

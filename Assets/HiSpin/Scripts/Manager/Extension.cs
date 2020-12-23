@@ -131,5 +131,13 @@ namespace HiSpin
                     return "E+" + numDevideThree * 3;
             }
         }
+        public static string TotalSecondsTo24hTime(this int leftSeconds)
+        {
+            int second = leftSeconds % 60;
+            int minute = leftSeconds % 3600 / 60;
+            int hour = leftSeconds / 3600;
+            string time = (hour < 10 ? "0" + hour : hour.ToString()) + ":" + (minute < 10 ? "0" + minute : minute.ToString()) + ":" + (second < 10 ? "0" + second : second.ToString());
+            return time;
+        }
     }
 }

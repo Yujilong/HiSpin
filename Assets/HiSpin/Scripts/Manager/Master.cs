@@ -12,7 +12,7 @@ namespace HiSpin
         public static float ExpandCoe = 1;
         public const float TopMoveDownOffset = 100;
         public const string PackageName = "com.HiSpin.DailyCash.HugeRewards.FreeGame";
-        public const int Version = 11;
+        public const int Version = 12;
         public const string AppleId = "1540900402";
         public static bool isLoadingEnd = false;
         public static bool WillSetPackB = false;
@@ -37,7 +37,7 @@ namespace HiSpin
             Instance = this;
             Application.targetFrameRate = 60;
 #if !UNITY_EDITOR
-        Debug.unityLogger.logEnabled = false;
+           Debug.unityLogger.logEnabled = false;
 #endif
             UI = new UI(this, BaseRoot, MenuRoot, PopRoot);
             Save = new Save();
@@ -117,17 +117,24 @@ namespace HiSpin
             WaitForSeconds oneSecond = new WaitForSeconds(1);
             while (true)
             {
-                int second = leftSeconds % 60;
-                int minute = leftSeconds % 3600 / 60;
-                int hour = leftSeconds / 3600;
-                time = (hour < 10 ? "0" + hour : hour.ToString()) + ":" + (minute < 10 ? "0" + minute : minute.ToString()) + ":" + (second < 10 ? "0" + second : second.ToString());
+                time = leftSeconds.TotalSecondsTo24hTime();
                 Slots slots = UI.GetUI(BasePanel.Slots) as Slots;
                 if (slots != null)
                     slots.UpdateTimedownText(time);
                 Betting betting = UI.GetUI(BasePanel.Betting) as Betting;
                 if (betting != null)
                     betting.UpdateTimeDownText(time);
+                SignTasks signTasks = UI.GetUI(PopPanel.SignTasks) as SignTasks;
+                if (signTasks != null)
+                    signTasks.UpdateTimeDown(time);
                 yield return oneSecond;
+                Save.data.allData.invita_time--;
+                Setting setting = UI.GetUI(PopPanel.Setting) as Setting;
+                if (setting != null)
+                    setting.UpdateInvitecodeState();
+                InputInviteCode inviteCode = UI.GetUI(PopPanel.InputInviteCode) as InputInviteCode;
+                if (inviteCode != null)
+                    inviteCode.UpdateTimedownText();
                 leftSeconds--;
                 if (leftSeconds == 0)
                 {
@@ -338,13 +345,14 @@ namespace HiSpin
 #endif
             AdjustEventLogger.Instance.AdjustEventNoParam(AdjustEventLogger.TOKEN_packB);
         }
-        public void SendAdjustClickInviteButtonEvent()
+        public void SendAdjustClickInviteButtonEvent(bool isFriendEvent)
         {
 #if UNITY_EDITOR
             return;
 #endif
             AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_invite_button,
-                ("player_id", Save.data.allData.user_panel.user_id)
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("type", isFriendEvent ? "1" : "0")
                 );
         }
         public void SendAdjustEnterInvitePageEvent()
@@ -363,6 +371,37 @@ namespace HiSpin
             return;
 #endif
             AdjustEventLogger.Instance.AdjustEventNoParam(AdjustEventLogger.TOKEN_ticket_over1000);
+        }
+        public void SendAdjustCheckinEvent(int currentDayIncludeNewPlayerReward)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_check_in,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("id", currentDayIncludeNewPlayerReward.ToString())
+                );
+        }
+        public void SendAdjustBindInviteCode()
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_invite_way,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("type", "1")
+                );
+        }
+        public void SendAdjustQuitPlaySlots(bool isNormalQuit)
+        {
+#if UNITY_EDITOR
+            return;
+#endif
+            AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_stage_over,
+                ("player_id", Save.data.allData.user_panel.user_id),
+                ("type", Save.data.allData.user_panel.lucky_count.ToString()),
+                ("value", isNormalQuit ? "1" : "0")
+                );
         }
         public ParticleSystem left_particle;
         public ParticleSystem right_particle;
@@ -403,6 +442,7 @@ namespace HiSpin
         Gold,
         Cash,
         Ticket,
-        Paypal
+        Paypal,
+        SignCash,
     }
 }

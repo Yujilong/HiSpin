@@ -23,6 +23,7 @@ namespace HiSpin
         { SpriteAtlas_Name.GetCash,"SpriteAtlas/GetCash"},
         { SpriteAtlas_Name.GetNewPlayerReward,"SpriteAtlas/GetNewPlayerReward"},
         { SpriteAtlas_Name.Sign,"SpriteAtlas/Sign"},
+        { SpriteAtlas_Name.FriendEvent,"SpriteAtlas/FriendEvent"},
     };
         static readonly Dictionary<SpriteAtlas_Name, SpriteAtlas> loadedSpriteAtlasDic = new Dictionary<SpriteAtlas_Name, SpriteAtlas>();
         static readonly Dictionary<string, Sprite> loadedSpriteDic = new Dictionary<string, Sprite>();
@@ -144,6 +145,7 @@ namespace HiSpin
         Friend,
         GetCash,
         GetNewPlayerReward,
-        Sign
+        Sign,
+        FriendEvent,
     }
 }
