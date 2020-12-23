@@ -177,7 +177,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621502319101084619}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1296,15 +1296,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5110855624533686970}
-  - {fileID: 5110855625369950784}
   m_Father: {fileID: 5110855625414026600}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -369.5812, y: -782.1}
+  m_AnchoredPosition: {x: 0, y: -782.1}
   m_SizeDelta: {x: 0, y: 50.081818}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5110855624324126409
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1792,9 +1791,9 @@ RectTransform:
   m_Father: {fileID: 5110855624324126404}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -231.4, y: -1.4}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -34.399994, y: -1.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5110855624533686975
@@ -2432,7 +2431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2728,14 +2727,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5110855625042137873}
-  m_Father: {fileID: 5110855624324126404}
-  m_RootOrder: 1
+  m_Father: {fileID: 5110855625414026600}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -845}
   m_SizeDelta: {x: 0, y: 50.081818}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5110855625369950789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2758,7 +2757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8078432, g: 0.8862746, b: 0.93725497, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2946,6 +2945,7 @@ RectTransform:
   - {fileID: 5110855625629055053}
   - {fileID: 5110855625299018203}
   - {fileID: 5110855624324126404}
+  - {fileID: 5110855625369950784}
   m_Father: {fileID: 5102963285782956842}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2962,7 +2962,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5110855625414026601}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -3123,23 +3123,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   get_newplayer_rewardCg: {fileID: 5110855624390706517}
-  cashnumText: {fileID: 5110855624473496010}
   cashoutButton: {fileID: 5110855624408508293}
   input_paypal_emailCg: {fileID: 5110855625414026603}
   skipButton: {fileID: 5110855624276222674}
-  card_cashnumText: {fileID: 5110855624761575243}
   emailInputfield: {fileID: 5110855625629055052}
   claimButton: {fileID: 5110855625299018202}
   agreeButton: {fileID: 5110855624533686973}
   agreeIcon: {fileID: 5110855624198496818}
   termsButton: {fileID: 7246966570485523673}
   cashout_recordCg: {fileID: 6102301605172583423}
-  cashout_cashnumText: {fileID: 5110855625398361883}
   stateText: {fileID: 5110855624780185012}
   timeValueText: {fileID: 3210771444760899824}
   orderidValueText: {fileID: 3383987998342912102}
   accountValueText: {fileID: 5568108889567635379}
   nextButton: {fileID: 1444880643619420923}
+  getnewplayerrewardTitleText: {fileID: 5110855624241601711}
+  prizeText: {fileID: 5110855623940640815}
+  cashnumText: {fileID: 5110855624473496010}
+  cashout_buttonText: {fileID: 5110855624923554062}
+  skipText: {fileID: 5110855624558047661}
+  inputpaypal_prizeText: {fileID: 5110855625833941079}
+  card_cashnumText: {fileID: 5110855624761575243}
+  tipText: {fileID: 5110855625106902030}
+  inputpaypal_placeholderText: {fileID: 5110855625888670487}
+  claimText: {fileID: 5110855624821254644}
+  front_ruleText: {fileID: 5110855624324126406}
+  termsText: {fileID: 5110855625369950786}
+  cashout_cashnumText: {fileID: 5110855625398361883}
+  cashout_stateText: {fileID: 5110855624780185012}
+  timeText: {fileID: 5110855625430960619}
+  orderidText: {fileID: 5110855623948113293}
+  accountText: {fileID: 5110855624171770058}
+  nextText: {fileID: 2124517915555914684}
 --- !u!1 &5110855625617675029
 GameObject:
   m_ObjectHideFlags: 0

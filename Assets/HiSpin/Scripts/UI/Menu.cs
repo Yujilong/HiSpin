@@ -250,8 +250,11 @@ namespace HiSpin
 #if UNITY_IOS
         if(Save.data.isPackB)
 #endif
-            if (Save.data.isPackB && !Save.data.allData.user_panel.new_reward)
+           if (Save.data.isPackB && !Save.data.allData.user_panel.new_reward)
                 UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 0);
+#if UNITY_EDITOR
+            UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 0);
+#endif
 #if UNITY_IOS
         if (!Save.data.isPackB)
         {

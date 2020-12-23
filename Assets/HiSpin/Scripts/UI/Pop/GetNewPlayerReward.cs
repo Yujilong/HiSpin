@@ -9,12 +9,10 @@ namespace HiSpin
     public class GetNewPlayerReward : PopUI
     {
         public CanvasGroup get_newplayer_rewardCg;
-        public Text cashnumText;
         public Button cashoutButton;
         [Space(15)]
         public CanvasGroup input_paypal_emailCg;
         public Button skipButton;
-        public Text card_cashnumText;
         public InputField emailInputfield;
         public Button claimButton;
         public Button agreeButton;
@@ -22,7 +20,6 @@ namespace HiSpin
         public Button termsButton;
         [Space(15)]
         public CanvasGroup cashout_recordCg;
-        public Text cashout_cashnumText;
         public Text stateText;
         public Text timeValueText;
         public Text orderidValueText;
@@ -44,6 +41,10 @@ namespace HiSpin
             OriginAgreeLocalPos = agreeButton.transform.parent.localPosition;
         }
         private void OnCashouButtonClick()
+        {
+            Server_New.Instance.ConnectToServer_GetNewPlayerReward(OnCashoutCallback, null, null, true);
+        }
+        private void OnCashoutCallback()
         {
             get_newplayer_rewardCg.alpha = 0;
             get_newplayer_rewardCg.blocksRaycasts = false;
@@ -216,6 +217,53 @@ namespace HiSpin
                     break;
             }
             agreeIcon.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetNewPlayerReward, hasAgreeRule ? "agree" : "disagree");
+        }
+        [Space(15)]
+        public Text getnewplayerrewardTitleText;
+        public Text prizeText;
+        public Text cashnumText;
+        public Text cashout_buttonText;
+
+        public Text skipText;
+        public Text inputpaypal_prizeText;
+        public Text card_cashnumText;
+        public Text tipText;
+        public Text inputpaypal_placeholderText;
+        public Text claimText;
+        public Text front_ruleText;
+        public Text termsText;
+
+        public Text cashout_cashnumText;
+        public Text cashout_stateText;
+        public Text timeText;
+        public Text orderidText;
+        public Text accountText;
+        public Text nextText;
+        public override void SetContent()
+        {
+            getnewplayerrewardTitleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Congratulation) + "!";
+            prizeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Prize);
+            cashnumText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50.00";
+            cashout_buttonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
+
+            skipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Skip);
+            inputpaypal_prizeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Prize);
+            card_cashnumText.text= Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50.00";
+            tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Tip);
+            inputpaypal_placeholderText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_InputTip);
+            claimText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CLAIM);
+            front_ruleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_FrontRule);
+            termsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_BehindRule);
+
+            cashout_cashnumText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50.00";
+            cashout_stateText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_State);
+            timeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Time);
+            orderidText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Orderid);
+            accountText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Account);
+            nextText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Next);
+        }
+        protected override void AfterShowAnimation(params int[] args)
+        {
         }
     }
 }
