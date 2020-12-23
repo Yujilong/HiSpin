@@ -70,6 +70,9 @@ namespace HiSpin
                     SendAdjustPackBEvent();
             }
             isLoadingEnd = true;
+#if UNITY_EDITOR
+            Save.data.isPackB = false;
+#endif
             UI.ShowMenuPanel();
         }
         public void StartTimeDown()

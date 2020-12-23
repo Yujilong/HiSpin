@@ -9,6 +9,7 @@ namespace HiSpin
     {
         public List<SlotItem> allSlotsItems = new List<SlotItem>();
         public Button signButton;
+        public Button cashouButton;
         public GameObject sign_rpGo;
         protected override void Awake()
         {
@@ -17,6 +18,7 @@ namespace HiSpin
             canvasGroup.blocksRaycasts = false;
             canvasGroup.interactable = false;
             signButton.AddClickEvent(OnSignButtonClick);
+            cashouButton.AddClickEvent(OnCashoutButtonClick);
             RectTransform allRect = transform.GetChild(0) as RectTransform;
             if (Master.IsBigScreen)
             {
@@ -24,7 +26,6 @@ namespace HiSpin
                 allRect.sizeDelta += new Vector2(0, 1920 * (Master.ExpandCoe - 1) - Master.TopMoveDownOffset);
             }
             allRect.GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.one;
-            signButton.gameObject.SetActive(Save.data.isPackB);
         }
         private void OnSignButtonClick()
         {
@@ -32,6 +33,10 @@ namespace HiSpin
                 UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 1);
             else
                 UI.ShowPopPanel(PopPanel.Sign);
+        }
+        private void OnCashoutButtonClick()
+        {
+            UI.ShowBasePanel(BasePanel.Cashout);
         }
         public void RefreshSlotsCardState()
         {
@@ -63,18 +68,24 @@ namespace HiSpin
         public void UpdateSignState()
         {
             if (!Save.data.isPackB)
+            {
                 signButton.gameObject.SetActive(false);
-            var signData = Save.data.allData.check_task;
-            if (signData.cur_day < 14)
-                signButton.gameObject.SetActive(true);
-            else if (signData.cur_day == 14)
-                signButton.gameObject.SetActive(signData.flag_task);
+            }
             else
-                signButton.gameObject.SetActive(false);
-            if (signData.cur_day < 14)
-                sign_rpGo.SetActive(signData.flag_task && signData.task_list[signData.cur_day] == 0);
-            else
-                sign_rpGo.SetActive(true);
+            {
+                var signData = Save.data.allData.check_task;
+                if (signData.cur_day < 14)
+                    signButton.gameObject.SetActive(true);
+                else if (signData.cur_day == 14)
+                    signButton.gameObject.SetActive(signData.flag_task);
+                else
+                    signButton.gameObject.SetActive(false);
+                if (signData.cur_day < 14)
+                    sign_rpGo.SetActive(signData.flag_task && signData.task_list[signData.cur_day] == 0);
+                else
+                    sign_rpGo.SetActive(true);
+            }
+            cashouButton.gameObject.SetActive(Save.data.isPackB && !signButton.gameObject.activeSelf);
         }
         public void UpdateTimedownText(string time)
         {
