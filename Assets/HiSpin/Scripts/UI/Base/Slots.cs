@@ -11,6 +11,8 @@ namespace HiSpin
         public Button signButton;
         public Button cashouButton;
         public GameObject sign_rpGo;
+        public Image sign_progress_fillImage;
+        public Text sign_progressText;
         protected override void Awake()
         {
             base.Awake();
@@ -84,6 +86,20 @@ namespace HiSpin
                     sign_rpGo.SetActive(signData.flag_task && signData.task_list[signData.cur_day] == 0);
                 else
                     sign_rpGo.SetActive(true);
+                int hasSignDay = 0;
+                foreach (var state in signData.task_list)
+                    if (state == 1)
+                        hasSignDay++;
+                if (signData.cur_day < 14)
+                {
+                    sign_progress_fillImage.fillAmount = hasSignDay / 15f;
+                    sign_progressText.text = hasSignDay + "/15";
+                }
+                else
+                {
+                    sign_progress_fillImage.fillAmount = hasSignDay + 1 / 15f;
+                    sign_progressText.text = (hasSignDay + 1) + "/15";
+                }
             }
             cashouButton.gameObject.SetActive(Save.data.isPackB && !signButton.gameObject.activeSelf);
         }

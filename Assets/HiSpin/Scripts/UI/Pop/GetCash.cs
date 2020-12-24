@@ -22,7 +22,7 @@ namespace HiSpin
             switch (getCashArea)
             {
                 case GetCashArea.PlaySlots:
-                    Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetOneSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum);
+                    Server.Instance.ConnectToServer_GetSlotsReward(OnGetOneSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum);
                     break;
                 default:
                     Master.Instance.ShowTip("Error : Cash Area is not correct.");
@@ -35,11 +35,11 @@ namespace HiSpin
             switch (getCashArea)
             {
                 case GetCashArea.NewPlayerReward:
-                    Server_New.Instance.ConnectToServer_GetNewPlayerReward(OnGetNewplayerRewardCallback, null, null, true);
+                    Server.Instance.ConnectToServer_GetNewPlayerReward(OnGetNewplayerRewardCallback, null, null, true);
                     break;
                 case GetCashArea.PlaySlots:
                     clickAdTime++;
-                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "老虎机现金翻倍", OnNothanksClick);
+                    Ads._instance.ShowRewardVideo(() => { Server.Instance.ConnectToServer_GetSlotsReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum * 3); }, clickAdTime, "老虎机现金翻倍", OnNothanksClick);
                     break;
                 case GetCashArea.Signin:
                     OnGetSignCash();

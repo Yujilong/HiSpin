@@ -31,11 +31,12 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: cbb863edee6e50648ae434482ab09119, type: 3}
-    totalSpriteSurfaceArea: 479414
+    totalSpriteSurfaceArea: 501753
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 2118205073547414c8ea24ce99eb16b2, type: 3}
+  - {fileID: 21300000, guid: 363a8b215ebd5b144bf25646419e3a41, type: 3}
   - {fileID: 21300000, guid: b69ace61d1170f644b439628d17d9970, type: 3}
   - {fileID: 21300000, guid: 27b5ed81c36af994f8f1b70f3868353b, type: 3}
   - {fileID: 21300000, guid: fe9f60333c23f4e47949cf767f39222e, type: 3}
@@ -65,6 +66,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5ac892bfce576ff40af73a4a0ea8326d, type: 3}
   m_PackedSpriteNamesToIndex:
   - Friend_On
+  - tokenbg
   - Back
   - Rank_Off
   - Setting

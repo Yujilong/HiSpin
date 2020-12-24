@@ -30,7 +30,7 @@ namespace HiSpin
         private void OnGetButtonClick()
         {
             //Server.Instance.OperationData_OpenBettingPrize(OnRequstDataCallback, null);
-            Server_New.Instance.ConnectToServer_OpenBettingPrize(OnRequstDataCallback, null, null, true);
+            Server.Instance.ConnectToServer_OpenBettingPrize(OnRequstDataCallback, null, null, true);
         }
         private void OnRequstDataCallback()
         {

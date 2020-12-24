@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 #endif
 namespace HiSpin
 {
-    public class Server_New : MonoBehaviour
+    public class Server : MonoBehaviour
     {
 #if UNITY_ANDROID
         public const string Platform = "android";
@@ -18,7 +18,7 @@ namespace HiSpin
         public const string Platform = "ios";
 #endif
         public const string Bi_name = Ads.AppName;
-        public static Server_New Instance;
+        public static Server Instance;
         public CanvasGroup canvasGroup;
         public Image state_iconImage;
         public Text titleText;

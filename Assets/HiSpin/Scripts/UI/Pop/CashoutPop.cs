@@ -63,7 +63,7 @@ namespace HiSpin
         }
         private void OnCashoutClick()
         {
-            Server_New.Instance.ConnectToServer_Cashout(OnCashoutCallback, null, null, true, cashoutType, cashoutTypeNum, cashoutNum);
+            Server.Instance.ConnectToServer_Cashout(OnCashoutCallback, null, null, true, cashoutType, cashoutTypeNum, cashoutNum);
         }
         private void OnCashoutCallback()
         {

@@ -51,7 +51,7 @@ namespace HiSpin
             string endValue = value.CheckName();
             nameInputfield.SetTextWithoutNotify(endValue);
             //Server.Instance.OperationData_ChangeHead_Name(null, null, -1, endValue);
-            Server_New.Instance.ConnectToServer_ChangeHedOrName(RefreshName, RefreshName, null, true, -1, endValue);
+            Server.Instance.ConnectToServer_ChangeHedOrName(RefreshName, RefreshName, null, true, -1, endValue);
         }
         private void RefreshName()
         {

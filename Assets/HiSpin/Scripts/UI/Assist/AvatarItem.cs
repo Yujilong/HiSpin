@@ -40,7 +40,7 @@ namespace HiSpin
                 Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ClickUnlockHead), 2);
             else
                 //Server.Instance.OperationData_ChangeHead_Name(OnChangeHeadCallback, null, headid, null);
-                Server_New.Instance.ConnectToServer_ChangeHedOrName(OnChangeHeadCallback, null, null, true, headid, null);
+                Server.Instance.ConnectToServer_ChangeHedOrName(OnChangeHeadCallback, null, null, true, headid, null);
         }
         private void OnChangeHeadCallback()
         {

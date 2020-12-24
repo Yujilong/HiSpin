@@ -41,7 +41,7 @@ namespace HiSpin
                 Master.Instance.ShowTip("Error: can not get task id", 2);
             else
                 //Server.Instance.OperationData_FinishTask(OnGetRewardCallback, null, inviteTaskData.task_id, doublReward, Reward.Cash, Reward.Ticket);
-                Server_New.Instance.ConnectToServer_FinishTask(OnGetRewardCallback, null, null, true, inviteTaskData.task_id, doublReward, Reward.Cash, Reward.Ticket);
+                Server.Instance.ConnectToServer_FinishTask(OnGetRewardCallback, null, null, true, inviteTaskData.task_id, doublReward, Reward.Cash, Reward.Ticket);
         }
         private void OnGetRewardCallback()
         {

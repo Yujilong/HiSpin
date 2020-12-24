@@ -38,12 +38,10 @@ namespace HiSpin
             switch (reward_area)
             {
                 case GetRewardArea.PlaySlots:
-                    //Server.Instance.OperationData_GetSlotsReward(OnRequestCallback, null, reward_type, reward_num * reward_mutiple);
-                    Server_New.Instance.ConnectToServer_GetSlotsReward(OnRequestCallback, null, null, true, reward_type, multiple ? reward_num * reward_mutiple : reward_num);
+                    Server.Instance.ConnectToServer_GetSlotsReward(OnRequestCallback, null, null, true, reward_type, multiple ? reward_num * reward_mutiple : reward_num);
                     break;
                 case GetRewardArea.LevelUp:
-                    //Server.Instance.OperationData_GetLevelupReward(OnRequestCallback, null, reward_mutiple);
-                    Server_New.Instance.ConnectToServer_GetLevelupReward(OnRequestCallback, null, null, true, multiple ? reward_mutiple : 1);
+                    Server.Instance.ConnectToServer_GetLevelupReward(OnRequestCallback, null, null, true, multiple ? reward_mutiple : 1);
                     break;
                 default:
                     Debug.LogError("奖励获得区域错误");

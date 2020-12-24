@@ -34,7 +34,7 @@ namespace HiSpin
                 Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_EmptyEmail), 3);
             }
             else
-                Server_New.Instance.ConnectToServer_BindPaypal(OnConfirmCallback, null, null, true, paypal, firstname, lastname);
+                Server.Instance.ConnectToServer_BindPaypal(OnConfirmCallback, null, null, true, paypal, firstname, lastname);
         }
         private void OnConfirmCallback()
         {

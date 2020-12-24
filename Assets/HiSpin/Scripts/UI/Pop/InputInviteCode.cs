@@ -28,7 +28,7 @@ namespace HiSpin
             if (string.IsNullOrEmpty(codeString) || string.IsNullOrWhiteSpace(codeString))
                 Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.InputInviteCode_BindFail));
             else
-                Server_New.Instance.ConnectToServer_BindInviteCode(OnSuccessBindCallback, null, null, true, codeString);
+                Server.Instance.ConnectToServer_BindInviteCode(OnSuccessBindCallback, null, null, true, codeString);
         }
         private void OnSuccessBindCallback()
         {

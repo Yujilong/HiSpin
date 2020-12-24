@@ -126,7 +126,7 @@ namespace HiSpin
 			rewardFailCallback = failCallback;
 #if UNITY_EDITOR
 			//Server.Instance.OperationData_RvEvent(rewardCallback, null);
-			Server_New.Instance.ConnectToServer_WatchRvEvent(rewardedCallback, null, null, true);
+			Server.Instance.ConnectToServer_WatchRvEvent(rewardedCallback, null, null, true);
 			TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WatchRvOnce, 1);
 			Debug.Log("RV:【" + des + "】");
 			return true;
@@ -227,7 +227,7 @@ namespace HiSpin
 			if (canGetReward)
 			{
 				//Server.Instance.OperationData_RvEvent(rewardCallback, null);
-				Server_New.Instance.ConnectToServer_WatchRvEvent(rewardCallback, null, null, true);
+				Server.Instance.ConnectToServer_WatchRvEvent(rewardCallback, null, null, true);
 				TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WatchRvOnce, 1);
 				canGetReward = false;
 			}

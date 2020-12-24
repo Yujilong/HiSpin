@@ -25,7 +25,7 @@ namespace HiSpin
         }
         protected override void BeforeShowAnimation(params int[] args)
         {
-            Server_New.Instance.ConnectToServer_GetCashoutRecordList(InitRecord, null, null, true);
+            Server.Instance.ConnectToServer_GetCashoutRecordList(InitRecord, null, null, true);
         }
         public void InitRecord()
         {

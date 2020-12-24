@@ -55,7 +55,7 @@ namespace HiSpin
                     {
                         speed = 0;
                         //Server.Instance.RequestData(Server.Server_RequestType.AllData, () => { speed = 1; }, () => { speed = 0; }, false);
-                        Server_New.Instance.ConnectToServer_GetAllData(() =>
+                        Server.Instance.ConnectToServer_GetAllData(() =>
                         {
                             speed = 1;
                             if (string.IsNullOrEmpty(Save.data.uuid))

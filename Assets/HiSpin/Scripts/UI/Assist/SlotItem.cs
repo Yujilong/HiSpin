@@ -33,7 +33,7 @@ namespace HiSpin
                 cashNum = isFree ? 150 : 500;
             else
                 cashNum = isFree ? 50 : 200;
-            reward_numText.text = cashNum.ToString();
+            reward_numText.text = cashNum+"K";
             isAd = !isFree;
 #if UNITY_ANDROID
             ad_maskGo.SetActive(isAd);
@@ -52,7 +52,7 @@ namespace HiSpin
         private void OnAdCallback()
         {
             //Server.Instance.OperationData_ClickSlotsCard(OnSuccessCallback, null, index);
-            Server_New.Instance.ConnectToServer_ClickSlotsCard(OnSuccessCallback, OnServerResponseErrorCallback, null, true, index);
+            Server.Instance.ConnectToServer_ClickSlotsCard(OnSuccessCallback, OnServerResponseErrorCallback, null, true, index);
         }
         private void OnServerResponseErrorCallback()
         {

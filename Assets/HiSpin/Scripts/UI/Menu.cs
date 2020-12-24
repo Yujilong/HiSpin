@@ -71,7 +71,8 @@ namespace HiSpin
         }
         public void OnTaskFinishChange(bool hasFinish)
         {
-            setting_rpGo.SetActive(hasFinish);
+            if (!setting_rpGo.activeSelf)
+                setting_rpGo.SetActive(hasFinish);
         }
         #region button event
         private void OnCashButtonClick()

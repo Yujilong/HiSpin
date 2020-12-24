@@ -164,7 +164,7 @@ namespace HiSpin
                         if (Save.data.allData.user_panel.user_gold_live >= Save.data.allData.lucky_schedule.coin_ticket)
                         {
                             //Server.Instance.OperationData_BuyTickets(OnFinishTaskCallback, OnErrorCallback, false);
-                            Server_New.Instance.ConnectToServer_BuyTickets(OnFinishTaskCallback, OnErrorCallback, null, true, false);
+                            Server.Instance.ConnectToServer_BuyTickets(OnFinishTaskCallback, OnErrorCallback, null, true, false);
                         }
                         else
                             Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_NotEnoughtCoins));
@@ -189,7 +189,7 @@ namespace HiSpin
                     case PlayerTaskTarget.GetTicketFromSlotsOnce:
                     case PlayerTaskTarget.WritePaypalEmail:
                         //Server.Instance.OperationData_FinishTask(OnFinishTaskCallback, OnErrorCallback, Task_ID, false, RewardType);
-                        Server_New.Instance.ConnectToServer_FinishTask(OnFinishTaskCallback, OnErrorCallback, null, true, Task_ID, false, RewardType);
+                        Server.Instance.ConnectToServer_FinishTask(OnFinishTaskCallback, OnErrorCallback, null, true, Task_ID, false, RewardType);
                         break;
                     case PlayerTaskTarget.InviteAFriend:
                         UI.ShowBasePanel(BasePanel.Friend);
@@ -215,7 +215,7 @@ namespace HiSpin
         }
         private void OnErrorCallback()
         {
-            Server_New.Instance.ConnectToServer_GetTaskData(() =>
+            Server.Instance.ConnectToServer_GetTaskData(() =>
             {
                 Tasks tasks = UI.GetUI(BasePanel.Task) as Tasks;
                 tasks.RefreshTaskInfo();
@@ -235,7 +235,7 @@ namespace HiSpin
         }
         private void OnAdBuyTicketCallback()
         {
-            Server_New.Instance.ConnectToServer_BuyTickets(OnFinishTaskCallback, OnErrorCallback, null, true, true);
+            Server.Instance.ConnectToServer_BuyTickets(OnFinishTaskCallback, OnErrorCallback, null, true, true);
         }
     }
 }

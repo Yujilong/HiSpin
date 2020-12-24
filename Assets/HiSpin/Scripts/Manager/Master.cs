@@ -149,7 +149,7 @@ namespace HiSpin
         public void RequestAllData()
         {
             //Server.Instance.RequestData(Server.Server_RequestType.AllData, OnRequestAllDataCallback, null);
-            Server_New.Instance.ConnectToServer_GetAllData(OnRequestAllDataCallback, null, null, true);
+            Server.Instance.ConnectToServer_GetAllData(OnRequestAllDataCallback, null, null, true);
         }
         private void OnRequestAllDataCallback()
         {

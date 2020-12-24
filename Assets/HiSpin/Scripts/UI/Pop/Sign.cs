@@ -61,7 +61,7 @@ namespace HiSpin
                     UI.ShowPopPanel(PopPanel.SignTasks);
                 }
                 else
-                    Server_New.Instance.ConnectToServer_SignIn(OnSigninSuccessCallback, OnSignFailCallback, null, true);
+                    Server.Instance.ConnectToServer_SignIn(OnSigninSuccessCallback, OnSignFailCallback, null, true);
             }
         }
         private void OnSigninSuccessCallback()
@@ -80,18 +80,18 @@ namespace HiSpin
         }
         private void OnSignFailCallback()
         {
-            Server_New.Instance.ConnectToServer_GetSignData(OnGetNewSignDataCallback, null, null, true);
+            Server.Instance.ConnectToServer_GetSignData(OnGetNewSignDataCallback, null, null, true);
         }
         private void OnGetNewSignDataCallback()
         {
             BeforeShowAnimation();
         }
-        private bool CheckCanCashout_15thCash()
+        private bool CheckCanCashout_15thCash(int today)
         {
             bool can = true;
             List<int> dayStates = Save.data.allData.check_task.task_list;
             int dayCount = dayStates.Count;
-            for(int i = 0; i < dayCount; i++)
+            for(int i = 0; i < today; i++)
             {
                 if (dayStates[i] == 0)
                 {
@@ -108,6 +108,7 @@ namespace HiSpin
         {
             UpdateBonusNumText();
             RefreshDaily();
+            tipText.gameObject.SetActive(!CheckCanCashout_15thCash(today));
         }
         private void RefreshDaily()
         {

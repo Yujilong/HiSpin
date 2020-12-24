@@ -138,7 +138,7 @@ namespace HiSpin
         private void OnAboutFeeClick()
         {
             //Server.Instance.RequestData_GetLocalcountry(OnRequestLocalcountyCallback, null);
-            OnRequestLocalcountyCallback(Server_New.localCountry);
+            OnRequestLocalcountyCallback(Server.localCountry);
         }
         private void OnRequestLocalcountyCallback(string country)
         {

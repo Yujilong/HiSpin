@@ -42,7 +42,7 @@ namespace HiSpin
         }
         private void OnCashouButtonClick()
         {
-            Server_New.Instance.ConnectToServer_GetNewPlayerReward(OnCashoutCallback, null, null, true);
+            Server.Instance.ConnectToServer_GetNewPlayerReward(OnCashoutCallback, null, null, true);
         }
         private void OnCashoutCallback()
         {
@@ -77,7 +77,7 @@ namespace HiSpin
                 StartCoroutine("ShakeSomething", agreeButton.transform.parent);
             }
             else
-                Server_New.Instance.ConnectToServer_BindPaypal(OnBindPaypalCallback, null, null, true, emailInputfield.text, " ", " ");
+                Server.Instance.ConnectToServer_BindPaypal(OnBindPaypalCallback, null, null, true, emailInputfield.text, " ", " ");
         }
         IEnumerator ShakeSomething(Transform targetTrans)
         {
@@ -163,6 +163,7 @@ namespace HiSpin
         {
             input_paypal_emailCg.alpha = 0;
             input_paypal_emailCg.blocksRaycasts = false;
+            accountValueText.text = Save.data.allData.user_panel.user_paypal;
             cashout_recordCg.alpha = 1;
             cashout_recordCg.blocksRaycasts = true;
             Master.Instance.SendAdjustCheckinEvent(0);
@@ -174,7 +175,7 @@ namespace HiSpin
         }
         private void OnTermsButtonClick()
         {
-            Application.OpenURL("");
+            Application.OpenURL("http://luckyclub.vip/hispin-termofuse/");
         }
         private void OnNextButtonClick()
         {
@@ -196,7 +197,6 @@ namespace HiSpin
             for (int i = 0; i < 8; i++)
                 orderid.Append(Random.Range(0, 10));
             orderidValueText.text = orderid.ToString();
-            accountValueText.text = Save.data.allData.user_panel.user_paypal;
             switch (step)
             {
                 case 0:
