@@ -101,14 +101,22 @@ namespace HiSpin
             foreach (var key in multi_language_differ_value.Keys)
             {
                 if (lowerValue.Equals(key.ToLower()))
-                    return multi_language_differ_value[key];
+                    if (!Save.data.isPackB)
+                        return multi_language_differ_value[key].Replace("$", "");
+                    else
+                        return multi_language_differ_value[key];
             }
             return "";
         }
         public static string GetMultiLanguageByArea(LanguageAreaEnum languageArea)
         {
             if (multi_language_differ_area.ContainsKey(languageArea))
-                return multi_language_differ_area[languageArea];
+            {
+                if (!Save.data.isPackB)
+                    return multi_language_differ_area[languageArea].Replace("$", "");
+                else
+                    return multi_language_differ_area[languageArea];
+            }
             else
                 Debug.LogError("Get " + languageArea + " Language Error : no this area.");
             return "";

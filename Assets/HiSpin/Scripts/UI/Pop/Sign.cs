@@ -91,7 +91,8 @@ namespace HiSpin
             bool can = true;
             List<int> dayStates = Save.data.allData.check_task.task_list;
             int dayCount = dayStates.Count;
-            for(int i = 0; i < today; i++)
+            int min = Mathf.Min(dayCount, today);
+            for(int i = 0; i < min; i++)
             {
                 if (dayStates[i] == 0)
                 {
@@ -164,6 +165,11 @@ namespace HiSpin
                 all_signdayRect.GetComponent<ScrollRect>().normalizedPosition = Vector2.one;
             else
                 all_signdayRect.localPosition = new Vector3(-all_signdayItems[today].transform.localPosition.x + 332, 0);
+            RectTransform leftRect = extrabonusText.GetComponent<RectTransform>();
+            RectTransform rightRect = bonus_numText.GetComponent<RectTransform>();
+            Tools.SetTwoUICenterInParent(leftRect, rightRect);
+            leftRect.localPosition -= new Vector3(62, 0);
+            rightRect.localPosition -= new Vector3(62, 0);
         }
         protected override void AfterCloseAnimation()
         {
@@ -173,6 +179,8 @@ namespace HiSpin
             }
         }
         [Space(15)]
+        public Text card_cashnumText;
+        public Text card_tip;
         public Text extrabonusText;
         public Text dailysigninText;
         public Text checkinText;
@@ -180,6 +188,8 @@ namespace HiSpin
         public Text day15Text;
         public override void SetContent()
         {
+            card_cashnumText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50";
+            card_tip.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide4);
             day15Text.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Sign_Day), 15);
             extrabonusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Sign_ExtraBonusTitle);
             dailysigninText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Sign_DailySignin);

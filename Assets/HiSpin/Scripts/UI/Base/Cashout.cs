@@ -65,11 +65,11 @@ namespace HiSpin
             paypalCashout_leftButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(10); });
             paypalCashout_midButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(50); });
             paypalCashout_rightButton.AddClickEvent(() => { OnPaypalCashoutButtonClick(100); });
-            friendevent_cashoutButton1.AddClickEvent(() => { OnFriendEventCashoutButtonClick(2); });
-            friendevent_cashoutButton2.AddClickEvent(() => { OnFriendEventCashoutButtonClick(10); });
-            friendevent_cashoutButton3.AddClickEvent(() => { OnFriendEventCashoutButtonClick(100); });
-            friendevent_cashoutButton4.AddClickEvent(() => { OnFriendEventCashoutButtonClick(200); });
-            friendevent_cashoutButton5.AddClickEvent(() => { OnFriendEventCashoutButtonClick(500); });
+            friendevent_cashoutButton1.AddClickEvent(() => { OnFriendEventCashoutButtonClick(FriendEventCashoutMinCash); });
+            friendevent_cashoutButton2.AddClickEvent(() => { OnFriendEventCashoutButtonClick(300); });
+            friendevent_cashoutButton3.AddClickEvent(() => { OnFriendEventCashoutButtonClick(500); });
+            friendevent_cashoutButton4.AddClickEvent(() => { OnFriendEventCashoutButtonClick(700); });
+            friendevent_cashoutButton5.AddClickEvent(() => { OnFriendEventCashoutButtonClick(1000); });
 
             gold_redeemButton.AddClickEvent(OnGoldCashoutButtonClick);
         }
@@ -146,7 +146,7 @@ namespace HiSpin
         }
         const int CashoutNeedGold = 5000000;
         public const int GoldMaxNum = 4600000;
-        public const int FriendEventCashoutMinCash = 2;
+        public const int FriendEventCashoutMinCash = 100;
         const int PtCashoutRate = 1000;
         public const int CashToDollerRadio = 25;
         bool isFriendEventCashout = false;
@@ -238,10 +238,10 @@ namespace HiSpin
 
             friendevent_cash_numText.text = dollar + Save.data.allData.user_panel.seven_doller.GetCashShowString();
             friendevent_cashout_buttonText1.text = dollar + " " + FriendEventCashoutMinCash;
-            friendevent_cashout_buttonText2.text = dollar + " 10";
-            friendevent_cashout_buttonText3.text = dollar + " 100";
-            friendevent_cashout_buttonText4.text = dollar + " 200";
-            friendevent_cashout_buttonText5.text = dollar + " 500";
+            friendevent_cashout_buttonText2.text = dollar + " 300";
+            friendevent_cashout_buttonText3.text = dollar + " 500";
+            friendevent_cashout_buttonText4.text = dollar + " 700";
+            friendevent_cashout_buttonText5.text = dollar + " 1000";
 
             StartCoroutine("DelayRefreshLayout");
         }

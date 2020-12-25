@@ -2482,7 +2482,9 @@ MonoBehaviour:
   headImage: {fileID: 5610166348919105153}
   nameText: {fileID: 5610166350529588478}
   currentText: {fileID: 5610166350310804079}
+  coin1Go: {fileID: 5610166350776687999}
   expectText: {fileID: 5610166350392461272}
+  coin2Go: {fileID: 5610166349661456922}
 --- !u!1 &5610166350292575452
 GameObject:
   m_ObjectHideFlags: 0

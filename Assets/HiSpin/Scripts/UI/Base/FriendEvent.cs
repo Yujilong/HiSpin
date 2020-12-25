@@ -89,7 +89,7 @@ namespace HiSpin
         }
         private void OnWithDrawClick()
         {
-            if (canCashout)
+            //if (canCashout)
                 UI.ShowBasePanel(BasePanel.Cashout, 1);
         }
         bool canCashout = false;
@@ -98,6 +98,7 @@ namespace HiSpin
             invite_codeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_MyInviteCode) + Save.data.allData.user_panel.invita_code;
             canCashout = Save.data.allData.user_panel.seven_doller >= Cashout.FriendEventCashoutMinCash * 100;
             withdrawButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.FriendEvent, canCashout ? "buttonBg_on" : "buttonBg_off");
+            withdrawButton.transform.parent.gameObject.SetActive(Save.data.isPackB);
             RefreshAllFriends();
         }
         protected override void AfterShowAnimation(params int[] args)

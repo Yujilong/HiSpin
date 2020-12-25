@@ -77,6 +77,7 @@ namespace HiSpin
             clickAdTime = 0;
             getCashArea = (GetCashArea)args[0];
             getcashNum = args[1];
+            string dollar = Save.data.isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "";
 
             switch (getCashArea)
             {
@@ -84,14 +85,14 @@ namespace HiSpin
                     ad_iconGo.SetActive(false);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
-                    cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + getcashNum.GetCashShowString();
+                    cash_numText.text = dollar + getcashNum.GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(false);
                     break;
                 case GetCashArea.PlaySlots:
                     ad_iconGo.SetActive(true);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x3";
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
-                    cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
+                    cash_numText.text = dollar + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(true);
                     add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
                     break;
@@ -99,7 +100,7 @@ namespace HiSpin
                     ad_iconGo.SetActive(false);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
-                    cash_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + ((Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout.CashToDollerRadio).GetCashShowString();
+                    cash_numText.text = dollar + ((Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout.CashToDollerRadio).GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(true);
                     add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
                     break;

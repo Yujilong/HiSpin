@@ -58,6 +58,7 @@ namespace HiSpin
                 float offsetWidth = maxLength - totalLengths[i];
                 int addSpaceCount = Mathf.CeilToInt(offsetWidth / spaceLength);
                 int insertIndex = content[i].IndexOf("$");
+                insertIndex = Mathf.Clamp(insertIndex, 0, content[i].Length - 1);
                 for (int j = 0; j < addSpaceCount; j++)
                     if (j < 4 + (j - 4) / 2)
                         content[i] = content[i].Insert(insertIndex, " ");

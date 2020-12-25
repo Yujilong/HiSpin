@@ -31,45 +31,43 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f6368a2bf62f15a49b63a6945f9685b1, type: 3}
-    totalSpriteSurfaceArea: 2858936
+    totalSpriteSurfaceArea: 2846779
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 2efadb2036255064cb0d410cab739632, type: 3}
   - {fileID: 21300000, guid: fe4f9be0b0c536a4c92c92535ae201c5, type: 3}
   - {fileID: 21300000, guid: 45cf8621b4989d94fb6ab51320a429fd, type: 3}
-  - {fileID: 21300000, guid: f20c0a61bd867394292495038c22731d, type: 3}
   - {fileID: 21300000, guid: ade958a1f86a3144db63eb3bdd9c218f, type: 3}
   - {fileID: 21300000, guid: 0a40e0b3c891c514980c540cbb251035, type: 3}
-  - {fileID: 21300000, guid: e0b5efd3de46864459b384c47282a99d, type: 3}
   - {fileID: 21300000, guid: cd87cde4165ba73438539b329adc66f4, type: 3}
   - {fileID: 21300000, guid: d4f4a965a52e79f48ae1121a73b3268e, type: 3}
   - {fileID: 21300000, guid: e8ccd956069bdab40a95ed5636b316e7, type: 3}
+  - {fileID: 21300000, guid: 91b0acd63b7e40c4e836b29e0b9e254b, type: 3}
   - {fileID: 21300000, guid: 5ae8b2d77a3deea4db756e7a8ee74153, type: 3}
   - {fileID: 21300000, guid: 4cc199182fd20c643bc5223990d81119, type: 3}
-  - {fileID: 21300000, guid: cbfbb178467b0e34db8426db6b9aa754, type: 3}
+  - {fileID: 21300000, guid: 4ee7414890dc0e14bae2a21d568af08c, type: 3}
   - {fileID: 21300000, guid: a850f698b41f0324481235bd42e9dd39, type: 3}
   - {fileID: 21300000, guid: 127fff49c35405340bbf7641542e0ef6, type: 3}
-  - {fileID: 21300000, guid: ce444d59411db8247953d488a63bc01c, type: 3}
   - {fileID: 21300000, guid: 623bc62a6789e4449a24f2a5aab3a16a, type: 3}
   - {fileID: 21300000, guid: 4f1d272a703b94c43a135620cc42fb97, type: 3}
   - {fileID: 21300000, guid: c816d30c9ed49d6498de1305c5ea736c, type: 3}
   - {fileID: 21300000, guid: 71d8bbaee271fc148be51a46e8ddd401, type: 3}
   m_PackedSpriteNamesToIndex:
+  - reward_Cash
   - yes
   - ruletaskbase
-  - sign_base
   - signin_on
   - day_normal
-  - icon
   - timedownBg
   - base
   - taskcomplete
+  - help
   - day_today
   - signin_off
-  - help
+  - sign_base
   - taskclose
   - no
-  - reward_Cash
   - day15
   - taskbg
   - close

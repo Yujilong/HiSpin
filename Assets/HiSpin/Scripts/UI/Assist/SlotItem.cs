@@ -25,7 +25,7 @@ namespace HiSpin
         public void Init(bool isFree, int index)
         {
             reward_winText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Slots_Win);
-            ad_tipText.text = "%100" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Slots_Win) + "!";
+            ad_tipText.text = "100%" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Slots_Win) + "!";
             this.index = index;
             bgImage.sprite = Sprites.GetBGSprite("bg_" + index);
             titleImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Slots, "title_" + index);

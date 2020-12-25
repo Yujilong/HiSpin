@@ -129,7 +129,7 @@ namespace HiSpin
         }
         public static void CloseCurrentBasePanel(bool isPhoneBack = false, bool isForce = false)
         {
-            //if (!isForce)
+            if (!isForce)
                 if (CurrentPopPanel != null) return;
             int panelIndex = BasePanelHistoryRecord.Peek();
             if (isPhoneBack)
