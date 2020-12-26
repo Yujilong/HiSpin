@@ -9,7 +9,10 @@ namespace HiSpin
     {
         public Button tribleButton;
         public Button nothanksButton;
+        public Text cash_numText;
+        public GameObject cash_iconGo;
         public Text add_cashpt_numText;
+        public GameObject add_cashpt_cashGo;
         public GameObject ad_iconGo;
         protected override void Awake()
         {
@@ -92,17 +95,47 @@ namespace HiSpin
                     ad_iconGo.SetActive(true);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x3";
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
-                    cash_numText.text = dollar + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
-                    add_cashpt_numText.transform.parent.gameObject.SetActive(true);
-                    add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
+                    int oldCashnum = Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio;
+                    if (oldCashnum >= 1000)
+                    {
+                        cash_numText.text = dollar + oldCashnum.GetCashShowString();
+                        cash_numText.transform.localPosition = new Vector3(0, cash_numText.transform.localPosition.y);
+                        cash_iconGo.SetActive(false);
+                        add_cashpt_numText.transform.parent.gameObject.SetActive(true);
+                        add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
+                        StartCoroutine(DelaySetLayout(add_cashpt_numText.GetComponent<RectTransform>(), add_cashpt_cashGo.GetComponent<RectTransform>()));
+                    }
+                    else
+                    {
+                        cash_numText.text = getcashNum.GetTokenShowString();
+                        cash_iconGo.SetActive(true);
+                        add_cashpt_numText.transform.parent.gameObject.SetActive(false);
+                        StartCoroutine(DelaySetLayout(cash_iconGo.GetComponent<RectTransform>(), cash_numText.GetComponent<RectTransform>()));
+                    }
                     break;
                 case GetCashArea.Signin:
                     ad_iconGo.SetActive(false);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
-                    cash_numText.text = dollar + ((Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout.CashToDollerRadio).GetCashShowString();
-                    add_cashpt_numText.transform.parent.gameObject.SetActive(true);
-                    add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
+
+
+                    int oldUnSignCashnum = (Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout.CashToDollerRadio;
+                    if (oldUnSignCashnum >= 1000)
+                    {
+                        cash_numText.text = dollar + oldUnSignCashnum.GetCashShowString();
+                        cash_numText.transform.localPosition = new Vector3(0, cash_numText.transform.localPosition.y);
+                        cash_iconGo.SetActive(false);
+                        add_cashpt_numText.transform.parent.gameObject.SetActive(true);
+                        add_cashpt_numText.text = "+" + getcashNum.GetTokenShowString();
+                        StartCoroutine(DelaySetLayout(add_cashpt_numText.GetComponent<RectTransform>(), add_cashpt_cashGo.GetComponent<RectTransform>()));
+                    }
+                    else
+                    {
+                        cash_numText.text = getcashNum.GetTokenShowString();
+                        cash_iconGo.SetActive(true);
+                        add_cashpt_numText.transform.parent.gameObject.SetActive(false);
+                        StartCoroutine(DelaySetLayout(cash_iconGo.GetComponent<RectTransform>(), cash_numText.GetComponent<RectTransform>()));
+                    }
                     break;
             }
 
@@ -115,6 +148,11 @@ namespace HiSpin
             {
                 StartCoroutine("DelayShowNothanks");
             }
+        }
+        private IEnumerator DelaySetLayout(RectTransform left,RectTransform right)
+        {
+            yield return null;
+            Tools.SetTwoUICenterInParent(left, right);
         }
         protected override void BeforeCloseAnimation()
         {
@@ -130,7 +168,6 @@ namespace HiSpin
         }
         [Space(15)]
         public Text titleText;
-        public Text cash_numText;
         public Text trible_button_contentText;
         public Text nothanksText;
         public override void SetContent()

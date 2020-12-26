@@ -9,6 +9,7 @@ namespace HiSpin
     public class Betting : BaseUI
     {
         public ContentSizeFitter all_root;
+        public RectTransform lotteryRect;
         public Button helpButton;
         public Button get_ticketsButton;
         public Button friend_bannerButton;
@@ -31,6 +32,9 @@ namespace HiSpin
                 allRect.sizeDelta += new Vector2(0, 1920 * (Master.ExpandCoe - 1) - Master.TopMoveDownOffset);
                 allRect.GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.one;
             }
+            friend_bannerButton.gameObject.SetActive(Save.data.isPackB);
+            if (!Save.data.isPackB)
+                lotteryRect.sizeDelta -= new Vector2(0, friend_bannerButton.GetComponent<RectTransform>().rect.height);
 #if UNITY_IOS
         helpButton.gameObject.SetActive(Save.data.isPackB);
 #endif

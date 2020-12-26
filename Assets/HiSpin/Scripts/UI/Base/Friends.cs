@@ -13,6 +13,7 @@ namespace HiSpin
         public Button helpButton;
         public Button cashoutButton;
         [Space(15)]
+        public RectTransform midRect;
         public Button bannerButton;
         public Button myfriendsButton;
         public Image friend_headImage1;
@@ -42,6 +43,13 @@ namespace HiSpin
             {
                 topRect.sizeDelta = new Vector2(topRect.sizeDelta.x, topRect.sizeDelta.y + Master.TopMoveDownOffset);
                 viewport.sizeDelta += new Vector2(0, 1920 * (Master.ExpandCoe - 1) - Master.TopMoveDownOffset);
+            }
+            bannerButton.gameObject.SetActive(Save.data.isPackB);
+            if (!Save.data.isPackB)
+            {
+                float bannerHeight = bannerButton.GetComponent<RectTransform>().rect.height;
+                midRect.sizeDelta -= new Vector2(0, bannerHeight);
+                viewport.sizeDelta += new Vector2(0, bannerHeight);
             }
             cashoutButton.gameObject.SetActive(Save.data.isPackB);
 #if UNITY_IOS

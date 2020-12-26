@@ -156,6 +156,8 @@ namespace HiSpin
         public void UpdateBonusNumText()
         {
             bonus_numText.text = Save.data.allData.check_task.check_coin.ToString();
+            StopCoroutine("DelaySetCenter");
+            StartCoroutine("DelaySetCenter");
         }
         protected override void AfterShowAnimation(params int[] args)
         {
@@ -165,6 +167,10 @@ namespace HiSpin
                 all_signdayRect.GetComponent<ScrollRect>().normalizedPosition = Vector2.one;
             else
                 all_signdayRect.localPosition = new Vector3(-all_signdayItems[today].transform.localPosition.x + 332, 0);
+        }
+        IEnumerator DelaySetCenter()
+        {
+            yield return null;
             RectTransform leftRect = extrabonusText.GetComponent<RectTransform>();
             RectTransform rightRect = bonus_numText.GetComponent<RectTransform>();
             Tools.SetTwoUICenterInParent(leftRect, rightRect);

@@ -25,6 +25,7 @@ namespace HiSpin
             clickAdTime++;
             Ads._instance.ShowRewardVideo(OnAdCallback, clickAdTime, "多倍奖励" + reward_type, OnNothanksButtonClick);
         }
+        bool isMultiple = false;
         private void OnAdCallback()
         {
             Get(true);
@@ -35,6 +36,7 @@ namespace HiSpin
         }
         private void Get(bool multiple)
         {
+            isMultiple = multiple;
             switch (reward_area)
             {
                 case GetRewardArea.PlaySlots:
@@ -53,7 +55,7 @@ namespace HiSpin
             UI.FlyReward(reward_type, reward_num, double_getButton.transform.position);
             if (reward_type == Reward.Gold)
             {
-                TaskAgent.TriggerTaskEvent(PlayerTaskTarget.OwnSomeGold, reward_num);
+                TaskAgent.TriggerTaskEvent(PlayerTaskTarget.OwnSomeGold, isMultiple ? reward_num * reward_mutiple : reward_num);
             }
             else if (reward_type == Reward.Ticket)
             {

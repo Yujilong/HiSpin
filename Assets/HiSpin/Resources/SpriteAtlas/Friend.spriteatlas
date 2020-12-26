@@ -31,13 +31,13 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: c6b43086edd6c2442acc995fd02a39d7, type: 3}
-    totalSpriteSurfaceArea: 1950494
+    totalSpriteSurfaceArea: 1698639
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 4ca1f920c0a23844088b34c572ca3e71, type: 3}
   - {fileID: 21300000, guid: 8a0f075084bef0c4f8a204813fa5036e, type: 3}
   - {fileID: 21300000, guid: fed3b3d06b849b64f8da578446a36c57, type: 3}
-  - {fileID: 21300000, guid: 0b5637a1eceb7434a93ad8bb5e95316f, type: 3}
   - {fileID: 21300000, guid: 919d57f182a49754cb360bc987a4f08a, type: 3}
   - {fileID: 21300000, guid: 69ea3a6389371d34688e5373fcb05d8e, type: 3}
   - {fileID: 21300000, guid: ceaba6a3c37f41d4d9eb2fc64f2515c2, type: 3}
@@ -55,9 +55,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 314be25fb0cd11c4fa45d4c27285e334, type: 3}
   - {fileID: 21300000, guid: e73a195f0b925b544b2165f11de72f0a, type: 3}
   m_PackedSpriteNamesToIndex:
+  - invite_base
   - cashout bg
   - main_base
-  - invite_base
   - underline
   - paypal
   - main_lastday_recordbg

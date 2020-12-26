@@ -286,7 +286,7 @@ namespace HiSpin
             titleImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Slots, "title_" + args[0]);
             Master.Instance.ChangeBg(args[0]);
             isAd = args[1];
-            cash_numText.text = "3 x     =     " + args[2].ToString();
+            cash_numText.text = "3 x     =     " + args[2] + "K";
             int totalExp = args[3];
             exp_once = totalExp / 5;
             expText.text = "+ Exp " + exp_once;
