@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
         StopCoroutine("DealySendMergeNum");
         StartCoroutine("DealySendMergeNum");
         bool isBest = PlayerDataManager.SetScore(GetScore() + value);
+        if (PlayerDataManager.GetScore() >= 500)
+            PlayerDataManager.playerData.hasUnlockRankAndLottery = true;
         SetCurrentLevelScore(GetCurrentLevelScore() + value);
         if (!GetWhetherRateus() && GetScore() >= 1000)
         {
@@ -498,6 +500,7 @@ public class GameManager : MonoBehaviour
             _MenuPanel.RefreshProp2();
         }
         LevelManager.SetTargetBallNum(PlayerDataManager.GetLevelTargetBallNum());
+        MainController.Instance.SaveData();
     }
     public void WhenLevelUpAnimationEnd()
     {

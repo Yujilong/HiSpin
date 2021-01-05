@@ -100,7 +100,10 @@ namespace HiSpin
         }
         private void OnRankButtonClick()
         {
-            UI.ShowBasePanel(BasePanel.Rank);
+            if (GameManager.Instance.PlayerDataManager.playerData.hasUnlockRankAndLottery)
+                UI.ShowBasePanel(BasePanel.Rank);
+            else
+                Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_LockRankAndLottery), 2);
         }
         private void OnSlotsButtonClick()
         {
@@ -108,17 +111,25 @@ namespace HiSpin
         }
         private void OnLotteryButtonClick()
         {
-            UI.ShowBasePanel(BasePanel.Betting);
+            if (GameManager.Instance.PlayerDataManager.playerData.hasUnlockRankAndLottery)
+                UI.ShowBasePanel(BasePanel.Betting);
+            else
+                Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_LockRankAndLottery), 2);
         }
         private void OnFriendButtonClick()
         {
-            UI.ShowBasePanel(BasePanel.Friend);
-            if (friend_rpGo.activeSelf)
+            if (Save.data.allData.user_panel.user_level >= 2)
             {
-                Master.Instance.SendAdjustEnterInvitePageEvent();
-                friend_rpGo.SetActive(false);
+                UI.ShowBasePanel(BasePanel.Friend);
+                if (friend_rpGo.activeSelf)
+                {
+                    Master.Instance.SendAdjustEnterInvitePageEvent();
+                    friend_rpGo.SetActive(false);
+                }
+                Save.data.lastClickFriendTime = DateTime.Now;
             }
-            Save.data.lastClickFriendTime = DateTime.Now;
+            else
+                Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ClickUnlockOfferwall), 2);
         }
         private void OnTaskButtonClick()
         {

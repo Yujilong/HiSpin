@@ -379,6 +379,8 @@ MonoBehaviour:
       value: SPIN
     - area: 151
       value: LUCKY WHEEL
+    - area: 152
+      value: "Reach\_500\_scores\_unlock."
   - country: 1
     value_allAreas:
     - area: 0
@@ -853,6 +855,8 @@ MonoBehaviour:
       value: "\u0412\u0420\u0410\u0429\u0415\u041D\u0418\u0415"
     - area: 151
       value: "\u0423\u0414\u0410\u0427\u041D\u041E\u0415 \u041A\u041E\u041B\u0415\u0421\u041E"
+    - area: 152
+      value: "\u0414\u043E\u0441\u0442\u0438\u0433\u043D\u0438\u0442\u0435\_500\_\u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0445\_\u043E\u0447\u043A\u043E\u0432."
   - country: 2
     value_allAreas:
     - area: 0
@@ -1171,6 +1175,8 @@ MonoBehaviour:
       value: "\u30B9\u30D4\u30F3"
     - area: 151
       value: "\u30E9\u30C3\u30AD\u30FC\u30DB\u30A4\u30FC\u30EB"
+    - area: 152
+      value: "\u30ED\u30C3\u30AF\u3092\u89E3\u9664\u3059\u308B500\u5F97\u70B9\u306B\u5230\u9054\u3002"
   - country: 3
     value_allAreas:
     - area: 0
@@ -1540,6 +1546,8 @@ MonoBehaviour:
       value: "\uD68C\uC804"
     - area: 151
       value: "\uB7ED\uD0A4 \uD720"
+    - area: 152
+      value: "\uC7A0\uAE08\_\uD574\uC81C\_\uC810\uC218\_500\_\uC810\uC5D0\_\uB3C4\uB2EC\uD558\uC138\uC694."
   - country: 4
     value_allAreas:
     - area: 0
@@ -1888,3 +1896,5 @@ MonoBehaviour:
       value: ROTIEREN
     - area: 151
       value: "GL\xDCCKLICHES RAD"
+    - area: 152
+      value: "Erreichen\_Sie\_500\_Punkte\_freischalten."

@@ -152,4 +152,5 @@ public enum LanguageAreaEnum
     LUCKY_SLOTS,
     SPIN,
     LUCKY_WHEEL,
+    Tips_LockRankAndLottery,
 }
