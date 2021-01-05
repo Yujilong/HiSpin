@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         StopCoroutine("DealySendMergeNum");
         StartCoroutine("DealySendMergeNum");
         bool isBest = PlayerDataManager.SetScore(GetScore() + value);
-        if (PlayerDataManager.GetScore() >= 500)
+        if (PlayerDataManager.GetScore() >= 750)
             PlayerDataManager.playerData.hasUnlockRankAndLottery = true;
         SetCurrentLevelScore(GetCurrentLevelScore() + value);
         if (!GetWhetherRateus() && GetScore() >= 1000)
