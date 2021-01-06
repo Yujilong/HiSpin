@@ -86,7 +86,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine("DealySendMergeNum");
         bool isBest = PlayerDataManager.SetScore(GetScore() + value);
         if (PlayerDataManager.GetScore() >= 750)
-            PlayerDataManager.playerData.hasUnlockRankAndLottery = true;
+        {
+            Save.data.hasUnlockRankAndLottery = true;
+            HiSpin.UI.MenuPanel.UpdateRankRedpoint();
+            HiSpin.UI.MenuPanel.UpdateLotteryRedpoint();
+        }
         SetCurrentLevelScore(GetCurrentLevelScore() + value);
         if (!GetWhetherRateus() && GetScore() >= 1000)
         {

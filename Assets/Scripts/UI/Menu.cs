@@ -12,6 +12,9 @@ namespace HiSpin
         CanvasGroup canvasGroup;
         public GameObject setting_rpGo;
         public GameObject friend_rpGo;
+        public GameObject rank_rpGo;
+        public GameObject lottery_rpGo;
+        public GameObject offerwall_rpGo;
 
         public Button cashButton;
         public Button offerwallButton;
@@ -94,14 +97,28 @@ namespace HiSpin
         private void OnOfferwallButtonClick()
         {
             if (Save.data.allData.user_panel.user_level >= 2)
+            {
+                if (offerwall_rpGo.activeSelf)
+                {
+                    Save.data.hasClickOfferwall = true;
+                    offerwall_rpGo.SetActive(false);
+                }
                 UI.ShowBasePanel(BasePanel.Offerwall);
+            }
             else
                 Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_ClickUnlockOfferwall), 2);
         }
         private void OnRankButtonClick()
         {
-            if (GameManager.Instance.PlayerDataManager.playerData.hasUnlockRankAndLottery)
+            if (Save.data.hasUnlockRankAndLottery)
+            {
+                if (rank_rpGo.activeSelf)
+                {
+                    Save.data.hasClickRank = true;
+                    rank_rpGo.SetActive(false);
+                }
                 UI.ShowBasePanel(BasePanel.Rank);
+            }
             else
                 Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_LockRankAndLottery), 2);
         }
@@ -111,8 +128,15 @@ namespace HiSpin
         }
         private void OnLotteryButtonClick()
         {
-            if (GameManager.Instance.PlayerDataManager.playerData.hasUnlockRankAndLottery)
+            if (Save.data.hasUnlockRankAndLottery)
+            {
+                if (lottery_rpGo.activeSelf)
+                {
+                    Save.data.hasClickLottery = true;
+                    lottery_rpGo.SetActive(false);
+                }
                 UI.ShowBasePanel(BasePanel.Betting);
+            }
             else
                 Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_LockRankAndLottery), 2);
         }
@@ -246,6 +270,18 @@ namespace HiSpin
             friend_rpGo.SetActive(nextDay);
         }
         #endregion
+        public void UpdateRankRedpoint()
+        {
+            rank_rpGo.SetActive(Save.data.hasUnlockRankAndLottery && !Save.data.hasClickRank);
+        }
+        public void UpdateLotteryRedpoint()
+        {
+            lottery_rpGo.SetActive(Save.data.hasUnlockRankAndLottery && !Save.data.hasClickLottery);
+        }
+        public void UpdateOfferwallRedpoint()
+        {
+            offerwall_rpGo.SetActive(Save.data.allData.user_panel.user_level >= 2 && !Save.data.hasClickOfferwall);
+        }
         #region stateChange
         public IEnumerator Show(params int[] args)
         {
@@ -253,7 +289,9 @@ namespace HiSpin
             UpdateHeadIcon();
             UpdateEnergyNumText();
             UpdateFriendWetherClickToday();
-
+            UpdateRankRedpoint();
+            UpdateLotteryRedpoint();
+            UpdateOfferwallRedpoint();
 #if UNITY_IOS
         bool isPackB = Save.data.isPackB;
         offerwallButton.gameObject.SetActive(isPackB);

@@ -47,7 +47,6 @@ public class PlayerDataManager
                     todayBuyEnergyTime = 0,
                     hasGuideHowtoplay = false,
                     unSendMergeNum = 0,
-                    hasUnlockRankAndLottery=false,
 
                     logPerTenBall = 0,
                     logRestartTime = 0,
@@ -366,7 +365,6 @@ public class PlayerData
     public int todayBuyEnergyTime;
     public bool hasGuideHowtoplay;
     public int unSendMergeNum;
-    public bool hasUnlockRankAndLottery;
 
     public int logPerTenBall;
     public int logRestartTime;

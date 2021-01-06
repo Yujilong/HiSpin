@@ -76,8 +76,8 @@ namespace HiSpin
 #if UNITY_EDITOR
             Save.data.isPackB = true;
 #endif
-            GameManager.Instance.WhenLoadingGameEnd();
             UI.ShowMenuPanel();
+            GameManager.Instance.WhenLoadingGameEnd();
         }
         public void StartTimeDown()
         {
@@ -198,6 +198,7 @@ namespace HiSpin
                 Save.data.allData.user_panel.user_exp -= Save.data.allData.user_panel.level_exp;
                 UI.ShowPopPanel(PopPanel.GetReward, (int)Save.data.allData.user_panel.level_type, Save.data.allData.user_panel.next_level, (int)GetRewardArea.LevelUp, Save.data.allData.user_panel.user_level);
                 GameManager.Instance.OnLevelUpAndStopSendMergeNum();
+                UI.MenuPanel.UpdateOfferwallRedpoint();
             }
         }
         private void OnApplicationFocus(bool focus)

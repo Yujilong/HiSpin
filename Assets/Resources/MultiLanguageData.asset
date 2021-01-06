@@ -380,7 +380,7 @@ MonoBehaviour:
     - area: 151
       value: LUCKY WHEEL
     - area: 152
-      value: "Reach\_500\_scores\_unlock."
+      value: "Reach\_750\_scores\_unlock."
   - country: 1
     value_allAreas:
     - area: 0
@@ -856,7 +856,7 @@ MonoBehaviour:
     - area: 151
       value: "\u0423\u0414\u0410\u0427\u041D\u041E\u0415 \u041A\u041E\u041B\u0415\u0421\u041E"
     - area: 152
-      value: "\u0414\u043E\u0441\u0442\u0438\u0433\u043D\u0438\u0442\u0435\_500\_\u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0445\_\u043E\u0447\u043A\u043E\u0432."
+      value: "\u0414\u043E\u0441\u0442\u0438\u0433\u043D\u0438\u0442\u0435\_750\_\u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0445\_\u043E\u0447\u043A\u043E\u0432."
   - country: 2
     value_allAreas:
     - area: 0
@@ -889,7 +889,7 @@ MonoBehaviour:
     - area: 13
       value: $
     - area: 14
-      value: "500\u4E07\u679A\u306E\u30B3\u30A4\u30F3\u304C5\u30C9\u30EB\u3092\u5F15\u304D\u63DB\u3048\u307E\u3059"
+      value: "750\u4E07\u679A\u306E\u30B3\u30A4\u30F3\u304C5\u30C9\u30EB\u3092\u5F15\u304D\u63DB\u3048\u307E\u3059"
     - area: 15
       value: "\u91CD\u8981\uFF1APaypal\u306F\u8EE2\u9001\u3054\u3068\u306B\u8AB2\u91D1\u3057\u307E\u3059\u3002
         \u5404\u56FD\u306E\u30B5\u30FC\u30D3\u30B9\u6599\u306F\u7570\u306A\u308A\u307E\u3059\u306E\u3067\u3001\u516C\u5F0F\u30B5\u30A4\u30C8\u304B\u3089\u77E5\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u3002"
@@ -1176,7 +1176,7 @@ MonoBehaviour:
     - area: 151
       value: "\u30E9\u30C3\u30AD\u30FC\u30DB\u30A4\u30FC\u30EB"
     - area: 152
-      value: "\u30ED\u30C3\u30AF\u3092\u89E3\u9664\u3059\u308B500\u5F97\u70B9\u306B\u5230\u9054\u3002"
+      value: "\u30ED\u30C3\u30AF\u3092\u89E3\u9664\u3059\u308B750\u5F97\u70B9\u306B\u5230\u9054\u3002"
   - country: 3
     value_allAreas:
     - area: 0
@@ -1547,7 +1547,7 @@ MonoBehaviour:
     - area: 151
       value: "\uB7ED\uD0A4 \uD720"
     - area: 152
-      value: "\uC7A0\uAE08\_\uD574\uC81C\_\uC810\uC218\_500\_\uC810\uC5D0\_\uB3C4\uB2EC\uD558\uC138\uC694."
+      value: "\uC7A0\uAE08\_\uD574\uC81C\_\uC810\uC218\_750\_\uC810\uC5D0\_\uB3C4\uB2EC\uD558\uC138\uC694."
   - country: 4
     value_allAreas:
     - area: 0
@@ -1897,4 +1897,4 @@ MonoBehaviour:
     - area: 151
       value: "GL\xDCCKLICHES RAD"
     - area: 152
-      value: "Erreichen\_Sie\_500\_Punkte\_freischalten."
+      value: "Erreichen\_Sie\_750\_Punkte\_freischalten."

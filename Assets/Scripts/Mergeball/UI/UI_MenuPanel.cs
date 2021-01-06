@@ -223,6 +223,12 @@ namespace UI
             SetStageInfo();
             StartCoroutine("StageProgressAnimation");
             StartCoroutine("AutoRotateWheelIcon");
+            if (GameManager.PlayerDataManager.GetScore() >= 750)
+            {
+                HiSpin.Save.data.hasUnlockRankAndLottery = true;
+                HiSpin.UI.MenuPanel.UpdateRankRedpoint();
+                HiSpin.UI.MenuPanel.UpdateLotteryRedpoint();
+            }
             yield return null;
         }
         protected override IEnumerator Close()
