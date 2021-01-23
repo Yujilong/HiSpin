@@ -416,7 +416,7 @@ MonoBehaviour:
   single_card_item: {fileID: 3849897500713065414}
   fly_targetRect: {fileID: 8416180644449384725}
   getButton: {fileID: 780284992784896575}
-  titleText: {fileID: 0}
+  titleText: {fileID: 2431416865387089411}
   tipText: {fileID: 2431416864339872191}
   get_button_contentText: {fileID: 4244306167064389640}
 --- !u!1 &2431416865387089413

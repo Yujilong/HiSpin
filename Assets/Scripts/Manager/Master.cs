@@ -13,7 +13,7 @@ namespace HiSpin
         public static float ExpandCoe = 1;
         public const float TopMoveDownOffset = 100;
         public const string PackageName = "com.MergeBall.LuckyGame.HugePrizes.Rewards";
-        public const int Version = 5;
+        public const int BundleID = 6;
         public const string AppleId = "1545540507";
         public static bool isLoadingEnd = false;
         public static bool isPackB_Advance = false;
@@ -250,7 +250,7 @@ namespace HiSpin
             }
             AdjustEventLogger.Instance.AdjustEvent(AdjustEventLogger.TOKEN_open,
                 ("player_id", player_id),
-                ("install_version", Version.ToString()),
+                ("install_version", BundleID.ToString()),
                 ("other_int1",player_cash),
                 ("other_int2", player_gold)
                 );

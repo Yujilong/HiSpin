@@ -8,6 +8,7 @@ namespace HiSpin
     public class Rules : PopUI
     {
         public Text titleText;
+        public Image iconImage;
         [Space(15)]
         public Text oneRule;
         public ContentSizeFitter all_rules_content;
@@ -28,6 +29,8 @@ namespace HiSpin
             termsButton.AddClickEvent(OnTermsClick);
             cashoutButton.AddClickEvent(OnCashoutButtonClick);
             all_rules.Add(oneRule);
+            if (Language_M.isJapanese)
+                iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "point_japan");
         }
         private void OnCashoutButtonClick()
         {

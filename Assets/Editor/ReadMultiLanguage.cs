@@ -11,7 +11,7 @@ namespace HiSpin
     public class ReadMultiLanguage : Editor
     {
         private static string xlsxPath;
-        [MenuItem("Excel/ReadMultiLanguage")]
+        [MenuItem("MultiLanguage/ReadMultiLanguageConfig")]
         public static void ReadExcel()
         {
             xlsxPath = Application.dataPath + "/Language.xlsx";

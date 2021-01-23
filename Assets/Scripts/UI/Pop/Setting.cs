@@ -20,6 +20,7 @@ namespace HiSpin
         public Button bgButton;
         public Button meButton;
         public Button withdrawButton;
+        public Image withdraw_iconImage;
         public Button tasksButton;
         public Button rulesButton;
         public Button soundButton;
@@ -59,6 +60,7 @@ namespace HiSpin
             }
             languageSelect.AddOptions(allLanguage);
             languageSelect.onValueChanged.AddListener((index) => { Language_M.ChangeLanguageCountry(index); SetContent(); UI.MenuPanel.SetContent(); });
+            withdraw_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, Language_M.isJapanese ? "paypay" : "paypal");
         }
         public void OnTaskFinishChange(bool hasFinish)
         {
@@ -128,7 +130,7 @@ namespace HiSpin
             int androidVersion = javaClass.CallStatic<int>("GetAndroidVersion");
             string email = "mergeballs.support@luckyclub.vip";
             string subject = MyEscapeURL("Question from ID " + userid);
-            string body = MyEscapeURL(string.Format("\n\n----------------------------------\nID:{0}\nUUID:{4}\nAdID:{5}\nVersion:{3}\nModel:{1}({2})\n----------------------------------\n", userid, SystemInfo.deviceModel, androidVersion.ToString(), Master.Version, uuid, adid));
+            string body = MyEscapeURL(string.Format("\n\n----------------------------------\nID:{0}\nUUID:{4}\nAdID:{5}\nVersion:{3}\nModel:{1}({2})\n----------------------------------\n", userid, SystemInfo.deviceModel, androidVersion.ToString(), Master.BundleID, uuid, adid));
             Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
         }
 

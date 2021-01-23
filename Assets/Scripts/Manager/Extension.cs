@@ -23,9 +23,16 @@ namespace HiSpin
         }
         public static string GetCashShowString(this int cashNum)
         {
+            if (Language_M.isJapanese)
+                cashNum *= 100;
             string str = cashNum.ToString();
             if (str.Length == 1)
-                return "0.0" + str;
+            {
+                if (Language_M.isJapanese)
+                    return str;
+                else
+                    return "0.0" + str;
+            }
             else if (str.Length == 2)
                 return "0." + str;
             else
@@ -39,6 +46,8 @@ namespace HiSpin
                     if (pos % 3 == 0)
                         str = str.Insert(i, ",");
                 }
+                if (Language_M.isJapanese)
+                    str = str.Remove(str.Length - 3, 3);
                 return str;
             }
         }

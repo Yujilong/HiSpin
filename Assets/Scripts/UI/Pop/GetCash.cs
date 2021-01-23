@@ -7,6 +7,7 @@ namespace HiSpin
 {
     public class GetCash : PopUI
     {
+        public GameObject paypayGo;
         public Button tribleButton;
         public Button nothanksButton;
         public Text add_cashpt_numText;
@@ -16,6 +17,7 @@ namespace HiSpin
             base.Awake();
             tribleButton.AddClickEvent(OnGetClick);
             nothanksButton.AddClickEvent(OnNothanksClick);
+            paypayGo.SetActive(Language_M.isJapanese);
         }
         private void OnNothanksClick()
         {
@@ -79,7 +81,7 @@ namespace HiSpin
                     trible_button_contentText.transform.localPosition = new Vector3(0, trible_button_contentText.transform.localPosition.y, 0);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
-                    cash_numText.text = (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + getcashNum.GetCashShowString();
+                    cash_numText.text = isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), getcashNum.GetCashShowString()) : getcashNum.GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(false);
                     nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
                     break;
@@ -88,9 +90,11 @@ namespace HiSpin
                     trible_button_contentText.transform.localPosition = new Vector3(61.46283f, trible_button_contentText.transform.localPosition.y, 0);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
-                    cash_numText.text = (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
+                    string currentCashString = (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
+                    cash_numText.text = isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), currentCashString) : currentCashString;
                     add_cashpt_numText.transform.parent.gameObject.SetActive(true);
-                    add_cashpt_numText.text = "+" + (isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
+                    string addCashString = (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
+                    add_cashpt_numText.text = "+" + (isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), addCashString) : addCashString);
                     nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
                     break;
             }

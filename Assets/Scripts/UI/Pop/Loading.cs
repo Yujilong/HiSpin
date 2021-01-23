@@ -8,12 +8,15 @@ namespace HiSpin
     [RequireComponent(typeof(CanvasGroup))]
     public class Loading : MonoBehaviour, IUIBase
     {
+        public Image logoImage;
         public Slider progressSlider;
         public Text progressText;
         CanvasGroup canvasGroup;
         private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
+            if (Language_M.isJapanese)
+                logoImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Loading, "logo_japan");
             loadingText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.loading);
             StartCoroutine(LoadingSlider());
         }
@@ -68,7 +71,7 @@ namespace HiSpin
             yield break;
 #endif
 #if UNITY_ANDROID
-            UnityWebRequest webRequest = new UnityWebRequest(string.Format("http://ec2-18-217-224-143.us-east-2.compute.amazonaws.com:3636/event/switch?package={0}&version={1}&os=android", Master.PackageName, Master.Version));
+            UnityWebRequest webRequest = new UnityWebRequest(string.Format("http://ec2-18-217-224-143.us-east-2.compute.amazonaws.com:3636/event/switch?package={0}&version={1}&os=android", Master.PackageName, Master.BundleID));
 #elif UNITY_IOS
             UnityWebRequest webRequest = new UnityWebRequest(string.Format("http://ec2-18-217-224-143.us-east-2.compute.amazonaws.com:3636/event/switch?package={0}&version={1}&os=ios", Master.PackageName, Master.Version));
 #endif

@@ -38,6 +38,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2118205073547414c8ea24ce99eb16b2, type: 3}
   - {fileID: 21300000, guid: b69ace61d1170f644b439628d17d9970, type: 3}
   - {fileID: 21300000, guid: 27b5ed81c36af994f8f1b70f3868353b, type: 3}
+  - {fileID: 21300000, guid: d712faa1b4f6a2049b306c4d49cdbfec, type: 3}
   - {fileID: 21300000, guid: fe9f60333c23f4e47949cf767f39222e, type: 3}
   - {fileID: 21300000, guid: da86144360b79bb44a921cfae448a685, type: 3}
   - {fileID: 21300000, guid: 2e25f0c4e959c1341af1a3b2e54ef183, type: 3}
@@ -47,7 +48,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7b5a97659199faf418a3787d0f7f433b, type: 3}
   - {fileID: 21300000, guid: abc9cb955ef0a2446947cccad27a4acc, type: 3}
   - {fileID: 21300000, guid: 26f0cac5a686bd9418e7857a44af2672, type: 3}
-  - {fileID: 21300000, guid: 901312069c43c09478585d088fb78e30, type: 3}
   - {fileID: 21300000, guid: e2d8aca640d116445b1ef155c411ce3d, type: 3}
   - {fileID: 21300000, guid: e7a98b48f9823fa46b5457ffbfa7e507, type: 3}
   - {fileID: 21300000, guid: 4f5b42688c83ceb4c85960381b75b65a, type: 3}
@@ -66,6 +66,7 @@ SpriteAtlas:
   - Friend_On
   - Back
   - Rank_Off
+  - Gold
   - Setting
   - Offerwall_Off
   - head_out_bg
@@ -75,7 +76,6 @@ SpriteAtlas:
   - slots_bg
   - yellow_point
   - Lottery_Off
-  - Gold
   - Offerwall_On
   - Friend_Off
   - TopBG

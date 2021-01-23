@@ -57,7 +57,16 @@ namespace HiSpin
             {
                 float offsetWidth = maxLength - totalLengths[i];
                 int addSpaceCount = Mathf.CeilToInt(offsetWidth / spaceLength);
-                int insertIndex = content[i].IndexOf("$");
+                int insertIndex;
+                if (Language_M.isJapanese)
+                {
+                    insertIndex = content[i].LastIndexOf("の") + 1;
+                    Debug.Log(insertIndex);
+                    if (insertIndex == 0)
+                        insertIndex = content[i].LastIndexOf("位") + 1;
+                }
+                else
+                    insertIndex = content[i].IndexOf("$");
                 for (int j = 0; j < addSpaceCount; j++)
                     if (j < 4 + (j - 4) / 2)
                         content[i] = content[i].Insert(insertIndex, " ");

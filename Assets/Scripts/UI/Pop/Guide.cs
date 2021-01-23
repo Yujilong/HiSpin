@@ -27,7 +27,7 @@ namespace HiSpin
         {
             guideStep = 1;
             canGotoNextGuide = false;
-            guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
+            guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, Language_M.isJapanese ? "guide_1_japan" : "guide_1");
             guideImage.transform.localPosition = new Vector3(-46, Master.IsBigScreen ? 1920 * Master.ExpandCoe / 2f - 428 - Master.TopMoveDownOffset : 527, 0);
             tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide1);
             tipText.transform.localPosition = topTipLocalPos;
@@ -57,19 +57,24 @@ namespace HiSpin
             {
                 yield return null;
             }
-            canGotoNextGuide = false;
-            guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
-            guideImage.transform.localPosition = new Vector3(30, -1920 * Master.ExpandCoe / 2f + 471, 0);
-            tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide3);
-            tipText.transform.localPosition = downTipLocalPos;
-            Master.Instance.SendAdjustGuideEvent(3, false);
-            Master.Instance.SetGuideMask(guideStep);
-            yield return new WaitForSeconds(1);
-            canGotoNextGuide = true;
-            while (guideStep == 3)
+            if (!Language_M.isJapanese)
             {
-                yield return null;
+                canGotoNextGuide = false;
+                guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_" + guideStep);
+                guideImage.transform.localPosition = new Vector3(30, -1920 * Master.ExpandCoe / 2f + 471, 0);
+                tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide3);
+                tipText.transform.localPosition = downTipLocalPos;
+                Master.Instance.SendAdjustGuideEvent(3, false);
+                Master.Instance.SetGuideMask(guideStep);
+                yield return new WaitForSeconds(1);
+                canGotoNextGuide = true;
+                while (guideStep == 3)
+                {
+                    yield return null;
+                }
             }
+            else
+                guideStep++;
             Master.Instance.SetGuideMask(guideStep);
             Master.Instance.SendAdjustGuideEvent(4, false);
             UI.ClosePopPanel(this);

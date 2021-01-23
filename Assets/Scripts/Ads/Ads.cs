@@ -54,7 +54,7 @@ namespace HiSpin
 			offerWallRequester.CloseOnRedirect(false);
 
 			IronSource.Agent.setUserId(userid);
-			IronSource.Agent.init(IS_APP_KEY);
+			//IronSource.Agent.init(IS_APP_KEY);
 			IronSource.Agent.loadInterstitial();
 
 			AdGem.loadOfferWallBeforeShowing = true;

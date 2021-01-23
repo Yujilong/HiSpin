@@ -43,6 +43,7 @@ namespace HiSpin
             switch (language)
             {
                 case SystemLanguage.Japanese:
+                    isJapanese = true;
                     languageCountry = LanguageCountryEnum.日文;
                     break;
                 case SystemLanguage.Russian:
@@ -60,6 +61,7 @@ namespace HiSpin
             }
             ChangeLanguageCountry(languageCountry);
         }
+        public static bool isJapanese = false;
         private static void OnChangeLanguageCountry()
         {
             multi_language_differ_value.Clear();

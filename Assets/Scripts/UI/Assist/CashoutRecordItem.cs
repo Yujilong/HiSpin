@@ -27,8 +27,9 @@ namespace HiSpin
             else
                 consume_numText.text = consumeNum.GetTokenShowString();
             consume_timeText.text = consumeTime;
-
-            cashout_numText.text = "+" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + cashNum.GetTokenShowString();
+            if (Language_M.isJapanese)
+                cashNum *= 100;
+            cashout_numText.text = "+" + string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), cashNum.GetTokenShowString());
             switch (result)
             {
                 case 0:

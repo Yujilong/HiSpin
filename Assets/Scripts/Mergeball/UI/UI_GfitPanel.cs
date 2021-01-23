@@ -7,6 +7,7 @@ namespace UI
 {
     public class UI_GfitPanel : UI_PopPanelBase
     {
+        public GameObject paypalGo;
         public Button openButton;
         public Button nothanksButton;
         public Button closeButton;
@@ -19,6 +20,7 @@ namespace UI
             openButton.onClick.AddListener(OnOpenClick);
             closeButton.onClick.AddListener(OnCloseClick);
             nothanksButton.onClick.AddListener(OnCloseClick);
+            paypalGo.SetActive(HiSpin.Language_M.isJapanese);
         }
         int clickAdTime = 0;
         private void OnOpenClick()

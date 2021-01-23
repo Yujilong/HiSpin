@@ -1157,6 +1157,7 @@ MonoBehaviour:
   bgButton: {fileID: 1847431073019306393}
   meButton: {fileID: 684120219913234309}
   withdrawButton: {fileID: 2955612460006450215}
+  withdraw_iconImage: {fileID: 2955612458658980022}
   tasksButton: {fileID: 2955612459084854278}
   rulesButton: {fileID: 2955612458636218079}
   soundButton: {fileID: 2955612459411974259}

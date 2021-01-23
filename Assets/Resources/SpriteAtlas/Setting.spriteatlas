@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f2cc93d1958febd4aa6b234cdabb5ac3, type: 3}
-    totalSpriteSurfaceArea: 2018631
+    totalSpriteSurfaceArea: 2024293
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -49,6 +49,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2906fc9cf1f858e4a98bc3a5a7809a1d, type: 3}
   - {fileID: 21300000, guid: ca9313fc6c36c3849baa06590c63a8ed, type: 3}
   - {fileID: 21300000, guid: 2e7ca03d9ea140d4d8dfa6558166e05d, type: 3}
+  - {fileID: 21300000, guid: 7d3c017fa5877dd42a529869ae5478f0, type: 3}
   - {fileID: 21300000, guid: dfc0d27f31ab1a944ad162b0d1eb29f4, type: 3}
   m_PackedSpriteNamesToIndex:
   - goto
@@ -65,6 +66,7 @@ SpriteAtlas:
   - email
   - tasks
   - paypal
+  - paypay
   - sound_off
   m_Tag: Setting
   m_IsVariant: 0

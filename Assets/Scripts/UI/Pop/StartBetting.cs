@@ -176,8 +176,7 @@ namespace HiSpin
         public override void SetContent()
         {
             tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OpenPrize_Title);
-
-
+            titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.OpenPrize_Title);
         }
     }
 }

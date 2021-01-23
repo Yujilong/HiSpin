@@ -158,7 +158,7 @@ namespace HiSpin
             #endregion
             iparams.Add(new MultipartFormDataSection("uuid", Save.data.uuid));
             iparams.Add(new MultipartFormDataSection("app_name", Ads.AppName));
-            iparams.Add(new MultipartFormDataSection("edition", Master.Version.ToString()));
+            iparams.Add(new MultipartFormDataSection("edition", Master.BundleID.ToString()));
             if (!string.IsNullOrEmpty(adID))
             {
                 Save.data.adid = adID;

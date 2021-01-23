@@ -542,6 +542,7 @@ MonoBehaviour:
   titleText: {fileID: 6739927896324055157}
   helpText: {fileID: 6739927895115777247}
   prize_poolText: {fileID: 6739927896940847225}
+  prize_numText: {fileID: 6739927896642933892}
   ticket_numText: {fileID: 6739927896789146546}
   tipText: {fileID: 2856884155657231881}
   get_ticketsText: {fileID: 6739927896124971528}
@@ -1382,9 +1383,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 75c54e4f6b69bcc48ba937ca0d80cd4a, type: 3}
     m_FontSize: 138
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 157
+    m_MaxSize: 138
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

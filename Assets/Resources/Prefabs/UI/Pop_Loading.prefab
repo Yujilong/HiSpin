@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 6241465636882840046}
   - component: {fileID: 5841877335571235724}
   m_Layer: 5
-  m_Name: Pop Loading Panel 1
+  m_Name: Pop_Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b603fe21ca7f64da44a3ebf7b796f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logoImage: {fileID: 6241465637254080722}
   progressSlider: {fileID: 6241465637431820344}
   progressText: {fileID: 6241465637073615415}
   loadingText: {fileID: 6206219962026769147}
@@ -607,7 +608,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 468}
-  m_SizeDelta: {x: 315.985, y: 73.66174}
+  m_SizeDelta: {x: 693.4093, y: 73.66174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6241465637915080187
 CanvasRenderer:

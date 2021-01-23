@@ -31,11 +31,12 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 3439809d890efdf4a9919c54206ee2e0, type: 3}
-    totalSpriteSurfaceArea: 2914248
+    totalSpriteSurfaceArea: 3477375
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 930cd2748a723aa469bec98dc121c52f, type: 3}
+  - {fileID: 21300000, guid: c1ce3774b939d2743876fb3a98dc86c6, type: 3}
   - {fileID: 21300000, guid: f232a2871edfb2c4294711525ec2cfe4, type: 3}
   - {fileID: 21300000, guid: 34c6dc5a5dc3fb34b8a742e2754ee663, type: 3}
   - {fileID: 21300000, guid: 1157ce9aa8b8d314681ad9896b20b4cf, type: 3}
@@ -44,6 +45,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3c2d1dee8eb41aa41b65a68bff238f6f, type: 3}
   m_PackedSpriteNamesToIndex:
   - progressfill
+  - logo_japan
   - loading
   - BG
   - topHteaf

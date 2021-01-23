@@ -15,8 +15,10 @@ namespace HiSpin
             head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_id);
             nameText.text = name;
             bool isPackB = Save.data.isPackB;
-            prize_cash_num_Text.text = (isPackB ? "$" : "") + cashNum.GetCashShowString();
+            prize_cash_num_Text.text = isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), cashNum.GetCashShowString()) : cashNum.GetCashShowString();
             cash_iconGo.SetActive(isPackB);
+            if (Language_M.isJapanese)
+                cash_iconGo.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Betting, "paypay");
         }
     }
 }

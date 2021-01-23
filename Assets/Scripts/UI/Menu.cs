@@ -299,6 +299,11 @@ namespace HiSpin
         firendButton.gameObject.SetActive(isPackB);
         taskButton.gameObject.SetActive(!isPackB);
 #endif
+            if (Language_M.isJapanese)
+            {
+                rankButton.gameObject.SetActive(false);
+                firendButton.gameObject.SetActive(false);
+            }
             canvasGroup.alpha = 1;
             canvasGroup.blocksRaycasts = true;
             canvasGroup.interactable = true;
