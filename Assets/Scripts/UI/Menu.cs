@@ -99,7 +99,7 @@ namespace HiSpin
             {
                 UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.Cashout);
                 StopCoroutine("AutoShakeBubble");
-                bubbleRect.localEulerAngles = Vector3.zero;
+                bubbleRect.gameObject.SetActive(false);
                 Save.data.todayHasClickCashBubble = true;
             }
         }

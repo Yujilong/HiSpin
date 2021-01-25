@@ -31,12 +31,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 3954a183102f06f469be04bbb7ed2e17, type: 3}
-    totalSpriteSurfaceArea: 1785590
+    totalSpriteSurfaceArea: 1802178
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: e5837660f88cb504a9feb3a77c93cb33, type: 3}
-  - {fileID: 21300000, guid: 29ecfb310348eae48ad3e1b07bce990a, type: 3}
   - {fileID: 21300000, guid: b3d73fc1cc9b92b4e8101c3ca99eef6e, type: 3}
   - {fileID: 21300000, guid: a82aacd3c0b2a5f42b7df3d9d3a88bd5, type: 3}
   - {fileID: 21300000, guid: 97ecc2e4236ac4e488a33028be2a862d, type: 3}
@@ -45,7 +44,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a638668799bf23549a04e70b6b3aa5f4, type: 3}
   - {fileID: 21300000, guid: 43381bb7ade4c73419a69512f7070da6, type: 3}
   - {fileID: 21300000, guid: 0ba3af280e53d5c4d8dbf96d9d3355f2, type: 3}
+  - {fileID: 21300000, guid: e5113858caeea4a49b4866a33a9686cd, type: 3}
   - {fileID: 21300000, guid: d78dcda8d64686741a8c407cbe1740c5, type: 3}
+  - {fileID: 21300000, guid: 35a3bc1aabd520443974d969914ad7a9, type: 3}
   - {fileID: 21300000, guid: 571ca5ba2438643479fe3f7a6ebb3dad, type: 3}
   - {fileID: 21300000, guid: 911c1c3b8886a6343b7199d041977e2d, type: 3}
   - {fileID: 21300000, guid: 16fb554b89367dd42b744692a33e11d5, type: 3}
@@ -58,9 +59,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c21cb5de912c8aa4e9baac06cf532b33, type: 3}
   - {fileID: 21300000, guid: 8ee6fefe31669df409084c71db08716b, type: 3}
   - {fileID: 21300000, guid: 7346653f659f76a4d8f6422fc8039406, type: 3}
+  - {fileID: 21300000, guid: 5b7c9a4f8a386bd4ab6e692a8b329965, type: 3}
   m_PackedSpriteNamesToIndex:
   - prop1
-  - cashout
   - wheel
   - cash
   - tokenbg
@@ -69,7 +70,9 @@ SpriteAtlas:
   - guide2
   - stagePorgressFill
   - propnumBG
+  - cashout_paypal
   - setting
+  - cashout_numBg
   - guideHandle1
   - prop_coin
   - stage
@@ -82,5 +85,6 @@ SpriteAtlas:
   - coin
   - propbg
   - scoreBG
+  - cashout_paypay
   m_Tag: Menu
   m_IsVariant: 0

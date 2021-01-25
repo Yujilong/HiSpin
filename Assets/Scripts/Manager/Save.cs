@@ -30,7 +30,7 @@ namespace HiSpin
                     hasClickLottery = false,
                     hasClickOfferwall = false,
                     todayHasClickCashBubble = false,
-                    lastLoginDate = System.DateTime.Now.AddDays(-1),
+                    lastLoginDate = System.DateTime.Now,
                     totalAdTimes = 0,
                     activeTimes = 1,
                     hasUnlockCashout = false,

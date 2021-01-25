@@ -28,6 +28,7 @@ namespace UI
         public Text prop1NeedNumText;
         public Text prop2NeedNumText;
 
+        public Image cashout_iconImage;
         public Image prop1NeedIcon;
         public Image prop2NeedIcon;
         public Image stageProgressFillImage;
@@ -69,6 +70,9 @@ namespace UI
                 cashoutButton.transform.localPosition -= down;
                 guideCard.transform.localPosition -= down;
             }
+            cashoutButton.gameObject.SetActive(GameManager.GetIsPackB());
+            if (HiSpin.Language_M.isJapanese)
+                cashout_iconImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Menu, "cashout_paypay");
         }
         private void OnSettingButtonClick()
         {

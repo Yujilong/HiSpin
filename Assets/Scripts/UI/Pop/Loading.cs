@@ -50,7 +50,6 @@ namespace HiSpin
                     if (progress > 0.3f)
                     {
                         speed = 0;
-                        //Server.Instance.RequestData(Server.Server_RequestType.AllData, () => { speed = 1; }, () => { speed = 0; }, false);
                         Server_New.Instance.ConnectToServer_GetAllData(() =>
                         {
                             speed = 1;
