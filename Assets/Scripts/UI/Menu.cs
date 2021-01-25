@@ -10,12 +10,15 @@ namespace HiSpin
     public class Menu : MonoBehaviour, IUIBase
     {
         CanvasGroup canvasGroup;
+        public RectTransform bubbleRect;
+        [Space(15)]
         public GameObject setting_rpGo;
         public GameObject friend_rpGo;
         public GameObject rank_rpGo;
         public GameObject lottery_rpGo;
         public GameObject offerwall_rpGo;
-
+        [Space(15)]
+        public Button goldButton;
         public Button cashButton;
         public Button offerwallButton;
         public Button rankButton;
@@ -46,6 +49,7 @@ namespace HiSpin
         {
             canvasGroup = GetComponent<CanvasGroup>();
             cashButton.AddClickEvent(OnCashButtonClick);
+            goldButton.AddClickEvent(OnGoldButtonClick);
             offerwallButton.AddClickEvent(OnOfferwallButtonClick);
             rankButton.AddClickEvent(OnRankButtonClick);
             slotsButton.AddClickEvent(OnSlotsButtonClick);
@@ -65,7 +69,7 @@ namespace HiSpin
                 topRect.sizeDelta = new Vector2(topRect.sizeDelta.x, topRect.sizeDelta.y + 100);
             }
 #if UNITY_IOS
-        play_slots_helpButton.gameObject.SetActive(Save.data.isPackB);
+            play_slots_helpButton.gameObject.SetActive(Save.data.isPackB);
 #endif
         }
         private void Start()
@@ -92,7 +96,17 @@ namespace HiSpin
         private void OnCashButtonClick()
         {
             if (Save.data.isPackB)
+            {
                 UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.Cashout);
+                StopCoroutine("AutoShakeBubble");
+                bubbleRect.localEulerAngles = Vector3.zero;
+                Save.data.todayHasClickCashBubble = true;
+            }
+        }
+        private void OnGoldButtonClick()
+        {
+            if (Save.data.isPackB)
+                UI.ShowBasePanel(BasePanel.Cashout_Gold);
         }
         private void OnOfferwallButtonClick()
         {
@@ -199,7 +213,7 @@ namespace HiSpin
         }
         public void UpdateCashText()
         {
-            cash_numText.text = (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
+            cash_numText.text = (Save.data.allData.user_panel.user_doller_live / Cashout_Gold.CashToDollerRadio).GetCashShowString();
         }
         public void UpdateTicketText()
         {
@@ -303,11 +317,48 @@ namespace HiSpin
             {
                 rankButton.gameObject.SetActive(false);
                 firendButton.gameObject.SetActive(false);
+                bubbleRect.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, "bubble_paypay");
             }
+            bubbleRect.gameObject.SetActive(Save.data.isPackB);
+            if (Save.data.isPackB)
+                if (!Save.data.todayHasClickCashBubble)
+                    StartCoroutine("AutoShakeBubble");
             canvasGroup.alpha = 1;
             canvasGroup.blocksRaycasts = true;
             canvasGroup.interactable = true;
             yield return null;
+        }
+        private IEnumerator AutoShakeBubble()
+        {
+            bubbleRect.localEulerAngles = Vector3.zero;
+            float shakeScale = 12;
+            float shakeSpeed = 100;
+            float tempShakeSpeed = -shakeSpeed;
+            int turn = 2;
+            float nextInterval = 2;
+            while (true)
+            {
+                int tempTurn = 0;
+                float lastZ;
+                float currentZ;
+                while (tempTurn < turn)
+                {
+                    yield return null;
+                    float z = bubbleRect.localEulerAngles.z;
+                    if (z > 180)
+                        z -= 360;
+                    if (z <= -shakeScale)
+                        tempShakeSpeed = shakeSpeed;
+                    else if (z >= shakeScale)
+                        tempShakeSpeed = -shakeSpeed;
+                    lastZ = bubbleRect.localEulerAngles.z;
+                    bubbleRect.Rotate(new Vector3(0, 0, tempShakeSpeed * Time.deltaTime));
+                    currentZ = bubbleRect.localEulerAngles.z;
+                    if (lastZ < 180 && currentZ >= 180)
+                        tempTurn++;
+                }
+                yield return new WaitForSeconds(nextInterval);
+            }
         }
         public void RefreshTokenText()
         {
@@ -377,7 +428,7 @@ namespace HiSpin
             }
             switch (basePanelType)
             {
-                case BasePanel.Cashout:
+                case BasePanel.Cashout_Gold:
                     all_topGo.SetActive(true);
                     all_tokenGo.SetActive(false);
                     top_titleText.gameObject.SetActive(true);
@@ -387,6 +438,10 @@ namespace HiSpin
                     settingButton.gameObject.SetActive(false);
                     add_ticketButton.gameObject.SetActive(true);
                     play_slots_helpButton.gameObject.SetActive(false);
+                    break;
+                case BasePanel.Cashout_Cash:
+                    all_topGo.SetActive(false);
+                    all_bottomGo.SetActive(false);
                     break;
                 case BasePanel.CashoutRecord:
                     all_topGo.SetActive(true);

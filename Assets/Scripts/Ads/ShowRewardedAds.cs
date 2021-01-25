@@ -36,6 +36,7 @@ namespace HiSpin
         {
             Master.Instance.SendAdjustPlayAdEvent(true, true, adM.adDes);
             Ads._instance.GetReward();
+            Save.data.totalAdTimes++;
         }
 
         private void RewardedVideoAdEndedEvent()

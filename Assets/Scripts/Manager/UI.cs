@@ -25,7 +25,8 @@ namespace HiSpin
         { (int)BasePanel.MergeBall,"Prefabs/UI/Base_MergeBall" },
         { (int)BasePanel.Betting,"Prefabs/UI/Base_Betting" },
 
-        { (int)BasePanel.Cashout,"Prefabs/UI/Base_Cashout" },
+        { (int)BasePanel.Cashout_Gold,"Prefabs/UI/Base_Cashout_Gold" },
+        { (int)BasePanel.Cashout_Cash,"Prefabs/UI/Base_Cashout_Cash" },
         { (int)BasePanel.CashoutRecord,"Prefabs/UI/Base_CashoutRecord" },
         { (int)BasePanel.Task,"Prefabs/UI/Base_Task&Achievement" },
         { (int)BasePanel.Friend,"Prefabs/UI/Base_Friend" },
@@ -42,6 +43,7 @@ namespace HiSpin
         { (int)PopPanel.GetCash,"Prefabs/UI/Pop_GetCash" },
         { (int)PopPanel.Guide,"Prefabs/UI/Pop_Guide" },
         { (int)PopPanel.InputPaypalEmail,"Prefabs/UI/Pop_InputPaypalEmail" },
+        { (int)PopPanel.EnterCashoutTask,"Prefabs/UI/Pop_EnterCashoutTask" },
     };
         //除菜单外所有面板已经加载的资源
         static readonly Dictionary<int, GameObject> loadedpanelPrefabDic = new Dictionary<int, GameObject>();
@@ -62,6 +64,7 @@ namespace HiSpin
         new PopTask() { panelType = PopPanel.GetCash, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.Guide, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.InputPaypalEmail, taskQueue = new Queue<int[]>() },
+        new PopTask() { panelType = PopPanel.EnterCashoutTask, taskQueue = new Queue<int[]>() },
     };
         class PopTask
         {
@@ -93,6 +96,12 @@ namespace HiSpin
         }
         private static void ShowBasePanel(int panelIndex, params int[] args)
         {
+            if(panelIndex==(int)BasePanel.Cashout_Cash)
+                if (!Save.data.hasUnlockCashout)
+                {
+                    ShowPopPanel(PopPanel.EnterCashoutTask);
+                    return;
+                }
             if (BasePanelHistoryRecord.Count > 0)
             {
                 if (BasePanelHistoryRecord.Peek() == panelIndex)
@@ -400,9 +409,10 @@ namespace HiSpin
         Friend = 3,
         Betting = 4,
 
-        Cashout = 5,
-        CashoutRecord = 6,
-        Task = 7,
+        Cashout_Gold = 5,
+        Cashout_Cash = 6,
+        CashoutRecord = 7,
+        Task = 8,
         Me = 9,
         FriendList = 10,
     }
@@ -418,5 +428,6 @@ namespace HiSpin
         GetCash = 18,
         Guide = 19,
         InputPaypalEmail = 20,
+        EnterCashoutTask = 21,
     }
 }

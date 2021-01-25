@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cashout_Gold
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 684c48d5dc624b54ebf828021ff110a4, type: 3}
+    totalSpriteSurfaceArea: 2124674
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 3dc1626093d127a4a91d83e25a7e5ee3, type: 3}
+  - {fileID: 21300000, guid: 5d17c6d0dbd19c64c941796fbd795d3c, type: 3}
+  - {fileID: 21300000, guid: 4d034ee1487a3134284d0e19b5e6fb09, type: 3}
+  - {fileID: 21300000, guid: 5ea931321ed8e93448d62f808f280a5c, type: 3}
+  - {fileID: 21300000, guid: d7af16e22a4c6804db0706fae988eb3a, type: 3}
+  - {fileID: 21300000, guid: 25e0f5a3a76014f4bb65be3e60b48627, type: 3}
+  - {fileID: 21300000, guid: 4b061e648dc7759468b28979f491eeff, type: 3}
+  - {fileID: 21300000, guid: 26dd7ac4b1aa5784980d0ea6aa66dea7, type: 3}
+  - {fileID: 21300000, guid: da3e439634bd7ab4c9b5cb3c254c9a2f, type: 3}
+  - {fileID: 21300000, guid: b689ee374d6b5584a9c5f66dd4b15de9, type: 3}
+  - {fileID: 21300000, guid: c0ccae6816f4e13488a67b4a3bd18199, type: 3}
+  - {fileID: 21300000, guid: b3f19298cf481584c850c683f206f44f, type: 3}
+  - {fileID: 21300000, guid: f5ac6509dea10a64296fc7319c9e4738, type: 3}
+  - {fileID: 21300000, guid: 438c675a1a2efa0428c9cd7cd297a96b, type: 3}
+  - {fileID: 21300000, guid: 428e3cdadfa59d54fab091b11d788317, type: 3}
+  - {fileID: 21300000, guid: 06d6a6eba3389dc46aa055351274fbae, type: 3}
+  - {fileID: 21300000, guid: 2dbfd14cf50b9204f8940341173f9854, type: 3}
+  - {fileID: 21300000, guid: 3ea7434c9b634a74cad6420a15fb959e, type: 3}
+  - {fileID: 21300000, guid: 7aece74cb39a8bc4fb6ce5c9297a4bb0, type: 3}
+  - {fileID: 21300000, guid: ea5f9ade705c4964497b7b1aaddd89d1, type: 3}
+  - {fileID: 21300000, guid: 3174a2fed3b2be643942e02a546f288b, type: 3}
+  - {fileID: 21300000, guid: 1346cd1fb3c605c48960829dd8e4156e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - help
+  - Cash
+  - email line
+  - gold redeem button
+  - base3
+  - Gold
+  - paypal
+  - paypay_2
+  - recordbg
+  - base1
+  - PT
+  - base2
+  - base3buton
+  - RECORD
+  - paypay
+  - niu2
+  - paypay_3
+  - niu1
+  - base1button
+  - base2button
+  - paypay_4
+  - recordline
+  m_Tag: Cashout_Gold
+  m_IsVariant: 0

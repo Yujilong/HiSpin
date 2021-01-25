@@ -90,10 +90,10 @@ namespace HiSpin
                     trible_button_contentText.transform.localPosition = new Vector3(61.46283f, trible_button_contentText.transform.localPosition.y, 0);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
-                    string currentCashString = (Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio).GetCashShowString();
+                    string currentCashString = (Save.data.allData.user_panel.user_doller_live / Cashout_Gold.CashToDollerRadio).GetCashShowString();
                     cash_numText.text = isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), currentCashString) : currentCashString;
                     add_cashpt_numText.transform.parent.gameObject.SetActive(true);
-                    string addCashString = (getcashNum / Cashout.CashToDollerRadio).GetCashShowString();
+                    string addCashString = (getcashNum / Cashout_Gold.CashToDollerRadio).GetCashShowString();
                     add_cashpt_numText.text = "+" + (isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), addCashString) : addCashString);
                     nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
                     break;

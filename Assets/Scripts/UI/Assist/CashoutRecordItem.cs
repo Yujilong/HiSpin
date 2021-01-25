@@ -19,7 +19,7 @@ namespace HiSpin
         }
         public void Init(CashoutType comsumeType, int consumeNum, string consumeTime, int result, int cashNum)
         {
-            consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, comsumeType.ToString());
+            consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, comsumeType.ToString());
             if (comsumeType == CashoutType.Cash)
                 consume_numText.text = consumeNum.GetBigTokenString();
             else if (comsumeType == CashoutType.PT)

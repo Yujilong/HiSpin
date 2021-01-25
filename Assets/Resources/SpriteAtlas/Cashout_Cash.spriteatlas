@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cashout_Cash
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 5a6f4394fff34ef4aae1c6d237985082, type: 3}
+    totalSpriteSurfaceArea: 1533871
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 789127b19e7555f4693cbebc6bf4c080, type: 3}
+  - {fileID: 21300000, guid: 1d04fce1a482ff84eba1d497c16ec570, type: 3}
+  - {fileID: 21300000, guid: c1d20052941ca7240ae63c9364c07614, type: 3}
+  - {fileID: 21300000, guid: 3458ced5a079eb94e8eeda9da1cf2d5d, type: 3}
+  - {fileID: 21300000, guid: ffcb39a7a91354548ba9203540243758, type: 3}
+  - {fileID: 21300000, guid: d6a000b7ccb61ee43b692d6c191873b1, type: 3}
+  - {fileID: 21300000, guid: 362944787f16c29438fd7bdc6941c00c, type: 3}
+  - {fileID: 21300000, guid: 7fb6f0293be760e4a8faf8c57c07c9cb, type: 3}
+  - {fileID: 21300000, guid: 39da48ba5d4d7994b8fb714059a9d810, type: 3}
+  - {fileID: 21300000, guid: db32be0be8866c34ba854a2e1566228c, type: 3}
+  - {fileID: 21300000, guid: 2489658c3ca3cef48b4115363b76daf6, type: 3}
+  - {fileID: 21300000, guid: 92d802afec7051a43a9b3a38368a8811, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - cash_base
+  - paypay
+  - amazon
+  - starbucks
+  - adidas
+  - paypal
+  - top
+  - card_base
+  - card_cash_base
+  - walmart
+  - netflix
+  - back
+  m_Tag: Cashout_Cash
+  m_IsVariant: 0

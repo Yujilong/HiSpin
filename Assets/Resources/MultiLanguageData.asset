@@ -381,6 +381,14 @@ MonoBehaviour:
       value: LUCKY WHEEL
     - area: 152
       value: "Reach\_750\_scores\_unlock."
+    - area: 153
+      value: Watch 100 Videos
+    - area: 154
+      value: Active For 7 Days
+    - area: 155
+      value: You only need to complete any one task to cash out.
+    - area: 156
+      value: REDEEM
   - country: 1
     value_allAreas:
     - area: 0
@@ -857,6 +865,17 @@ MonoBehaviour:
       value: "\u0423\u0414\u0410\u0427\u041D\u041E\u0415 \u041A\u041E\u041B\u0415\u0421\u041E"
     - area: 152
       value: "\u0414\u043E\u0441\u0442\u0438\u0433\u043D\u0438\u0442\u0435\_750\_\u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0445\_\u043E\u0447\u043A\u043E\u0432."
+    - area: 153
+      value: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C 100 \u0432\u0438\u0434\u0435\u043E"
+    - area: 154
+      value: "\u0410\u043A\u0442\u0438\u0432\u0435\u043D 7 \u0434\u043D\u0435\u0439"
+    - area: 155
+      value: "\u0412\u0430\u043C \u043D\u0443\u0436\u043D\u043E \u0432\u0441\u0435\u0433\u043E
+        \u043B\u0438\u0448\u044C \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0442\u044C
+        \u043E\u0434\u043D\u043E \u0437\u0430\u0434\u0430\u043D\u0438\u0435, \u0447\u0442\u043E\u0431\u044B
+        \u043E\u0431\u043D\u0430\u043B\u0438\u0447\u0438\u0442\u044C \u0434\u0435\u043D\u044C\u0433\u0438."
+    - area: 156
+      value: "\u0412\u042B\u041A\u0423\u041F\u0410\u0422\u042C"
   - country: 2
     value_allAreas:
     - area: 0
@@ -889,7 +908,7 @@ MonoBehaviour:
     - area: 13
       value: "{0}\u5186"
     - area: 14
-      value: "500\u4E07\u679A\u306E\u30B3\u30A4\u30F3\u304C5\u30C9\u30EB\u3092\u5F15\u304D\u63DB\u3048\u307E\u3059"
+      value: "500\u4E07\u679A\u306E\u30B3\u30A4\u30F3\u304C500\u5186\u30EB\u3092\u5F15\u304D\u63DB\u3048\u307E\u3059"
     - area: 15
       value: "\u91CD\u8981\uFF1APaypay\u306F\u8EE2\u9001\u3054\u3068\u306B\u8AB2\u91D1\u3057\u307E\u3059\u3002
         \u5404\u56FD\u306E\u30B5\u30FC\u30D3\u30B9\u6599\u306F\u7570\u306A\u308A\u307E\u3059\u306E\u3067\u3001\u516C\u5F0F\u30B5\u30A4\u30C8\u304B\u3089\u77E5\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u3002"
@@ -1177,6 +1196,14 @@ MonoBehaviour:
       value: "\u30E9\u30C3\u30AD\u30FC\u30DB\u30A4\u30FC\u30EB"
     - area: 152
       value: "\u30ED\u30C3\u30AF\u3092\u89E3\u9664\u3059\u308B750\u5F97\u70B9\u306B\u5230\u9054\u3002"
+    - area: 153
+      value: "100\u672C\u306E\u30D3\u30C7\u30AA\u3092\u898B\u308B"
+    - area: 154
+      value: "7\u65E5\u9593\u30A2\u30AF\u30C6\u30A3\u30D6"
+    - area: 155
+      value: "\u30AD\u30E3\u30C3\u30B7\u30E5\u30A2\u30A6\u30C8\u3059\u308B\u306B\u306F\u30011\u3064\u306E\u30BF\u30B9\u30AF\u3092\u5B8C\u4E86\u3059\u308B\u3060\u3051\u3067\u3059\u3002"
+    - area: 156
+      value: "\u8D16\u3046"
   - country: 3
     value_allAreas:
     - area: 0
@@ -1548,6 +1575,15 @@ MonoBehaviour:
       value: "\uB7ED\uD0A4 \uD720"
     - area: 152
       value: "\uC7A0\uAE08\_\uD574\uC81C\_\uC810\uC218\_750\_\uC810\uC5D0\_\uB3C4\uB2EC\uD558\uC138\uC694."
+    - area: 153
+      value: "\uB3D9\uC601\uC0C1 100 \uAC1C\uBCF4\uAE30"
+    - area: 154
+      value: "7 \uC77C \uB3D9\uC548 \uC0AC\uC6A9"
+    - area: 155
+      value: "\uD604\uAE08\uD654\uD558\uB824\uBA74 \uD558\uB098\uC758 \uC791\uC5C5
+        \uB9CC \uC644\uB8CC\uD558\uBA74\uB429\uB2C8\uB2E4."
+    - area: 156
+      value: "\uB3C4\uB85C\_\uC0AC\uB2E4"
   - country: 4
     value_allAreas:
     - area: 0
@@ -1898,3 +1934,12 @@ MonoBehaviour:
       value: "GL\xDCCKLICHES RAD"
     - area: 152
       value: "Erreichen\_Sie\_750\_Punkte\_freischalten."
+    - area: 153
+      value: 100 Videos ansehen
+    - area: 154
+      value: 7 Tage aktiv
+    - area: 155
+      value: "Sie m\xFCssen nur eine Aufgabe ausf\xFChren, um eine Auszahlung zu
+        erhalten."
+    - area: 156
+      value: "EINL\xD6SEN"

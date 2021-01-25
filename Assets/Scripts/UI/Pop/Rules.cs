@@ -35,7 +35,7 @@ namespace HiSpin
         private void OnCashoutButtonClick()
         {
             UI.ClosePopPanel(this);
-            UI.ShowBasePanel(BasePanel.Cashout);
+            UI.ShowBasePanel(BasePanel.Cashout_Cash);
         }
         private void OnTermsClick()
         {

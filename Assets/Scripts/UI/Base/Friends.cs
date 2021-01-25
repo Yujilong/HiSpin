@@ -71,7 +71,7 @@ namespace HiSpin
         }
         private void OnCashoutButtonClick()
         {
-            UI.ShowBasePanel(BasePanel.Cashout);
+            UI.ShowBasePanel(BasePanel.Cashout_Gold);
         }
         private AndroidJavaClass _aj;
         private AndroidJavaClass _AJ

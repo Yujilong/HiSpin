@@ -17,13 +17,15 @@ namespace HiSpin
         { SpriteAtlas_Name.Task,"SpriteAtlas/Task&Achievement"},
         { SpriteAtlas_Name.GetReward,"SpriteAtlas/GetReward"},
         { SpriteAtlas_Name.AsCashoutPop,"SpriteAtlas/AsCashoutPop"},
-        { SpriteAtlas_Name.Cashout,"SpriteAtlas/Cashout"},
+        { SpriteAtlas_Name.Cashout_Gold,"SpriteAtlas/Cashout_Gold"},
         { SpriteAtlas_Name.InviteOk,"SpriteAtlas/InviteOk"},
         { SpriteAtlas_Name.Friend,"SpriteAtlas/Friend"},
         { SpriteAtlas_Name.GetCash,"SpriteAtlas/GetCash"},
         { SpriteAtlas_Name.Loading,"MergeBall/SpriteAtlas/Loading"},
         { SpriteAtlas_Name.Betting,"SpriteAtlas/Betting"},
         { SpriteAtlas_Name.StartBetting,"SpriteAtlas/StartBetting"},
+        { SpriteAtlas_Name.EnterCashoutTask,"SpriteAtlas/EnterCashoutTask"},
+        { SpriteAtlas_Name.Cashout_Cash,"SpriteAtlas/Cashout_Cash"},
     };
         static readonly Dictionary<SpriteAtlas_Name, SpriteAtlas> loadedSpriteAtlasDic = new Dictionary<SpriteAtlas_Name, SpriteAtlas>();
         static readonly Dictionary<string, Sprite> loadedSpriteDic = new Dictionary<string, Sprite>();
@@ -140,12 +142,14 @@ namespace HiSpin
         Task,
         GetReward,
         AsCashoutPop,
-        Cashout,
+        Cashout_Gold,
         InviteOk,
         Friend,
         GetCash,
         Loading,
         Betting,
         StartBetting,
+        EnterCashoutTask,
+        Cashout_Cash,
     }
 }

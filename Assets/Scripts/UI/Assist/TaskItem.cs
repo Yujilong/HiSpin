@@ -95,7 +95,7 @@ namespace HiSpin
                     else
                     {
                         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "cash");
-                        reward_numText.text = (rewardNum / Cashout.CashToDollerRadio).GetCashShowString();
+                        reward_numText.text = (rewardNum / Cashout_Gold.CashToDollerRadio).GetCashShowString();
                     }
                     break;
                 case Reward.Ticket:
@@ -191,7 +191,7 @@ namespace HiSpin
                 switch (TaskTarget)
                 {
                     case PlayerTaskTarget.WritePaypalEmail:
-                        UI.ShowBasePanel(BasePanel.Cashout);
+                        UI.ShowBasePanel(BasePanel.Cashout_Gold);
                         break;
                     case PlayerTaskTarget.InviteAFriend:
                         UI.ShowBasePanel(BasePanel.Friend);

@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: cbb863edee6e50648ae434482ab09119, type: 3}
-    totalSpriteSurfaceArea: 456172
+    totalSpriteSurfaceArea: 468788
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -42,6 +42,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: fe9f60333c23f4e47949cf767f39222e, type: 3}
   - {fileID: 21300000, guid: da86144360b79bb44a921cfae448a685, type: 3}
   - {fileID: 21300000, guid: 2e25f0c4e959c1341af1a3b2e54ef183, type: 3}
+  - {fileID: 21300000, guid: 1798b005c6cfc7448bce9d49b117db5f, type: 3}
   - {fileID: 21300000, guid: 53deb625c47230c4d8b796b6cc4f5982, type: 3}
   - {fileID: 21300000, guid: ce6985553eed9c148a113f2e88946be5, type: 3}
   - {fileID: 21300000, guid: dcf18c5526fd08a4caaa627704b2dc97, type: 3}
@@ -62,6 +63,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c4b72fcdb924d8942a23d5d61833b000, type: 3}
   - {fileID: 21300000, guid: 6b2fe08e36c71f340bf20684e77accf6, type: 3}
   - {fileID: 21300000, guid: 74e3c9fedf0ca6740afa6670d477ab39, type: 3}
+  - {fileID: 21300000, guid: 08062a9fd0243984bb5214b422dca70f, type: 3}
   m_PackedSpriteNamesToIndex:
   - Friend_On
   - Back
@@ -70,6 +72,7 @@ SpriteAtlas:
   - Setting
   - Offerwall_Off
   - head_out_bg
+  - bubble_paypal
   - head_out_fill
   - Mergeball_Off
   - num bg
@@ -90,5 +93,6 @@ SpriteAtlas:
   - Lottery_On
   - Task_On
   - Rank_On
+  - bubble_paypay
   m_Tag: Menu
   m_IsVariant: 0

@@ -153,4 +153,8 @@ public enum LanguageAreaEnum
     SPIN,
     LUCKY_WHEEL,
     Tips_LockRankAndLottery,
+    EnterCashoutTask_Des1,
+    EnterCashoutTask_Des2,
+    EnterCashoutTask_Tip,
+    REDEEM,
 }

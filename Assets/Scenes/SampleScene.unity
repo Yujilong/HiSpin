@@ -785,7 +785,7 @@ MonoBehaviour:
   ConfirmReward_Type: 0
   ConfirmRewrad_Num: 0
   ConfirmReward_Needad: 1
-  ConfirmReward_IsSlots: 0
+  ConfirmReward_IsWheel: 0
   OpenGoldBallReward_Num: 0
   hand: {fileID: 1992148415}
 --- !u!114 &109883648

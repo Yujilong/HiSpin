@@ -28,20 +28,52 @@ namespace HiSpin
                     hasUnlockRankAndLottery = false,
                     hasClickRank = false,
                     hasClickLottery = false,
-                    hasClickOfferwall = false
+                    hasClickOfferwall = false,
+                    todayHasClickCashBubble = false,
+                    lastLoginDate = System.DateTime.Now.AddDays(-1),
+                    totalAdTimes = 0,
+                    activeTimes = 1,
+                    hasUnlockCashout = false,
                 };
-                PlayerPrefs.SetString("local_Data", JsonMapper.ToJson(data));
-                PlayerPrefs.Save();
             }
             else
                 data = JsonMapper.ToObject<PlayerLocalData>(dataString);
             if (data.lastClickFriendTime == null)
                 data.lastClickFriendTime = System.DateTime.Now.AddDays(-1);
+            System.DateTime now = System.DateTime.Now;
+            if (data.lastLoginDate == null)
+                data.lastLoginDate = System.DateTime.Now;
+            if (data.activeTimes == 0)
+                data.activeTimes = 1;
+            if (CheckTomorrow(data.lastLoginDate, now))
+            {
+                data.todayHasClickCashBubble = false;
+                data.activeTimes++;
+            }
+            data.lastLoginDate = now;
+            SaveLocalData();
         }
         public static void SaveLocalData()
         {
             PlayerPrefs.SetString("local_Data", JsonMapper.ToJson(data));
             PlayerPrefs.Save();
+        }
+        public static bool CheckTomorrow(System.DateTime last,System.DateTime now)
+        {
+            bool isTomorrow = false;
+            if (last.Year == now.Year)
+            {
+                if (last.Month == now.Month)
+                {
+                    if (last.Day < now.Day)
+                        isTomorrow = true;
+                }
+                else if (last.Month > now.Month)
+                    isTomorrow = true;
+            }
+            else if (last.Year > now.Year)
+                isTomorrow = true;
+            return isTomorrow;
         }
     }
     public class PlayerLocalData
@@ -61,5 +93,10 @@ namespace HiSpin
         public bool hasClickRank;
         public bool hasClickLottery;
         public bool hasClickOfferwall;
+        public bool todayHasClickCashBubble;
+        public System.DateTime lastLoginDate;
+        public int totalAdTimes;
+        public int activeTimes;
+        public bool hasUnlockCashout;
     }
 }

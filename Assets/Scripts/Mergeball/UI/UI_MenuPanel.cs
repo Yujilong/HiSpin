@@ -13,6 +13,7 @@ namespace UI
         public Button cashButton;
         public Button coinButton;
         public Button wheelButton;
+        public Button cashoutButton;
         public Button propButton1;
         public Button propButton2;
 
@@ -45,6 +46,7 @@ namespace UI
             cashButton.onClick.AddListener(OnCashButtonClick);
             coinButton.onClick.AddListener(OnCoinButtonClick);
             wheelButton.onClick.AddListener(OnWheelButtonClick);
+            cashoutButton.onClick.AddListener(OnCashoutButtonClick);
             propButton1.onClick.AddListener(OnProp1ButtonClick);
             propButton2.onClick.AddListener(OnProp2ButtonClick);
 
@@ -55,15 +57,16 @@ namespace UI
             coinIcon = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Menu, "prop_coin");
 
             float aspectRadio = Screen.height / (Screen.width * 1f);
-            if (aspectRadio > 16 / 9f)
+            if (HiSpin.Master.IsBigScreen)
             {
-                Vector3 down = new Vector3(0, 80, 0);
+                Vector3 down = new Vector3(0, HiSpin.Master.TopMoveDownOffset, 0);
                 settingButton.transform.localPosition -= down;
                 cashButton.transform.localPosition -= down;
                 coinButton.transform.localPosition -= down;
                 stageProgressFillImage.transform.parent.localPosition -= down;
                 scoreText.transform.parent.localPosition -= down;
                 wheelButton.transform.parent.localPosition -= down;
+                cashoutButton.transform.localPosition -= down;
                 guideCard.transform.localPosition -= down;
             }
         }
@@ -129,6 +132,11 @@ namespace UI
                 GameManager.WillBuyProp = Reward.Prop2;
                 UIManager.ShowPopPanelByType(UI_Panel.UI_PopPanel.BuyPropPanel);
             }
+        }
+        private void OnCashoutButtonClick()
+        {
+            GameManager.PlayButtonClickSound();
+            HiSpin.UI.ShowBasePanel(HiSpin.BasePanel.Cashout_Gold);
         }
         public void RefreshCashText()
         {
@@ -360,9 +368,11 @@ namespace UI
         }
         [Space(15)]
         public Text bestText;
+        public Text cashout_cashText;
         public override void SetContent()
         {
             bestText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BEST);
+            cashout_cashText.text = string.Format(HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), HiSpin.Language_M.isJapanese ? "100,000" : "1,000");
         }
     }
 }
