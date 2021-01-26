@@ -37,8 +37,6 @@ namespace UI
         public CanvasGroup guideCG;
         public Image guideCard;
         public Image guideHandle;
-        Sprite adIcon;
-        Sprite coinIcon;
         protected override void Awake()
         {
             base.Awake();
@@ -54,8 +52,6 @@ namespace UI
             guideMaskButton.onClick.AddListener(OnGuideBGClick);
             currentProgress = Mathf.Floor(GameManager.CurrentLevelProgress);
             stageProgressFillImage.fillAmount = FillStart;
-            adIcon = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Menu, "prop_ad");
-            coinIcon = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Menu, "prop_coin");
 
             float aspectRadio = Screen.height / (Screen.width * 1f);
             if (HiSpin.Master.IsBigScreen)

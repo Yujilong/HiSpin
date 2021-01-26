@@ -9,39 +9,11 @@ namespace HiSpin
         public Ad ofwAd = null;
         void OnEnable()
         {
-            IronSourceEvents.onOfferwallClosedEvent += OfferwallClosedEvent;
-            IronSourceEvents.onOfferwallOpenedEvent += OfferwallOpenedEvent;
-            IronSourceEvents.onOfferwallShowFailedEvent += OfferwallShowFailedEvent;
-            IronSourceEvents.onOfferwallAdCreditedEvent += OfferwallAdCreditedEvent;
-            IronSourceEvents.onGetOfferwallCreditsFailedEvent += GetOfferwallCreditsFailedEvent;
-            IronSourceEvents.onOfferwallAvailableEvent += OfferwallAvailableEvent;
-
 
             FyberCallback.AdAvailable += OnAdAvailable;
             FyberCallback.AdNotAvailable += OnAdNotAvailable;
             FyberCallback.RequestFail += OnRequestFail;
         }
-        #region is offerwall
-        void OfferwallAvailableEvent(bool canShowOfferwall)
-        {
-
-        }
-        void OfferwallOpenedEvent()
-        {
-        }
-        void OfferwallShowFailedEvent(IronSourceError error)
-        {
-        }
-        void OfferwallAdCreditedEvent(Dictionary<string, object> dict)
-        {
-        }
-        void GetOfferwallCreditsFailedEvent(IronSourceError error)
-        {
-        }
-        void OfferwallClosedEvent()
-        {
-        }
-        #endregion
         #region fyber offerwall
         private void OnAdAvailable(Ad ad)
         {

@@ -11,15 +11,19 @@ namespace HiSpin
 	public class Ads : MonoBehaviour
 	{
 #if UNITY_ANDROID
-		private const string IS_APP_KEY = "dbcff7a9";
+		private const string MAX_APP_KEY = "Fs-cUqJfRU6DI-3nHAtCUubM2g2mHMT4kl_2_v9IyohMfXicNfA0eEwvSJ6gvrtpXtmu2TpTdL-QrLAMqwaXPS";
+		private const string MAX_Interstitial_adUnitID = "2c5f1c7a9cc87390";
+		private const string MAX_Rewarded_adUnitID = "7e6c460918490f1a";
 		private const int AdGem_APP_ID = 3503;
 		private const string Fyber_APP_ID = "123542";
 		private const string Fyber_Security_Token = "a88137defdbf3b99ddd4014ffe4ede10";
 #elif UNITY_IOS
-	private const string IS_APP_KEY = "e3446309";
-	private const int AdGem_APP_ID = 3504;
-	private const string Fyber_APP_ID = "123543";
-	private const string Fyber_Security_Token = "9d8d5b97161b00587b10f546cd662ff4";
+		private const string MAX_APP_KEY = "";
+		private const string MAX_Interstitial_adUnitID = "";
+		private const string MAX_Rewarded_adUnitID = "";
+		private const int AdGem_APP_ID = 3504;
+		private const string Fyber_APP_ID = "123543";
+		private const string Fyber_Security_Token = "9d8d5b97161b00587b10f546cd662ff4";
 #endif
 		public static Ads _instance;
 		[NonSerialized]
@@ -34,13 +38,16 @@ namespace HiSpin
 		void Start()
 		{
 			//Dynamic config example
-			IronSourceConfig.Instance.setClientSideCallbacks(true);
-
-			string id = IronSource.Agent.getAdvertiserId();
 
 			//IronSource.Agent.validateIntegration();
 
 			// SDK init
+			MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) => {
+				// AppLovin SDK is initialized, start loading ads
+				//MaxSdk.ShowMediationDebugger();
+				GetComponent<ShowRewardAds>().InitializeRewardedAds(MAX_Rewarded_adUnitID);
+				GetComponent<ShowInterstitialAds>().InitializeInterstitialAds(MAX_Interstitial_adUnitID);
+			};
 		}
 		OfferWallRequester offerWallRequester;
 		public void IniAd(string userid)
@@ -53,9 +60,8 @@ namespace HiSpin
 			offerWallRequester.Request();
 			offerWallRequester.CloseOnRedirect(false);
 
-			IronSource.Agent.setUserId(userid);
-			//IronSource.Agent.init(IS_APP_KEY);
-			IronSource.Agent.loadInterstitial();
+			MaxSdk.SetSdkKey(MAX_APP_KEY);
+			MaxSdk.InitializeSdk();
 
 			AdGem.loadOfferWallBeforeShowing = true;
 			AdGem.startSession(AdGem_APP_ID, false, false, true);
@@ -71,11 +77,7 @@ namespace HiSpin
 			switch (_Co)
 			{
 				case Offerwall_Co.IS:
-					if (IronSource.Agent.isOfferwallAvailable())
-					{
-						IronSource.Agent.showOfferwall();
-						return true;
-					}
+					return false;
 					break;
 				case Offerwall_Co.AdGem:
 					if (AdGem.offerWallReady)
@@ -107,7 +109,7 @@ namespace HiSpin
 			switch (_Co)
 			{
 				case Offerwall_Co.IS:
-					return IronSource.Agent.isOfferwallAvailable();
+					return false;
 				case Offerwall_Co.AdGem:
 					return AdGem.offerWallReady;
 				case Offerwall_Co.Fyber:
@@ -136,9 +138,9 @@ namespace HiSpin
 			return true;
 		}
 #endif
-            if (IronSource.Agent.isRewardedVideoAvailable())
+            if (MaxSdk.IsRewardedAdReady(MAX_Rewarded_adUnitID))
 			{
-				IronSource.Agent.showRewardedVideo();
+				MaxSdk.ShowRewardedAd(MAX_Rewarded_adUnitID);
 				return true;
 			}
 			else
@@ -169,20 +171,20 @@ namespace HiSpin
 				callback?.Invoke();
 				return;
 			}
-			if (IronSource.Agent.isInterstitialReady())
-			{
-				interstialLasttime = timer;
-				IronSource.Agent.showInterstitial();
+            if (MaxSdk.IsInterstitialReady(MAX_Interstitial_adUnitID))
+            {
+                interstialLasttime = timer;
+				MaxSdk.ShowInterstitial(MAX_Interstitial_adUnitID);
 			}
-			else
-			{
+            else
+            {
 				callback?.Invoke();
 				Master.Instance.SendAdjustPlayAdEvent(false, false, adDes);
 			}
 		}
 		void OnApplicationPause(bool isPaused)
 		{
-			IronSource.Agent.onApplicationPause(isPaused);
+			//IronSource.Agent.onApplicationPause(isPaused);
 		}
 		public GameObject adLoadingTip;
 		IEnumerator WaitLoadAD(bool isRewardedAd, int clickAdTime)
@@ -198,12 +200,12 @@ namespace HiSpin
 				timeOut--;
 				content.Append('.');
 				noticeText.text = content.ToString();
-				if (isRewardedAd && IronSource.Agent.isRewardedVideoAvailable())
-				{
-					IronSource.Agent.showRewardedVideo();
-					adLoadingTip.SetActive(false);
-					yield break;
-				}
+				//if (isRewardedAd && IronSource.Agent.isRewardedVideoAvailable())
+				//{
+				//	IronSource.Agent.showRewardedVideo();
+				//	adLoadingTip.SetActive(false);
+				//	yield break;
+				//}
 			}
 			adLoadingTip.SetActive(false);
 			Master.Instance.SendAdjustPlayAdEvent(false, true, adDes);

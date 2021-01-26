@@ -319,6 +319,7 @@ namespace HiSpin
                 firendButton.gameObject.SetActive(false);
                 bubbleRect.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, "bubble_paypay");
             }
+            bubbleRect.gameObject.SetActive(Save.data.todayHasClickCashBubble);
             bubbleRect.gameObject.SetActive(Save.data.isPackB);
             if (Save.data.isPackB)
                 if (!Save.data.todayHasClickCashBubble)
