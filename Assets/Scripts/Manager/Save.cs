@@ -68,10 +68,10 @@ namespace HiSpin
                     if (last.Day < now.Day)
                         isTomorrow = true;
                 }
-                else if (last.Month > now.Month)
+                else if (last.Month < now.Month)
                     isTomorrow = true;
             }
-            else if (last.Year > now.Year)
+            else if (last.Year < now.Year)
                 isTomorrow = true;
             return isTomorrow;
         }
