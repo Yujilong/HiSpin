@@ -329,7 +329,7 @@ namespace HiSpin
                 }
             if (!hasSetCashblackbox)
                 cashMustGetTime = cashData[isAd].mustGetRange == null ? -1 : cashData[isAd].mustGetRange.RandomIncludeMax();
-            if (Save.data.allData.user_panel.user_gold_live >= Cashout.GoldMaxNum)
+            if (Save.data.allData.user_panel.user_gold_live >= Cashout_Gold.GoldMaxNum)
                 goldMustGetTime = 0;
             if (Save.data.allData.user_panel.lucky_total_cash >= slotsCashNumData[slotsCashNumData.Length - 1].Max)
                 cashMustGetTime = 0;

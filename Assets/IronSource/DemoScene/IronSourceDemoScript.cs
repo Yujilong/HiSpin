@@ -91,6 +91,9 @@ public class IronSourceDemoScript : MonoBehaviour
         IronSourceEvents.onBannerAdScreenPresentedEvent += BannerAdScreenPresentedEvent;
         IronSourceEvents.onBannerAdScreenDismissedEvent += BannerAdScreenDismissedEvent;
         IronSourceEvents.onBannerAdLeftApplicationEvent += BannerAdLeftApplicationEvent;
+
+        //Add ImpressionSuccess Event
+        IronSourceEvents.onImpressionSuccessEvent += ImpressionSuccessEvent;
     }
 
     void OnApplicationPause(bool isPaused)
@@ -407,6 +410,16 @@ public class IronSourceDemoScript : MonoBehaviour
     {
         Debug.Log("I got OfferwallAvailableEvent, value = " + canShowOfferwal);
         
+    }
+
+    #endregion
+
+    #region ImpressionSuccess callback handler
+
+    void ImpressionSuccessEvent(IronSourceImpressionData impressionData)
+    {
+        Debug.Log("unity - script: I got ImpressionSuccessEvent ToString(): " + impressionData.ToString());
+        Debug.Log("unity - script: I got ImpressionSuccessEvent allData: " + impressionData.allData);
     }
 
     #endregion

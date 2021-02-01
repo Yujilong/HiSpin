@@ -184,4 +184,8 @@ public enum LanguageAreaEnum
     NewPlayerReward_Orderid,
     NewPlayerReward_Account,
     NewPlayerReward_Next,
+    EnterCashoutTask_Des1,
+    EnterCashoutTask_Des2,
+    EnterCashoutTask_Tip,
+    REDEEM,
 }

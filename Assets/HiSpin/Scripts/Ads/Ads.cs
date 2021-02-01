@@ -230,6 +230,7 @@ namespace HiSpin
 				Server.Instance.ConnectToServer_WatchRvEvent(rewardCallback, null, null, true);
 				TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WatchRvOnce, 1);
 				canGetReward = false;
+				Save.data.totalAdTimes++;
 			}
 		}
 		Action popCallback;

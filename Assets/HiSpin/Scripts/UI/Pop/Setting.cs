@@ -78,7 +78,7 @@ namespace HiSpin
         private void OnWithdrawClick()
         {
             UI.ClosePopPanel(this);
-            UI.ShowBasePanel(BasePanel.Cashout);
+            UI.ShowBasePanel(BasePanel.Cashout_Cash);
         }
         private void OnTasksClick()
         {

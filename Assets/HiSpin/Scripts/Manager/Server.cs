@@ -676,6 +676,7 @@ namespace HiSpin
     #region newAllData
     public class AllData
     {
+        public bool pre_cash_task;
         public int invita_time;
         public AllData_MainData user_panel;
         public AllData_SlotsState lucky_status;

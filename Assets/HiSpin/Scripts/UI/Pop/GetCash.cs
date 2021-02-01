@@ -95,7 +95,7 @@ namespace HiSpin
                     ad_iconGo.SetActive(true);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GET) + " x3";
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
-                    int oldCashnum = Save.data.allData.user_panel.user_doller_live / Cashout.CashToDollerRadio;
+                    int oldCashnum = Save.data.allData.user_panel.user_doller_live / Cashout_Gold.CashToDollerRadio;
                     if (oldCashnum >= 1000)
                     {
                         cash_numText.text = dollar + oldCashnum.GetCashShowString();
@@ -119,7 +119,7 @@ namespace HiSpin
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
 
 
-                    int oldUnSignCashnum = (Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout.CashToDollerRadio;
+                    int oldUnSignCashnum = (Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout_Gold.CashToDollerRadio;
                     if (oldUnSignCashnum >= 1000)
                     {
                         cash_numText.text = dollar + oldUnSignCashnum.GetCashShowString();

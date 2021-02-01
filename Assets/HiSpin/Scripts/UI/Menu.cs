@@ -9,10 +9,13 @@ namespace HiSpin
     [RequireComponent(typeof(CanvasGroup))]
     public class Menu : MonoBehaviour, IUIBase
     {
+        public RectTransform bubbleRect;
         CanvasGroup canvasGroup;
+        [Space(15)]
         public GameObject setting_rpGo;
         public GameObject friend_rpGo;
 
+        public Button goldButton;
         public Button cashButton;
         public Button offerwallButton;
         public Button rankButton;
@@ -42,6 +45,7 @@ namespace HiSpin
         private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
+            goldButton.AddClickEvent(OnGoldButtonClick);
             cashButton.AddClickEvent(OnCashButtonClick);
             offerwallButton.AddClickEvent(OnOfferwallButtonClick);
             rankButton.AddClickEvent(OnRankButtonClick);
@@ -75,12 +79,26 @@ namespace HiSpin
                 setting_rpGo.SetActive(hasFinish);
         }
         #region button event
+        private void OnGoldButtonClick()
+        {
+            if (UI.CurrentBasePanel == UI.GetUI(BasePanel.PlaySlots))
+                return;
+            if (Save.data.isPackB)
+            {
+                UI.ShowBasePanel(BasePanel.Cashout_Gold);
+            }
+        }
         private void OnCashButtonClick()
         {
             if (UI.CurrentBasePanel == UI.GetUI(BasePanel.PlaySlots))
                 return;
             if (Save.data.isPackB)
+            {
                 UI.ShowPopPanel(PopPanel.Rules, (int)RuleArea.Cashout);
+                StopCoroutine("AutoShakeBubble");
+                bubbleRect.gameObject.SetActive(false);
+                Save.data.todayHasClickCashBubble = true;
+            }
         }
         private void OnOfferwallButtonClick()
         {
@@ -231,6 +249,10 @@ namespace HiSpin
             UpdateHeadIcon();
             UpdateFreeSlotsLeftNumText();
             UpdateFriendWetherClickToday();
+            bubbleRect.gameObject.SetActive(!Save.data.todayHasClickCashBubble && Save.data.isPackB);
+            if (Save.data.isPackB)
+                if (!Save.data.todayHasClickCashBubble)
+                    StartCoroutine("AutoShakeBubble");
 
 #if UNITY_IOS
         bool isPackB = Save.data.isPackB;
@@ -315,7 +337,7 @@ namespace HiSpin
             }
             switch (basePanelType)
             {
-                case BasePanel.Cashout:
+                case BasePanel.Cashout_Gold:
                     all_topGo.SetActive(true);
                     all_tokenGo.SetActive(false);
                     top_titleText.gameObject.SetActive(true);
@@ -325,6 +347,10 @@ namespace HiSpin
                     settingButton.gameObject.SetActive(false);
                     add_ticketButton.gameObject.SetActive(true);
                     play_slots_helpButton.gameObject.SetActive(false);
+                    break;
+                case BasePanel.Cashout_Cash:
+                    all_topGo.SetActive(false);
+                    all_bottomGo.SetActive(false);
                     break;
                 case BasePanel.CashoutRecord:
                     all_topGo.SetActive(true);
@@ -476,6 +502,38 @@ namespace HiSpin
                 return fly_target_dic[type].position;
             else
                 return Vector3.zero;
+        }
+        private IEnumerator AutoShakeBubble()
+        {
+            bubbleRect.localEulerAngles = Vector3.zero;
+            float shakeScale = 12;
+            float shakeSpeed = 100;
+            float tempShakeSpeed = -shakeSpeed;
+            int turn = 2;
+            float nextInterval = 2;
+            while (true)
+            {
+                int tempTurn = 0;
+                float lastZ;
+                float currentZ;
+                while (tempTurn < turn)
+                {
+                    yield return null;
+                    float z = bubbleRect.localEulerAngles.z;
+                    if (z > 180)
+                        z -= 360;
+                    if (z <= -shakeScale)
+                        tempShakeSpeed = shakeSpeed;
+                    else if (z >= shakeScale)
+                        tempShakeSpeed = -shakeSpeed;
+                    lastZ = bubbleRect.localEulerAngles.z;
+                    bubbleRect.Rotate(new Vector3(0, 0, tempShakeSpeed * Time.deltaTime));
+                    currentZ = bubbleRect.localEulerAngles.z;
+                    if (lastZ < 180 && currentZ >= 180)
+                        tempTurn++;
+                }
+                yield return new WaitForSeconds(nextInterval);
+            }
         }
         private void Update()
         {

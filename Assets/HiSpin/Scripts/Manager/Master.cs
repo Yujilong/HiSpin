@@ -12,7 +12,7 @@ namespace HiSpin
         public static float ExpandCoe = 1;
         public const float TopMoveDownOffset = 100;
         public const string PackageName = "com.HiSpin.DailyCash.HugeRewards.FreeGame";
-        public const int Version = 13;
+        public const int Version = 14;
         public const string AppleId = "1540900402";
         public static bool isLoadingEnd = false;
         public static bool WillSetPackB = false;

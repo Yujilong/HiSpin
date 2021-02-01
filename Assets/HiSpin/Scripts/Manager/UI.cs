@@ -26,7 +26,8 @@ namespace HiSpin
         { (int)BasePanel.Slots,"Prefabs/UI/Base_Slots" },
         { (int)BasePanel.Betting,"Prefabs/UI/Base_Betting" },
 
-        { (int)BasePanel.Cashout,"Prefabs/UI/Base_Cashout" },
+        { (int)BasePanel.Cashout_Gold,"Prefabs/UI/Base_Cashout_Gold" },
+        { (int)BasePanel.Cashout_Cash,"Prefabs/UI/Base_Cashout_Cash" },
         { (int)BasePanel.CashoutRecord,"Prefabs/UI/Base_CashoutRecord" },
         { (int)BasePanel.Task,"Prefabs/UI/Base_Task&Achievement" },
         { (int)BasePanel.PlaySlots,"Prefabs/UI/Base_PlaySlots" },
@@ -49,6 +50,7 @@ namespace HiSpin
         { (int)PopPanel.SignTasks,"Prefabs/UI/Pop_SignTask" },
         { (int)PopPanel.InputInviteCode,"Prefabs/UI/Pop_InputInviteCode" },
         { (int)PopPanel.QuitPlaySlots,"Prefabs/UI/Pop_QuitPlaySlots" },
+        { (int)PopPanel.EnterCashoutTask,"Prefabs/UI/Pop_EnterCashoutTask" },
     };
         //除菜单外所有面板已经加载的资源
         static readonly Dictionary<int, GameObject> loadedpanelPrefabDic = new Dictionary<int, GameObject>();
@@ -74,6 +76,7 @@ namespace HiSpin
         new PopTask() { panelType = PopPanel.SignTasks, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.InputInviteCode, taskQueue = new Queue<int[]>() },
         new PopTask() { panelType = PopPanel.QuitPlaySlots, taskQueue = new Queue<int[]>() },
+        new PopTask() { panelType = PopPanel.EnterCashoutTask, taskQueue = new Queue<int[]>() },
     };
         class PopTask
         {
@@ -107,6 +110,12 @@ namespace HiSpin
         }
         private static void ShowBasePanel(int panelIndex, params int[] args)
         {
+            if (panelIndex == (int)BasePanel.Cashout_Cash)
+                if (Save.data.allData.pre_cash_task && !Save.data.hasUnlockCashout)
+                {
+                    ShowPopPanel(PopPanel.EnterCashoutTask);
+                    return;
+                }
             if (BasePanelHistoryRecord.Count > 0)
             {
                 if (BasePanelHistoryRecord.Peek() == panelIndex)
@@ -547,17 +556,18 @@ namespace HiSpin
         Friend = 3,
         Betting = 4,
 
-        Cashout = 5,
-        CashoutRecord = 6,
-        Task = 7,
-        PlaySlots = 8,
-        Me = 9,
-        FriendList = 10,
-        FriendEvent = 11,
+        Cashout_Gold = 5,
+        Cashout_Cash = 6,
+        CashoutRecord = 7,
+        Task = 8,
+        PlaySlots = 9,
+        Me = 10,
+        FriendList = 11,
+        FriendEvent = 12,
     }
     public enum PopPanel
     {
-        Loading = 12,
+        Loading = 27,
         Setting = 13,
         GetReward = 14,
         Rules = 15,
@@ -572,5 +582,6 @@ namespace HiSpin
         SignTasks = 24,
         InputInviteCode = 25,
         QuitPlaySlots = 26,
+        EnterCashoutTask = 28,
     }
 }

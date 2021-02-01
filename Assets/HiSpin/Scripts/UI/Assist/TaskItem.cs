@@ -155,7 +155,7 @@ namespace HiSpin
                 switch (TaskTarget)
                 {
                     case PlayerTaskTarget.WritePaypalEmail:
-                        UI.ShowBasePanel(BasePanel.Cashout);
+                        UI.ShowBasePanel(BasePanel.Cashout_Gold);
                         break;
                     case PlayerTaskTarget.InviteAFriend:
                         UI.ShowBasePanel(BasePanel.Friend);
