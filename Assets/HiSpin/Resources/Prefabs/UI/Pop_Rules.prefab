@@ -1140,6 +1140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 9141602687780912148}
   oneRule: {fileID: 2969186275642785801}
+  one_rule_pointImage: {fileID: 1104890234619322402}
   all_rules_content: {fileID: 7185492686490158948}
   all_rulesScorllrect: {fileID: 4858503186898126219}
   closeButton: {fileID: 9141602688492873319}

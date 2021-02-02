@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: cbb863edee6e50648ae434482ab09119, type: 3}
-    totalSpriteSurfaceArea: 508061
+    totalSpriteSurfaceArea: 553035
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -42,6 +42,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: fe9f60333c23f4e47949cf767f39222e, type: 3}
   - {fileID: 21300000, guid: da86144360b79bb44a921cfae448a685, type: 3}
   - {fileID: 21300000, guid: 971b0e43c34110e479d71f4f92cc72cc, type: 3}
+  - {fileID: 21300000, guid: 09e54353b80c4e546ad57d3f9849b3c9, type: 3}
+  - {fileID: 21300000, guid: ead2eb73fb2c0b544846786a23313e9b, type: 3}
   - {fileID: 21300000, guid: 2e25f0c4e959c1341af1a3b2e54ef183, type: 3}
   - {fileID: 21300000, guid: 53deb625c47230c4d8b796b6cc4f5982, type: 3}
   - {fileID: 21300000, guid: dcf18c5526fd08a4caaa627704b2dc97, type: 3}
@@ -54,6 +56,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4f5b42688c83ceb4c85960381b75b65a, type: 3}
   - {fileID: 21300000, guid: d4ffbd798b6f29b4796e9e3c892a51e8, type: 3}
   - {fileID: 21300000, guid: 5961f5a96f02d7c45a6d265d34d21928, type: 3}
+  - {fileID: 21300000, guid: 5297030a64141794f875c08ba9b61ffa, type: 3}
   - {fileID: 21300000, guid: 33f4a82baceaa1f40847ef24ece1f784, type: 3}
   - {fileID: 21300000, guid: e0ebff7bf6c083f4b90b9f134c1028d7, type: 3}
   - {fileID: 21300000, guid: 63d29a8b8a07fa44592f5337c4502ef5, type: 3}
@@ -61,6 +64,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6c4a623c460cced4a9d8c49ccd0f7c2a, type: 3}
   - {fileID: 21300000, guid: 492915fc021e3bb4180358826f833f98, type: 3}
   - {fileID: 21300000, guid: 7af4f8fc521052a419632fe1b0f621d4, type: 3}
+  - {fileID: 21300000, guid: f964ba5d193a7a34f856278274ae85d6, type: 3}
   - {fileID: 21300000, guid: c4b72fcdb924d8942a23d5d61833b000, type: 3}
   - {fileID: 21300000, guid: 6b2fe08e36c71f340bf20684e77accf6, type: 3}
   - {fileID: 21300000, guid: 74e3c9fedf0ca6740afa6670d477ab39, type: 3}
@@ -73,6 +77,8 @@ SpriteAtlas:
   - Setting
   - Offerwall_Off
   - Slots_Off
+  - bubble_paypay
+  - gift
   - head_out_bg
   - head_out_fill
   - num bg
@@ -85,6 +91,7 @@ SpriteAtlas:
   - TopBG
   - Ticket
   - BottomBG
+  - cashout_numBg
   - add
   - Cash
   - bubble_paypal
@@ -92,6 +99,7 @@ SpriteAtlas:
   - SignCash
   - PT
   - Task_Off
+  - cashout_paypal
   - Lottery_On
   - Task_On
   - Rank_On

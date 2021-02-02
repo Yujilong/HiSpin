@@ -65,8 +65,12 @@ namespace HiSpin
                 RectTransform topRect = all_topGo.transform as RectTransform;
                 topRect.sizeDelta = new Vector2(topRect.sizeDelta.x, topRect.sizeDelta.y + 100);
             }
+            if (Language_M.isJapanese)
+            {
+                bubbleRect.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, "bubble_paypay");
+            }
 #if UNITY_IOS
-        play_slots_helpButton.gameObject.SetActive(Save.data.isPackB);
+            play_slots_helpButton.gameObject.SetActive(Save.data.isPackB);
 #endif
         }
         private void Start()
@@ -255,12 +259,17 @@ namespace HiSpin
                     StartCoroutine("AutoShakeBubble");
 
 #if UNITY_IOS
-        bool isPackB = Save.data.isPackB;
-        offerwallButton.gameObject.SetActive(isPackB);
-        lotteryButton.gameObject.SetActive(isPackB);
-        firendButton.gameObject.SetActive(isPackB);
-        taskButton.gameObject.SetActive(!isPackB);
+             bool isPackB = Save.data.isPackB;
+             offerwallButton.gameObject.SetActive(isPackB);
+             lotteryButton.gameObject.SetActive(isPackB);
+             firendButton.gameObject.SetActive(isPackB);
+             taskButton.gameObject.SetActive(!isPackB);
 #endif
+            if (Language_M.isJapanese)
+            {
+                rankButton.gameObject.SetActive(false);
+                firendButton.gameObject.SetActive(false);
+            }
             canvasGroup.alpha = 1;
             canvasGroup.blocksRaycasts = true;
             canvasGroup.interactable = true;

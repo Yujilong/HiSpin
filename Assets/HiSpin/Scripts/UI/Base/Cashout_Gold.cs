@@ -17,6 +17,8 @@ namespace HiSpin
         public Button pt_cashout_midButton;
         public Button pt_cashout_rightButton;
         [Space(15)]
+        public Image paypal_iconImage;
+        public GameObject paypalGo;
         public Button paypalCashout_leftButton;
         public Button paypalCashout_midButton;
         public Button paypalCashout_rightButton;
@@ -64,6 +66,14 @@ namespace HiSpin
             friendevent_cashoutButton5.AddClickEvent(() => { OnFriendEventCashoutButtonClick(1000); });
 
             gold_redeemButton.AddClickEvent(OnGoldCashoutButtonClick);
+            if (Language_M.isJapanese)
+            {
+                paypal_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypay icon");
+                paypalGo.SetActive(true);
+                paypal_account_frontText.gameObject.SetActive(false);
+                recordText.gameObject.SetActive(false);
+                all_content_sizefitter.GetComponent<VerticalLayoutGroup>().padding.top = 32;
+            }
         }
         private void OnRecordButtonClick()
         {
@@ -153,6 +163,11 @@ namespace HiSpin
             own_goldGo.SetActive(!isFriendEventCashout);
             handing_feeGo.SetActive(!isFriendEventCashout);
             own_friendevent_cashGo.SetActive(isFriendEventCashout);
+            if (Language_M.isJapanese)
+            {
+                handing_feeGo.SetActive(false);
+                own_friendevent_cashGo.SetActive(false);
+            }
 
             gold_numText.text = Save.data.allData.user_panel.user_gold_live.GetTokenShowString();
         }
@@ -203,26 +218,27 @@ namespace HiSpin
 
             recordText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.RECORD);
             string dollar = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar);
+            bool isJapanese = Language_M.isJapanese;
             pt_numText.text = (int)Save.data.allData.fission_info.live_balance + "<size=40>  " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
-            pt_cashout_numText.text = "≈" + dollar + ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString();
-            pt_cashout_left_buttonText.text = dollar + " 5";
-            pt_cashout_mid_buttonText.text = dollar + " 10";
-            pt_cashout_right_buttonText.text = dollar + " 50";
-            paypalCash_numText.text = dollar + Save.data.allData.user_panel.blue_cash.GetCashShowString();
-            paypal_cashout_left_buttonText.text = dollar + " 10";
-            paypal_cashout_mid_buttonText.text = dollar + " 50";
-            paypal_cashout_right_buttonText.text = dollar + " 100";
+            pt_cashout_numText.text = string.Format("≈" + dollar, ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString());
+            pt_cashout_left_buttonText.text = string.Format(dollar, isJapanese ? " 500" : " 5");
+            pt_cashout_mid_buttonText.text = string.Format(dollar, isJapanese ? " 1000" : " 10");
+            pt_cashout_right_buttonText.text = string.Format(dollar , isJapanese ? " 5000" : " 50");
+            paypalCash_numText.text =string.Format(dollar , Save.data.allData.user_panel.blue_cash.GetCashShowString());
+            paypal_cashout_left_buttonText.text =string.Format(dollar , isJapanese ? " 1000" : " 10");
+            paypal_cashout_mid_buttonText.text =string.Format(dollar , isJapanese ? " 5000" : " 50");
+            paypal_cashout_right_buttonText.text = string.Format(dollar , isJapanese ? " 10000" : " 100");
             gold_redeem_buttonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_GoldRedeemTip);
             paypal_fee_ruleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_PaypalFeeTip);
             about_paypal_feeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_AboutFee);
 
 
-            friendevent_cash_numText.text = dollar + Save.data.allData.user_panel.seven_doller.GetCashShowString();
-            friendevent_cashout_buttonText1.text = dollar + " " + FriendEventCashoutMinCash;
-            friendevent_cashout_buttonText2.text = dollar + " 300";
-            friendevent_cashout_buttonText3.text = dollar + " 500";
-            friendevent_cashout_buttonText4.text = dollar + " 700";
-            friendevent_cashout_buttonText5.text = dollar + " 1000";
+            friendevent_cash_numText.text = string.Format(dollar , Save.data.allData.user_panel.seven_doller.GetCashShowString());
+            friendevent_cashout_buttonText1.text = string.Format(dollar , " " + FriendEventCashoutMinCash*100);
+            friendevent_cashout_buttonText2.text = string.Format(dollar , isJapanese ? " 30000" : " 300");
+            friendevent_cashout_buttonText3.text = string.Format(dollar ,isJapanese ? " 50000" :  " 500");
+            friendevent_cashout_buttonText4.text = string.Format(dollar , isJapanese ? " 70000" : " 700");
+            friendevent_cashout_buttonText5.text = string.Format(dollar , isJapanese ? " 100000" : " 1000");
 
             StartCoroutine("DelayRefreshLayout");
         }

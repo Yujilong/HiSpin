@@ -10,6 +10,7 @@ namespace HiSpin
     {
         public Button contact_usButton;
         public Text uuidText;
+        public Text title_contentText;
         public Slider progressSlider;
         public Text progressText;
         CanvasGroup canvasGroup;
@@ -23,6 +24,7 @@ namespace HiSpin
             {
                 contact_usButton.transform.localPosition -= new Vector3(0, Master.TopMoveDownOffset, 0);
             }
+            title_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Loading_Title);
         }
         IEnumerator LoadingSlider()
         {

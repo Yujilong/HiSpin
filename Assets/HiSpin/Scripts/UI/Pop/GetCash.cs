@@ -13,12 +13,18 @@ namespace HiSpin
         public GameObject cash_iconGo;
         public Text add_cashpt_numText;
         public GameObject add_cashpt_cashGo;
+        public Image iconImage;
         public GameObject ad_iconGo;
         protected override void Awake()
         {
             base.Awake();
             tribleButton.AddClickEvent(OnGetClick);
             nothanksButton.AddClickEvent(OnNothanksClick);
+            if (Language_M.isJapanese)
+            {
+                iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "japanese");
+                iconImage.SetNativeSize();
+            }
         }
         private void OnNothanksClick()
         {
@@ -88,7 +94,7 @@ namespace HiSpin
                     ad_iconGo.SetActive(false);
                     trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
                     trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
-                    cash_numText.text = dollar + getcashNum.GetCashShowString();
+                    cash_numText.text = string.Format(dollar , getcashNum.GetCashShowString());
                     add_cashpt_numText.transform.parent.gameObject.SetActive(false);
                     break;
                 case GetCashArea.PlaySlots:
@@ -98,7 +104,7 @@ namespace HiSpin
                     int oldCashnum = Save.data.allData.user_panel.user_doller_live / Cashout_Gold.CashToDollerRadio;
                     if (oldCashnum >= 1000)
                     {
-                        cash_numText.text = dollar + oldCashnum.GetCashShowString();
+                        cash_numText.text = string.Format(dollar , oldCashnum.GetCashShowString());
                         cash_numText.transform.localPosition = new Vector3(0, cash_numText.transform.localPosition.y);
                         cash_iconGo.SetActive(false);
                         add_cashpt_numText.transform.parent.gameObject.SetActive(true);
@@ -122,7 +128,7 @@ namespace HiSpin
                     int oldUnSignCashnum = (Save.data.allData.user_panel.user_doller_live - getcashNum) / Cashout_Gold.CashToDollerRadio;
                     if (oldUnSignCashnum >= 1000)
                     {
-                        cash_numText.text = dollar + oldUnSignCashnum.GetCashShowString();
+                        cash_numText.text = string.Format(dollar , oldUnSignCashnum.GetCashShowString());
                         cash_numText.transform.localPosition = new Vector3(0, cash_numText.transform.localPosition.y);
                         cash_iconGo.SetActive(false);
                         add_cashpt_numText.transform.parent.gameObject.SetActive(true);

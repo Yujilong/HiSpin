@@ -9,10 +9,12 @@ namespace HiSpin
     {
         public Button closeButton;
         public Button helpButton;
+        public Image bonus_baseImage;
         public Text bonus_numText;
         public SignDayItem single_signdayItem;
         private List<SignDayItem> all_signdayItems = new List<SignDayItem>();
         public RectTransform all_signdayRect;
+        public Image day_15Image;
         public Button sign_inButton;
         public GameObject sign_task_redpointGo;
         private int[] all_sign_reward_cash_pt = new int[14]
@@ -40,6 +42,11 @@ namespace HiSpin
             helpButton.AddClickEvent(OnHelpButtonClick);
             sign_inButton.AddClickEvent(OnSigninButtonClick);
             UI.MenuPanel.fly_target_dic.Add(Reward.SignCash, bonus_numText.transform);
+            if (Language_M.isJapanese)
+            {
+                bonus_baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Sign, "bonus_base_japanese");
+                day_15Image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Sign, "day15_japanese");
+            }
         }
         private void OnCloseButtonClick()
         {
@@ -194,7 +201,7 @@ namespace HiSpin
         public Text day15Text;
         public override void SetContent()
         {
-            card_cashnumText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50";
+            card_cashnumText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), Language_M.isJapanese ? "5000" : "50");
             card_tip.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide4);
             day15Text.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Sign_Day), 15);
             extrabonusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Sign_ExtraBonusTitle);

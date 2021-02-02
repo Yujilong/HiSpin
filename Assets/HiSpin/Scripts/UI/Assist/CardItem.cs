@@ -12,13 +12,15 @@ namespace HiSpin
         public CanvasGroup onCg;
         public RectTransform cash_numRect;
         public RectTransform cash_iconRect;
-        public GameObject paypal_iconGo;
+        public Image paypal_iconImage;
         public void Init(int head_icon_index, string id, int cashNum)
         {
             head_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_icon_index);
             idText.text = id;
-            numText.text = (Save.data.isPackB ? Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) : "") + cashNum.GetCashShowString();
-            paypal_iconGo.SetActive(Save.data.isPackB);
+            numText.text = Save.data.isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), cashNum.GetCashShowString()) : cashNum.GetCashShowString();
+            paypal_iconImage.gameObject.SetActive(Save.data.isPackB);
+            if (Language_M.isJapanese)
+                paypal_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.StartBetting, "paypay");
             StartCoroutine(AutoOn());
             StartCoroutine(AutoDealyOrder());
         }

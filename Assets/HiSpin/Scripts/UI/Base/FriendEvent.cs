@@ -144,14 +144,14 @@ namespace HiSpin
             invitationText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_Invitation);
             invite_bannerText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteBanner), 80, 1500);
             invite_per_rewardText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_InvitationReward);
-            next_rewardText.text = "+" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "0.50";
+            next_rewardText.text = string.Format("+" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), Language_M.isJapanese ? "50" : "0.50");
             invite_and_earnText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_InviteAndEarn);
             copyText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_Copy);
             nameText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_Name);
             currentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_Current);
             expectText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_Expect);
             nofriendText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_NoRecords);
-            referring_bonusText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_ReferringBonus) + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + Save.data.allData.user_panel.seven_doller.GetCashShowString();
+            referring_bonusText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.FriendEvent_ReferringBonus) + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), Save.data.allData.user_panel.seven_doller.GetCashShowString());
             withdrawText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Withdraw);
         }
     }

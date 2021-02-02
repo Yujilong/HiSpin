@@ -17,13 +17,17 @@ namespace HiSpin
         { SpriteAtlas_Name.Task,"SpriteAtlas/Task&Achievement"},
         { SpriteAtlas_Name.GetReward,"SpriteAtlas/GetReward"},
         { SpriteAtlas_Name.AsCashoutPop,"SpriteAtlas/AsCashoutPop"},
-        { SpriteAtlas_Name.Cashout,"SpriteAtlas/Cashout"},
+        { SpriteAtlas_Name.Cashout_Gold,"SpriteAtlas/Cashout_Gold"},
         { SpriteAtlas_Name.InviteOk,"SpriteAtlas/InviteOk"},
         { SpriteAtlas_Name.Friend,"SpriteAtlas/Friend"},
         { SpriteAtlas_Name.GetCash,"SpriteAtlas/GetCash"},
         { SpriteAtlas_Name.GetNewPlayerReward,"SpriteAtlas/GetNewPlayerReward"},
         { SpriteAtlas_Name.Sign,"SpriteAtlas/Sign"},
         { SpriteAtlas_Name.FriendEvent,"SpriteAtlas/FriendEvent"},
+        { SpriteAtlas_Name.Betting,"SpriteAtlas/Betting"},
+        { SpriteAtlas_Name.Cashout_Cash,"SpriteAtlas/Cashout_Cash"},
+        { SpriteAtlas_Name.EnterCashoutTask,"SpriteAtlas/EnterCashoutTask"},
+        { SpriteAtlas_Name.StartBetting,"SpriteAtlas/StartBetting"},
     };
         static readonly Dictionary<SpriteAtlas_Name, SpriteAtlas> loadedSpriteAtlasDic = new Dictionary<SpriteAtlas_Name, SpriteAtlas>();
         static readonly Dictionary<string, Sprite> loadedSpriteDic = new Dictionary<string, Sprite>();
@@ -140,12 +144,16 @@ namespace HiSpin
         Task,
         GetReward,
         AsCashoutPop,
-        Cashout,
+        Cashout_Gold,
         InviteOk,
         Friend,
         GetCash,
         GetNewPlayerReward,
         Sign,
         FriendEvent,
+        Betting,
+        Cashout_Cash,
+        EnterCashoutTask,
+        StartBetting,
     }
 }

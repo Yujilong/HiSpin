@@ -188,4 +188,5 @@ public enum LanguageAreaEnum
     EnterCashoutTask_Des2,
     EnterCashoutTask_Tip,
     REDEEM,
+    Loading_Title,
 }

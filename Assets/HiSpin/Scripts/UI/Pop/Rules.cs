@@ -10,6 +10,7 @@ namespace HiSpin
         public Text titleText;
         [Space(15)]
         public Text oneRule;
+        public Image one_rule_pointImage;
         public ContentSizeFitter all_rules_content;
         public ScrollRect all_rulesScorllrect;
         private List<Text> all_rules = new List<Text>();
@@ -26,6 +27,8 @@ namespace HiSpin
             termsButton.AddClickEvent(OnTermsClick);
             cashoutButton.AddClickEvent(OnCashoutButtonClick);
             all_rules.Add(oneRule);
+            if (Language_M.isJapanese)
+                one_rule_pointImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "point_japanese");
         }
         private void OnCashoutButtonClick()
         {

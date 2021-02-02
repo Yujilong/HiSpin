@@ -64,6 +64,8 @@ namespace HiSpin
                 AllData_Task taskData = taskList[i];
                 if (!CheckIOSTaskIsShow(taskData.taskTargetId))
                     continue;
+                if (!CheckJapaneseTaskIsShow(taskData.taskTargetId))
+                    continue;
                 switch (taskData.task_type)
                 {
                     //gettickets
@@ -137,6 +139,20 @@ namespace HiSpin
 #else
             return true;
 #endif
+        }
+        private bool CheckJapaneseTaskIsShow(PlayerTaskTarget taskTarget)
+        {
+            if (Language_M.isJapanese)
+            {
+                switch (taskTarget)
+                {
+                    case PlayerTaskTarget.InviteAFriend:
+                        return false;
+                    default:
+                        return true;
+                }
+            }
+            return true;
         }
         private IEnumerator DelayRefreshLayout()
         {

@@ -54,7 +54,7 @@ namespace HiSpin
                     {
                         reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Task, "paypal");
                         reward_iconImage.gameObject.SetActive(Save.data.isPackB);
-                        reward_numText.text = (Save.data.isPackB ? "$" : "") + rewardNum.GetCashShowString();
+                        reward_numText.text = Save.data.isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), rewardNum.GetCashShowString()) : rewardNum.GetCashShowString();
                     }
                     else
                     {

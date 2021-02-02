@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 3efde54d5f635cb4eb0435dfd07dc227, type: 3}
-    totalSpriteSurfaceArea: 1745025
+    totalSpriteSurfaceArea: 2037325
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -40,6 +40,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6edc01556807f5a448706e6c19245472, type: 3}
   - {fileID: 21300000, guid: 6c1684b5b0565484383efce79604d245, type: 3}
   - {fileID: 21300000, guid: 839ba4e5b5dd53243bcaf16e38fb40cc, type: 3}
+  - {fileID: 21300000, guid: 33fcde47e57952846b191f40a5bef34b, type: 3}
   - {fileID: 21300000, guid: d84278f76f1fa884cb76d4269b1ce2f2, type: 3}
   - {fileID: 21300000, guid: e24e93d8d13065d4c895f0426ddec503, type: 3}
   - {fileID: 21300000, guid: 58c9256fb9f9cf84995cb5b51ce86d95, type: 3}
@@ -49,6 +50,7 @@ SpriteAtlas:
   - button
   - slider_bg
   - slider_fill
+  - top_japanese
   - base
   - close
   - enterTaskBase

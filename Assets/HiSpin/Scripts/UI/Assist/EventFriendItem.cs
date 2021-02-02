@@ -17,8 +17,8 @@ namespace HiSpin
         {
             headImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.HeadIcon, "head_" + head_id);
             nameText.text = name;
-            currentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + current.GetCashShowString();
-            expectText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + expect.GetCashShowString();
+            currentText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), current.GetCashShowString());
+            expectText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), expect.GetCashShowString());
             bool isPackB = Save.data.isPackB;
             coin1Go.SetActive(isPackB);
             coin2Go.SetActive(isPackB);

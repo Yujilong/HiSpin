@@ -92,7 +92,7 @@ namespace HiSpin
                     cashoutNum = args[1];
                     cashoutType = (CashoutType)args[2];
                     cashoutTypeNum = args[3];
-                    cashout_numText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + " " + args[1].GetTokenShowString();
+                    cashout_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), " " + args[1].GetTokenShowString());
                     titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
                     baseImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.AsCashoutPop, "base_n");
                     break;

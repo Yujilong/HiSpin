@@ -984,9 +984,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeButton: {fileID: 4263883830048128414}
   helpButton: {fileID: 4263883831620138726}
+  bonus_baseImage: {fileID: 4263883830387477106}
   bonus_numText: {fileID: 4263883830536102340}
   single_signdayItem: {fileID: 7281448241747115211}
   all_signdayRect: {fileID: 4263883829990510097}
+  day_15Image: {fileID: 4263883831559083343}
   sign_inButton: {fileID: 4833235637444657355}
   sign_task_redpointGo: {fileID: 935296225333194613}
   card_cashnumText: {fileID: 3795752360803091658}

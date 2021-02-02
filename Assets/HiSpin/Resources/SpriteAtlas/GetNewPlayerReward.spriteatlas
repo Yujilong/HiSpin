@@ -31,23 +31,29 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: e2355ba074058774988afd0c8d3c4b21, type: 3}
-    totalSpriteSurfaceArea: 2378718
+    totalSpriteSurfaceArea: 2415078
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: b6c4749552adb3a42adeee55ee9f10c4, type: 3}
+  - {fileID: 21300000, guid: 3d622b95470ed354ea1728f7978853d0, type: 3}
   - {fileID: 21300000, guid: c6ea2fc56d802c84e80551e247b6531d, type: 3}
   - {fileID: 21300000, guid: 6d0bde06b07013f4f91371315caec8b9, type: 3}
   - {fileID: 21300000, guid: 94541016ba036754a86651ef711f22c0, type: 3}
   - {fileID: 21300000, guid: db24a8d6934e3304793687d00dd02502, type: 3}
-  - {fileID: 21300000, guid: 367968ba8adebf040be73eae9c2bd84c, type: 3}
+  - {fileID: 21300000, guid: e5c41b07dd1384340a13c34414e8dc68, type: 3}
+  - {fileID: 21300000, guid: 0c6a06f7a8e06b248b00e846d93ffe2f, type: 3}
+  - {fileID: 21300000, guid: 5b632ff828bd43146bded6188a513401, type: 3}
   - {fileID: 21300000, guid: 78c4464d2a1a441478643ee6233d28e4, type: 3}
   m_PackedSpriteNamesToIndex:
   - card
+  - normal
   - order base
   - disagree
   - button
   - agree
+  - paypay
+  - paypal
   - base
   - cursor
   m_Tag: GetNewPlayerReward

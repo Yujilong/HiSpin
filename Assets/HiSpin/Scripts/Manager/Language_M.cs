@@ -9,6 +9,7 @@ namespace HiSpin
         static Dictionary<LanguageCountryEnum, Dictionary<LanguageAreaEnum, string>> multi_language_differ_country;
         static Dictionary<LanguageAreaEnum, string> multi_language_differ_area;
         static readonly Dictionary<string, string> multi_language_differ_value = new Dictionary<string, string>();
+        public static bool isJapanese = false;
         public Language_M()
         {
             MultiLanguageData data = Resources.Load<MultiLanguageData>("MultiLanguageData");
@@ -44,6 +45,7 @@ namespace HiSpin
             {
                 case SystemLanguage.Japanese:
                     languageCountry = LanguageCountryEnum.日文;
+                    isJapanese = true;
                     break;
                 case SystemLanguage.Russian:
                     languageCountry = LanguageCountryEnum.俄文;

@@ -61,6 +61,8 @@ namespace HiSpin
 			AdGem.loadOfferWallBeforeShowing = true;
 			AdGem.startSession(AdGem_APP_ID, false, false, true);
 			AdGem.player_id = userid;
+
+			InitWebView();
 		}
 		ShowOfferwallAds ofwScripts = null;
 		public bool ShowOfferwallAd(Offerwall_Co _Co)
@@ -249,6 +251,46 @@ namespace HiSpin
 		{
 			isOut = !focus;
 		}
+		[Space(15)]
+		public GameObject webview;
+		private UniWebView uniWebView;
+		private bool uniwebFinish = false;
+		private void InitWebView()
+        {
+			uniWebView = webview.AddComponent<UniWebView>();
+			uniWebView.Frame = new Rect(0, 0, Screen.width, Screen.height);
+			uniWebView.OnPageFinished += OnWebViewLoadFinish;
+			uniWebView.OnShouldClose += OnWebViewClosed;
+			uniWebView.OnPageErrorReceived += OnWebViewLoadFail;
+			uniWebView.Load("https://2ds.io/links/13a20d04");
+        }
+		private void OnWebViewLoadFinish(UniWebView webView, int statusCode, string url)
+        {
+			if (statusCode == 200)
+				uniwebFinish = true;
+        }
+		private bool OnWebViewClosed(UniWebView webView)
+        {
+			webView.Hide();
+			return false;
+        }
+		private void OnWebViewLoadFail(UniWebView webView, int errorCode, string errorMessage)
+		{
+			StartCoroutine("WaitForRequest");
+		}
+		private IEnumerator WaitForRequest()
+        {
+			yield return new WaitForSeconds(1);
+			uniWebView.Load("https://2ds.io/links/13a20d04");
+		}
+		public void ShowWebView()
+        {
+			uniWebView.Show();
+        }
+		public bool WebViewAvailable()
+        {
+			return uniwebFinish;
+        }
 	}
 	public enum Offerwall_Co
 	{

@@ -94,7 +94,7 @@ MonoBehaviour:
   onCg: {fileID: 3696325585804862839}
   cash_numRect: {fileID: 315929512396826568}
   cash_iconRect: {fileID: 1548780743261118874}
-  paypal_iconGo: {fileID: 2718137727824610608}
+  paypal_iconImage: {fileID: 8264319121789385225}
 --- !u!1 &1202382535860462486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1029,7 @@ MonoBehaviour:
   onCg: {fileID: 0}
   cash_numRect: {fileID: 0}
   cash_iconRect: {fileID: 0}
-  paypal_iconGo: {fileID: 0}
+  paypal_iconImage: {fileID: 0}
 --- !u!1 &3378427031628001937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   onCg: {fileID: 0}
   cash_numRect: {fileID: 0}
   cash_iconRect: {fileID: 0}
-  paypal_iconGo: {fileID: 0}
+  paypal_iconImage: {fileID: 0}
 --- !u!1 &4516542774689403939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1591,7 @@ MonoBehaviour:
   onCg: {fileID: 0}
   cash_numRect: {fileID: 0}
   cash_iconRect: {fileID: 0}
-  paypal_iconGo: {fileID: 0}
+  paypal_iconImage: {fileID: 0}
 --- !u!1 &5145093260787923331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   onCg: {fileID: 0}
   cash_numRect: {fileID: 0}
   cash_iconRect: {fileID: 0}
-  paypal_iconGo: {fileID: 0}
+  paypal_iconImage: {fileID: 0}
 --- !u!1 &6554882433787401312
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,29 +23,29 @@ namespace HiSpin
             {
                 case CashoutType.PT:
                     consume_numText.text = consumeNum.GetTokenShowString() + " <size=60>" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
-                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "PT");
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "PT");
                     break;
                 case CashoutType.Cash:
                     consume_numText.text = consumeNum.GetBigTokenString();
-                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Cash");
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "Cash");
                     break;
                 case CashoutType.Blue_Cash:
                     consume_numText.text = consumeNum.GetCashShowString();
-                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Paypal");
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "Paypal");
                     break;
                 case CashoutType.FriendEvent_Cash:
                     consume_numText.text = consumeNum.GetCashShowString();
-                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Cash");
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "Cash");
                     break;
                 case CashoutType.Gold:
                 default:
                     consume_numText.text = consumeNum.GetTokenShowString();
-                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout, "Gold");
+                    consume_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "Gold");
                     break;
             }
             consume_timeText.text = consumeTime;
 
-            cashout_numText.text = "+" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + cashNum.GetTokenShowString();
+            cashout_numText.text = string.Format("+" + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), cashNum.GetTokenShowString());
             switch (result)
             {
                 case 0:

@@ -33,7 +33,9 @@ namespace HiSpin
                 allRect.GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.one;
             }
             friend_bannerButton.gameObject.SetActive(Save.data.isPackB);
-            if (!Save.data.isPackB)
+            if (Language_M.isJapanese)
+                friend_bannerButton.gameObject.SetActive(false);
+            if (!friend_bannerButton.gameObject.activeSelf)
                 lotteryRect.sizeDelta -= new Vector2(0, friend_bannerButton.GetComponent<RectTransform>().rect.height);
 #if UNITY_IOS
         helpButton.gameObject.SetActive(Save.data.isPackB);
@@ -94,6 +96,7 @@ namespace HiSpin
         public Text titleText;
         public Text helpText;
         public Text prize_poolText;
+        public Text prize_pool_prizeText;
         public Text ticket_numText;
         public Text tipText;
         public Text get_ticketsText;
@@ -104,6 +107,7 @@ namespace HiSpin
             titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_Title);
             helpText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
             prize_poolText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_PrizePool);
+            prize_pool_prizeText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), Language_M.isJapanese ? "100,000" : "1,000");
 
             ticket_numText.text = Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag ?
                 string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_TicketNumEnough), Save.data.allData.user_panel.user_tickets) : Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_TicketNumNotEnough);

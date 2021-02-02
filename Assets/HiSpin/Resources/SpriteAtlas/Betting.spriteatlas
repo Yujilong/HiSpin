@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1879bcea67906af49ba4249b8f9497a7, type: 3}
-    totalSpriteSurfaceArea: 1293542
+    totalSpriteSurfaceArea: 1297638
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -48,6 +48,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 77dd59fcc71b6e14ca801c328584419d, type: 3}
   - {fileID: 21300000, guid: 838d3d3d20fd52044a12350f3606d631, type: 3}
   - {fileID: 21300000, guid: e73148fd20272d34bacc2e090353f2a5, type: 3}
+  - {fileID: 21300000, guid: 91384b3eebf2a834d96b3b7d5f907c25, type: 3}
   - {fileID: 21300000, guid: ce313eaf31a373f40b88dd49cdbe1c27, type: 3}
   - {fileID: 21300000, guid: cbf8e2efbcb77224ea4f6e2da72cbe98, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -64,6 +65,7 @@ SpriteAtlas:
   - duihao
   - getticketButton_Off
   - paypal
+  - paypay
   - ticket
   - clock
   m_Tag: Betting

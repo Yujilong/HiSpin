@@ -9,6 +9,7 @@ namespace HiSpin
     public class GetNewPlayerReward : PopUI
     {
         public CanvasGroup get_newplayer_rewardCg;
+        public Image paypalImage;
         public Button cashoutButton;
         [Space(15)]
         public CanvasGroup input_paypal_emailCg;
@@ -34,6 +35,8 @@ namespace HiSpin
             agreeButton.AddClickEvent(OnAgreeButtonClick);
             termsButton.AddClickEvent(OnTermsButtonClick);
             nextButton.AddClickEvent(OnNextButtonClick);
+            if (Language_M.isJapanese)
+                paypalImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetNewPlayerReward, "paypay");
         }
         private void Start()
         {
@@ -46,6 +49,11 @@ namespace HiSpin
         }
         private void OnCashoutCallback()
         {
+            if (Language_M.isJapanese)
+            {
+                OnNextButtonClick();
+                return;
+            }
             get_newplayer_rewardCg.alpha = 0;
             get_newplayer_rewardCg.blocksRaycasts = false;
             input_paypal_emailCg.alpha = 1;
@@ -241,21 +249,22 @@ namespace HiSpin
         public Text nextText;
         public override void SetContent()
         {
+            bool isJapanese = Language_M.isJapanese;
             getnewplayerrewardTitleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Congratulation) + "!";
             prizeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Prize);
-            cashnumText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50.00";
+            cashnumText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), isJapanese ? "5000" : "50.00");
             cashout_buttonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CASHOUT);
 
             skipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Skip);
             inputpaypal_prizeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Prize);
-            card_cashnumText.text= Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50.00";
+            card_cashnumText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), isJapanese ? "5000" : "50.00");
             tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Tip);
             inputpaypal_placeholderText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_InputTip);
             claimText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.CLAIM);
             front_ruleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_FrontRule);
             termsText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_BehindRule);
 
-            cashout_cashnumText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + "50.00";
+            cashout_cashnumText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), isJapanese ? "5000" : "50.00");
             cashout_stateText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_State);
             timeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Time);
             orderidText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.NewPlayerReward_Orderid);

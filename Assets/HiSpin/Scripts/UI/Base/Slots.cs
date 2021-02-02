@@ -8,8 +8,9 @@ namespace HiSpin
     public class Slots : BaseUI
     {
         public List<SlotItem> allSlotsItems = new List<SlotItem>();
+        public Button giftButton;
+        public Button cashoutButton;
         public Button signButton;
-        public Button cashouButton;
         public GameObject sign_rpGo;
         public Image sign_progress_fillImage;
         public Text sign_progressText;
@@ -19,8 +20,9 @@ namespace HiSpin
             canvasGroup.alpha = 0;
             canvasGroup.blocksRaycasts = false;
             canvasGroup.interactable = false;
+            giftButton.AddClickEvent(OnGiftButtonClick);
+            cashoutButton.AddClickEvent(OnCashoutButtonClick);
             signButton.AddClickEvent(OnSignButtonClick);
-            cashouButton.AddClickEvent(OnCashoutButtonClick);
             RectTransform allRect = transform.GetChild(0) as RectTransform;
             if (Master.IsBigScreen)
             {
@@ -29,16 +31,28 @@ namespace HiSpin
             }
             allRect.GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.one;
         }
+        private void OnGiftButtonClick()
+        {
+            if (Ads._instance.WebViewAvailable())
+                Ads._instance.ShowWebView();
+            else
+                Master.Instance.ShowTip("Loading failed, please try again later.");
+        }
         private void OnSignButtonClick()
         {
             if (string.IsNullOrEmpty(Save.data.allData.user_panel.user_paypal) || string.IsNullOrWhiteSpace(Save.data.allData.user_panel.user_paypal))
-                UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 1);
+            {
+                if (Language_M.isJapanese)
+                    UI.ShowPopPanel(PopPanel.Sign);
+                else
+                    UI.ShowPopPanel(PopPanel.GetNewPlayerReward, 1);
+            }
             else
                 UI.ShowPopPanel(PopPanel.Sign);
         }
         private void OnCashoutButtonClick()
         {
-            UI.ShowBasePanel(BasePanel.Cashout_Gold);
+            UI.ShowBasePanel(BasePanel.Cashout_Cash);
         }
         public void RefreshSlotsCardState()
         {
@@ -101,7 +115,7 @@ namespace HiSpin
                     sign_progressText.text = (hasSignDay + 1) + "/15";
                 }
             }
-            cashouButton.gameObject.SetActive(Save.data.isPackB && !signButton.gameObject.activeSelf);
+            //cashoutButton.gameObject.SetActive(Save.data.isPackB);
         }
         public void UpdateTimedownText(string time)
         {

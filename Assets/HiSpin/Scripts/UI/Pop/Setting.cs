@@ -20,6 +20,7 @@ namespace HiSpin
         public Button bgButton;
         public Button meButton;
         public Button withdrawButton;
+        public Image paypalImage;
         public Button tasksButton;
         public Button rulesButton;
         public Button soundButton;
@@ -61,6 +62,8 @@ namespace HiSpin
             }
             languageSelect.AddOptions(allLanguage);
             languageSelect.onValueChanged.AddListener((index) => { Language_M.ChangeLanguageCountry(index); SetContent(); UI.MenuPanel.SetContent(); });
+            if (Language_M.isJapanese)
+                paypalImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "paypay");
         }
         public void OnTaskFinishChange(bool hasFinish)
         {

@@ -40,7 +40,15 @@ namespace HiSpin
             Vector2 localPos = SetMaskShape();
 
             //Master.Instance.SetGuideMask(guideStep);
-            guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_base" + guideStep);
+            if (guideStep == 1)
+            {
+                if (Language_M.isJapanese)
+                    guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_base1_japanese");
+                else
+                    guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_base1");
+            }
+            else
+                guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_base" + guideStep);
             guide_arrowImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "guide_arrow" + guideStep);
             guide_arrow_Rect.localPosition = localPos - new Vector2(0, 100);
             float arrowX = guide_arrow_Rect.localPosition.x;

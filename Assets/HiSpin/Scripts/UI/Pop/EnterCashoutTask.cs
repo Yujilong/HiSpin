@@ -20,6 +20,8 @@ namespace HiSpin
             base.Awake();
             closeButton.AddClickEvent(OnCloseButtonClick);
             cashoutButton.AddClickEvent(OnCashoutButtonClick);
+            if (Language_M.isJapanese)
+                topImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.EnterCashoutTask, "top_japanese");
         }
         private void OnCloseButtonClick()
         {
@@ -40,7 +42,7 @@ namespace HiSpin
         const int needDay = 7;
         protected override void BeforeShowAnimation(params int[] args)
         {
-            cashText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar) + (Save.data.allData.user_panel.user_doller_live / Cashout_Gold.CashToDollerRadio).GetCashShowString();
+            cashText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), (Save.data.allData.user_panel.user_doller_live / Cashout_Gold.CashToDollerRadio).GetCashShowString());
             int currentAd = Save.data.totalAdTimes;
             int currentDay = Save.data.activeTimes;
             ad_taskSlider.value = currentAd / (float)needAd;

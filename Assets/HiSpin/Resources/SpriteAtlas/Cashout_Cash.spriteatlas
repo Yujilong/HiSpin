@@ -31,11 +31,12 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 5a6f4394fff34ef4aae1c6d237985082, type: 3}
-    totalSpriteSurfaceArea: 1406761
+    totalSpriteSurfaceArea: 1533871
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 789127b19e7555f4693cbebc6bf4c080, type: 3}
+  - {fileID: 21300000, guid: 3c195b3227eb21149bfe1efad968628a, type: 3}
   - {fileID: 21300000, guid: c1d20052941ca7240ae63c9364c07614, type: 3}
   - {fileID: 21300000, guid: 3458ced5a079eb94e8eeda9da1cf2d5d, type: 3}
   - {fileID: 21300000, guid: ffcb39a7a91354548ba9203540243758, type: 3}
@@ -48,6 +49,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 92d802afec7051a43a9b3a38368a8811, type: 3}
   m_PackedSpriteNamesToIndex:
   - cash_base
+  - paypay
   - amazon
   - starbucks
   - adidas
