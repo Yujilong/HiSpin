@@ -146,6 +146,7 @@ namespace HiSpin
             {
                 switch (taskTarget)
                 {
+                    case PlayerTaskTarget.WritePaypalEmail:
                     case PlayerTaskTarget.InviteAFriend:
                         return false;
                     default:

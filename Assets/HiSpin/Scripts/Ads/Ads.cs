@@ -127,7 +127,6 @@ namespace HiSpin
 			rewardCallback = rewardedCallback;
 			rewardFailCallback = failCallback;
 #if UNITY_EDITOR
-			//Server.Instance.OperationData_RvEvent(rewardCallback, null);
 			Server.Instance.ConnectToServer_WatchRvEvent(rewardedCallback, null, null, true);
 			TaskAgent.TriggerTaskEvent(PlayerTaskTarget.WatchRvOnce, 1);
 			Debug.Log("RV:【" + des + "】");
@@ -255,6 +254,7 @@ namespace HiSpin
 		public GameObject webview;
 		private UniWebView uniWebView;
 		private bool uniwebFinish = false;
+		private bool uniwebShow = false;
 		private void InitWebView()
         {
 			uniWebView = webview.AddComponent<UniWebView>();
@@ -272,6 +272,7 @@ namespace HiSpin
 		private bool OnWebViewClosed(UniWebView webView)
         {
 			webView.Hide();
+			uniwebShow = false;
 			return false;
         }
 		private void OnWebViewLoadFail(UniWebView webView, int errorCode, string errorMessage)
@@ -284,13 +285,27 @@ namespace HiSpin
 			uniWebView.Load("https://2ds.io/links/13a20d04");
 		}
 		public void ShowWebView()
-        {
+		{
+			float topHeight = UI.GetMenuTopHeight();
+			uniWebView.Frame = new Rect(0, topHeight, Screen.width, Screen.height - topHeight);
 			uniWebView.Show();
+			uniwebShow = true;
+			UI.OnWebView(true);
         }
 		public bool WebViewAvailable()
         {
 			return uniwebFinish;
         }
+		public bool WebViewShow()
+        {
+			return uniwebShow;
+        }
+		public void HideWebView()
+		{
+			uniWebView.Hide();
+			uniwebShow = false;
+			UI.OnWebView(false);
+		}
 	}
 	public enum Offerwall_Co
 	{

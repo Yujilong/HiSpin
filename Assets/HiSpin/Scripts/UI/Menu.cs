@@ -85,6 +85,7 @@ namespace HiSpin
         #region button event
         private void OnGoldButtonClick()
         {
+            if (Ads._instance.WebViewShow()) return;
             if (UI.CurrentBasePanel == UI.GetUI(BasePanel.PlaySlots))
                 return;
             if (Save.data.isPackB)
@@ -94,6 +95,7 @@ namespace HiSpin
         }
         private void OnCashButtonClick()
         {
+            if (Ads._instance.WebViewShow()) return;
             if (UI.CurrentBasePanel == UI.GetUI(BasePanel.PlaySlots))
                 return;
             if (Save.data.isPackB)
@@ -145,10 +147,16 @@ namespace HiSpin
         }
         private void OnAddTicketButtonClick()
         {
+            if (Ads._instance.WebViewShow()) return;
             UI.ShowBasePanel(BasePanel.Task);
         }
         private void OnBackButtonClick()
         {
+            if (Ads._instance.WebViewShow())
+            {
+                Ads._instance.HideWebView();
+                return;
+            }
             UI.CloseCurrentBasePanel();
         }
         private void OnPlayslotsHelpButtonClick()
@@ -600,6 +608,22 @@ namespace HiSpin
                 default:
                     return Vector3.zero;
             }
+        }
+        public void OnWebViewShow()
+        {
+            all_topGo.SetActive(true);
+            all_tokenGo.SetActive(true);
+            top_titleText.gameObject.SetActive(false);
+            all_bottomGo.SetActive(false);
+            add_ticketButton.gameObject.SetActive(true);
+            play_slots_helpButton.gameObject.SetActive(false);
+            backButton.gameObject.SetActive(true);
+            settingButton.gameObject.SetActive(false);
+        }
+        public void OnWebViewHide()
+        {
+            OnChangeBottomButton(slotsButton);
+            OnBottomBasePanelShow();
         }
     }
 }

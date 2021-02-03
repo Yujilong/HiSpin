@@ -30,13 +30,15 @@ namespace HiSpin
                 allRect.sizeDelta += new Vector2(0, 1920 * (Master.ExpandCoe - 1) - Master.TopMoveDownOffset);
             }
             allRect.GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.one;
+            if (Language_M.isJapanese)
+                signButton.image.sprite = Sprites.GetSprite(SpriteAtlas_Name.Slots, "sign_japanese");
         }
         private void OnGiftButtonClick()
         {
             if (Ads._instance.WebViewAvailable())
                 Ads._instance.ShowWebView();
             else
-                Master.Instance.ShowTip("Loading failed, please try again later.");
+                Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_NoGiftAd));
         }
         private void OnSignButtonClick()
         {
@@ -80,6 +82,17 @@ namespace HiSpin
                 UI.ShowPopPanel(PopPanel.CashoutPop, (int)AsCashoutArea.Rateus);
             }
             UpdateSignState();
+            if (Save.data.isPackB)
+            {
+                giftButton.gameObject.SetActive(true);
+                StartCoroutine("AutoShakeGift");
+            }
+            else
+                giftButton.gameObject.SetActive(false);
+        }
+        protected override void BeforeCloseAnimation()
+        {
+            StopCoroutine("AutoShakeGift");
         }
         public void UpdateSignState()
         {
@@ -148,6 +161,40 @@ namespace HiSpin
             if (!isPause) return;
             isPause = false;
             UpdateSignState();
+        }
+        private IEnumerator AutoShakeGift() 
+        {
+            Transform giftTrans = giftButton.transform;
+            giftTrans.localEulerAngles = Vector3.zero;
+            float shakeScale = 30;
+            float shakeSpeed = 300;
+            float tempShakeSpeed = -shakeSpeed;
+            int turn = 2;
+            float nextInterval = 2;
+            while (true)
+            {
+                int tempTurn = 0;
+                float lastZ;
+                float currentZ;
+                while (tempTurn < turn)
+                {
+                    yield return null;
+                    float z = giftTrans.localEulerAngles.z;
+                    if (z > 180)
+                        z -= 360;
+                    if (z <= -shakeScale)
+                        tempShakeSpeed = shakeSpeed;
+                    else if (z >= shakeScale)
+                        tempShakeSpeed = -shakeSpeed;
+                    lastZ = giftTrans.localEulerAngles.z;
+                    giftTrans.Rotate(new Vector3(0, 0, tempShakeSpeed * Time.deltaTime));
+                    currentZ = giftTrans.localEulerAngles.z;
+                    if (lastZ < 180 && currentZ >= 180)
+                        tempTurn++;
+                }
+                giftTrans.localEulerAngles = Vector3.zero;
+                yield return new WaitForSeconds(nextInterval);
+            }
         }
     }
 }

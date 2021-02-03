@@ -36,7 +36,7 @@ namespace HiSpin
                 UI.ShowBasePanel(BasePanel.Cashout_Cash);
             }
             else 
-                Master.Instance.ShowTip("You need to complete any one task first.");
+                Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_EnterCashoutTask));
         }
         const int needAd = 100;
         const int needDay = 7;

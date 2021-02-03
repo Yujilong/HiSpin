@@ -547,6 +547,17 @@ namespace HiSpin
             }
             return false;
         }
+        public static float GetMenuTopHeight()
+        {
+            return MenuPanel.all_topGo.GetComponent<RectTransform>().sizeDelta.y - 27;
+        }
+        public static void OnWebView(bool show)
+        {
+            if (show)
+                MenuPanel.OnWebViewShow();
+            else
+                MenuPanel.OnWebViewHide();
+        }
     }
     public enum BasePanel
     {

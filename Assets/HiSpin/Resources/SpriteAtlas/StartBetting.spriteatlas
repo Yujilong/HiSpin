@@ -31,13 +31,14 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f955b3e112ac8f040bdf4cd5dd587df4, type: 3}
-    totalSpriteSurfaceArea: 3366289
+    totalSpriteSurfaceArea: 3370385
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 2a5f11c09bf0a044dbc11b2021e87daf, type: 3}
   - {fileID: 21300000, guid: 375fe431e210ad94885c1d379b3e0cbd, type: 3}
   - {fileID: 21300000, guid: 8551a0f2fa5a34c4c9827aa1a96208ac, type: 3}
+  - {fileID: 21300000, guid: 5efb84037b6af9c478cffc1c0cbbe596, type: 3}
   - {fileID: 21300000, guid: 5046ead4de5308643ad73a0522e34011, type: 3}
   - {fileID: 21300000, guid: f990f8b5a4659344f999f500963ada75, type: 3}
   - {fileID: 21300000, guid: 83ad215e1a0ea4a4299c0269864a37a5, type: 3}
@@ -45,6 +46,7 @@ SpriteAtlas:
   - button
   - head_out
   - card_on
+  - paypay
   - light
   - paypal
   - card_off
