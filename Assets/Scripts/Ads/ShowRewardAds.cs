@@ -46,6 +46,7 @@ namespace HiSpin
 
             retryAttempt++;
             double retryDelay = Math.Pow(2, Math.Min(6, retryAttempt));
+            Master.Instance.SendAdjustPlayAdEvent(false, true, Ads._instance.adDes);
 
             Invoke("LoadRewardedAd", (float)retryDelay);
         }
@@ -53,6 +54,7 @@ namespace HiSpin
         private void OnRewardedAdFailedToDisplayEvent(string adUnitId, int errorCode)
         {
             // Rewarded ad failed to display. We recommend loading the next ad
+            Master.Instance.SendAdjustPlayAdEvent(false, true, Ads._instance.adDes);
             LoadRewardedAd();
         }
 
@@ -70,6 +72,7 @@ namespace HiSpin
         private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward)
         {
             // Rewarded ad was displayed and user should receive the reward
+            Master.Instance.SendAdjustPlayAdEvent(true, true, Ads._instance.adDes);
             Ads._instance.GetReward();
             Save.data.totalAdTimes++;
         }

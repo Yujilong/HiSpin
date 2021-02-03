@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using UI;
 namespace HiSpin
 {
 	public class Ads : MonoBehaviour
@@ -166,14 +167,14 @@ namespace HiSpin
 			return;
 		}
 #endif
-			if (timer - interstialLasttime < 60)
+			if (Time.realtimeSinceStartup - interstialLasttime < 10)
 			{
 				callback?.Invoke();
 				return;
 			}
             if (MaxSdk.IsInterstitialReady(MAX_Interstitial_adUnitID))
             {
-                interstialLasttime = timer;
+                interstialLasttime = Time.realtimeSinceStartup;
 				MaxSdk.ShowInterstitial(MAX_Interstitial_adUnitID);
 			}
             else
@@ -200,12 +201,12 @@ namespace HiSpin
 				timeOut--;
 				content.Append('.');
 				noticeText.text = content.ToString();
-				//if (isRewardedAd && IronSource.Agent.isRewardedVideoAvailable())
-				//{
-				//	IronSource.Agent.showRewardedVideo();
-				//	adLoadingTip.SetActive(false);
-				//	yield break;
-				//}
+				if (MaxSdk.IsRewardedAdReady(MAX_Rewarded_adUnitID))
+				{
+					MaxSdk.ShowRewardedAd(MAX_Rewarded_adUnitID);
+                    adLoadingTip.SetActive(false);
+                    yield break;
+                }
 			}
 			adLoadingTip.SetActive(false);
 			Master.Instance.SendAdjustPlayAdEvent(false, true, adDes);
@@ -232,21 +233,22 @@ namespace HiSpin
 				canGetReward = false;
 			}
 		}
+		bool canGetPopRewardEnergy = false;
 		Action popCallback;
+		public void SetCanGetPopRewardEnergy()
+        {
+			canGetPopRewardEnergy = true;
+        }
 		public void InvokePopAd()
 		{
 			popCallback?.Invoke();
-		}
-		float timer = 0;
-		bool isOut = false;
-		private void Update()
-		{
-			if (!isOut)
-				timer += Time.deltaTime;
-		}
-		private void OnApplicationFocus(bool focus)
-		{
-			isOut = !focus;
+            if (canGetPopRewardEnergy)
+			{
+				Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_InterstitialRewardEnergy));
+				GameManager.Instance.AddEnergy(5);
+				GameManager.Instance.UIManager.FlyReward(global::Reward.Energy, 5, Vector3.zero);
+				canGetPopRewardEnergy = false;
+			}
 		}
 	}
 	public enum Offerwall_Co

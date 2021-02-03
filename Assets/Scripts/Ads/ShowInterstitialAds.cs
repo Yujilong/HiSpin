@@ -40,6 +40,7 @@ namespace HiSpin
         {
             // Interstitial ad failed to load 
             // We recommend retrying with exponentially higher delays up to a maximum delay (in this case 64 seconds)
+            Master.Instance.SendAdjustPlayAdEvent(false, false, Ads._instance.adDes);
 
             retryAttempt++;
             double retryDelay = Math.Pow(2, Math.Min(6, retryAttempt));
@@ -50,6 +51,7 @@ namespace HiSpin
         private void InterstitialFailedToDisplayEvent(string adUnitId, int errorCode)
         {
             // Interstitial ad failed to display. We recommend loading the next ad
+            Master.Instance.SendAdjustPlayAdEvent(false, false, Ads._instance.adDes);
             LoadInterstitial();
             Ads._instance.InvokePopAd();
         }
@@ -58,6 +60,8 @@ namespace HiSpin
         {
             // Interstitial ad is hidden. Pre-load the next ad
             LoadInterstitial();
+            Master.Instance.SendAdjustPlayAdEvent(true, false, Ads._instance.adDes);
+            Ads._instance.SetCanGetPopRewardEnergy();
             Ads._instance.InvokePopAd();
         }
     }

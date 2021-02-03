@@ -40,8 +40,16 @@ namespace HiSpin
                     Server_New.Instance.ConnectToServer_GetNewPlayerReward(OnGetNewplayerRewardCallback, null, null, true);
                     break;
                 case GetCashArea.Mergeball:
-                    clickAdTime++;
-                    Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum , isMergeballWheel); }, clickAdTime, "现金翻倍", OnNothanksClick);
+                    if (!GameManager.Instance.GetHasGetFreeGift())
+                    {
+                        GameManager.Instance.SetHasGetFreeGift(); 
+                        Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum, isMergeballWheel);
+                    }
+                    else
+                    {
+                        clickAdTime++;
+                        Ads._instance.ShowRewardVideo(() => { Server_New.Instance.ConnectToServer_GetMergeballReward(OnGetTribleSlotsRewardCallback, null, null, true, Reward.Cash, getcashNum, isMergeballWheel); }, clickAdTime, "获得现金", OnNothanksClick);
+                    }
                     break;
             }
         }
@@ -84,12 +92,25 @@ namespace HiSpin
                     cash_numText.text = isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), getcashNum.GetCashShowString()) : getcashNum.GetCashShowString();
                     add_cashpt_numText.transform.parent.gameObject.SetActive(false);
                     nothanksText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Nothanks);
+                    nothanksButton.gameObject.SetActive(false);
                     break;
                 case GetCashArea.Mergeball:
-                    ad_iconGo.SetActive(true);
-                    trible_button_contentText.transform.localPosition = new Vector3(61.46283f, trible_button_contentText.transform.localPosition.y, 0);
-                    trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
-                    trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
+                    if (!GameManager.Instance.GetHasGetFreeGift())
+                    {
+                        ad_iconGo.SetActive(false);
+                        trible_button_contentText.transform.localPosition = new Vector3(0, trible_button_contentText.transform.localPosition.y, 0);
+                        trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
+                        trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(657, 110);
+                        nothanksButton.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        ad_iconGo.SetActive(true);
+                        trible_button_contentText.transform.localPosition = new Vector3(61.46283f, trible_button_contentText.transform.localPosition.y, 0);
+                        trible_button_contentText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.GetCash_SaveInWallet);
+                        trible_button_contentText.GetComponent<RectTransform>().sizeDelta = new Vector2(534, 110);
+                        nothanksButton.gameObject.SetActive(true);
+                    }
                     string currentCashString = (Save.data.allData.user_panel.user_doller_live / Cashout_Gold.CashToDollerRadio).GetCashShowString();
                     cash_numText.text = isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), currentCashString) : currentCashString;
                     add_cashpt_numText.transform.parent.gameObject.SetActive(true);
@@ -114,7 +135,7 @@ namespace HiSpin
             if (!Save.data.isPackB)
                 return;
 #endif
-            if (getCashArea == GetCashArea.Mergeball)
+            if (getCashArea == GetCashArea.Mergeball&& GameManager.Instance.GetHasGetFreeGift())
             {
                 StartCoroutine("DelayShowNothanks");
             }

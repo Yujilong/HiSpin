@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     public RectTransform rect_self;
     public RectTransform rect_text;
     public GameObject go_explosion;
+    public Animator animator;
     [NonSerialized]
     public int Num;
     [NonSerialized]
@@ -77,6 +78,9 @@ public class Ball : MonoBehaviour
         isExplosion = true;
         go_explosion.SetActive(false);
         go_explosion.SetActive(true);
+        animator.gameObject.SetActive(false);
+        animator.gameObject.SetActive(true);
+        animator.Play("BallRotate");
         CombeNum++;
         GameManager.Instance.PlayMergeBallCombeSound(CombeNum);
         StopCoroutine("WaitForExplosion");
@@ -154,6 +158,9 @@ public class Ball : MonoBehaviour
                         isExplosion = true;
                         go_explosion.SetActive(false);
                         go_explosion.SetActive(true);
+                        animator.gameObject.SetActive(false);
+                        animator.gameObject.SetActive(true);
+                        animator.Play("BallRotate");
                         MergeSelfNum();
                     }
                 }

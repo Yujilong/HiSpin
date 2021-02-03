@@ -125,6 +125,7 @@ public enum LanguageAreaEnum
     Tips_ServerError3,
     Tips_ServerError6,
     Tips_ServerError7,
+    Tips_InterstitialRewardEnergy,
     Rules_PlaySlots,
     Rules_PlaySlotsTitle,
     Rules_PlaySlotsBottom,

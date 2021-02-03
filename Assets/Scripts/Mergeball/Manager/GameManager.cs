@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public const int originPropNeedCoinNum = 300;
     public const int propNeedCoinNumIncreaseStep = 50;
     public const int propNeedMaxCoinNum = 1000;
-    public const int levelStartTargetBallNum = 128;
+    public const int levelStartTargetBallNum = 32;
     public const int originEnergy = 100;
     public const int maxEnergy = 100;
     public const int addEnergyPerAd = 50;

@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 3954a183102f06f469be04bbb7ed2e17, type: 3}
-    totalSpriteSurfaceArea: 1802178
+    totalSpriteSurfaceArea: 1795744
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -43,10 +43,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d62090361833fc445b3914b5461562c3, type: 3}
   - {fileID: 21300000, guid: a638668799bf23549a04e70b6b3aa5f4, type: 3}
   - {fileID: 21300000, guid: 43381bb7ade4c73419a69512f7070da6, type: 3}
+  - {fileID: 21300000, guid: 2a2b93c7e56cfc34e9c52171941f7c20, type: 3}
   - {fileID: 21300000, guid: 0ba3af280e53d5c4d8dbf96d9d3355f2, type: 3}
-  - {fileID: 21300000, guid: e5113858caeea4a49b4866a33a9686cd, type: 3}
+  - {fileID: 21300000, guid: 6c33c988d72f3ec47b53fd77cee4bc13, type: 3}
   - {fileID: 21300000, guid: d78dcda8d64686741a8c407cbe1740c5, type: 3}
-  - {fileID: 21300000, guid: 35a3bc1aabd520443974d969914ad7a9, type: 3}
   - {fileID: 21300000, guid: 571ca5ba2438643479fe3f7a6ebb3dad, type: 3}
   - {fileID: 21300000, guid: 911c1c3b8886a6343b7199d041977e2d, type: 3}
   - {fileID: 21300000, guid: 16fb554b89367dd42b744692a33e11d5, type: 3}
@@ -55,11 +55,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 770366ccb1ac07e4ebce7062e8c4343f, type: 3}
   - {fileID: 21300000, guid: bccf856d6e2832c438f98d6afbe00e27, type: 3}
   - {fileID: 21300000, guid: 0880b80e0fbebe642a7c5e50a7e8cc36, type: 3}
+  - {fileID: 21300000, guid: b35bba1e8c7a87d48aff5a6974d1f7c0, type: 3}
   - {fileID: 21300000, guid: 64b4bc6e80789ae4e8c582818b42298b, type: 3}
   - {fileID: 21300000, guid: c21cb5de912c8aa4e9baac06cf532b33, type: 3}
   - {fileID: 21300000, guid: 8ee6fefe31669df409084c71db08716b, type: 3}
   - {fileID: 21300000, guid: 7346653f659f76a4d8f6422fc8039406, type: 3}
-  - {fileID: 21300000, guid: 5b7c9a4f8a386bd4ab6e692a8b329965, type: 3}
   m_PackedSpriteNamesToIndex:
   - prop1
   - wheel
@@ -69,10 +69,10 @@ SpriteAtlas:
   - prop_ad
   - guide2
   - stagePorgressFill
+  - cashout_paypay
   - propnumBG
   - cashout_paypal
   - setting
-  - cashout_numBg
   - guideHandle1
   - prop_coin
   - stage
@@ -81,10 +81,10 @@ SpriteAtlas:
   - guideHandle2
   - handle
   - prop2
+  - cashout_numBg
   - guide1
   - coin
   - propbg
   - scoreBG
-  - cashout_paypay
   m_Tag: Menu
   m_IsVariant: 0
