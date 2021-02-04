@@ -27,7 +27,14 @@ namespace HiSpin
         {
             guideStep = 1;
             canGotoNextGuide = false;
-            guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, Language_M.isJapanese ? "guide_1_japan" : "guide_1");
+            string guideSpriteName;
+            if (Language_M.isJapanese)
+                guideSpriteName = "guide_1_japan";
+            else if(Language_M.isKorean)
+                guideSpriteName = "guide_1_korea";
+            else
+                guideSpriteName = "guide_1";
+            guideImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, guideSpriteName);
             guideImage.transform.localPosition = new Vector3(-46, Master.IsBigScreen ? 1920 * Master.ExpandCoe / 2f - 428 - Master.TopMoveDownOffset : 527, 0);
             tipText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Guide1);
             tipText.transform.localPosition = topTipLocalPos;

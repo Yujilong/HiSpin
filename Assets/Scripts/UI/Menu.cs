@@ -319,6 +319,8 @@ namespace HiSpin
                 firendButton.gameObject.SetActive(false);
                 bubbleRect.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, "bubble_paypay");
             }
+            else if(Language_M.isKorean)
+                bubbleRect.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Menu, "bubble_naverpay");
             bubbleRect.gameObject.SetActive(!Save.data.todayHasClickCashBubble && Save.data.isPackB);
             if (Save.data.isPackB)
                 if (!Save.data.todayHasClickCashBubble)

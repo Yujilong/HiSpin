@@ -60,7 +60,13 @@ namespace HiSpin
             }
             languageSelect.AddOptions(allLanguage);
             languageSelect.onValueChanged.AddListener((index) => { Language_M.ChangeLanguageCountry(index); SetContent(); UI.MenuPanel.SetContent(); });
-            withdraw_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, Language_M.isJapanese ? "paypay" : "paypal");
+            if (Language_M.isJapanese)
+                withdraw_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "paypay");
+            else if (Language_M.isKorean)
+                withdraw_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "naverpay");
+            else
+                withdraw_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Setting, "paypal");
+            withdraw_iconImage.SetNativeSize();
         }
         public void OnTaskFinishChange(bool hasFinish)
         {

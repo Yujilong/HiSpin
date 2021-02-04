@@ -21,6 +21,8 @@ namespace HiSpin
             paypal_iconGo.SetActive(Save.data.isPackB);
             if (Language_M.isJapanese)
                 paypal_iconGo.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.StartBetting, "paypay");
+            else if(Language_M.isKorean)
+                paypal_iconGo.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.StartBetting, "naverpay");
             StartCoroutine(AutoOn());
             StartCoroutine(AutoDealyOrder());
         }

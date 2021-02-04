@@ -22,6 +22,8 @@ namespace HiSpin
             cashoutButton.AddClickEvent(OnCashoutButtonClick);
             if (Language_M.isJapanese)
                 topImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.EnterCashoutTask, "top_japan");
+            else if (Language_M.isKorean)
+                topImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.EnterCashoutTask, "top_korea");
         }
         private void OnCloseButtonClick()
         {

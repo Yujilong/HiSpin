@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: ba37bfc78694d1e44a8b3376c02c9c41, type: 3}
-    totalSpriteSurfaceArea: 2872609
+    totalSpriteSurfaceArea: 3321925
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -51,11 +51,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 425014801ced2b14b8ae79862e1b86a1, type: 3}
   - {fileID: 21300000, guid: bafff7e0c8758a146bb1d2f442611717, type: 3}
   - {fileID: 21300000, guid: 13f6294313ddfc44e9eaad99e5be9ccd, type: 3}
+  - {fileID: 21300000, guid: 39d26da34f8103b4f9a931b1295fedec, type: 3}
+  - {fileID: 21300000, guid: 5b9da04520fc33640b3cf34d285f764d, type: 3}
   - {fileID: 21300000, guid: 637a38274ae339541abd4878dbe6c244, type: 3}
   - {fileID: 21300000, guid: 78b5dd777ea3efd41af91be2a252b236, type: 3}
   - {fileID: 21300000, guid: ce99edd89fbf1784bb4e0aa9a9a8f088, type: 3}
   - {fileID: 21300000, guid: b509e9294fc29d84087333e7af6db081, type: 3}
   - {fileID: 21300000, guid: 994b2b6958f92e24f8eff6b34f08f456, type: 3}
+  - {fileID: 21300000, guid: 612d97fc986b143459c35f1dc1a518a7, type: 3}
   - {fileID: 21300000, guid: 5a01990d05801c546bc658135bce80a4, type: 3}
   - {fileID: 21300000, guid: d5d1707eee407cb4a999ffb240cadde2, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -63,11 +66,14 @@ SpriteAtlas:
   - guide_1_japan
   - cash pt bg
   - ad
+  - paypal
+  - guide_1_korea
   - mask
   - cash icon
   - guide_1
   - guide_2
   - paypay
+  - naverpay
   - guide_3
   - button
   m_Tag: GetCash

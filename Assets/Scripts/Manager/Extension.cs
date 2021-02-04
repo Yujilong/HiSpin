@@ -25,10 +25,12 @@ namespace HiSpin
         {
             if (Language_M.isJapanese)
                 cashNum *= 100;
+            else if (Language_M.isKorean)
+                cashNum *= 1000;
             string str = cashNum.ToString();
             if (str.Length == 1)
             {
-                if (Language_M.isJapanese)
+                if (Language_M.isJapanese || Language_M.isKorean)
                     return str;
                 else
                     return "0.0" + str;
@@ -46,7 +48,7 @@ namespace HiSpin
                     if (pos % 3 == 0)
                         str = str.Insert(i, ",");
                 }
-                if (Language_M.isJapanese)
+                if (Language_M.isJapanese || Language_M.isKorean)
                     str = str.Remove(str.Length - 3, 3);
                 return str;
             }

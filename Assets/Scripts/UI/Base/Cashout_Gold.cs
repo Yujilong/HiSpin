@@ -9,9 +9,9 @@ namespace HiSpin
     {
         public RectTransform anchor_rect;
         public ContentSizeFitter all_content_sizefitter;
-        public GameObject top_right_paypayGo1;
-        public GameObject top_right_paypayGo2;
-        public GameObject top_right_paypayGo4;
+        public Image top_right_paypalImage1;
+        public Image top_right_paypalImage2;
+        public Image top_right_paypalImage3;
         [Space(15)]
         public Button emailInputButton;
         public Button recordButton;
@@ -58,11 +58,36 @@ namespace HiSpin
                 paypal_account_frontText.gameObject.SetActive(false);
                 recordText.gameObject.SetActive(false);
                 all_content_sizefitter.GetComponent<VerticalLayoutGroup>().padding.top = 44;
-                top_right_paypayGo1.SetActive(true);
-                top_right_paypayGo2.SetActive(true);
-                top_right_paypayGo4.SetActive(true);
-                num_front_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypay");
                 paypal_fee_ruleText.gameObject.SetActive(false);
+                top_right_paypalImage1.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypay_3");
+                top_right_paypalImage1.SetNativeSize();
+                top_right_paypalImage2.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypay_2");
+                top_right_paypalImage2.SetNativeSize();
+                top_right_paypalImage3.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypay_3");
+                top_right_paypalImage3.SetNativeSize();
+                num_front_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypay");
+            }
+            else if (Language_M.isKorean)
+            {
+                paypal_account_frontText.gameObject.SetActive(false);
+                recordText.gameObject.SetActive(false);
+                all_content_sizefitter.GetComponent<VerticalLayoutGroup>().padding.top = 44;
+                paypal_fee_ruleText.gameObject.SetActive(false);
+                top_right_paypalImage1.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "naverpay_2");
+                top_right_paypalImage1.SetNativeSize();
+                top_right_paypalImage2.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "naverpay_2");
+                top_right_paypalImage2.SetNativeSize();
+                top_right_paypalImage3.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "naverpay_2");
+                top_right_paypalImage3.SetNativeSize();
+                num_front_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "naverpay");
+            }
+            else
+            {
+                top_right_paypalImage1.gameObject.SetActive(false);
+                top_right_paypalImage2.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypal_2");
+                top_right_paypalImage2.SetNativeSize();
+                top_right_paypalImage2.gameObject.SetActive(false);
+                num_front_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Gold, "paypal");
             }
         }
         private void OnRecordButtonClick()
@@ -150,13 +175,13 @@ namespace HiSpin
             pt_numText.text = (int)Save.data.allData.fission_info.live_balance + "<size=40>  " + Language_M.GetMultiLanguageByArea(LanguageAreaEnum.PT) + "</size>";
             string dollar = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar);
             pt_cashout_numText.text = "≈" + string.Format(dollar, ((int)((float)Save.data.allData.fission_info.live_balance / PtCashoutRate)).GetCashShowString());
-            pt_cashout_left_buttonText.text = string.Format(dollar, Language_M.isJapanese ? " 500" : " 5");
-            pt_cashout_mid_buttonText.text = string.Format(dollar, Language_M.isJapanese ? " 1000" : " 10");
-            pt_cashout_right_buttonText.text = string.Format(dollar, Language_M.isJapanese ? " 500" : " 50");
+            pt_cashout_left_buttonText.text = string.Format(dollar, " " + 500.GetCashShowString());
+            pt_cashout_mid_buttonText.text = string.Format(dollar, " " + 1000.GetCashShowString());
+            pt_cashout_right_buttonText.text = string.Format(dollar, " "+5000.GetCashShowString());
             paypalCash_numText.text = string.Format(dollar, Save.data.allData.user_panel.blue_cash.GetCashShowString());
-            paypal_cashout_left_buttonText.text = string.Format(dollar, Language_M.isJapanese ? " 1000" : " 10");
-            paypal_cashout_mid_buttonText.text = string.Format(dollar, Language_M.isJapanese ? " 5000" : " 50");
-            paypal_cashout_right_buttonText.text = string.Format(dollar, Language_M.isJapanese ? " 10000" : " 100");
+            paypal_cashout_left_buttonText.text = string.Format(dollar, " " + 1000.GetCashShowString());
+            paypal_cashout_mid_buttonText.text = string.Format(dollar, " " + 5000.GetCashShowString());
+            paypal_cashout_right_buttonText.text = string.Format(dollar, " " + 10000.GetCashShowString());
             gold_redeem_buttonText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_GoldRedeemTip);
             paypal_fee_ruleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_PaypalFeeTip);
             about_paypal_feeText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Cashout_AboutFee);

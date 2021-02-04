@@ -84,7 +84,13 @@ namespace UI
             clickAdTime = 0;
             isProp1 = GameManager.WillBuyProp == Reward.Prop1;
             needCoinNum = isProp1 ? GameManager.GetProp1NeedCoinNum() : GameManager.GetProp2NeedCoinNum();
-            string needCashNumString = HiSpin.Language_M.isJapanese ? "100" : "1.00";
+            string needCashNumString;
+            if (HiSpin.Language_M.isJapanese)
+                needCashNumString = "100";
+            else if (HiSpin.Language_M.isKorean)
+                needCashNumString = "1000";
+            else
+                needCashNumString = "1.00";
             needCoinNumText.text = !GameManager.GetIsPackB() ? needCashNumString : string.Format(HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), needCashNumString);
             icon.sprite = isProp1 ? prop1icon : prop2icon;
 #if UNITY_IOS

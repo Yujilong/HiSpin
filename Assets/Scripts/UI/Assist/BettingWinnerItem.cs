@@ -19,6 +19,8 @@ namespace HiSpin
             cash_iconGo.SetActive(isPackB);
             if (Language_M.isJapanese)
                 cash_iconGo.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Betting, "paypay");
+            else if(Language_M.isKorean)
+                cash_iconGo.GetComponent<Image>().sprite = Sprites.GetSprite(SpriteAtlas_Name.Betting, "naverpay");
         }
     }
 }

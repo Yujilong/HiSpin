@@ -23,6 +23,7 @@ public class SpriteManager
         { SpriteAtlas_Name.BuyProp,"MergeBall/SpriteAtlas/BuyProp"},
         { SpriteAtlas_Name.Fly,"MergeBall/SpriteAtlas/Fly"},
         { SpriteAtlas_Name.RewardCash,"MergeBall/SpriteAtlas/RewardCash"},
+        { SpriteAtlas_Name.Gift,"MergeBall/SpriteAtlas/Gift"},
     };
     readonly Dictionary<SpriteAtlas_Name, SpriteAtlas> loadedSpriteAtlasDic = new Dictionary<SpriteAtlas_Name, SpriteAtlas>();
     readonly Dictionary<string, Sprite> loadedSpriteDic = new Dictionary<string, Sprite>();
@@ -116,4 +117,5 @@ public enum SpriteAtlas_Name
     BuyProp,
     Fly,
     RewardCash,
+    Gift,
 }

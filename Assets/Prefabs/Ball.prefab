@@ -578,7 +578,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img_icon: {fileID: 1720188141257144874}
   text_num: {fileID: 5631606208581709617}
+  text_num_behind: {fileID: 2110801088586136110}
   rect_self: {fileID: 6970159084580741421}
   rect_text: {fileID: 614836905266007928}
+  rect_text_behind: {fileID: 4087747132388052521}
   go_explosion: {fileID: 6876363469285556263}
   animator: {fileID: 4512698431083822811}

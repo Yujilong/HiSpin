@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: cbb863edee6e50648ae434482ab09119, type: 3}
-    totalSpriteSurfaceArea: 468788
+    totalSpriteSurfaceArea: 475096
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -57,6 +57,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ba2a98d9a68e5f047a6e9079ee906ae2, type: 3}
   - {fileID: 21300000, guid: 33f4a82baceaa1f40847ef24ece1f784, type: 3}
   - {fileID: 21300000, guid: e0ebff7bf6c083f4b90b9f134c1028d7, type: 3}
+  - {fileID: 21300000, guid: 52a7608b87a01684faac44e6ce1ef434, type: 3}
   - {fileID: 21300000, guid: 1184811c48c02f745abffc31ac3eecc2, type: 3}
   - {fileID: 21300000, guid: 492915fc021e3bb4180358826f833f98, type: 3}
   - {fileID: 21300000, guid: 7af4f8fc521052a419632fe1b0f621d4, type: 3}
@@ -87,6 +88,7 @@ SpriteAtlas:
   - Mergeball_On
   - add
   - Cash
+  - bubble_naverpay
   - red_point
   - PT
   - Task_Off

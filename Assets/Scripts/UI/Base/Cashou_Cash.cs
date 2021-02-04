@@ -20,6 +20,8 @@ namespace HiSpin
                 cashout.AddClickEvent(OnCashouButtonClick);
             if (Language_M.isJapanese)
                 firstIcon.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Cash, "paypay");
+            else if (Language_M.isKorean)
+                firstIcon.sprite = Sprites.GetSprite(SpriteAtlas_Name.Cashout_Cash, "naverpay");
             if (Master.IsBigScreen)
                 topRect.sizeDelta += new Vector2(0, Master.TopMoveDownOffset);
         }
@@ -41,7 +43,14 @@ namespace HiSpin
         public override void SetContent()
         {
             titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.REDEEM);
-            string dollar = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), Language_M.isJapanese ? "20000" : "200");
+            string cashoutNumString;
+            if (Language_M.isJapanese)
+                cashoutNumString = "20000";
+            else if (Language_M.isKorean)
+                cashoutNumString = "200000";
+            else
+                cashoutNumString = "200";
+            string dollar = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), cashoutNumString);
             foreach (var cashout in all_cashoutText)
                 cashout.text = dollar;
         }

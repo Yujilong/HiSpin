@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1879bcea67906af49ba4249b8f9497a7, type: 3}
-    totalSpriteSurfaceArea: 1089848
+    totalSpriteSurfaceArea: 1093944
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -49,6 +49,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 838d3d3d20fd52044a12350f3606d631, type: 3}
   - {fileID: 21300000, guid: e73148fd20272d34bacc2e090353f2a5, type: 3}
   - {fileID: 21300000, guid: ce313eaf31a373f40b88dd49cdbe1c27, type: 3}
+  - {fileID: 21300000, guid: 5e89dabf027e7e04dafdd1b89742114b, type: 3}
   m_PackedSpriteNamesToIndex:
   - getticketButton_On
   - winnerBG
@@ -64,5 +65,6 @@ SpriteAtlas:
   - getticketButton_Off
   - paypal
   - ticket
+  - naverpay
   m_Tag: Betting
   m_IsVariant: 0

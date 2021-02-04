@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 684c48d5dc624b54ebf828021ff110a4, type: 3}
-    totalSpriteSurfaceArea: 2124674
+    totalSpriteSurfaceArea: 2155606
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -49,13 +49,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b3f19298cf481584c850c683f206f44f, type: 3}
   - {fileID: 21300000, guid: f5ac6509dea10a64296fc7319c9e4738, type: 3}
   - {fileID: 21300000, guid: 438c675a1a2efa0428c9cd7cd297a96b, type: 3}
+  - {fileID: 21300000, guid: 0dea63aad0d6cf14483158e663f378f8, type: 3}
   - {fileID: 21300000, guid: 428e3cdadfa59d54fab091b11d788317, type: 3}
   - {fileID: 21300000, guid: 06d6a6eba3389dc46aa055351274fbae, type: 3}
   - {fileID: 21300000, guid: 2dbfd14cf50b9204f8940341173f9854, type: 3}
   - {fileID: 21300000, guid: 3ea7434c9b634a74cad6420a15fb959e, type: 3}
   - {fileID: 21300000, guid: 7aece74cb39a8bc4fb6ce5c9297a4bb0, type: 3}
+  - {fileID: 21300000, guid: 76ff7f7c3d70fa843995395d7bef03c0, type: 3}
+  - {fileID: 21300000, guid: 57d74ebef522bb44f8a99b29dcf15d67, type: 3}
   - {fileID: 21300000, guid: ea5f9ade705c4964497b7b1aaddd89d1, type: 3}
-  - {fileID: 21300000, guid: 3174a2fed3b2be643942e02a546f288b, type: 3}
   - {fileID: 21300000, guid: 1346cd1fb3c605c48960829dd8e4156e, type: 3}
   m_PackedSpriteNamesToIndex:
   - help
@@ -72,13 +74,15 @@ SpriteAtlas:
   - base2
   - base3buton
   - RECORD
+  - naverpay_2
   - paypay
   - niu2
   - paypay_3
   - niu1
   - base1button
+  - naverpay
+  - paypal_2
   - base2button
-  - paypay_4
   - recordline
   m_Tag: Cashout_Gold
   m_IsVariant: 0

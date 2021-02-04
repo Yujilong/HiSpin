@@ -7,7 +7,7 @@ namespace HiSpin
 {
     public class GetCash : PopUI
     {
-        public GameObject paypayGo;
+        public Image paypalImage;
         public Button tribleButton;
         public Button nothanksButton;
         public Text add_cashpt_numText;
@@ -17,7 +17,13 @@ namespace HiSpin
             base.Awake();
             tribleButton.AddClickEvent(OnGetClick);
             nothanksButton.AddClickEvent(OnNothanksClick);
-            paypayGo.SetActive(Language_M.isJapanese);
+            if (Language_M.isJapanese)
+                paypalImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "paypay");
+            else if(Language_M.isKorean)
+                paypalImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "naverpay");
+            else
+                paypalImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "paypal");
+            paypalImage.SetNativeSize();
         }
         private void OnNothanksClick()
         {

@@ -69,6 +69,8 @@ namespace UI
             cashoutButton.gameObject.SetActive(GameManager.GetIsPackB());
             if (HiSpin.Language_M.isJapanese)
                 cashout_iconImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Menu, "cashout_paypay");
+            else if(HiSpin.Language_M.isKorean)
+                cashout_iconImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Menu, "cashout_naverpay");
         }
         private void OnSettingButtonClick()
         {
@@ -372,7 +374,14 @@ namespace UI
         public override void SetContent()
         {
             bestText.text = HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.BEST);
-            cashout_cashText.text = string.Format(HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), HiSpin.Language_M.isJapanese ? "100,000" : "1,000");
+            string cashShowText;
+            if (HiSpin.Language_M.isJapanese)
+                cashShowText = "100,000";
+            else if (HiSpin.Language_M.isKorean)
+                cashShowText = "1,000,000";
+            else
+                cashShowText = "1,000";
+            cashout_cashText.text = string.Format(HiSpin.Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), cashShowText);
         }
     }
 }

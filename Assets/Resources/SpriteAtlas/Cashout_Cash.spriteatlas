@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 5a6f4394fff34ef4aae1c6d237985082, type: 3}
-    totalSpriteSurfaceArea: 1533871
+    totalSpriteSurfaceArea: 1660981
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -46,6 +46,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 39da48ba5d4d7994b8fb714059a9d810, type: 3}
   - {fileID: 21300000, guid: db32be0be8866c34ba854a2e1566228c, type: 3}
   - {fileID: 21300000, guid: 2489658c3ca3cef48b4115363b76daf6, type: 3}
+  - {fileID: 21300000, guid: 0120b9ae1e6115841a331d246250ee42, type: 3}
   - {fileID: 21300000, guid: 92d802afec7051a43a9b3a38368a8811, type: 3}
   m_PackedSpriteNamesToIndex:
   - cash_base
@@ -59,6 +60,7 @@ SpriteAtlas:
   - card_cash_base
   - walmart
   - netflix
+  - naverpay
   - back
   m_Tag: Cashout_Cash
   m_IsVariant: 0

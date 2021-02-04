@@ -9,8 +9,10 @@ public class Ball : MonoBehaviour
     public static int CombeNum = 0;
     public Image img_icon;
     public Text text_num;
+    public Text text_num_behind;
     public RectTransform rect_self;
     public RectTransform rect_text;
+    public RectTransform rect_text_behind;
     public GameObject go_explosion;
     public Animator animator;
     [NonSerialized]
@@ -35,15 +37,23 @@ public class Ball : MonoBehaviour
         {
             string numStr = ToolManager.GetBallNumShowString(num);
             text_num.text = numStr;
+            text_num_behind.text = numStr;
             float text_width = numStr.Length * 100;
             rect_text.sizeDelta = new Vector2(text_width, GameManager.ballTextHeight);
+            rect_text_behind.sizeDelta = new Vector2(text_width, GameManager.ballTextHeight);
             float text_scale = GameManager.ballCircle / (text_width + 50);
             rect_text.localScale = new Vector3(text_scale, text_scale);
+            rect_text_behind.localScale = new Vector3(-text_scale, text_scale);
             if (!text_num.gameObject.activeSelf)
                 text_num.gameObject.SetActive(true);
+            if (!text_num_behind.gameObject.activeSelf)
+                text_num_behind.gameObject.SetActive(true);
         }
         else
+        {
             text_num.gameObject.SetActive(false);
+            text_num_behind.gameObject.SetActive(false);
+        }
     }
     public void InitTargetBall(int num)
     {
@@ -57,15 +67,23 @@ public class Ball : MonoBehaviour
         {
             string numStr = ToolManager.GetBallNumShowString(num);
             text_num.text = numStr;
+            text_num_behind.text = numStr;
             float text_width = numStr.Length * 100;
             rect_text.sizeDelta = new Vector2(text_width, GameManager.ballTextHeight);
+            rect_text_behind.sizeDelta = new Vector2(text_width, GameManager.ballTextHeight);
             float text_scale = GameManager.ballCircle / (text_width + 50);
             rect_text.localScale = new Vector3(text_scale, text_scale);
+            rect_text_behind.localScale = new Vector3(-text_scale, text_scale);
             if (!text_num.gameObject.activeSelf)
                 text_num.gameObject.SetActive(true);
+            if (!text_num_behind.gameObject.activeSelf)
+                text_num_behind.gameObject.SetActive(true);
         }
         else
+        {
             text_num.gameObject.SetActive(false);
+            text_num_behind.gameObject.SetActive(false);
+        }
     }
     public void MergeSelfNum()
     {

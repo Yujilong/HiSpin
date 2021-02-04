@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b061e648dc7759468b28979f491eeff, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -413,9 +413,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchor_rect: {fileID: 5336304172172643554}
   all_content_sizefitter: {fileID: 7896586580603337338}
-  top_right_paypayGo1: {fileID: 4144755527245841286}
-  top_right_paypayGo2: {fileID: 5632777109597745746}
-  top_right_paypayGo4: {fileID: 8185000725766707734}
+  top_right_paypalImage1: {fileID: 4537638437009826663}
+  top_right_paypalImage2: {fileID: 8722693643133818661}
+  top_right_paypalImage3: {fileID: 168933623520512717}
   emailInputButton: {fileID: 8921492714860998979}
   recordButton: {fileID: 1106573825919095388}
   pt_cashout_leftButton: {fileID: 1106573826608997580}
@@ -2453,12 +2453,12 @@ GameObject:
   - component: {fileID: 8217126651934161811}
   - component: {fileID: 4537638437009826663}
   m_Layer: 5
-  m_Name: paypay
+  m_Name: paypal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5356421527310246125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2505,7 +2505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2dbfd14cf50b9204f8940341173f9854, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2724,12 +2724,12 @@ GameObject:
   - component: {fileID: 7761266821598966987}
   - component: {fileID: 8722693643133818661}
   m_Layer: 5
-  m_Name: paypay
+  m_Name: paypal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5697692915978616891
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 26dd7ac4b1aa5784980d0ea6aa66dea7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3270,12 +3270,12 @@ GameObject:
   - component: {fileID: 1640809056616782016}
   - component: {fileID: 168933623520512717}
   m_Layer: 5
-  m_Name: paypay
+  m_Name: paypal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2759834479813187397
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3322,7 +3322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2dbfd14cf50b9204f8940341173f9854, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3440,9 +3440,9 @@ RectTransform:
   m_Father: {fileID: 2927133696475686103}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -1658.19}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 540, y: 0}
   m_SizeDelta: {x: 955.30005, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3716631312495786356

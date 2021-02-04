@@ -31,6 +31,8 @@ namespace HiSpin
             all_rules.Add(oneRule);
             if (Language_M.isJapanese)
                 iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "point_japan");
+            else if (Language_M.isKorean)
+                iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetReward, "point_korea");
         }
         private void OnCashoutButtonClick()
         {

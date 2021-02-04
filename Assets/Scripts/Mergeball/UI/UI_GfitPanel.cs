@@ -7,7 +7,7 @@ namespace UI
 {
     public class UI_GfitPanel : UI_PopPanelBase
     {
-        public GameObject paypalGo;
+        public Image paypalImage;
         public Button openButton;
         public GameObject redeemTip;
         protected override void Awake()
@@ -15,7 +15,12 @@ namespace UI
             base.Awake();
             PanelType = UI_Panel.UI_PopPanel.GiftPanel;
             openButton.onClick.AddListener(OnOpenClick);
-            paypalGo.SetActive(HiSpin.Language_M.isJapanese);
+            if (HiSpin.Language_M.isJapanese)
+                paypalImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Gift, "paypay");
+            else if(HiSpin.Language_M.isKorean)
+                paypalImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Gift, "naverpay");
+            else
+                paypalImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Gift, "paypal");
         }
         int clickAdTime = 0;
         private void OnOpenClick()

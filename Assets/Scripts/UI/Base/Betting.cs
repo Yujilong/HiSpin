@@ -93,7 +93,14 @@ namespace HiSpin
             titleText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_Title);
             helpText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Help);
             prize_poolText.text = Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_PrizePool);
-            prize_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar),Language_M.isJapanese ?"100,000":"1,000");
+            string prizeString;
+            if (Language_M.isJapanese)
+                prizeString = "100,000";
+            else if (Language_M.isKorean)
+                prizeString = "1,000,000";
+            else
+                prizeString = "1,000";
+            prize_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), prizeString);
 
             ticket_numText.text = Save.data.allData.user_panel.user_tickets >= Save.data.allData.award_ranking.ticktes_flag ?
                 string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_TicketNumEnough), Save.data.allData.user_panel.user_tickets) : Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Betting_TicketNumNotEnough);

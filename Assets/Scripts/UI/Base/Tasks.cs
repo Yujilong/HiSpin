@@ -69,7 +69,7 @@ namespace HiSpin
 #endif
                 if (!CheckIOSTaskIsShow(taskData.taskTargetId))
                     continue;
-                if (!CheckJapanIsShow(taskData.taskTargetId))
+                if (!CheckJapanOrKoreanIsShow(taskData.taskTargetId))
                     continue;
                 switch (taskData.task_type)
                 {
@@ -141,9 +141,9 @@ namespace HiSpin
             return true;
 #endif
         }
-        public bool CheckJapanIsShow(PlayerTaskTarget taskTarget)
+        public bool CheckJapanOrKoreanIsShow(PlayerTaskTarget taskTarget)
         {
-            if (Language_M.isJapanese)
+            if (Language_M.isJapanese || Language_M.isKorean)
             {
                 switch (taskTarget)
                 {

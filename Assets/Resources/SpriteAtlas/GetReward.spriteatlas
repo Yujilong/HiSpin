@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f2d267aeef865e04a9bb7ae29bd8a5a8, type: 3}
-    totalSpriteSurfaceArea: 719541
+    totalSpriteSurfaceArea: 723385
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -40,6 +40,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 987685f3ad95b5b4d9f07c50f88bd044, type: 3}
   - {fileID: 21300000, guid: eff442045f5e016418710f7d8a7fb23b, type: 3}
   - {fileID: 21300000, guid: aff26157022f5ef4984d1570dfa3f014, type: 3}
+  - {fileID: 21300000, guid: 0b67d5283179c744a8049d8d55a24b3e, type: 3}
   - {fileID: 21300000, guid: 2e9b004971a885049ba1cc5b32756b36, type: 3}
   - {fileID: 21300000, guid: 713c5a3b9a5d4fe498fa34d985eac6d8, type: 3}
   - {fileID: 21300000, guid: f91963ab56f914f4a914146cd41dcf97, type: 3}
@@ -51,6 +52,7 @@ SpriteAtlas:
   - button
   - underline
   - point
+  - point_korea
   - multiple
   - point_japan
   - NOTHANKS

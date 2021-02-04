@@ -674,12 +674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a75839d0a14bb74fa25452339ef6668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paypalGo: {fileID: 7257470130631612113}
+  paypalImage: {fileID: 7296859980023350845}
   openButton: {fileID: 925723101095100816}
-  nothanksButton: {fileID: 0}
-  closeButton: {fileID: 0}
-  adIcon: {fileID: 0}
   redeemTip: {fileID: 1592820503103851414}
   tipText: {fileID: 5788973341209826751}
   openText: {fileID: 1546568836621032930}
-  nothanksText: {fileID: 0}

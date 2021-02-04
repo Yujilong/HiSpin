@@ -31,10 +31,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d9fe0c52e1c639245bc1f8614d2251f2, type: 3}
-    totalSpriteSurfaceArea: 2037325
+    totalSpriteSurfaceArea: 2329625
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: e10c93f04a912bb4db611540ca2e0dd5, type: 3}
   - {fileID: 21300000, guid: 98cdc84328987f44b842d772a85a9761, type: 3}
   - {fileID: 21300000, guid: 3c3a5693bc837b54d9bf994b68abb552, type: 3}
   - {fileID: 21300000, guid: 7dc5d8937962a3947ba800ca569a7552, type: 3}
@@ -45,6 +46,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e24e93d8d13065d4c895f0426ddec503, type: 3}
   - {fileID: 21300000, guid: 58c9256fb9f9cf84995cb5b51ce86d95, type: 3}
   m_PackedSpriteNamesToIndex:
+  - top_korea
   - top_japan
   - top
   - title_base
