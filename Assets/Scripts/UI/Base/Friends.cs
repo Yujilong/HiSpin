@@ -174,7 +174,17 @@ namespace HiSpin
                 int ltNum = Save.data.allData.fission_info.reward_conf.lt_flag_num;
                 invite_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteRewardTip) + " <color=#FF9732>{0}</color>",
                     (lt == Reward.Cash || lt == Reward.Paypal) ? (Save.data.isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), ltNum.GetCashShowString()) : ltNum.GetCashShowString()) : ltNum.GetTokenShowString());
-                invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.lt_flag_type.ToString().ToLower());
+                if (lt == Reward.Paypal)
+                {
+                    if (Language_M.isJapanese)
+                        invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, "paypay");
+                    else if (Language_M.isKorean)
+                        invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, "naverpay");
+                    else
+                        invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, "paypal");
+                }
+                else
+                    invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, lt.ToString().ToLower());
             }
             else
             {
@@ -182,7 +192,17 @@ namespace HiSpin
                 int gtNum = Save.data.allData.fission_info.reward_conf.gt_flag_num;
                 invite_reward_numText.text = string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Friend_InviteRewardTip) + " <color=#FF9732>{0}</color>",
                     (gt == Reward.Cash || gt == Reward.Paypal) ? (Save.data.isPackB ? string.Format(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Dollar), gtNum.GetCashShowString()) : gtNum.GetCashShowString()) : gtNum.GetTokenShowString());
-                invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, Save.data.allData.fission_info.reward_conf.gt_flag_type.ToString().ToLower());
+                if (gt == Reward.Paypal)
+                {
+                    if (Language_M.isJapanese)
+                        invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, "paypay");
+                    else if (Language_M.isKorean)
+                        invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, "naverpay");
+                    else
+                        invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, "paypal");
+                }
+                else
+                    invite_reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.Friend, gt.ToString().ToLower());
             }
             if (!Save.data.isPackB && Save.data.allData.fission_info.reward_conf.lt_flag_type == Reward.Paypal)
                 invite_reward_iconImage.gameObject.SetActive(false);

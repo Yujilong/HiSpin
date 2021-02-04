@@ -31,7 +31,7 @@ namespace HiSpin
         }
         private void OnCashouButtonClick()
         {
-            Master.Instance.ShowTip("Sorry, your balance is not enough to redeem this gift.");
+            Master.Instance.ShowTip(Language_M.GetMultiLanguageByArea(LanguageAreaEnum.Tips_CashoutGiftCaution));
         }
         protected override void BeforeShowAnimation(params int[] args)
         {

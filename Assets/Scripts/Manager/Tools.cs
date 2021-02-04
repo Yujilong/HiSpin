@@ -61,9 +61,14 @@ namespace HiSpin
                 if (Language_M.isJapanese)
                 {
                     insertIndex = content[i].LastIndexOf("の") + 1;
-                    Debug.Log(insertIndex);
                     if (insertIndex == 0)
                         insertIndex = content[i].LastIndexOf("位") + 1;
+                }
+                else if (Language_M.isKorean)
+                {
+                    insertIndex = content[i].LastIndexOf("째") + 1;
+                    if (insertIndex == 0)
+                        insertIndex = content[i].LastIndexOf("위") + 1;
                 }
                 else
                     insertIndex = content[i].IndexOf("$");
