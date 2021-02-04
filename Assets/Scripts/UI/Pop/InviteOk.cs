@@ -40,7 +40,6 @@ namespace HiSpin
             if (inviteTaskData == null)
                 Master.Instance.ShowTip("Error: can not get task id", 2);
             else
-                //Server.Instance.OperationData_FinishTask(OnGetRewardCallback, null, inviteTaskData.task_id, doublReward, Reward.Cash, Reward.Ticket);
                 Server_New.Instance.ConnectToServer_FinishTask(OnGetRewardCallback, null, null, true, inviteTaskData.task_id, doublReward, Reward.Cash, Reward.Ticket);
         }
         private void OnGetRewardCallback()
@@ -58,7 +57,17 @@ namespace HiSpin
         {
             invite_ok_reward_type = (Reward)args[0];
             invite_ok_reward_num = args[1];
-            reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, invite_ok_reward_type.ToString().ToLower());
+            if (invite_ok_reward_type == Reward.Paypal)
+            {
+                if(Language_M.isJapanese)
+                    reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, "paypay");
+                else if(Language_M.isKorean)
+                    reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, "naverpay");
+                else
+                    reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, "paypal");
+            }
+            else
+                reward_iconImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.InviteOk, invite_ok_reward_type.ToString().ToLower());
             if ((invite_ok_reward_type == Reward.Cash || invite_ok_reward_type == Reward.Paypal) && !Save.data.isPackB)
                 reward_iconImage.gameObject.SetActive(false);
             else

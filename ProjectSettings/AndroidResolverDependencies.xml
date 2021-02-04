@@ -6,7 +6,7 @@
     <package>com.android.support:customtabs:25.3.1</package>
     <package>com.android.support:recyclerview-v7:28.+</package>
     <package>com.android.support:support-v4:25.3.1</package>
-    <package>com.applovin.mediation:adcolony-adapter:4.4.0.0</package>
+    <package>com.applovin.mediation:adcolony-adapter:4.4.1.0</package>
     <package>com.applovin.mediation:bytedance-adapter:3.4.1.1.0</package>
     <package>com.applovin.mediation:facebook-adapter:[6.2.0.1]</package>
     <package>com.applovin.mediation:fyber-adapter:7.8.0.0</package>
@@ -62,10 +62,10 @@
     <file>Assets/Plugins/Android/androidx.vectordrawable.vectordrawable-animated-1.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.adcolony.sdk-4.4.0.aar</file>
+    <file>Assets/Plugins/Android/com.adcolony.sdk-4.4.1.aar</file>
     <file>Assets/Plugins/Android/com.android.installreferrer.installreferrer-1.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.applovin-sdk-9.15.1.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.mediation.adcolony-adapter-4.4.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.adcolony-adapter-4.4.1.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.bytedance-adapter-3.4.1.1.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.facebook-adapter-6.2.0.1.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.fyber-adapter-7.8.0.0.aar</file>

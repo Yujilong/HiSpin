@@ -119,8 +119,6 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
         /// </summary>
         private static readonly List<string> PluginPathsToIgnoreMoveWhenPluginOutsideAssetsDirectory = new List<string>
         {
-            "MaxSdk/AppLovin/Editor",
-            "MaxSdk/AppLovin/Editor.meta",
             "MaxSdk/Mediation",
             "MaxSdk/Mediation.meta",
             AppLovinSettings.SettingsExportPath,
@@ -149,6 +147,15 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
         public static string PluginParentDirectory
         {
             get { return MaxSdkUtils.GetAssetPathForExportPath(MaxSdkAssetExportPath).Replace(MaxSdkAssetExportPath, ""); }
+        }
+
+        /// <summary>
+        /// When the base plugin is outside the <c>Assets/</c> directory, the mediation plugin files are still imported to the default location under <c>Assets/</c>.
+        /// Returns the parent directory where the mediation adapter plugins are imported.
+        /// </summary>
+        public static string MediationSpecificPluginParentDirectory
+        {
+            get { return IsPluginOutsideAssetsDirectory ? "Assets" : PluginParentDirectory; }
         }
 
         /// <summary>
@@ -261,7 +268,9 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
 
             while (!operation.isDone) yield return new WaitForSeconds(0.1f); // Just wait till www is done. Our coroutine is pretty rudimentary.
 
-#if UNITY_2017_2_OR_NEWER
+#if UNITY_2020_1_OR_NEWER
+            if (www.result != UnityWebRequest.Result.Success)
+#elif UNITY_2017_2_OR_NEWER
             if (www.isNetworkError || www.isHttpError)
 #else
             if (www.isError)
@@ -284,14 +293,16 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
 
                 if (pluginData != null)
                 {
+
                     // Get current version of the plugin
                     var appLovinMax = pluginData.AppLovinMax;
-                    UpdateCurrentVersions(appLovinMax);
+                    UpdateCurrentVersions(appLovinMax, PluginParentDirectory);
 
                     // Get current versions for all the mediation networks.
+                    var mediationPluginParentDirectory = MediationSpecificPluginParentDirectory;
                     foreach (var network in pluginData.MediatedNetworks)
                     {
-                        UpdateCurrentVersions(network);
+                        UpdateCurrentVersions(network, mediationPluginParentDirectory);
                     }
                 }
 
@@ -303,9 +314,10 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
         /// Updates the CurrentVersion fields for a given network data object.
         /// </summary>
         /// <param name="network">Network for which to update the current versions.</param>
-        public static void UpdateCurrentVersions(Network network)
+        /// <param name="mediationPluginParentDirectory">The parent directory of where the mediation adapter plugins are imported to.</param>
+        public static void UpdateCurrentVersions(Network network, string mediationPluginParentDirectory)
         {
-            var dependencyFilePath = MaxSdkUtils.GetAssetPathForExportPath(network.DependenciesFilePath);
+            var dependencyFilePath = Path.Combine(mediationPluginParentDirectory, network.DependenciesFilePath);
             var currentVersions = GetCurrentVersions(dependencyFilePath);
 
             network.CurrentVersions = currentVersions;
@@ -395,7 +407,9 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             }
 
 
-#if UNITY_2017_2_OR_NEWER
+#if UNITY_2020_1_OR_NEWER
+            if (webRequest.result != UnityWebRequest.Result.Success)
+#elif UNITY_2017_2_OR_NEWER
             if (webRequest.isNetworkError || webRequest.isHttpError)
 #else
             if (webRequest.isError)
@@ -544,6 +558,11 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             return string.Join("_", versionsSplit);
         }
 
+        /// <summary>
+        /// Adds labels to assets so that they can be easily found.
+        /// </summary>
+        /// <param name="pluginParentDir">The MAX Unity plugin's parent directory.</param>
+        /// <param name="isPluginOutsideAssetsDirectory">Whether or not the plugin is outside the Assets directory.</param>
         public static void AddLabelsToAssetsIfNeeded(string pluginParentDir, bool isPluginOutsideAssetsDirectory)
         {
             if (isPluginOutsideAssetsDirectory)
@@ -559,45 +578,51 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             AddLabelsToAssets(pluginDir, pluginParentDir);
         }
 
-        /// <summary>
-        /// Adds labels to assets so that they can be easily found.
-        /// </summary>
-        /// <param name="directoryPath">The directory containing the assets for which to add labels. Recursively adds labels to all files and folders under this directory.</param>
-        /// <param name="pluginParentDir">The MAX Unity plugin's parent directory.</param>
         private static void AddLabelsToAssets(string directoryPath, string pluginParentDir)
         {
             var files = Directory.GetFiles(directoryPath);
             foreach (var file in files)
             {
-                if (!file.EndsWith(".meta")) continue;
+                if (file.EndsWith(".meta")) continue;
 
-                var lines = File.ReadAllLines(file);
-                var hasLabels = lines.Any(line => line.Contains("labels:"));
-                if (hasLabels) continue;
-
-                var output = new List<string>();
-
-                foreach (var line in lines)
-                {
-                    output.Add(line);
-                    if (line.Contains("guid"))
-                    {
-                        output.Add("labels:");
-                        output.Add("- al_max");
-
-                        var exportPath = file.Replace(pluginParentDir, "").Replace(".meta", "");
-                        output.Add("- al_max_export_path-" + exportPath);
-                    }
-                }
-
-                File.WriteAllText(file, string.Join("\n", output.ToArray()) + "\n");
+                UpdateAssetLabelsIfNeeded(file, pluginParentDir);
             }
 
             var directories = Directory.GetDirectories(directoryPath);
             foreach (var directory in directories)
             {
+                // Add labels to this directory asset.
+                UpdateAssetLabelsIfNeeded(directory, pluginParentDir);
+
+                // Recursively add labels to all files under this directory.
                 AddLabelsToAssets(directory, pluginParentDir);
             }
+        }
+
+        private static void UpdateAssetLabelsIfNeeded(string assetPath, string pluginParentDir)
+        {
+            var asset = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetPath);
+            var labels = AssetDatabase.GetLabels(asset);
+
+            var labelsToAdd = labels.ToList();
+            var didAddLabels = false;
+            if (!labels.Contains("al_max"))
+            {
+                labelsToAdd.Add("al_max");
+                didAddLabels = true;
+            }
+
+            var exportPathLabel = "al_max_export_path-" + assetPath.Replace(pluginParentDir, "");
+            if (!labels.Contains(exportPathLabel))
+            {
+                labelsToAdd.Add(exportPathLabel);
+                didAddLabels = true;
+            }
+
+            // We only need to set the labels if they changed.
+            if (!didAddLabels) return;
+
+            AssetDatabase.SetLabels(asset, labelsToAdd.ToArray());
         }
 
         /// <summary>
@@ -617,6 +642,7 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
                 FileUtil.DeleteFileOrDirectory(DefaultPluginExportPath + ".meta");
             }
 
+            AssetDatabase.Refresh();
             return true;
         }
 
@@ -631,6 +657,14 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
                 // We have to ignore some files, if the plugin is outside the Assets/ directory.
                 if (isPluginOutsideAssetsDirectory && PluginPathsToIgnoreMoveWhenPluginOutsideAssetsDirectory.Any(pluginPathsToIgnore => file.Contains(pluginPathsToIgnore))) continue;
 
+                // Check if the destination folder exists and create it if it doesn't exist
+                var parentDirectory = Path.GetDirectoryName(file);
+                var destinationDirectoryPath = parentDirectory.Replace(DefaultPluginExportPath, pluginRoot);
+                if (!Directory.Exists(destinationDirectoryPath))
+                {
+                    Directory.CreateDirectory(destinationDirectoryPath);
+                }
+
                 // If the meta file is of a folder asset and doesn't have labels (it is auto generated by Unity), just delete it.
                 if (IsAutoGeneratedFolderMetaFile(file))
                 {
@@ -644,16 +678,6 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
                 if (File.Exists(destinationPath))
                 {
                     FileUtil.DeleteFileOrDirectory(destinationPath);
-                }
-                else
-                {
-                    // Check if the destination folder exists and create it if it doesn't exist
-                    var parentDirectory = Path.GetDirectoryName(file);
-                    var destinationDirectoryPath = parentDirectory.Replace(DefaultPluginExportPath, pluginRoot);
-                    if (!Directory.Exists(destinationDirectoryPath))
-                    {
-                        Directory.CreateDirectory(destinationDirectoryPath);
-                    }
                 }
 
                 FileUtil.MoveFileOrDirectory(file, destinationPath);

@@ -32,6 +32,8 @@ namespace AppLovinMax.Scripts.Editor
 
     public class MaxPostProcessBuildiOS
     {
+        private const string TargetUnityiPhonePodfileLine = "target 'Unity-iPhone' do";
+        
         private static readonly List<string> AtsRequiringNetworks = new List<string>
         {
             "AdColony",
@@ -59,7 +61,7 @@ namespace AppLovinMax.Scripts.Editor
                 return dynamicLibraryPathsToEmbed;
             }
         }
-        
+
         [PostProcessBuildAttribute(int.MaxValue)]
         public static void MaxPostProcessEmbedDynamicLibraries(BuildTarget buildTarget, string path)
         {
@@ -72,8 +74,12 @@ namespace AppLovinMax.Scripts.Editor
 
 #if UNITY_2019_3_OR_NEWER
             var targetGuid = project.GetUnityMainTargetGuid();
+            var containsUnityiPhoneTargetInPodfile = ContainsUnityiPhoneTargetInPodfile(path);
+            // Embed framework if it is .xcframework or is .framework and the podfile does not contain target `Unity-iPhone`.
             foreach (var dynamicLibraryPath in dynamicLibraryPathsPresentInProject)
             {
+                if (dynamicLibraryPath.EndsWith(".framework") && containsUnityiPhoneTargetInPodfile) continue;
+                
                 var fileGuid = project.AddFile(dynamicLibraryPath, dynamicLibraryPath);
                 project.AddFileToEmbedFrameworks(targetGuid, fileGuid);
             }
@@ -108,13 +114,34 @@ namespace AppLovinMax.Scripts.Editor
             var plistPath = Path.Combine(path, "Info.plist");
             var plist = new PlistDocument();
             plist.ReadFromFile(plistPath);
-
+            
+#if UNITY_2018_2_OR_NEWER
+            EnableVerboseLoggingIfNeeded(plist);
+#endif
 //            EnableConsentFlowIfNeeded(plist);
             AddSkAdNetworksInfoIfNeeded(plist);
             UpdateAppTransportSecuritySettingsIfNeeded(plist);
 
             plist.WriteToFile(plistPath);
         }
+        
+#if UNITY_2018_2_OR_NEWER
+        private static void EnableVerboseLoggingIfNeeded(PlistDocument plist)
+        {
+            if (!EditorPrefs.HasKey(MaxSdkLogger.KeyVerboseLoggingEnabled)) return;
+
+            var enabled = EditorPrefs.GetBool(MaxSdkLogger.KeyVerboseLoggingEnabled);
+            const string AppLovinVerboseLoggingOnKey = "AppLovinVerboseLoggingOn";
+            if (enabled)
+            {
+                plist.root.SetBoolean(AppLovinVerboseLoggingOnKey, enabled);
+            }
+            else
+            {
+                plist.root.values.Remove(AppLovinVerboseLoggingOnKey);
+            }
+        }
+#endif
 
 //        private static void EnableConsentFlowIfNeeded(PlistDocument plist)
 //        {
@@ -205,7 +232,7 @@ namespace AppLovinMax.Scripts.Editor
             var uriBuilder = new UriBuilder("https://dash.applovin.com/docs/v1/unity_integration_manager/sk_ad_networks_info");
 
             // Get the list of installed ad networks to be passed up
-            var pluginParentDir = AppLovinIntegrationManager.IsPluginOutsideAssetsDirectory ? "Assets" : AppLovinIntegrationManager.PluginParentDirectory;
+            var pluginParentDir = AppLovinIntegrationManager.MediationSpecificPluginParentDirectory;
             var maxMediationDirectory = Path.Combine(pluginParentDir, "MaxSdk/Mediation/");
             if (Directory.Exists(maxMediationDirectory))
             {
@@ -228,7 +255,10 @@ namespace AppLovinMax.Scripts.Editor
             // Wait for the download to complete or the request to timeout.
             while (!operation.isDone) { }
 
-#if UNITY_2017_2_OR_NEWER
+
+#if UNITY_2020_1_OR_NEWER
+            if (unityWebRequest.result != UnityWebRequest.Result.Success)
+#elif UNITY_2017_2_OR_NEWER
             if (unityWebRequest.isNetworkError || unityWebRequest.isHttpError)
 #else
             if (unityWebRequest.isError)
@@ -251,7 +281,7 @@ namespace AppLovinMax.Scripts.Editor
 
         private static void UpdateAppTransportSecuritySettingsIfNeeded(PlistDocument plist)
         {
-            var pluginParentDir = AppLovinIntegrationManager.IsPluginOutsideAssetsDirectory ? "Assets" : AppLovinIntegrationManager.PluginParentDirectory;
+            var pluginParentDir = AppLovinIntegrationManager.MediationSpecificPluginParentDirectory;
             var mediationDir = Path.Combine(pluginParentDir, "MaxSdk/Mediation/");
             var projectHasAtsRequiringNetworks = AtsRequiringNetworks.Any(atsRequiringNetwork => Directory.Exists(Path.Combine(mediationDir, atsRequiringNetwork)));
             if (!projectHasAtsRequiringNetworks) return;
@@ -276,13 +306,13 @@ namespace AppLovinMax.Scripts.Editor
                 atsRootDict.Remove("NSAllowsArbitraryLoadsInWebContent");
             }
         }
-        
+
         private static bool ShouldEmbedSnapSdk()
         {
-            var pluginParentDir = AppLovinIntegrationManager.IsPluginOutsideAssetsDirectory ? "Assets" : AppLovinIntegrationManager.PluginParentDirectory;
+            var pluginParentDir = AppLovinIntegrationManager.MediationSpecificPluginParentDirectory;
             var snapDependencyPath = Path.Combine(pluginParentDir, "MaxSdk/Mediation/Snap/Editor/Dependencies.xml");
             if (!File.Exists(snapDependencyPath)) return false;
-            
+
             // Return true for UNITY_2019_3_OR_NEWER because app will crash on launch unless embedded.
 #if UNITY_2019_3_OR_NEWER
             return true;
@@ -292,6 +322,17 @@ namespace AppLovinMax.Scripts.Editor
             return iosVersionComparison != MaxSdkUtils.VersionComparisonResult.Lesser;
 #endif
         }
+
+#if UNITY_2019_3_OR_NEWER
+        private static bool ContainsUnityiPhoneTargetInPodfile(string buildPath)
+        {
+            var podfilePath = Path.Combine(buildPath, "Podfile");
+            if (!File.Exists(podfilePath)) return false;
+
+            var lines = File.ReadAllLines(podfilePath);
+            return lines.Any(line => line.Contains(TargetUnityiPhonePodfileLine));
+        }
+#endif
     }
 }
 

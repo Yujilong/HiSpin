@@ -157,6 +157,12 @@ public class MainController : MonoBehaviour
         {
             progress += Time.deltaTime;
             progress = Mathf.Clamp(progress, 0, 1);
+            if (ball == null)
+            {
+                stageUp = null;
+                Debug.LogError("more ball");
+                yield break;
+            }
             ball.localPosition = Vector3.Lerp(startPos, targetPos, progress);
             yield return null;
         }

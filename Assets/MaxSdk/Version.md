@@ -1,5 +1,11 @@
 ## Versions
 
+## 3.2.4
+    * Fix iOS build errors on Unity 2019.3+ when embedding framework libraries if Podfile contains `Unity-iPhone` target.
+    * Enable verbose logging at run time when enabling the setting via Integration Manager (previously only enabled build time logging).
+    * Fix deprecation warnings in Unity versions 2020.1+ for use of obsolete `UnityWebRequest` APIs.
+    * Fix `UnauthorizedAccessException` when adding labels to plugin assets on Windows machines.
+    * Minor Integration Manager optimizations.
 ## 3.2.3
     * Add iOS Snap SDK as an embedded framework for adapter versions 1.0.7.2+.
 ## 3.2.2
