@@ -21,6 +21,8 @@ namespace UI
                 paypalImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Gift, "naverpay");
             else
                 paypalImage.sprite = SpriteManager.Instance.GetSprite(SpriteAtlas_Name.Gift, "paypal");
+            if (!GameManager.Instance.GetIsPackB())
+                paypalImage.gameObject.SetActive(false);
         }
         int clickAdTime = 0;
         private void OnOpenClick()

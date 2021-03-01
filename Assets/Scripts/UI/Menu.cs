@@ -510,6 +510,7 @@ namespace HiSpin
                 default:
                     break;
             }
+            all_bottomGo.SetActive(Save.data.isPackB);
 #if UNITY_IOS
             if (!Save.data.isPackB)
                 all_bottomGo.SetActive(false);

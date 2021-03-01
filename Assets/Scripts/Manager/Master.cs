@@ -13,7 +13,7 @@ namespace HiSpin
         public static float ExpandCoe = 1;
         public const float TopMoveDownOffset = 100;
         public const string PackageName = "com.MergeBall.LuckyGame.HugePrizes.Rewards";
-        public const int BundleID = 9;
+        public const int BundleID = 10;
         public const string AppleId = "1545540507";
         public static bool isLoadingEnd = false;
         public static bool isPackB_Advance = false;
@@ -74,7 +74,7 @@ namespace HiSpin
                     SendAdjustPackBEvent();
             }
 #if UNITY_EDITOR
-            Save.data.isPackB = true;
+            Save.data.isPackB = false;
 #endif
             UI.ShowMenuPanel();
             GameManager.Instance.WhenLoadingGameEnd();

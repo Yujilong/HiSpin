@@ -24,6 +24,8 @@ namespace HiSpin
             else
                 paypalImage.sprite = Sprites.GetSprite(SpriteAtlas_Name.GetCash, "paypal");
             paypalImage.SetNativeSize();
+            if (!Save.data.isPackB)
+                paypalImage.gameObject.SetActive(false);
         }
         private void OnNothanksClick()
         {
